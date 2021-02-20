@@ -41,9 +41,11 @@ Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](#) di 
 **Ecosystem Deployment** dilakukan secara otomatis oleh platform setelah melalui approval.
 
 
---
+***
 
 **Catatan:**
 Sebagian kode sumber _microservice_ yang ada saat ini, dan yang berlisensi terbuka, akan mulai didistribusikan ke repositori ini.
+
+___
 
 
