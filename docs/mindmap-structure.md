@@ -22,3 +22,21 @@ Anda bisa memodifikasi contoh berkas [XMind](https://github.com/CarikBot/ecosyst
 
 //TODO: Detail struktur Mind Flow
 
+
+
+### Tools
+
+Pada dasarnya sembarang aplikasi _mind mapper designer_ bisa digunakan selama bisa melakukan ekspor ke dokumen berformat Freemind (.mm).
+
+Aplikasi _mind mapper designer_ yang bisa digunakan:
+
+- [Freemind](https://sourceforge.net/projects/freemind/)
+- [XMind](https://www.xmind.net/), direkomendasikan*
+- [Mind42](https://mind42.com/), online
+- [Mindmeister](https://www.mindmeister.com/), online
+- [Freeplane](https://www.freeplane.org/)
+
+
+
+
+
