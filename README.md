@@ -32,9 +32,9 @@ Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur file .json]
 
 ## API (Application Programming Interface)
 
-Jika Anda akan menghubungkan **ecosystem** dengan data atau layanan pihak ketiga, ada perlu membuat **API** _(Application Programming Interface)_ sebagai jembatannya. API bisa bebas dibuat dengan bahasa atau teknologi apapun, yang penting menghasilkan _output_ yang sesuai dengan format yang dibutuhkan oleh platform ini.
+Jika Anda akan menghubungkan **ecosystem** dengan data atau layanan pihak ketiga, anda perlu membuat **API** _(Application Programming Interface)_ sebagai jembatan penghubungnya. API bisa bebas dibuat dengan bahasa atau teknologi apapun, yang penting menghasilkan _output_ yang sesuai dengan format yang dibutuhkan oleh platform ini.
 
-Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](#) di platform ini.
+Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](docs/api-structure.md) di platform ini.
 
 ## Deployment
 
