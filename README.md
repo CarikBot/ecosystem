@@ -26,8 +26,24 @@ Bagaimana cara mendesain **Mind Flow** dari ekosistem ini? Dan apa itu *Mind Flo
 Ada beberapa cara dalam membuat _Mind Flow_ ini:
 
 1. Membuat data berformat .json
-2. Menggambar desain melalui aplikasi _mind mapper_ seperti XMind atau Freemind.
+2. Menggambar desain melalui aplikasi _mind mapper_ seperti [XMind](https://www.xmind.net/) atau [Freemind](https://sourceforge.net/projects/freemind/).<br>Disarankan untuk menggunakan Freemind atau aplikasi yang bisa _export_ ke format Freemind.
 
-...
-..
-.
+Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur file .json](#) dan [struktur file mindmapper](#) ini.
+
+## API (Application Programming Interface)
+
+Jika Anda akan menghubungkan **ecosystem** dengan data atau layanan pihak ketiga, ada perlu membuat **API** _(Application Programming Interface)_ sebagai jembatannya. API bisa bebas dibuat dengan bahasa atau teknologi apapun, yang penting menghasilkan _output_ yang sesuai dengan format yang dibutuhkan oleh platform ini.
+
+Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](#) di platform ini.
+
+## Deployment
+
+**Ecosystem Deployment** dilakukan secara otomatis oleh platform setelah melalui approval.
+
+
+--
+
+**Catatan:**
+Sebagian kode sumber _microservice_ yang ada saat ini, dan yang berlisensi terbuka, akan mulai didistribusikan ke repositori ini.
+
+
