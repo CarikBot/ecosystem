@@ -21,7 +21,7 @@ Silakan [berkontribusi](docs/contribution.md) di dalam repositori ini, di branch
 
 ## Desain
 
-Bagaimana cara mendesain **Mind Flow** dari ekosistem ini? Dan apa itu *Mind Flow*? **Mind Flow** di Carik adalah suatu alur interaksi antar pengguna dengan chatbot, khususnya dalam mode _menu-based_ .
+Bagaimana cara mendesain **[Mind Flow](docs/mindmap-structure.md)** dari ekosistem ini? Dan apa itu *Mind Flow*? **[Mind Flow](docs/mindmap-structure.md)** di Carik adalah suatu alur interaksi antar pengguna dengan chatbot, khususnya dalam mode _menu-based_ .
 
 Ada beberapa cara dalam membuat _Mind Flow_ ini:
 
@@ -50,6 +50,7 @@ Beberapa pengertian terhadap kata yang disampaikan berulang di dokumen ini:
 - **Ecosystem**, maksudnya adalah **[Carik Bot Microservices Ecosystem](https://github.com/CarikBot/ecosystem)**, yaitu kumpulan microservice yang menjadi pendukung dari layanan chatbot Carik.
 - **Platform**, yaitu salah satu sistem di dalam Carik Bot yang berfungsi untuk mendistribusikan ecosystem.
 - **Engine**, yaitu _bot engine_ yang dikembangkan oleh Carik dan digunakan oleh [Carik Bot](https://carik.id) sendiri ataupun chatbot lain.
+- **Mind Flow**, adalah alur interaksi antar pengguna dengan chatbot, khususnya dalam mode menu-based. Desain Mind Flow bisa dilakukan dengan menggunakan aplikasi mind mapper.
 
 ***
 
