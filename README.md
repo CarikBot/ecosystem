@@ -19,7 +19,7 @@ Silakan [berkontribusi](docs/contribution.md) di dalam repositori ini, di branch
 
 //TODO: deskripsi
 
-## Desain
+## Desain Mind Flow
 
 Bagaimana cara mendesain **[Mind Flow](docs/mindmap-structure.md)** dari ekosistem ini? Dan apa itu *Mind Flow*? **[Mind Flow](docs/mindmap-structure.md)** di Carik adalah suatu alur interaksi antar pengguna dengan chatbot, khususnya dalam mode _menu-based_ .
 
