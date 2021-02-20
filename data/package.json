@@ -1,7 +1,12 @@
 {
-  "name": "Carik Ecosystem",
+  "name": "carik-ecosystem",
   "version": "0.0.0.",
-  "description": "",
-  "packages": [
-  ]
+  "description": "Carik Bot Microservice Ecosystem",
+  "packages": {
+    "CarikBot": {
+      "name": "CarikBot",
+      "description": "Carik Bot default menu",
+      "author": "Luri Darmawan"
+    }
+  }
 }

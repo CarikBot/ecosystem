@@ -25,10 +25,10 @@ Bagaimana cara mendesain **Mind Flow** dari ekosistem ini? Dan apa itu *Mind Flo
 
 Ada beberapa cara dalam membuat _Mind Flow_ ini:
 
-1. Membuat data berformat .json
+1. Membuat data [berformat .json](docs/json-structure.md).
 2. Menggambar desain melalui aplikasi _mind mapper_ seperti [XMind](https://www.xmind.net/) atau [Freemind](https://sourceforge.net/projects/freemind/).<br>Disarankan untuk menggunakan Freemind atau aplikasi yang bisa _export_ ke format Freemind.
 
-Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur file .json](#) dan [struktur file mindmapper](#) ini.
+Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur file .json](docs/json-structure.md) dan [struktur file mindmapper](docs/mindmap-structure.md) ini.
 
 ## API (Application Programming Interface)
 
@@ -40,6 +40,16 @@ Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](#) di 
 
 **Ecosystem Deployment** dilakukan secara otomatis oleh platform setelah melalui approval.
 
+
+***
+
+### Definisi 
+
+Beberapa pengertian terhadap kata yang disampaikan berulang di dokumen ini:
+
+- **Ecosystem**, maksudnya adalah **[Carik Bot Microservices Ecosystem](https://github.com/CarikBot/ecosystem)**, yaitu kumpulan microservice yang menjadi pendukung dari layanan chatbot Carik.
+- **Platform**, yaitu salah satu sistem di dalam Carik Bot yang berfungsi untuk mendistribusikan ecosystem.
+- **Engine**, yaitu _bot engine_ yang dikembangkan oleh Carik dan digunakan oleh [Carik Bot](https://carik.id) sendiri ataupun chatbot lain.
 
 ***
 

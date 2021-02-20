@@ -1,0 +1,4 @@
+### Strukture Data JSON
+
+
+
