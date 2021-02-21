@@ -7,6 +7,8 @@
       "CarikBot": {
         "name": "CarikBot",
         "description": "Carik Bot default menu",
+        "special_keyword": "crb",
+        "root_menu_type": "button",
         "author": "Luri Darmawan"
       }  
     }
