@@ -1,6 +1,6 @@
 {
   "name": "carik-ecosystem",
-  "version": "0.0.0.",
+  "version": "0.0.0",
   "description": "Carik Bot Microservice Ecosystem",
   "packages": {
     "main": {
