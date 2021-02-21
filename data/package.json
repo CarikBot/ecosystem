@@ -10,7 +10,16 @@
         "special_keyword": "crb",
         "root_menu_type": "button",
         "author": "Luri Darmawan"
-      }  
+      }
+    },
+    "other": {
+      "Ecosystem": {
+        "name": "Ecosystem",
+        "description": "Informasi Carik Microservices Ecosystem",
+        "special_keyword": "eme",
+        "root_menu_type": "button",
+        "author": "Luri Darmawan"
+      }
     }
   }
 }
