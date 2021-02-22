@@ -7,11 +7,12 @@ $OriginalText = urldecode(@$_POST['Keyword']);
 $OriginalText = trim(str_replace('echo ', '', $OriginalText));
 
 
-$Text = "*Contoh*
+$Text = "*Contoh Integrasi Sistem Anda*
 
-Contoh Mind Flow dan kode API untuk ecosystem sudah disertakan di dalam [repositori](https://github.com/CarikBot/ecosystem/).
-Misal kode untuk *echo* ini.
-Silakan kirim pesan:
+Ini adalah [Contoh API Echo](https://public-nlp.carik.id/services/tools/echo/echo.png) jika anda akan menghubungkan API Anda kepada Ecosytem.
+Contoh desain Mind Flow dan kode API juga sudah disertakan di dalam [repositori](https://github.com/CarikBot/ecosystem/).
+
+Silakan coba kirim pesan:
 `echo kalimat yang mau diecho`
 ";
 
