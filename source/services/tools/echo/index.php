@@ -2,7 +2,7 @@
 include_once "../../lib/lib.php";
 
 
-$FullName = @$_POST['FullName'];
+$FullName = urldecode(@$_POST['FullName']);
 $OriginalText = urldecode(@$_POST['Keyword']);
 $OriginalText = trim(str_replace('echo ', '', $OriginalText));
 
