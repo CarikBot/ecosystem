@@ -20,6 +20,17 @@
         "root_menu_type": "button",
         "author": "Luri Darmawan"
       }
+    },
+    "property": {
+      "ElbeProperty": {
+        "name": "ElbeProperty",
+        "description": "Developer, Kontraktor dan Agen Property",
+        "special_keyword": "elbe",
+        "pattern": ["info elbe (properti|property)","elbe"],
+        "root_menu_type": "button",
+        "author": "Luri Darmawan",
+        "site": "https://lbpro.id"
+      }
     }
   }
 }
