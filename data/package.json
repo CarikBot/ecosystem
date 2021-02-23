@@ -17,7 +17,7 @@
         "name": "Ecosystem",
         "description": "Informasi Carik Microservices Ecosystem",
         "special_keyword": "eme",
-        "pattern": ["info (ecosystem|ecosystem|ekosistem)"],
+        "pattern": ["info (ecosystem|ecosystem|ekosistem)","^(ecosystem|ecosystem|ekosistem)"],
         "root_menu_type": "button",
         "author": "Luri Darmawan"
       }
@@ -27,7 +27,7 @@
         "name": "ElbeProperty",
         "description": "Developer, Kontraktor dan Agen Property",
         "special_keyword": "lbp",
-        "pattern": ["info elbe (properti|property)","^elbe"],
+        "pattern": ["info (elbe|lbpro)","^elbe"],
         "root_menu_type": "button",
         "author": "Luri Darmawan",
         "site": "https://lbpro.id"
