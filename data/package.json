@@ -26,7 +26,7 @@
       "ElbeProperty": {
         "name": "ElbeProperty",
         "description": "Developer, Kontraktor dan Agen Property",
-        "special_keyword": "elbe",
+        "special_keyword": "lbp",
         "pattern": ["info elbe (properti|property)","^elbe"],
         "root_menu_type": "button",
         "author": "Luri Darmawan",
