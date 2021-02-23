@@ -29,3 +29,5 @@ $Config = [
     ]
   ]
 ];
+
+require_once "lib/ErrorTrapper_lib.php";
