@@ -1,5 +1,9 @@
 <?php
+include_once "../../config.php";
 include_once "../../lib/lib.php";
+
+$Token = $Config['packages']['tools']['echo']['token'];
+die($Token);
 
 
 $FullName = urldecode(@$_POST['FullName']);

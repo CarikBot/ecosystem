@@ -251,5 +251,6 @@ public_html/ztemp/sessions/*
 *.bin
 backup.bat
 backup.sh
+source/services/config.php
 #LAST_UPDATED_DEVELOPMENT
 #LAST_UPDATED
