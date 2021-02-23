@@ -17,7 +17,7 @@
         "name": "Ecosystem",
         "description": "Informasi Carik Microservices Ecosystem",
         "special_keyword": "eme",
-        "pattern": ["info (ecosystem|ecosystem|ekosistem)"],
+        "pattern": ["info (ecosystem|ecosystem|ekosistem)","^(ecosystem|ecosystem|ekosistem)"],
         "root_menu_type": "button",
         "author": "Luri Darmawan"
       }
