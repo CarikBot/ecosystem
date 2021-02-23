@@ -23,6 +23,15 @@
       }
     },
     "partner": {
+      "Ajaro": {
+        "name": "Ajaro",
+        "description": "Ajaro Indonesia",
+        "special_keyword": "ajr",
+        "pattern": ["info ajaro","^(ajaro)"],
+        "root_menu_type": "button",
+        "author": "Luri Darmawan",
+        "site": "https://ajaro.id"
+      },
       "ERPid": {
         "name": "ERPid",
         "description": "ERP Indonesia",
