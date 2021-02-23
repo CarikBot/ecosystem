@@ -22,6 +22,17 @@
         "author": "Luri Darmawan"
       }
     },
+    "partner": {
+      "ERPid": {
+        "name": "ERPid",
+        "description": "ERP Indonesia",
+        "special_keyword": "erpid",
+        "pattern": ["info (erpid|erp)","^(erpid)"],
+        "root_menu_type": "button",
+        "author": "Luri Darmawan",
+        "site": "https://erp.id"
+      }
+    },
     "property": {
       "ElbeProperty": {
         "name": "ElbeProperty",
