@@ -13,7 +13,7 @@ $imgUrl = 'https://raw.githubusercontent.com/CarikBot/ecosystem/development/sour
 
 $Text = "*Contoh Integrasi Sistem Anda*
 
-Ini adalah [Contoh API Echo]($imgUrl) jika anda akan menghubungkan API Anda kepada Ecosytem.
+Ini adalah *Contoh API Echo* jika anda akan menghubungkan API Anda kepada Ecosytem.[.]($imgUrl)
 Contoh desain Mind Flow dan kode API juga sudah disertakan di dalam [repositori](https://github.com/CarikBot/ecosystem/).
 
 Silakan coba kirim pesan:
