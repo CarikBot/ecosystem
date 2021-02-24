@@ -9,7 +9,7 @@ $Token = $Config['packages']['tools']['echo']['token'];
 $FullName = urldecode(@$_POST['FullName']);
 $OriginalText = urldecode(@$_POST['Keyword']);
 $OriginalText = trim(str_replace('echo ', '', $OriginalText));
-$imgUrl = 'https://raw.githubusercontent.com/CarikBot/ecosystem/development/source/services/tools/echo/echo.png';
+$imgUrl = 'https://raw.githubusercontent.com/CarikBot/ecosystem/development/source/services/tools/echo/echo-menu.png';
 
 $Text = "*Contoh Integrasi Sistem Anda*
 
