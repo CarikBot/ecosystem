@@ -1,8 +1,19 @@
 {
   "name": "carik-ecosystem",
-  "version": "0.0.0",
+  "version": "0.0.6",
   "description": "Carik Bot Microservice Ecosystem",
   "packages": {
+    "education": {
+      "Pendidikan": {
+        "name": "Pendidikan",
+        "description": "Informasi Pendidikan, khususnya kampus di Jawa Barat dan Banten",
+        "special_keyword": "pdd",
+        "pattern": ["info (pendidikan|sekolah)","^(civitas)"],
+        "root_menu_type": "button",
+        "author": "Adji Ayomi",
+        "site": "https://civitasi.id"
+      }
+    },
     "main": {
       "CarikBot": {
         "name": "CarikBot",
