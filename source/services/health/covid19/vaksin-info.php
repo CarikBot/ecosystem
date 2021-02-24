@@ -20,6 +20,7 @@ $nodes = $finder->query('//h5/a');
 $Text = "*Info Vaksinasi COVID-19*\n";
 foreach ($nodes as $key => $node) {
   $title = trim(@$node->textContent);
+  $title = preg_replace('/\[(.*)\]/U', '${1},', $title);
   $url = trim(@$node->getAttribute('href'));
   $Text .= "\n- [$title]($url)";
 }
