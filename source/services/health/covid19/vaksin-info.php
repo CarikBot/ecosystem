@@ -37,9 +37,9 @@ $SuperSearch->ChannelId = 'telegram';
 $result = $SuperSearch->Find('vaksin di indonesia');
 if ($result !== false){
   if ($result['code']==0){
-    $rekomendasi = $result['text'];
-    $rekomendasi = str_replace("\n\n","\n",$rekomendasi);
-    $Text .= "\n\n*Berita lainnya:*\n".$rekomendasi;
+    $recommendation = $result['text'];
+    $recommendation = str_replace("\n\n","\n",$recommendation);
+    $Text .= "\n\n*Berita lainnya:*\n".$recommendation;
   }
 }
 
