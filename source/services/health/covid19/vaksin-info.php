@@ -3,6 +3,7 @@ ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 include_once "../../config.php";
 include_once "../../lib/lib.php";
+include_once "../../lib/CarikSuperSearch_lib.php";
 
 $BaseURL = @$Config['packages']['health']['Covid19']['vaksin_info_url'];
 if (empty($BaseURL)) Output(500, 'Maaf, informasi vaksin covid-19 gagal diperoleh.');
@@ -18,13 +19,28 @@ $finder = new DomXPath($dom);
 $nodes = $finder->query('//h5/a');
 
 $Text = "*Info Vaksinasi COVID-19*\n";
+$i = 1;
 foreach ($nodes as $key => $node) {
   $title = trim(@$node->textContent);
   $title = preg_replace('/\[(.*)\]/U', '${1},', $title);
   $url = trim(@$node->getAttribute('href'));
   $Text .= "\n- [$title]($url)";
+  $i++;
+  if (5==$i) break;
 }
 $Text .= "\n\nSumber: [Covid19.go.id](https://covid19.go.id/vaksin-covid19)";
 
-//die($Text);
+$SuperSearch = new CarikSuperSearch;
+$SuperSearch->Token = $Config['packages']['tools']['GlobalSearch']['token'];
+$SuperSearch->BaseURL = $Config['packages']['tools']['GlobalSearch']['base_url'];
+$SuperSearch->ChannelId = 'telegram';
+$result = $SuperSearch->Find('vaksin di indonesia');
+if ($result !== false){
+  if ($result['code']==0){
+    $rekomendasi = $result['text'];
+    $rekomendasi = str_replace("\n\n","\n",$rekomendasi);
+    $Text .= "\n\n*Berita lainnya:*\n".$rekomendasi;
+  }
+}
+
 Output(0, $Text);
