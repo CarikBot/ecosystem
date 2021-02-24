@@ -34,7 +34,7 @@ if ((empty($BaseURL))or(empty($Key))) Output(500, 'Maaf, informasi direktori kam
 $Civitas = new Civitas;
 $Civitas->BaseURL = $BaseURL;
 $Civitas->Key = $Key;
-$campusList = $Civitas->SearchKampus('nusa');
+$campusList = $Civitas->SearchKampus($Keyword);
 if (!$campusList) Output(404, 'Informasi kampus tidak ditemukan ...');
 
 $Text = "*Info Kampus Jabar dan Banten*\n";
