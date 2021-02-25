@@ -28,7 +28,7 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     if (!empty($ASuffix)){
         $array['suffix'] = $ASuffix;
     }
-    $output = json_encode($array, JSON_UNESCAPED_UNICODE);
+    $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
     die($output);
 }
 
