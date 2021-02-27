@@ -36,6 +36,7 @@ foreach ($pages as $key => $page) {
   $content = @$page['extract'];
   $Text .= "\n*$title*\n$content";
 }
+$Text = trim($Text);
 $Text .= "\n\nsumber: [wikipedia](https://id.wikipedia.org/)";
 
 //die($Text);
