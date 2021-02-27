@@ -14,6 +14,17 @@
         "site": "https://civitasi.id"
       }
     },
+    "health": {
+      "RDDMIKSemar": {
+        "name": "RDDMIKSemar",
+        "description": "Informasi Donor Darah dari Relawan Donor Darah MIK Semar",
+        "special_keyword": "rdd",
+        "pattern": ["info donor"],
+        "root_menu_type": "button",
+        "author": "Luri Darmawan",
+        "site": "https://carik.id"
+      }
+    },
     "main": {
       "CarikBot": {
         "name": "CarikBot",
