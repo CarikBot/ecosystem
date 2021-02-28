@@ -50,7 +50,7 @@ Setiap dokumen _MindFlow_ menggambarkan suatu menu modul tertentu. Dan setiap no
 
 ### Menu Utama
 
-Setiap menu memili auto respon berupa teks. Khusus untuk menu utama, teks respon ini bisa ditempatkan di dalam `note`.
+Setiap menu memiliki auto respon berupa teks. Khusus untuk menu utama, teks respon ini bisa ditempatkan di dalam `note`.
 
 ![main menu](../images/mindflow/mainmenu-response-text.png)
 
