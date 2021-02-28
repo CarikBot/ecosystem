@@ -41,4 +41,15 @@ Contoh source sederhana bisa anda lihat dari [**API ECHO**](./source/services/to
 ![API Echo](../source/services/tools/echo/echo-menu.png)
 
 
-Dari ilustrasi di atas ini akan terbaca: terdapat pilihan menu "Contoh". Dan jika pengguna menuliskan kalimat `echo apapun teksnya`, platform akan mengirimkan informasi dan [parameter](#parameter-yang-dilewatkan-ke-api) ini ke api di url `{url}/services/tools/echo/`.
+Dari ilustrasi di atas ini akan terbaca: terdapat pilihan menu "Contoh". Dan jika pengguna menuliskan kalimat `echo apapun teksnya`, platform akan mengirimkan informasi dan [parameter](#parameter-yang-dilewatkan-ke-api) ini ke api di url `{ecosystem_baseurl}/services/tools/echo/`.
+
+`{ecosystem_baseurl}` ini maksudnya adalah url dari platform ekosistem Carik ini, isi variabelnya akan generic sesuai load server saat itu. 
+
+URL di atas hanya bersifat contoh saja. Jika anda memiliki api eksternal sendiri, silakan disesuaikan, misal: `https://api.yourdomain.tld/endpoint/path/path`.
+
+## Arsitektur
+
+Sebagai gambaran bagaimana proses dan alur platform ekosistem ini bisa dilihat dari ilustrasi berikut ini.
+
+![arsitektur](../images/Carik-Integration.png)
+
