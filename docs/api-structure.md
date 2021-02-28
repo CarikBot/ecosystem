@@ -11,7 +11,12 @@ Format standar output API yang diharapan:
 }
 ```
 
-Isi dari variabel `text` adalah konten yang akan dikirimkan kepada pengguna.
+Dengan ketentuan:
+
+| variabel | Deskripsi |
+|---|---|
+| code | error code.<br>0: sukses |
+| text | konten yang akan dikirimkan kepada pengguna. |
 
 
 ## Parameter yang dilewatkan ke API
@@ -27,3 +32,13 @@ Tentunya anda ingin mendapatkan informasi siapa yang mengirimkan pesan untuk tuj
 | ChannelId | Channel aplikasi yang digunakan, yaitu: telegram, facebook, line, whatsapp, dan sebagainya. |
 
 
+## Contoh: API Echo
+
+Contoh source sederhana bisa anda lihat dari [**API ECHO**](./source/services/tools/echo), yang memiliki fungsi mengembalikan respon sesuai kata/kalimat yang diketikkan oleh user.
+
+**MindFlow** dari fitur ini bisa anda dari dokumen [mindmap](../data/other/Ecosystem/).
+
+![API Echo](../source/services/tools/echo/echo-menu.png)
+
+
+Dari ilustrasi di atas ini akan terbaca: terdapat pilihan menu "Contoh". Dan jika pengguna menuliskan kalimat `echo apapun teksnya`, platform akan mengirimkan informasi dan [parameter](#parameter-yang-dilewatkan-ke-api) ini ke api di url `{url}/services/tools/echo/`.
