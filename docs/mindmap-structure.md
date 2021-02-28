@@ -87,7 +87,7 @@ Aplikasi _mind mapper designer_ yang bisa digunakan:
 - [Mindmeister](https://www.mindmeister.com/), online
 - [Freeplane](https://www.freeplane.org/)
 
+## Tidak bisa pakai Github
 
-
-
+Anda tidak bisa mengoperasikan github? Jangan khawatir, kirimkan saja dokumen MindFlow-nya kepada kami. Selanjutny para Carik akan segera bantu.
 

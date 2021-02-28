@@ -8,9 +8,6 @@ Ilustrasi ini menggambarkan _service-service_ yang terhubung di dalam **Platform
 
 Platform Carik Bot memberikan kesempatan kepada para developer untuk menghubungkan layanan-nya ke dalam ChatBot, khususnya untuk _menu-based chatbot_. Sangat mudah, bahkan nyaris **tanpa _coding_**. Cukup dengan membuat desain dan struktur _mind flow_-nya dengan aplikasi _mind mapper_, selanjutnya biarkan Carik yang bekerja.
 
-Silakan [berkontribusi](docs/contribution.md) di dalam repositori ini, di branch development, selanjutnya Carik akan segera melakukan distribusi secara otomatis setelah melalui approval.
-
-
 ## Alur Kerja
 
 **Chatbot** yang menggunakan [Carik Engine](https://carik.id) dalam menjalankan sistemnya mempunyai alur seperti ilustrasi di bawah ini.
@@ -39,6 +36,12 @@ Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](docs/a
 ## Deployment
 
 **Ecosystem Deployment** dilakukan secara otomatis oleh platform setelah melalui approval.
+
+
+## Kontribusi
+
+Silakan [berkontribusi](CONTRIBUTING.md) di dalam repositori ini, di branch development, selanjutnya Carik akan segera melakukan distribusi secara otomatis setelah melalui approval.
+
 
 
 ***
