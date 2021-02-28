@@ -1,7 +1,7 @@
 # Informasi Donor Darah
-`kategori: kesehatan`
+`category: health`
 
-Informasi Donor Darah dari Relawan Donor Darah MIK Semar.
+Informasi Donor Darah dari Relawan Donor Darah MIK Semar. Layanan ini tersedia di **Dondi Bot**, _chat bot assistant_ dari RDD MIK Semar.
 
 Media sosial:
 - [Facebook](https://web.facebook.com/rddmiksemar.rddmiksemar)
