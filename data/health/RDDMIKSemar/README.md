@@ -7,3 +7,9 @@ Media sosial:
 - [Instagram](https://www.instagram.com/rdd_miksemar/)
 
 ![RDD MIK Semar](RDDMIKSemar.png)
+
+
+## Hasil di platform pesan instant
+
+![telegram](screenshot/hasil.png)
+
