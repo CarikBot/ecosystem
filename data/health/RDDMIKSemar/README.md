@@ -3,7 +3,8 @@
 
 Informasi Donor Darah dari Relawan Donor Darah MIK Semar. Layanan ini tersedia di **Dondi Bot**, _chat bot assistant_ dari RDD MIK Semar.
 
-Media sosial:
+Media sosial Relawan Donor Darah MIK Semar:
+
 - [Facebook](https://web.facebook.com/rddmiksemar.rddmiksemar)
 - [Instagram](https://www.instagram.com/rdd_miksemar/)
 
