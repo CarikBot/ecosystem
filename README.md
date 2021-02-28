@@ -25,10 +25,10 @@ Bagaimana cara mendesain **[Mind Flow](docs/mindmap-structure.md)** dari ekosist
 
 Ada beberapa cara dalam membuat _Mind Flow_ ini:
 
-1. Membuat data [berformat .json](docs/json-structure.md).
+1. Membuat data berformat .json.
 2. Menggambar desain melalui aplikasi _mind mapper_ seperti [XMind](https://www.xmind.net/) atau [Freemind](https://sourceforge.net/projects/freemind/).<br>Disarankan untuk menggunakan Freemind atau aplikasi yang bisa _export_ ke format Freemind.
 
-Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur file .json](docs/json-structure.md) dan [struktur file mindmapper](docs/mindmap-structure.md) ini.
+Untuk informasi selengkapnya bisa pelajari panduan tentang struktur file .json dan [struktur file mindmapper](docs/mindmap-structure.md) ini.
 
 ## API (Application Programming Interface)
 
