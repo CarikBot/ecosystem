@@ -34,7 +34,7 @@ Tentunya anda ingin mendapatkan informasi siapa yang mengirimkan pesan untuk tuj
 
 ## Contoh: API Echo
 
-Contoh source sederhana bisa anda lihat dari [**API ECHO**](./source/services/tools/echo), yang memiliki fungsi mengembalikan respon sesuai kata/kalimat yang diketikkan oleh user.
+Contoh source sederhana bisa anda lihat dari [**API ECHO**](../source/services/tools/echo), yang memiliki fungsi mengembalikan respon sesuai kata/kalimat yang diketikkan oleh user.
 
 **MindFlow** dari fitur ini bisa anda dari dokumen [mindmap](../data/other/Ecosystem/).
 
