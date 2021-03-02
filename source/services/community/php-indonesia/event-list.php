@@ -28,6 +28,8 @@ $Text = "𝕁𝕒𝕕𝕨𝕒𝕝 𝕆𝕟𝕝𝕚𝕟𝕖 𝕃𝕖𝕒𝕣𝕟�
 foreach ($events as $key => $event) {
   $time = @$event['time'];
   $url = @$event['registrasi'];
+  $videos = @$event['videos'];
+  if (empty($videos)) $videos = [];
   $url = str_replace('[url event]','', $url);
   if ($url == 'empty') $url = '';
 
@@ -44,9 +46,11 @@ foreach ($events as $key => $event) {
     $Text .= "\n[Lihat di sini](".$url.")";
     //$Text .= "\n".escapeMarkdown($url);
   }
+  foreach ($videos as $video) {
+    if (('empty'!==$video)) $Text .= "\n[video]($video)";
+  }
   $Text .= "\n";
 }
-$Text .= ".";
 
 //die($Text);
 Output(0, $Text);
