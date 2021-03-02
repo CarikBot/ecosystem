@@ -51,7 +51,6 @@ foreach ($events as $key => $event) {
   }
   $Text .= "\n";
 }
-$Text .= ".";
 
 //die($Text);
 Output(0, $Text);
