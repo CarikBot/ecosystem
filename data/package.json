@@ -35,6 +35,15 @@
       }
     },
     "other": {
+      "AgileManifesto": {
+        "name": "AgileManifesto",
+        "description": "Informasi tentang AgileManifesto Manifesto dari group Agile Indonesia di Telegram",
+        "special_keyword": "amo",
+        "pattern": ["agile manifesto"],
+        "root_menu_type": "button",
+        "author": "Luri Darmawan",
+        "site": "https://t.me/agileindonesia/"
+      },
       "Ecosystem": {
         "name": "Ecosystem",
         "description": "Informasi Carik Microservices Ecosystem",
