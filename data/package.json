@@ -3,6 +3,15 @@
   "version": "0.0.6",
   "description": "Carik Bot Microservice Ecosystem",
   "packages": {
+    "community": {
+      "Community": {
+        "name": "Community",
+        "description": "Community Support",
+        "special_keyword": "csc",
+        "pattern": ["info (komunitas|community)"],
+        "root_menu_type": "button"
+      }
+    },
     "education": {
       "Pendidikan": {
         "name": "Pendidikan",
