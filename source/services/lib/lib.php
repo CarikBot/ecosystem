@@ -121,6 +121,21 @@ function getRequestBodyAsArray(){
   return json_decode(getRequestBody(),true);
 }
 
+function GetSavedKeyword($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
+  if (empty($AKeyword)) return '';
+  $a = urldecode(@$_POST[$AKeyword]);
+  $a = @explode('|', $a);
+  $date = @$a[0];
+  if ((!empty($date))and($AMaxAgeInMinutes>0)){
+      $diff = dateDifferentFromDateString(date('Y-m-d H:i:s'), $date);
+      $diff = ($diff / (60)); //menit
+      if ($diff > $AMaxAgeInMinutes) return $ADefaultValue;
+  }
+  $value = @$a[1];
+  if (empty($value)) $value = $ADefaultValue;
+  return $value;
+}
+
 /**
  * CUSTOM ACTION
  * 
