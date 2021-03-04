@@ -52,7 +52,7 @@ jobs:
           git commit -m "[Github Actions]: Generate Package List file"
           
       - name: GitHub Push
-        uses: ad-m/github-push-action@development
+        uses: ad-m/github-push-action@v0.5.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
