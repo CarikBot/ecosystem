@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  generate_readme:
+  generate_package:
 
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Generate file README
+      - name: Generate file Package List
         run: yarn toPackageList
 
       - name: Modify last update
@@ -55,4 +55,5 @@ jobs:
         uses: ad-m/github-push-action@v0.5.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: development
           force: true
