@@ -1,0 +1,22 @@
+{
+  "name": "carik-microservice-ecosystem",
+  "version": "0.0.0",
+  "description": "Carik Bot Microservice Ecosystem",
+  "main": "source/tools/toPackageList.js",
+  "scripts": {
+    "toPackageList": "node ./source/tools/toPackageList.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarikBot/ecosystem/.git"
+  },
+  "author": "Pascal Indonesia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CarikBot/ecosystem/issues"
+  },
+  "homepage": "https://github.com/CarikBot/ecosystem/#readme",
+  "dependencies": {
+  }
+}
