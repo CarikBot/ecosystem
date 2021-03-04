@@ -3,7 +3,7 @@ const path = require('path');
 
 const main = async () => {
   try {
-    const dataAsString = await fs.readFileSync(path.resolve(`../../data/package.json`), { encoding: 'utf-8' });
+    const dataAsString = await fs.readFileSync(path.resolve(`data/package.json`), { encoding: 'utf-8' });
     const dataAsJson = JSON.parse(dataAsString);
     var readmeHeader = "# Package List - Carik Microservice Ecosystem";
     var readmeContent = "\n";
@@ -33,7 +33,7 @@ const main = async () => {
     readme += "\n\n___\n_*File ini digenerate otomatis. **Jangan** diedit manual_";
 
     // write to file
-    fs.writeFile(path.resolve('../../docs/package-list.md'), readme, function (err){
+    fs.writeFile(path.resolve('docs/package-list.md'), readme, function (err){
       if (err){
         return console.log('❌ Error write file package-list.md', err);
       }
