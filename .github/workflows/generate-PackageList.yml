@@ -37,7 +37,7 @@ jobs:
         run: yarn
 
       - name: Generate file README
-        run: yarn source/tools/toPackageList
+        run: yarn toPackageList
 
       - name: Modify last update
         run: |
