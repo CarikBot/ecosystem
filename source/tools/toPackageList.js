@@ -11,8 +11,8 @@ const main = async () => {
 
     Object.keys(dataAsJson.packages).forEach(function (category){
       readmeContent += "\n\n## "+category;
-      readmeContent += "\n| Package | Description | Keyword | Author |";
-      readmeContent += "\n|---|---|---|---|";
+      readmeContent += "\n| Package | Description | Keyword |";
+      readmeContent += "\n|---|---|---|";
       packages = dataAsJson.packages[category];
       Object.keys(packages).forEach(function (packageKey){
         packageName = packages[packageKey]['name'];
@@ -28,7 +28,7 @@ const main = async () => {
         }
         patternText = patternText.replace('|', '\\|');
         url = "../data/"+category+"/"+packageName;
-        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"|"+patternText+"|"+author+"|";
+        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|"+patternText+"|";
       });      
     });
 
