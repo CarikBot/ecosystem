@@ -50,7 +50,7 @@
         "special_keyword": "amo",
         "pattern": ["agile manifesto"],
         "root_menu_type": "button",
-        "author": "Luri Darmawan",
+        "author": "Ivan Darmawan",
         "site": "https://t.me/agileindonesia/"
       },
       "Ecosystem": {
@@ -69,7 +69,7 @@
         "special_keyword": "ajr",
         "pattern": ["info ajaro","^(ajaro)"],
         "root_menu_type": "button",
-        "author": "Luri Darmawan",
+        "author": "Syahroni",
         "site": "https://ajaro.id"
       },
       "ERPid": {
@@ -78,7 +78,7 @@
         "special_keyword": "erpid",
         "pattern": ["info (erpid|erp)","^(erpid)"],
         "root_menu_type": "button",
-        "author": "Luri Darmawan",
+        "author": "Nofriza Nindiyasari",
         "site": "https://erp.id"
       }
     },
@@ -89,7 +89,7 @@
         "special_keyword": "lbp",
         "pattern": ["info (elbe|lbpro)","^elbe"],
         "root_menu_type": "button",
-        "author": "Luri Darmawan",
+        "author": "Agung Wicaksana",
         "site": "https://lbpro.id"
       }
     }
