@@ -137,6 +137,21 @@ function GetSavedKeyword($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
 }
 
 /**
+ * $startupList = ArrayPagination($startupList, $page, $amountPerPage, true);
+ */
+function ArrayPagination($AArray, $APage, $AAMountPerPage, $AWithModulo = false){
+  $count = count($AArray);
+  $page = $APage;
+
+  $numberOfPage = round($count / $AAMountPerPage);
+  $modulo = $count % $AAMountPerPage;
+  if ($page > $numberOfPage) $page = $numberOfPage;
+  $offset = (($page-1) * $AAMountPerPage);
+  if ($AWithModulo) if ($page==$numberOfPage) $AAMountPerPage += $modulo; // additional modulo
+  return array_slice( $AArray, $offset, $AAMountPerPage );
+}
+
+/**
  * CUSTOM ACTION
  * 
  */
