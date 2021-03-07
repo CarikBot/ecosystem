@@ -5,7 +5,7 @@ Daftar paket yang tersedia di dalam Ecosystem.
 ## community
 | Package | Description | Keyword |
 |---|---|---|
-|[Community](../data/community/Community)|Community Support<br>author: |info (komunitas\|community)<br />|
+|[Community](../data/community/Community)|Community Support, seperti PHP Indonesia, Pascal Indonesia, DevC, CafeStartup, Agile Indonesia, FemaleGeek dan beberapa lagi yang mungkin belum tercatat.<br>author: |info (komunitas\|community)<br />|
 
 ## education
 | Package | Description | Keyword |
