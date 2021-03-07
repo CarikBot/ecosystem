@@ -23,12 +23,12 @@ const main = async () => {
         patternText = '';
         if (patterns != undefined){
           Object.keys(patterns).forEach(function (pattern){
-            patternText += patterns[pattern] + '<br />';
+            patternText += "`" + patterns[pattern] + '`<br />';
           });  
         }
         patternText = patternText.replace('|', '\\|');
         url = "../data/"+category+"/"+packageName;
-        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|`"+patternText+"`|";
+        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|"+patternText+"|";
       });      
     });
 
