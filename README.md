@@ -40,9 +40,9 @@ Untuk informasi selengkapnya bisa pelajari panduan tentang [struktur API](docs/a
 
 ## Kontribusi
 
-Silakan [berkontribusi](CONTRIBUTING.md) di dalam repositori ini, di branch development, selanjutnya Carik akan segera melakukan distribusi secara otomatis setelah melalui approval.
+Silakan [berkontribusi](CONTRIBUTING.md) di dalam repositori ini, di branch development, selanjutnya Carik akan segera melakukan distribusi secara otomatis setelah melalui approval. Anda bisa pelajari dari [paket-paket microservice](docs/package-list.md) yang sudah ada di repositori ini.
 
-
+Jika menemukan bug atau ada ide yang menarik, anda bisa [sampaikan kepada kami](https://github.com/CarikBot/ecosystem/issues/new/choose).
 
 ***
 
