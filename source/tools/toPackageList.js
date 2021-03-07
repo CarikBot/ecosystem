@@ -28,7 +28,7 @@ const main = async () => {
         }
         patternText = patternText.replace('|', '\\|');
         url = "../data/"+category+"/"+packageName;
-        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|"+patternText+"|";
+        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|`"+patternText+"`|";
       });      
     });
 

@@ -55,7 +55,7 @@ $startupList = ArrayPagination($startupList, $page, $amountPerPage, true);
 
 $i = (($page-1)*AMOUNT_PER_PAGE)+1;
 $Text = "*List Startup Group CafeStartup*";
-$Text .= "\n Terdapat $count startup.";
+$Text .= "\n Terdapat *$count startup*.";
 $Text .= $msg;
 foreach ($startupList as $value) {
   $active = $value['Aktif'];
