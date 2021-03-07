@@ -11,7 +11,7 @@ const main = async () => {
 
     Object.keys(dataAsJson.packages).forEach(function (category){
       readmeContent += "\n\n## "+category;
-      readmeContent += "\n| Package | Description | Keyword |";
+      readmeContent += "\n| Package | Description | Author |";
       readmeContent += "\n|---|---|---|";
       packages = dataAsJson.packages[category];
       Object.keys(packages).forEach(function (packageKey){
@@ -19,16 +19,17 @@ const main = async () => {
         description = packages[packageKey]['description'];
         patterns = packages[packageKey]['pattern'];
         author = packages[packageKey]['author'];
-        if (author==undefined) author = "";
-        patternText = '';
+        //if (author==undefined) author = "";
+        author = (author==undefined) ? "" : author;
+        patternText = '<br>Keyword:';
         if (patterns != undefined){
           Object.keys(patterns).forEach(function (pattern){
-            patternText += "`" + patterns[pattern] + '`<br />';
+            patternText += '<br />- '+patterns[pattern];
           });  
         }
-        patternText = patternText.replace('|', '\\|');
+        patternText = patternText.replace(/\|/g, '\\|');
         url = "../data/"+category+"/"+packageName;
-        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|"+patternText+"|";
+        readmeContent += "\n|["+packageName+"]("+url+")|"+description+patternText+"|"+author+"|";
       });      
     });
 
