@@ -18,6 +18,8 @@ const main = async () => {
         packageName = packages[packageKey]['name'];
         description = packages[packageKey]['description'];
         patterns = packages[packageKey]['pattern'];
+        author = packages[packageKey]['author'];
+        if (author==undefined) author = "";
         patternText = '';
         if (patterns != undefined){
           Object.keys(patterns).forEach(function (pattern){
@@ -25,7 +27,8 @@ const main = async () => {
           });  
         }
         patternText = patternText.replace('|', '\\|');
-        readmeContent += "\n|"+packageName+"|"+description+"|"+patternText+"|";
+        url = "../data/"+category+"/"+packageName;
+        readmeContent += "\n|["+packageName+"]("+url+")|"+description+"<br>author: "+author+"|"+patternText+"|";
       });      
     });
 
