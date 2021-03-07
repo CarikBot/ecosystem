@@ -3,41 +3,41 @@ Daftar paket yang tersedia di dalam Ecosystem.
 
 
 ## community
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[Community](../data/community/Community)|Community Support|info (komunitas\|community)<br />||
+| Package | Description | Keyword |
+|---|---|---|
+|[Community](../data/community/Community)|Community Support<br>author: |info (komunitas\|community)<br />|
 
 ## education
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[Pendidikan](../data/education/Pendidikan)|Informasi Pendidikan, khususnya kampus di Jawa Barat dan Banten|info (pendidikan\|sekolah)<br />^(civitas)<br />|Adji Ayomi|
+| Package | Description | Keyword |
+|---|---|---|
+|[Pendidikan](../data/education/Pendidikan)|Informasi Pendidikan, khususnya kampus di Jawa Barat dan Banten<br>author: Adji Ayomi|info (pendidikan\|sekolah)<br />^(civitas)<br />|
 
 ## health
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[RDDMIKSemar](../data/health/RDDMIKSemar)|Informasi Donor Darah dari Relawan Donor Darah MIK Semar|info donor<br />donor darah<br />^donor<br />|Luri Darmawan|
+| Package | Description | Keyword |
+|---|---|---|
+|[RDDMIKSemar](../data/health/RDDMIKSemar)|Informasi Donor Darah dari Relawan Donor Darah MIK Semar<br>author: Luri Darmawan|info donor<br />donor darah<br />^donor<br />|
 
 ## main
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[CarikBot](../data/main/CarikBot)|Carik Bot default menu||Luri Darmawan|
+| Package | Description | Keyword |
+|---|---|---|
+|[CarikBot](../data/main/CarikBot)|Carik Bot default menu<br>author: Luri Darmawan||
 
 ## other
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[AgileManifesto](../data/other/AgileManifesto)|Informasi tentang AgileManifesto Manifesto dari group Agile Indonesia di Telegram|agile manifesto<br />|Ivan Darmawan|
-|[Ecosystem](../data/other/Ecosystem)|Informasi Carik Microservices Ecosystem|info (ecosystem\|ecosystem|ekosistem)<br />^(ecosystem|ecosystem|ekosistem)<br />|Luri Darmawan|
+| Package | Description | Keyword |
+|---|---|---|
+|[AgileManifesto](../data/other/AgileManifesto)|Informasi tentang AgileManifesto Manifesto dari group Agile Indonesia di Telegram<br>author: Ivan Darmawan|agile manifesto<br />|
+|[Ecosystem](../data/other/Ecosystem)|Informasi Carik Microservices Ecosystem<br>author: Luri Darmawan|info (ecosystem\|ecosystem|ekosistem)<br />^(ecosystem|ecosystem|ekosistem)<br />|
 
 ## partner
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[Ajaro](../data/partner/Ajaro)|Ajaro Indonesia|info ajaro<br />^(ajaro)<br />|Syahroni|
-|[ERPid](../data/partner/ERPid)|ERP Indonesia|info (erpid\|erp)<br />^(erpid)<br />|Nofriza Nindiyasari|
+| Package | Description | Keyword |
+|---|---|---|
+|[Ajaro](../data/partner/Ajaro)|Ajaro Indonesia<br>author: Syahroni|info ajaro<br />^(ajaro)<br />|
+|[ERPid](../data/partner/ERPid)|ERP Indonesia<br>author: Nofriza Nindiyasari|info (erpid\|erp)<br />^(erpid)<br />|
 
 ## property
-| Package | Description | Keyword | Author |
-|---|---|---|---|
-|[ElbeProperty](../data/property/ElbeProperty)|Developer, Kontraktor dan Agen Property|info (elbe\|lbpro)<br />^elbe<br />|Agung Wicaksana|
+| Package | Description | Keyword |
+|---|---|---|
+|[ElbeProperty](../data/property/ElbeProperty)|Developer, Kontraktor dan Agen Property<br>author: Agung Wicaksana|info (elbe\|lbpro)<br />^elbe<br />|
 
 ___
 _*File ini digenerate otomatis. **Jangan** diedit manual_
