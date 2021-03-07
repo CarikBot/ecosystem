@@ -15,6 +15,7 @@ if ((empty($DocId))||(empty($ScriptId))||(empty($SheetName))){
 }
 
 $page = @$_POST['Page'];
+if (!is_numeric($page)) $page = '';
 
 $GS = new GoogleScript;
 $GS->DocId = $DocId;
