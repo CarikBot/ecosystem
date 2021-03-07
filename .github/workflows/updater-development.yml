@@ -46,7 +46,6 @@ jobs:
         run: yarn toPackageList
 
       - name: Modify last update
-        if: github.repository == 'CarikBot/ecosystem'
         run: |
           d=`date '+%Y-%m-%dT%H:%M:%SZ'`
           echo $d > LAST_UPDATED
