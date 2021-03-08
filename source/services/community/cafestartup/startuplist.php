@@ -92,4 +92,4 @@ $buttons[] = AddButtonURL("🎖 Daftarkan Startup-mu", "https://bit.ly/daftar-st
 $buttonList[] = $buttons;
 
 //die($Text);
-Output( 0, $Text, 'text', $buttonList, 'button');
+Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', true);
