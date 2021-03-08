@@ -11,7 +11,7 @@
  * @since
  */
 
-function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan'){
+function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false){
     @header("Content-type:application/json");
     $array['code'] = $ACode;
     $array[$AField] = $AMessage;
@@ -25,6 +25,7 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
         //$array['action']['mode'] = $AMode;
         $array['action']['data'] = $AAction;
     }
+    if ($AAutoPrune) $array['prune'] = true;
     if (!empty($ASuffix)){
         $array['suffix'] = $ASuffix;
     }
