@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 0);
 include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "../../lib/CarikGoogleScript_lib.php";
-const AMOUNT_PER_PAGE = 30;
+const AMOUNT_PER_PAGE = 20;
 
 $DocId = @$Config['packages']['community']['cafestartup']['doc_id'];
 $ScriptId = @$Config['packages']['community']['cafestartup']['script_id'];
@@ -84,8 +84,10 @@ $buttons = [];
 if ($page>1){
   $buttons[] = AddButton( '◀️ prev', 'text=slcf '.($page-1));
 }
+$command = 'text=slcf '.($page+1);
+if (($page+1)==$numberOfPage) $command = 'text=daftar startup';
 if ($page<$numberOfPage){
-  $buttons[] = AddButton( 'next ▶️', 'text=slcf '.($page+1));
+  $buttons[] = AddButton( 'next ▶️', $command);
 }
 $buttonList[] = $buttons;
 
