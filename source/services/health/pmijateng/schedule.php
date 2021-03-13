@@ -15,12 +15,16 @@ $schedules = $PMIJateng->Schedule($Keyword);
 if (0==count($schedules)) {
   $Text = "Untuk mencari Jadwal MU PMI, silakan pilih dari pilihan berikut:";
   $menuData = [];
+  $cityTemp = [];
   foreach ($PMIJateng->Schedules as $udd) {
     $title = $udd['udd'];
     $title = str_replace('UDD PMI ', '', $title);
     $city = str_replace('Kota', '', $title);
     $city = trim(str_replace('Kabupaten', '', $city));
-    $menuData[] = AddButton($title, "text=pjwd $city");
+    if (!@$cityTemp[$city]){
+      $cityTemp[$city] = true;
+      $menuData[] = AddButton($title, "text=pjwd $city");
+    }
   }
   $buttonList[] = $menuData;
   Output( 0, $Text, 'text', $buttonList, 'menu');
