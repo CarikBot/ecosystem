@@ -15,6 +15,7 @@ Daftar paket yang tersedia di dalam Ecosystem.
 ## health
 | Package | Description | Author |
 |---|---|---|
+|[PMIJateng](../data/health/PMIJateng)|Informasi stok darah, jadwal MU dan alamat UDD dari PMI Jawa Tengah<br>Keyword:<br />- info pmi jateng<br />- info pmi|Danang Priyono|
 |[RDDMIKSemar](../data/health/RDDMIKSemar)|Informasi Donor Darah dari Relawan Donor Darah MIK Semar<br>Keyword:<br />- info donor<br />- donor darah<br />- ^donor|Luri Darmawan|
 
 ## main
