@@ -13,5 +13,7 @@ Media sosial Relawan Donor Darah MIK Semar:
 
 ## Hasil di platform pesan instant
 
+Hasil di paket ini bisa dilihat dari fitur `info donor darah` seperti pada ilustrasi berikut.
+
 ![telegram](screenshot/hasil.png)
 

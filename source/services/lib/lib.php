@@ -63,6 +63,11 @@ function grepStr( $AAfter, $ABefore, $AText){
   return $text;
 }
 
+function isStringExist($needle, $AText)
+{
+  return strpos($AText, $needle) !== false;
+}
+
 function readTextFile( $AFileName){
   $result = '';
   if (!file_exists($AFileName)){
