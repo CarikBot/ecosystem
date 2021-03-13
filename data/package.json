@@ -24,6 +24,15 @@
       }
     },
     "health": {
+      "PMIJateng": {
+        "name": "PMIJateng",
+        "description": "Informasi stok darah, jadwal MU dan alamat UDD dari PMI Jawa Tengah",
+        "special_keyword": "pmijt",
+        "pattern": ["info pmi jateng", "info pmi"],
+        "root_menu_type": "button",
+        "author": "Danang Priyono",
+        "site": "https://pmi-jateng.or.id/udd/"
+      },
       "RDDMIKSemar": {
         "name": "RDDMIKSemar",
         "description": "Informasi Donor Darah dari Relawan Donor Darah MIK Semar",
