@@ -5,11 +5,12 @@ include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "PMIJateng_lib.php";
 
-$Token = @$Config['packages']['health']['pmijateng']['token'];
+$BaseURL = @$Config['packages']['health']['PMIJateng']['base_url'];
 
 $Keyword = urldecode(@$_POST['Keyword']);
 
 $PMIJateng = new PMIJateng;
+$PMIJateng->APIBaseURL = $BaseURL;
 $stocks = $PMIJateng->Stock($Keyword);
 
 if (0==count($stocks)) {
@@ -18,8 +19,7 @@ if (0==count($stocks)) {
   foreach ($PMIJateng->Stocks as $udd) {
     $title = $udd['udd'];
     $title = str_replace('UDD PMI ', '', $title);
-    $city = str_replace('Kota', '', $title);
-    $city = trim(str_replace('Kabupaten', '', $city));
+    $city = trim(str_replace('Kabupaten', 'Kab', $title));
     $menuData[] = AddButton($title, "text=pstk $city");
   }
   $buttonList[] = $menuData;

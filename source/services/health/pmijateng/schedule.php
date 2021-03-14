@@ -5,11 +5,12 @@ include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "PMIJateng_lib.php";
 
-$Token = @$Config['packages']['health']['pmijateng']['token'];
+$BaseURL = @$Config['packages']['health']['PMIJateng']['base_url'];
 
 $Keyword = urldecode(@$_POST['Keyword']);
 
 $PMIJateng = new PMIJateng;
+$PMIJateng->APIBaseURL = $BaseURL;
 $schedules = $PMIJateng->Schedule($Keyword);
 
 if (0==count($schedules)) {
@@ -18,9 +19,11 @@ if (0==count($schedules)) {
   $cityTemp = [];
   foreach ($PMIJateng->Schedules as $udd) {
     $title = $udd['udd'];
+    $title = str_replace('Kabupaten ', 'Kab ', $title);
+    $city = str_replace('  ', ' ', $title);
+    $city = str_replace('PMI ', '', $city);
     $title = str_replace('UDD PMI ', '', $title);
-    $city = str_replace('Kota', '', $title);
-    $city = trim(str_replace('Kabupaten', '', $city));
+    $title = str_replace('PMI ', '', $title);
     if (!@$cityTemp[$city]){
       $cityTemp[$city] = true;
       $menuData[] = AddButton($title, "text=pjwd $city");
@@ -34,6 +37,7 @@ $Text = "Ditemukan jadwal MU sebagai berikut:\n";
 foreach ($schedules as $udd) {
   $Text .= "\n*".$udd['udd']."* " . $udd['note'];
   $Text .= "\nTempat: ".$udd['location'];
+  $Text .= "\nTanggal: ".$udd['date'];
   $Text .= "\nMulai : ".substr($udd['start'],0,5);
   $Text .= "\nSelesai: ".substr($udd['finish'],0,5);
   $Text .= "\n";
