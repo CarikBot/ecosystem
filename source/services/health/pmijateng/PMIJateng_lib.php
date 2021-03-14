@@ -28,10 +28,10 @@ require_once "../../lib/lib.php";
  */
 class PMIJateng{
   const BASE_URL = 'https://pmi-jateng.or.id/udd/';
+  public $APIBaseURL = '';
   public $UDD = [];
   public $Schedules = [];
   public $Stocks = [];
-
 
   public function __construct(){
   }
@@ -51,6 +51,35 @@ class PMIJateng{
   }
 
   public function Schedule($AKeyword){
+    if (empty($this->APIBaseURL)) return $this->stockFromWeb($AKeyword);
+    $jsonAsString = @file_get_contents($this->APIBaseURL.'jadwaldonor.php');
+    if (empty($jsonAsString)) return $this->stockFromWeb($AKeyword);
+    $schedules = json_decode($jsonAsString, true);
+    $schedules = $schedules['result'];
+
+    $this->Schedules = [];
+    foreach ($schedules as $node) {
+      $item['udd'] = $node['nama'];
+      $item['location'] = $node['instansi'];
+      $item['date'] = $node['tgl_mu'];
+      $item['start'] = $node['jam_mulai'];
+      $item['finish'] = $node['jam_selesai'];
+      $item['note'] = $node['peruntukan'];
+      $this->Schedules[] = $item;
+    }
+
+    $keyword = strtolower($AKeyword);
+    $keyword = str_replace('kab ', 'kabupaten ', $keyword);
+    $return = [];
+    foreach ($this->Schedules as $item) {
+      $name = $item['udd'];
+      if (!isStringExist($keyword, strtolower($name))) continue;
+      $return[] = $item;
+    }
+    return $return;    
+  }
+
+  public function scheduleFromWeb($AKeyword){
     $html = @file_get_contents(self::BASE_URL);
     if (empty($html)) return [];
     $keyword = strtolower($AKeyword);
@@ -73,6 +102,7 @@ class PMIJateng{
       $note = trim(@$e->item(5)->textContent);
       $item['udd'] = $city;
       $item['location'] = $location;
+      $item['date'] = '';
       $item['start'] = $start;
       $item['finish'] = $finish;
       $item['note'] = $note;
@@ -91,6 +121,36 @@ class PMIJateng{
   }
 
   public function Stock($AKeyword){
+    if (empty($this->APIBaseURL)) return $this->stockFromWeb($AKeyword);
+    $jsonAsString = @file_get_contents($this->APIBaseURL.'stokdarah.php');
+    if (empty($jsonAsString)) return $this->stockFromWeb($AKeyword);
+    $stockList = json_decode($jsonAsString, true);
+    $stockList = $stockList['result'];
+
+    $this->Stocks = [];
+    foreach ($stockList as $node) {
+      $name = $node['nama'];
+      $item['udd'] = $name;
+      $item['A'] = $node['golda_a'];
+      $item['B'] = $node['golda_b'];
+      $item['AB'] = $node['golda_ab'];
+      $item['O'] = $node['golda_o'];
+      $item['updateDate'] = $node['tgl_update'];
+      $this->Stocks[] = $item;
+    }
+
+    $keyword = strtolower($AKeyword);
+    $keyword = str_replace('kabupaten ', 'kab ', $keyword);
+    $return = [];
+    foreach ($this->Stocks as $item) {
+      $name = $item['udd'];
+      if (!isStringExist($keyword, strtolower($name))) continue;
+      $return[] = $item;
+    }
+    return $return;
+  }
+
+  private function stockFromWeb($AKeyword){
     $html = @file_get_contents(self::BASE_URL);
     if (empty($html)) return [];
     $keyword = strtolower($AKeyword);
