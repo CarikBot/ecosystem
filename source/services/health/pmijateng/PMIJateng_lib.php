@@ -52,7 +52,8 @@ class PMIJateng{
 
   public function Schedule($AKeyword){
     if (empty($this->APIBaseURL)) return $this->stockFromWeb($AKeyword);
-    $jsonAsString = @file_get_contents($this->APIBaseURL.'jadwaldonor.php');
+    $keyword = urlencode(strtolower($AKeyword));
+    $jsonAsString = @file_get_contents($this->APIBaseURL.'jadwaldonor.php?keyword='.$keyword);
     if (empty($jsonAsString)) return $this->stockFromWeb($AKeyword);
     $schedules = json_decode($jsonAsString, true);
     $schedules = $schedules['result'];
@@ -122,7 +123,8 @@ class PMIJateng{
 
   public function Stock($AKeyword){
     if (empty($this->APIBaseURL)) return $this->stockFromWeb($AKeyword);
-    $jsonAsString = @file_get_contents($this->APIBaseURL.'stokdarah.php');
+    $keyword = urlencode(strtolower($AKeyword));
+    $jsonAsString = @file_get_contents($this->APIBaseURL.'stokdarah.php?keyword='.$keyword);
     if (empty($jsonAsString)) return $this->stockFromWeb($AKeyword);
     $stockList = json_decode($jsonAsString, true);
     $stockList = $stockList['result'];
