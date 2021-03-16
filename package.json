@@ -18,5 +18,6 @@
   },
   "homepage": "https://github.com/CarikBot/ecosystem/#readme",
   "dependencies": {
+    "xml-formatter": "^2.4.0"
   }
 }
