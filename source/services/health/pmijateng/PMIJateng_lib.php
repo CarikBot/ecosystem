@@ -40,6 +40,7 @@ class PMIJateng{
     $data = @file_get_contents('address.json');
     $this->UDD = json_decode($data, true);
     $keyword = strtolower($AKeyword);
+    $keyword = str_replace('kab ', 'kabupaten ', $keyword);
     $return = [];
     if (empty($AKeyword)) return [];
     foreach ($this->UDD as $item) {
