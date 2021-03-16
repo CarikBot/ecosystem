@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  generate_package:
+  mindmap_formatting:
 
     runs-on: ubuntu-latest
     steps:
@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Format Mindmap
+      - name: Check modified files
         id: check_files
         run: |
           echo "=============== list modified files ==============="
