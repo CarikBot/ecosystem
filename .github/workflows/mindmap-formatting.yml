@@ -48,6 +48,7 @@ jobs:
           do
             echo $file
           done < files.txt
+          rm -rf files.txt
                     
       - name: Commit files report
         run: |
