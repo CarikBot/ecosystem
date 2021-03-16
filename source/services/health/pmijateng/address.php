@@ -8,6 +8,7 @@ include_once "PMIJateng_lib.php";
 $Token = @$Config['packages']['health']['pmijateng']['token'];
 
 $Keyword = urldecode(@$_POST['Keyword']);
+$Keyword = str_replace('Kab ', 'Kabupaten ', $Keyword);
 
 $PMIJateng = new PMIJateng;
 $addresses = $PMIJateng->FindAddress($Keyword);
@@ -17,8 +18,7 @@ if (0==count($addresses)) {
   foreach ($PMIJateng->UDD as $udd) {
     $title = $udd['Kab/Kota'];
     $title = str_replace('UDD PMI ', '', $title);
-    $city = str_replace('Kota', '', $title);
-    $city = trim(str_replace('Kabupaten', '', $city));
+    $city = trim(str_replace('Kabupaten', 'Kab', $title));
     $menuData[] = AddButton($title, "text=padd $city");
   }
   $buttonList[] = $menuData;
