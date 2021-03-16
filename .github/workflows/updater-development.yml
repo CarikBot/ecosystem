@@ -1,4 +1,4 @@
-name: Generate Package List
+name: Preparing Package
 
 on:
   push:
