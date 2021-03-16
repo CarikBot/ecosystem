@@ -48,7 +48,6 @@ jobs:
           do
             echo $file
             if [[ $file =~ \.mm$ ]]; then
-              echo " formatting ..."
               node source/tools/formatter.js $file
             fi
           done < files.txt
