@@ -46,7 +46,6 @@ jobs:
           git diff --name-only HEAD^ HEAD > files.txt
           while IFS= read -r file
           do
-            echo $file
             if [[ $file =~ \.mm$ ]]; then
               node source/tools/formatter.js $file
             fi
