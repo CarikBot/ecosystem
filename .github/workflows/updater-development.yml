@@ -47,6 +47,9 @@ jobs:
           while IFS= read -r file
           do
             echo $file
+            if [[ $file =~ \.mm$ ]]; then
+              echo " formatting ..."
+            fi
           done < files.txt
           rm -rf files.txt
 
