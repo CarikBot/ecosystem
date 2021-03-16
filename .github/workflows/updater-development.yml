@@ -46,7 +46,6 @@ jobs:
           git diff --name-only HEAD^ HEAD > files.txt
           while IFS= read -r file
           do
-            echo $file
             if [[ $file =~ \.mm$ ]]; then
               node source/tools/formatter.js $file
             fi
@@ -68,7 +67,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "[Github Actions]: Generate Package List file" || true
+          git commit -m "[Github Actions]: Preparing Package" || true
           exit 0
           
       - name: GitHub Push
