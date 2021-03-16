@@ -1,1 +1,1 @@
-.github/workflows/mindmap-formatting.yml
+files.txt
