@@ -22,7 +22,7 @@ include_once "PHPID_lib.php";
 
 
 $events = PHPID::PastEvent();
-if (!$events) Output(0, 'Maaf, informasi online learning belum bisa diakses.');
+if (!$events) Output(0, 'Maaf, informasi online learning belum tersedia.');
 
 $Text = "𝕁𝕒𝕕𝕨𝕒𝕝 𝕆𝕟𝕝𝕚𝕟𝕖 𝕃𝕖𝕒𝕣𝕟𝕚𝕟𝕘 ℙℍℙ𝕀𝔻:\n";
 foreach ($events as $key => $event) {
