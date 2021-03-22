@@ -1,4 +1,4 @@
-name: Generate Package List
+name: Preparing Package
 
 on:
   push:
@@ -6,30 +6,26 @@ on:
       - development
 
 jobs:
-  generate_package:
+  prepare_package:
 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        if: github.repository == 'CarikBot/ecosystem'
         uses: actions/checkout@v2
         with:
          persist-credentials: false
          fetch-depth: 0
 
       - name: Use node 12
-        if: github.repository == 'CarikBot/ecosystem'
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
 
       - name: Get yarn cache
-        if: github.repository == 'CarikBot/ecosystem'
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache Node.js modules
-        if: github.repository == 'CarikBot/ecosystem'
         uses: actions/cache@v1
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -38,8 +34,23 @@ jobs:
             ${{ runner.OS }}-yarn-
             
       - name: Install dependencies
-        if: github.repository == 'CarikBot/ecosystem'
         run: yarn
+
+      - name: Check modified files
+        id: check_files
+        run: |
+          echo "=============== list modified files ==============="
+          git diff --name-only HEAD^ HEAD
+
+          echo "========== check paths of modified files =========="
+          git diff --name-only HEAD^ HEAD > files.txt
+          while IFS= read -r file
+          do
+            if [[ $file =~ \.mm$ ]]; then
+              node source/tools/formatter.js $file
+            fi
+          done < files.txt
+          rm -rf files.txt
 
       - name: Generate file Package List
         if: github.repository == 'CarikBot/ecosystem'
@@ -52,15 +63,14 @@ jobs:
           echo $d > LAST_UPDATED
           
       - name: Commit files report
-        if: github.repository == 'CarikBot/ecosystem'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "[Github Actions]: Generate Package List file"
+          git commit -m "[Github Actions]: Preparing Package" || true
+          exit 0
           
       - name: GitHub Push
-        if: github.repository == 'CarikBot/ecosystem'
         uses: ad-m/github-push-action@v0.5.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
