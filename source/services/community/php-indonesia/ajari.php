@@ -23,12 +23,12 @@ include_once "PHPID_lib.php";
 $Text = "*Ajari Koding* merupakan kumpulan berbagai sumber daya untuk belajar koding dari hasil karya para kreator lokal yang terpercaya dan telah dikurasi oleh komunitas PHPID.
 
 Untuk mencari informasi ajari, silakan ketik pesan dengan format:
-```ajari koding [keyword]```
+``` ajari koding [keyword]```
 misal:
-```ajari koding android flutter```
+``` ajari koding android flutter```
 ";
 
-$keyword = @$_POST['keyword'];
+$keyword = urldecode(@$_POST['keyword']);
 if (empty($keyword)) Output(0, $Text);
 
 $results = PHPID::AjariSearchByTag($keyword);
@@ -44,7 +44,7 @@ foreach ($results as $key => $item) {
   $tipe = $item['tipe'];
   $rating = $item['rating'];
 
-  $Text .= "\n[$title]($url)";
+  $Text .= "\n[$title]($url) ".str_repeat("⭐️", $rating);
   $Text .= "\n$description";
   $Text .= "\n";
 }
