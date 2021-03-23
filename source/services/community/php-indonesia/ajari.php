@@ -49,7 +49,7 @@ foreach ($results as $key => $item) {
   $Text .= "\n";
 }
 
-$Text .= "\nSumber: [Ajaro Koding](https://github.com/phpid-jakarta/ajari-koding)";
+$Text .= "\nSumber: [Ajari Koding](https://github.com/phpid-jakarta/ajari-koding)";
 
 //die($Text);
 Output(0, $Text);
