@@ -58,7 +58,7 @@
         "description": "Informasi tentang AgileManifesto Manifesto dari group Agile Indonesia di Telegram",
         "special_keyword": "amo",
         "pattern": ["agile manifesto"],
-        "root_menu_type": "button",
+        "root_menu_type": "none",
         "author": "Ivan Darmawan",
         "site": "https://t.me/agileindonesia/"
       },
