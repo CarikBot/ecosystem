@@ -1,6 +1,20 @@
 <?php
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
+/**
+ * USAGE
+ *   curl 'http://localhost/services/ecosystem/community/cafestartup/startuplist/'
+ *
+ * @date       25-03-2020 13:19
+ * @category   community
+ * @package    Cafestartup - startup list
+ * @subpackage
+ * @copyright  Copyright (c) 2013-endless AksiIDE
+ * @license
+ * @version
+ * @link       http://www.aksiide.com
+ * @since
+ */
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "../../lib/CarikGoogleScript_lib.php";
@@ -17,6 +31,7 @@ if ((empty($DocId))||(empty($ScriptId))||(empty($SheetName))){
 
 $GroupID = urldecode(@$_POST['GroupID_']);
 $page = @$_POST['Page'];
+$format = @$_GET['format'];
 if (!is_numeric($page)) $page = '';
 
 $GS = new GoogleScript;
@@ -36,14 +51,28 @@ foreach ($startupList as $value) {
   $name = $value['Nama_Startup'];
   $name = str_replace('_', '\_', $name);
   $name = str_replace('www.', '', $name);
+  $name = str_replace('http://', '', $name);
+  $name = str_replace('https://', '', $name);
   $name = trim(strtolower($name));
+  $value['Nama_Startup'] = $name;
   $bidangUsaha = $value['Bidang_Usaha_Startup_Anda'];
   $bidangUsaha = str_replace('_', '\_', $bidangUsaha);
   if (isCencored($name)) continue;
   if (isCencored($bidangUsaha)) continue;
+  unset($value['Aktif']);
+  unset($value['']);
   $whiteList[] = $value;
 }
 $startupList = $whiteList;
+
+if ('json'==$format){
+  $output['code'] = 0;
+  $output['count'] = count($startupList);
+  $output['data'] = $startupList;
+  $json = json_encode($output, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  @header("Content-type:application/json");
+  die($json);
+}
 
 $n = $amountPerPage = AMOUNT_PER_PAGE;
 $count = count($startupList);
@@ -60,8 +89,6 @@ $Text = "*List Startup Group CafeStartup #$page*";
 $Text .= "\n Terdapat *$count startup*.";
 $Text .= $msg;
 foreach ($startupList as $value) {
-  $active = $value['Aktif'];
-  if ($active=='no') continue;
   $name = $value['Nama_Startup'];
   $name = str_replace('_', '\_', $name);
   $name = str_replace('www.', '', $name);
