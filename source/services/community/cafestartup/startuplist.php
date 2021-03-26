@@ -49,6 +49,7 @@ foreach ($startupList as $value) {
   $active = $value['Aktif'];
   if ($active=='no') continue;
   $name = $value['Nama_Startup'];
+  $name = rtrim($name, '/');
   $name = str_replace('_', '\_', $name);
   $name = str_replace('www.', '', $name);
   $name = str_replace('http://', '', $name);
