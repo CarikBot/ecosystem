@@ -62,6 +62,22 @@ class PHPID{
     return $events;
   }
 
+  public static function OnlineLearningSearchByTag($ATags){
+    if (empty($ATags)) return [];
+    $tags = explode(' ', $ATags);
+    $data = @file_get_contents(self::PHP_EVENT_LIST_URL);
+    if (empty($data)) return [];
+    $dataAsArray = json_decode($data, true);
+    $events = [];
+    foreach ($dataAsArray['data'] as $key => $item) {
+      $learningTags = $item['tags'];
+      if (!PHPID::searchTags( $tags, $learningTags)) continue;
+      $events[] = $item;
+    }
+    if (count($events)==0) return false;
+    return $events;
+  }
+
   public static function AjariSearchByTag($ATags){
     if (empty($ATags)) return [];
     $tags = explode(' ', $ATags);
@@ -74,7 +90,7 @@ class PHPID{
     foreach ($dataAsArray as $item) {
       $topicTags = $item['topic_tags'];
       if (!PHPID::searchTags( $tags, $topicTags)) continue;
-      $lists[] = $item;      
+      $lists[] = $item;
     }
     return $lists;
   }
