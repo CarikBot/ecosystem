@@ -39,7 +39,7 @@ if (!$movie) Output(0, "Maaf, informasi lengkap tentang film tersebut tidak kami
 
 $IMDBid = $movie['imdb_id'];
 $posterPath = @$movie['poster_path'];
-$image = BASE_IMAGE . $posterPath;
+$image = (!empty($posterPath)) ? BASE_IMAGE . $posterPath : '';
 $Text .= "\n*$movie[title]*";
 
 $Text .= "\nGenre: ";
@@ -49,7 +49,8 @@ foreach ($movie['genres'] as $genre) {
 $Text = rtrim($Text, ',');
 $Text .= "\nRelease: ".substr($movie['release_date'], 0, 4);
 $Text .= "\n_$movie[overview]_";
-$Text .= "\n[Poster]($image)";
+if (!empty($image)) $Text .= "[.]($image)";
+$Text .= "\n[IMDB](https://www.imdb.com/title/$IMDBid)";
 
 //die($Text);
 Output( 0, $Text);
