@@ -12,6 +12,11 @@ Daftar paket yang tersedia di dalam Ecosystem.
 |---|---|---|
 |[Pendidikan](../data/education/Pendidikan)|Informasi Pendidikan, khususnya kampus di Jawa Barat dan Banten<br>Keyword:<br />- info (pendidikan\|sekolah)<br />- ^(civitas)|Adji Ayomi|
 
+## entertainment
+| Package | Description | Author |
+|---|---|---|
+|[Entertainment](../data/entertainment/Entertainment)|Informasi hiburan, khususnya movie/film<br>Keyword:<br />- info (entertainment\|hiburan)|Luri Darmawan|
+
 ## health
 | Package | Description | Author |
 |---|---|---|
