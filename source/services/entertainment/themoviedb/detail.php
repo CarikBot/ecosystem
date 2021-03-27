@@ -2,7 +2,7 @@
 /**
  * USAGE
  *   curl "http://localhost/services/ecosystem/entertainment/themoviedb/detail/" -d "id=434769"
- *   curl "http://ecosystem.carik.id/services/entertainment/themoviedb/detail/" -d "id=434769"
+ *   curl "{ecosystem_baseurl}/services/entertainment/themoviedb/detail/" -d "id=434769"
  * 
  * @date       04-01-2021 01:35
  * @category   Education
@@ -51,5 +51,5 @@ $Text .= "\nRelease: ".substr($movie['release_date'], 0, 4);
 $Text .= "\n_$movie[overview]_";
 $Text .= "\n[Poster]($image)";
 
-die($Text);
+//die($Text);
 Output( 0, $Text);
