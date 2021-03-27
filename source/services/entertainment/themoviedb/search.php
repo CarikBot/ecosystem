@@ -50,7 +50,7 @@ foreach ($movies as $movie) {
   $title = $movie['title'];
   $releaseDate = $movie['release_date'];
   if (!empty($releaseDate)) $releaseDate = " (".substr($releaseDate, 0, 4).")";
-  $title .= "\n- ".$title.$releaseDate;
+  $title = $title.$releaseDate;
   $menuData[] = AddButton($title, "text=movie detail $id");
 }
 $buttonList[] = $menuData;
