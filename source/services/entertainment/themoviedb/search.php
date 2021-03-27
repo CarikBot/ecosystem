@@ -2,7 +2,7 @@
 /**
  * USAGE
  *   curl "http://localhost/services/ecosystem/entertainment/themoviedb/search/" -d "keyword=major league"
- *   curl "http://ecosystem.carik.id/services/entertainment/themoviedb/search/" -d "keyword=major league"
+ *   curl "{ecosystem_baseurl}/services/entertainment/themoviedb/search/" -d "keyword=major league"
  * 
  * @date       04-01-2021 01:35
  * @category   Education
@@ -24,9 +24,16 @@ require_once "./TheMovieDB_lib.php";
 $Key = $Config['packages']['entertainment']['themoviedb']['key'];
 if (empty($Key)) Output(200, 'Maaf, belum bisa akses ke pusat info perfilman.');
 
+$Text = "
+Cari info tentang film yang lagi viral bisa di sini lhoo...
+Cukup ketikkan format ini:
+` info film [keyword]`
+contoh
+` info film justice league`
+";
 $Keyword = urldecode(@$_GET['keyword']);
 if (empty($Keyword)) $Keyword = urldecode(@$_POST['keyword']);
-if (empty($Keyword)) Output(0, 'Maaf, pencarian info film tidak lengkap.');
+if (empty($Keyword)) Output(0, $Text);
 
 $Text = "*Info Film*\n";
 
