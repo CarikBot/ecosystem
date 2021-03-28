@@ -15,6 +15,13 @@
 */
 
 date_default_timezone_set('Asia/Jakarta');
+$UserID = urldecode(@$_POST['UserID']);
+$ChatID = urldecode(@$_POST['ChatID']);
+$ChannelId = urldecode(@$_POST['ChannelId']);
+$FullName = urldecode(@$_POST['FullName']);
+$OriginalText = urldecode(@$_POST['OriginalText']);
+$CurrentURL = (isset($_SERVER['HTTPS']) ? "https" : "http")."://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
 $Config = [
   "packages" => [
     "main" => [
