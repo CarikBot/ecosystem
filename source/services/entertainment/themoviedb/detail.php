@@ -20,7 +20,6 @@ ini_set('display_startup_errors', 0);
 include_once "../../config.php";
 require_once "../../lib/lib.php";
 require_once "./TheMovieDB_lib.php";
-const BASE_IMAGE = 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/';
 
 $Key = $Config['packages']['entertainment']['themoviedb']['key'];
 if (empty($Key)) Output(200, 'Maaf, belum bisa akses ke pusat info perfilman.');
@@ -29,7 +28,7 @@ $ID = urldecode(@$_GET['id']);
 if (empty($ID)) $ID = urldecode(@$_POST['id']);
 if (empty($ID)) Output(0, 'Maaf, pencarian info film tidak lengkap.');
 
-$Text = "*Info Film*\n";
+$Text = "*Info Film*";
 
 $TheMovieDB = new TheMovieDB;
 $TheMovieDB->Key = $Key;
@@ -37,9 +36,9 @@ $movie = $TheMovieDB->Detail($ID);
 
 if (!$movie) Output(0, "Maaf, informasi lengkap tentang film tersebut tidak kami temukan.");
 
-$IMDBid = $movie['imdb_id'];
+$IMDBid = @$movie['imdb_id'];
 $posterPath = @$movie['poster_path'];
-$image = (!empty($posterPath)) ? BASE_IMAGE . $posterPath : '';
+$image = (!empty($posterPath)) ? THEMOVIEDB_BASE_IMAGE . $posterPath : '';
 $Text .= "\n*$movie[title]*";
 
 $Text .= "\nGenre: ";
@@ -50,7 +49,14 @@ $Text = rtrim($Text, ',');
 $Text .= "\nRelease: ".substr($movie['release_date'], 0, 4);
 $Text .= "\n_$movie[overview]_";
 if (!empty($image)) $Text .= "[.]($image)";
-$Text .= "\n[IMDB](https://www.imdb.com/title/$IMDBid)";
+if (!empty($IMDBid)) $Text .= "\n[IMDB](https://www.imdb.com/title/$IMDBid)";
+if (!empty($image)){
+  if ($ChannelId=='whatsapp'){
+    Output( 0, $Text);
+  }else{
+    OutputWithImage(0, "tunggu sebentar..", $image, $Text);
+  }
+}
 
 //die($Text);
 Output( 0, $Text);

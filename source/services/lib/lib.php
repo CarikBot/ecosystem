@@ -33,6 +33,16 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     die($output);
 }
 
+function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
+  @header("Content-type:application/json");
+  $array['code'] = $ACode;
+  $array['text'] = $AMessage;
+  $array['image_caption'] = $ACaption;
+  $array['image'] = $AImageURL;
+  $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  die($output);
+}
+
 function isGroupChat(){
   $groupId = @$_POST['GroupID'];
   if (empty(($groupId))){
