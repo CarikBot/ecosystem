@@ -56,6 +56,10 @@ foreach ($startupList as $value) {
   $name = str_replace('https://', '', $name);
   $name = trim(strtolower($name));
   $value['Nama_Startup'] = $name;
+  $username = $value['Username_Telegram'];
+  $username = str_replace('@', '', $username);
+  $username = str_replace(' ', '', $username);
+  $value['Username_Telegram'] = $username;
   $bidangUsaha = $value['Bidang_Usaha_Startup_Anda'];
   $bidangUsaha = str_replace('_', '\_', $bidangUsaha);
   if (isCencored($name)) continue;
@@ -97,8 +101,6 @@ foreach ($startupList as $value) {
   $name = trim(strtolower($name));
   $username = $value['Username_Telegram'];
   $username = str_replace('_', '\_', $username);
-  $username = str_replace('@', '', $username);
-  $username = str_replace(' ', '', $username);
   $bidangUsaha = $value['Bidang_Usaha_Startup_Anda'];
   $bidangUsaha = str_replace('_', '\_', $bidangUsaha);
   $location = $value['Lokasi'];
