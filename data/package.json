@@ -23,6 +23,17 @@
         "site": "https://civitasi.id"
       }
     },
+    "entertainment": {
+      "Entertainment": {
+        "name": "Entertainment",
+        "description": "Informasi hiburan, khususnya movie/film",
+        "special_keyword": "ent",
+        "pattern": ["info (entertainment|hiburan)"],
+        "root_menu_type": "none",
+        "author": "Luri Darmawan",
+        "site": "https://carik.id"
+      }
+    },
     "health": {
       "PMIJateng": {
         "name": "PMIJateng",
