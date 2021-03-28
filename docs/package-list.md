@@ -2,6 +2,11 @@
 Daftar paket yang tersedia di dalam Ecosystem.
 
 
+## automotive
+| Package | Description | Author |
+|---|---|---|
+|[Automotive](../data/automotive/Automotive)|Informasi seputar automotif<br>Keyword:<br />- info (automotif\|otomotif\|automotive)||
+
 ## community
 | Package | Description | Author |
 |---|---|---|
