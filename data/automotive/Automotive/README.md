@@ -10,5 +10,7 @@ KendaraanListrik.net adalah komunitas tempat bertukar pengalaman antar masyaraka
 
 | Fitur | Keyword |
 |---|---|
+| Kendaraan Listrik | `info kendaraan listrik` |
 | Daftar Event | `daftar event kendaraan listrik` |
 
+![Kendaraan Listrik](kendaraan-listrik.jpg)
