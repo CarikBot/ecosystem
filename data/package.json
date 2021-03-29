@@ -3,6 +3,15 @@
   "version": "0.0.6",
   "description": "Carik Bot Microservice Ecosystem",
   "packages": {
+    "automotive": {
+      "Automotive": {
+        "name": "Automotive",
+        "description": "Informasi seputar automotif",
+        "special_keyword": "aut",
+        "pattern": ["info (automotif|otomotif|automotive)"],
+        "root_menu_type": "button"
+      }
+    },
     "community": {
       "Community": {
         "name": "Community",
