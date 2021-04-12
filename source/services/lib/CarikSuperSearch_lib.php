@@ -37,7 +37,7 @@ class CarikSuperSearch
     $postData['keyword'] = $AKeyword;
     $postData['ChannelId'] = 'telegram';
     $postData = http_build_query($postData);
-      $opts = [
+    $opts = [
       "http" => [
           "method" => "POST",
           'header'=> "Content-type: application/x-www-form-urlencoded\r\n"
