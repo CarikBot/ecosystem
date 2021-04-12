@@ -54,6 +54,8 @@ foreach ($startupList as $value) {
   $name = str_replace('www.', '', $name);
   $name = str_replace('http://', '', $name);
   $name = str_replace('https://', '', $name);
+  $name = str_replace('play.google.com/store/apps/details?id=', '', $name);
+  $name = str_replace('@', '', $name);
   $name = trim(strtolower($name));
   $value['Nama_Startup'] = $name;
   $username = $value['Username_Telegram'];
