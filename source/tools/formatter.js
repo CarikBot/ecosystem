@@ -7,6 +7,7 @@ const main = async () => {
   try {
     fileName = process.argv[2];
     if (fileName == undefined) return false;
+    if (fileName.includes('-recode.mm')) return;
     const dataAsString = await fs.readFileSync(path.resolve(fileName), { encoding: 'utf-8' });
     var formattedXml = xmlFormatter(dataAsString);
 
