@@ -59,6 +59,10 @@ foreach ($startupList as $value) {
   $name = trim(strtolower($name));
   $value['Nama_Startup'] = $name;
   $username = $value['Username_Telegram'];
+  $username = str_replace('https://t.me/', '', $username);
+  $username = str_replace('http://', '', $username);
+  $username = str_replace('https://', '', $username);
+  $username = str_replace('www.', '', $username);
   $username = str_replace('@', '', $username);
   $username = str_replace(' ', '', $username);
   $value['Username_Telegram'] = $username;
