@@ -305,7 +305,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
           </node>
           <node ID="16odcoj19vjfu271pfjbffe1ee" TEXT="Action">
             <node ID="7si1s4jp4m1ij2cl0gminms7ao" TEXT="10rb">
-              <node BACKGROUND_COLOR="#EEEEEE" ID="0oh99ns0nul4jk9c7v3lenfpf0" TEXT="Anda memilih donasi sebesar Rp. 10.000.">
+              <node BACKGROUND_COLOR="#EEEEEE" ID="0oh99ns0nul4jk9c7v3lenfpf0" TEXT="Anda memilih donasi sebesar *Rp. 10.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (Ovo,LinkAja) kesayangan Anda.">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
               <node ID="5ugac5smsffgb4t44hl8ilc4u5" TEXT="Action Type">
@@ -328,7 +328,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
               </node>
             </node>
             <node ID="13hgl1uutj56p381oiej7hs13h" TEXT="25rb">
-              <node BACKGROUND_COLOR="#EEEEEE" ID="3p5g6kg73dulheqbqnvkitr320" TEXT="Anda memilih donasi sebesar Rp. 25.000.">
+              <node BACKGROUND_COLOR="#EEEEEE" ID="3p5g6kg73dulheqbqnvkitr320" TEXT="Anda memilih donasi sebesar *Rp. 25.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (Ovo,LinkAja) kesayangan Anda.">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
               <node ID="1nsalba7lgoetb3tq51oblal3e" TEXT="Action Type">
@@ -351,7 +351,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
               </node>
             </node>
             <node ID="3mqtg22g9n1j53dtvrkqlrd9vq" TEXT="50rb">
-              <node BACKGROUND_COLOR="#EEEEEE" ID="4qk6etmo3h5mknmmsip6ncgnng" TEXT="Anda memilih donasi sebesar Rp. 50.000.">
+              <node BACKGROUND_COLOR="#EEEEEE" ID="4qk6etmo3h5mknmmsip6ncgnng" TEXT="Anda memilih donasi sebesar *Rp. 50.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (Ovo,LinkAja) kesayangan Anda.">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
               <node ID="5b2qs3kcsongg4j9ksh2hp0g05" TEXT="Action Type">
@@ -374,7 +374,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
               </node>
             </node>
             <node ID="2j118qid49eu6kh10vhetcqlkh" TEXT="100rb">
-              <node BACKGROUND_COLOR="#EEEEEE" ID="5oqccpmomdh8n1ut4ji1jpin5q" TEXT="Anda memilih donasi sebesar Rp. 100.000.">
+              <node BACKGROUND_COLOR="#EEEEEE" ID="5oqccpmomdh8n1ut4ji1jpin5q" TEXT="Anda memilih donasi sebesar *Rp. 100.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (Ovo,LinkAja) kesayangan Anda.">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
               <node ID="2af578dcmpdvbungvm95ojkl9v" TEXT="Action Type">
@@ -397,7 +397,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
               </node>
             </node>
             <node ID="6q1ot5un874b3o1su75kseipab" TEXT="200rb">
-              <node BACKGROUND_COLOR="#EEEEEE" ID="41v4e5v8c53igm22p95073aklo" TEXT="Anda memilih donasi sebesar Rp. 200.000.">
+              <node BACKGROUND_COLOR="#EEEEEE" ID="41v4e5v8c53igm22p95073aklo" TEXT="Anda memilih donasi sebesar *Rp. 200.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (Ovo,LinkAja) kesayangan Anda.">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
               <node ID="24ii53npkh8fdot3dqpce4g3b6" TEXT="Action Type">
@@ -420,7 +420,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
               </node>
             </node>
             <node ID="7lmkhjf390ua99k626cbq0tg7u" TEXT="500rb">
-              <node BACKGROUND_COLOR="#EEEEEE" ID="4mu2ed60ki4037g562dvn926h2" TEXT="Anda memilih donasi sebesar Rp. 500.000.">
+              <node BACKGROUND_COLOR="#EEEEEE" ID="4mu2ed60ki4037g562dvn926h2" TEXT="Anda memilih donasi sebesar *Rp. 500.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (Ovo,LinkAja) kesayangan Anda.">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
               <node ID="33qk77sd6tp9mq38jehhmv9e78" TEXT="Action Type">
