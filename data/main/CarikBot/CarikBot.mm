@@ -312,8 +312,13 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node ID="1u416esmph5kpimuhc116ngn98" TEXT="button"/>
                             </node>
                             <node ID="0a318rreqrubq75ujfu2gggfug" TEXT="Action">
-                                <node ID="5o8i2vj5vhpeon4946rt9rqjmc" TEXT="Ya, donasi 10rb">
-                                    <node BACKGROUND_COLOR="#EEEEEE" ID="30po4ua0h53gutsnhn1ssmf6uv" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;number=1&amp;price=10000&amp;random=2&amp;description=Donasi+10rb">
+                                <node ID="5o8i2vj5vhpeon4946rt9rqjmc" TEXT="QRIS 10rb">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="30po4ua0h53gutsnhn1ssmf6uv" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=1&amp;number=1&amp;price=10000&amp;random=2&amp;description=Donasi+10rb">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                </node>
+                                <node ID="57d86af0u77klc8mtf433slf3l" TEXT="Ovo/LinkAja">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="0klqqbr2b1qbjbbv0grddcq5us" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=10000&amp;random=2&amp;description=Donasi+10rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -330,8 +335,13 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node ID="5i8u1ku8383bf8nftd8si5smut" TEXT="button"/>
                             </node>
                             <node ID="61ougbrj4cvmj5dmcraqcm0nj9" TEXT="Action">
-                                <node ID="1rj7ttqrk86vppd55kpoh607el" TEXT="Ya, Donasi 25rb">
-                                    <node BACKGROUND_COLOR="#EEEEEE" ID="603jgqfi0i5rahmo648jactibd" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;number=1&amp;price=25000&amp;random=2&amp;description=Donasi+25rb">
+                                <node ID="1rj7ttqrk86vppd55kpoh607el" TEXT="QRIS 25rb">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="603jgqfi0i5rahmo648jactibd" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=1&amp;number=1&amp;price=25000&amp;random=2&amp;description=Donasi+25rb">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                </node>
+                                <node ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ovo/LinkAja">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="7vn986nrhaisltgqcgklrdfsce" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=25000&amp;random=2&amp;description=Donasi+25rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -348,8 +358,13 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node ID="70cpc161vc4qa95gvt3uu7rs6u" TEXT="button"/>
                             </node>
                             <node ID="0a05er1huecms0um5lsvvfch4g" TEXT="Action">
-                                <node ID="6erpv409qauuomjjujq288d91f" TEXT="Ya, Donasi 50rb">
-                                    <node BACKGROUND_COLOR="#EEEEEE" ID="627oublt01hucqs54scqgt4bhn" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;number=1&amp;price=50000&amp;random=2&amp;description=Donasi+50rb">
+                                <node ID="6erpv409qauuomjjujq288d91f" TEXT="QRIS 50rb">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="627oublt01hucqs54scqgt4bhn" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=1&amp;number=1&amp;price=50000&amp;random=2&amp;description=Donasi+50rb">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                </node>
+                                <node ID="7f3fvip4ahss64h5plhb9gofuh" TEXT="Ovo/LinkAja">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="3akfjkk1nudgnsh0govjvl77jn" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=50000&amp;random=2&amp;description=Donasi+50rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -366,8 +381,13 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node ID="6avqk8lf31hn6hb0dlofcghtoc" TEXT="button"/>
                             </node>
                             <node ID="5hr6bapo15umv19rhmia64empo" TEXT="Action">
-                                <node ID="0lemcu0fj9s4p48fggov1idegc" TEXT="Ya, Donasi 100rb">
-                                    <node BACKGROUND_COLOR="#EEEEEE" ID="64199cn6kmrtbbnikdqb6a5au4" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;number=1&amp;price=100000&amp;description=Donasi+100rb">
+                                <node ID="0lemcu0fj9s4p48fggov1idegc" TEXT="QRIS 100rb">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="64199cn6kmrtbbnikdqb6a5au4" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=1&amp;number=1&amp;price=100000&amp;description=Donasi+100rb">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                </node>
+                                <node ID="7tjof4v15qd9le8lotpcggno84" TEXT="Ovo/LinkAja">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="4j6v9790okp30k1cqfm0ol4190" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=100000&amp;description=Donasi+100rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -384,8 +404,13 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node ID="77mlrb0i3l644tfnr7k8m6vlm7" TEXT="button"/>
                             </node>
                             <node ID="4rki15148us42jf85kk0to4onq" TEXT="Action">
-                                <node ID="4ntrjbfdfo1de5vbv2ptsmi3ri" TEXT="Ya, Donasi 200rb">
-                                    <node BACKGROUND_COLOR="#EEEEEE" ID="2j6a6kie5dqup7uh0en5cktilk" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;number=1&amp;price=200000&amp;description=Donasi+200rb">
+                                <node ID="4ntrjbfdfo1de5vbv2ptsmi3ri" TEXT="QRIS 200rb">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="2j6a6kie5dqup7uh0en5cktilk" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=1&amp;number=1&amp;price=200000&amp;description=Donasi+200rb">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                </node>
+                                <node ID="1k8p9oifbj2r18luc17kluh1hu" TEXT="Ovo/LinkAja">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="6qdndu86o77trq7p4abnsksl0l" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=200000&amp;description=Donasi+200rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -402,8 +427,13 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node ID="2u5fl5q53fitn8r99qtg956e2o" TEXT="button"/>
                             </node>
                             <node ID="77k4jum1jhkmj4u8u9b11ihed2" TEXT="Action">
-                                <node ID="645skngao0rdj7n51d1tlh794r" TEXT="Ya, Donasi 500rb">
-                                    <node BACKGROUND_COLOR="#EEEEEE" ID="0vidvbbk1glct48954v7bet4k6" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;number=1&amp;price=500000&amp;description=Donasi+500rb">
+                                <node ID="645skngao0rdj7n51d1tlh794r" TEXT="QRIS">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="0vidvbbk1glct48954v7bet4k6" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=1&amp;number=1&amp;price=500000&amp;description=Donasi+500rb">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                </node>
+                                <node ID="17trevqi112k5p170tcce98cog" TEXT="Ovo/LinkAja">
+                                    <node BACKGROUND_COLOR="#EEEEEE" ID="3i8prgm6po9ue2i0emrptqt316" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=500000&amp;description=Donasi+500rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>

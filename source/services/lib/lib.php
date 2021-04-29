@@ -211,9 +211,11 @@ function AddButton( $ATitle, $AAction, $AImageURL = ''){
   }
   return $item;   
 }
-function AddButtonURL( $ATitle, $AURL){
+//size: compact, tall, full -> facebook
+function AddButtonURL( $ATitle, $AURL, $Size = "full"){
   $item['text'] = $ATitle;
   $item['url'] = $AURL;
+  $item['size'] = $Size;
   return $item;   
 }
 function AddButtonAction( $AArray, $AButtonList){
