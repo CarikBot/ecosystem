@@ -322,7 +322,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
-                                <node ID="2m2gkiu2ggr1va8432tb20t1fm" TEXT="Tidak">
+                                <node ID="2m2gkiu2ggr1va8432tb20t1fm" TEXT="Batal">
                                     <node ID="6ki6s6g2n6nerkbiepgqs72ekq" TEXT="Baik, terima kasih."/>
                                 </node>
                             </node>
@@ -345,7 +345,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
-                                <node ID="66gj6sou4m7ugpgomrm97imets" TEXT="Tidak">
+                                <node ID="66gj6sou4m7ugpgomrm97imets" TEXT="Batal">
                                     <node ID="3b87b6de8so0rgt9h0pe21vlo3" TEXT="Baik, terima kasih."/>
                                 </node>
                             </node>
@@ -368,7 +368,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
-                                <node ID="3mbf2shrlk9ilkr09hhph05h62" TEXT="Tidak">
+                                <node ID="3mbf2shrlk9ilkr09hhph05h62" TEXT="Batal">
                                     <node ID="6vul8kef1eq9gkg82dk39u45bt" TEXT="Baik, terima kasih."/>
                                 </node>
                             </node>
@@ -391,7 +391,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
-                                <node ID="2f6ufc2733ffp6vllij9755rav" TEXT="Tidak">
+                                <node ID="2f6ufc2733ffp6vllij9755rav" TEXT="Batal">
                                     <node ID="2sj1u2891jtovuid9osgcmh1l4" TEXT="Baik, terima kasih."/>
                                 </node>
                             </node>
@@ -414,7 +414,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
-                                <node ID="4pfrl7nbel8hvfm3eq4941e4j4" TEXT="Tidak">
+                                <node ID="4pfrl7nbel8hvfm3eq4941e4j4" TEXT="Batal">
                                     <node ID="6gjog481hd4v3358pio8r4hred" TEXT="Baik, terima kasih."/>
                                 </node>
                             </node>
@@ -437,7 +437,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
-                                <node ID="2cq1m1uc890o7qada57d4posn2" TEXT="Tidak">
+                                <node ID="2cq1m1uc890o7qada57d4posn2" TEXT="Batal">
                                     <node ID="6c2ranm2av2torq7ndto1uff7o" TEXT="Baik, terima kasih."/>
                                 </node>
                             </node>
