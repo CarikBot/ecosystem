@@ -131,7 +131,7 @@
             <font NAME="SansSerif" SIZE="10"/>
           </node>
           <node ID="4n7n4h9n6qeada9c9finf6bm9p" TEXT="pattern">
-            <node FOLDER="true" ID="7bns8k09jrhk3jfi363h9rk7a2" TEXT="daftar event cafestartup"/>
+            <node FOLDER="true" ID="7bns8k09jrhk3jfi363h9rk7a2" TEXT="(daftar|jadwal) event (cafestartup|cs)"/>
           </node>
         </node>
       </node>
