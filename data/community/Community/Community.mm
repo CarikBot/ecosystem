@@ -127,7 +127,7 @@
                     </node>
                 </node>
                 <node ID="70jbk7b1pvnnkci0lhcfln67vv" TEXT="&#128467; Daftar Event">
-                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="79e7qe0eg16na9nou4jfdri55n" TEXT="*Daftar Event Cafestartup*&#10;&#10;Startup Do's and Don'ts&#10;Jumat, 21 Mei 2021 19.00&#10;https://t.me/Cafestartup/564146&#10;&#10;Lean-Agile Software Development&#10;Sabtu, 22 Mei 2021 15.00&#10;https://t.me/Cafestartup/562866&#10;&#10;GIVEAWAY HANDPHONE!!!&#10;https://t.me/Cafestartup/563279&#10;">
+                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="79e7qe0eg16na9nou4jfdri55n" TEXT="*Daftar Event Cafestartup*&#10;&#10;[Startup Do's and Don'ts](https://t.me/Cafestartup/564146)&#10;Jumat, 21 Mei 2021 19.00&#10;&#10;[Lean-Agile Software Development](https://t.me/Cafestartup/562866)&#10;Sabtu, 22 Mei 2021 15.00&#10;&#10;[GIVEAWAY HANDPHONE!!!](https://t.me/Cafestartup/563279)&#10;">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
                     <node ID="4n7n4h9n6qeada9c9finf6bm9p" TEXT="pattern">
