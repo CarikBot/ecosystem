@@ -11,6 +11,19 @@
  * @since
  */
 
+$UserId = urldecode(@$_POST['UserID']);
+$ChatId = urldecode(@$_POST['ChatID']);
+$GroupId = urldecode(@$_POST['GroupID']);
+$ChannelId = @$_POST['ChannelId'];
+$FullName = urldecode(@$_POST['FullName']);
+$FirstName = @$_POST['FirstName'];
+$LastName = @$_POST['LastName'];
+if (empty($FirstName)) {
+  $f = explode(' ', $FullName);
+  $FirstName = $LastName = $f[0];
+  if (count($f)>1) $LastName = $f[1];
+}
+
 function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false){
     @header("Content-type:application/json");
     $array['code'] = $ACode;
@@ -167,6 +180,24 @@ function ArrayPagination($AArray, $APage, $AAMountPerPage, $AWithModulo = false)
   return array_slice( $AArray, $offset, $AAMountPerPage );
 }
 
+function RenameArrKey($oldKey, $newKey, $arr){
+  if(!isset($arr[$oldKey])) return $arr; // Failsafe
+  $keys = array_keys($arr);
+  $keys[array_search($oldKey, $keys)] = $newKey;
+  $newArr = array_combine($keys, $arr);
+  return $newArr;
+}
+
+/**
+ * $array : The initial array i want to modify 
+ * $insert : the new array i want to add, eg array('key' => 'value') or array('value')
+ * $position : the position where the new array will be inserted into. Please mind that arrays start at 0
+ */
+function ArrayInsert( $array, $insert, $position ) {
+  return array_slice($array, 0, $position, TRUE) + $insert + array_slice($array, $position, NULL, TRUE);
+}
+
+
 /**
  * CUSTOM ACTION
  * 
@@ -180,9 +211,11 @@ function AddButton( $ATitle, $AAction, $AImageURL = ''){
   }
   return $item;   
 }
-function AddButtonURL( $ATitle, $AURL){
+//size: compact, tall, full -> facebook
+function AddButtonURL( $ATitle, $AURL, $Size = "full"){
   $item['text'] = $ATitle;
   $item['url'] = $AURL;
+  $item['size'] = $Size;
   return $item;   
 }
 function AddButtonAction( $AArray, $AButtonList){
