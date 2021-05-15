@@ -2,7 +2,8 @@
 <map version="0.8.1">
   <node CREATED="1614419779280" ID="b9aa22deba98b3b20c7ac8aca2" MODIFIED="1614419779280" STYLE="bubble" TEXT="Ecosystem">
     <hook NAME="accessories/plugins/NodeNote.properties">
-      <text>*Carik Microservice Ecosystem*
+      <text>
+                *Carik Microservice Ecosystem*
 
 *Carik Microservice Ecosystem* merupakan kumpulan berbagai _microservice_ yang menjadi pendukung dari layanan chatbot Carik.
 
@@ -11,7 +12,7 @@ Platform Carik Bot memberikan kesempatan kepada para developer untuk menghubungk
 Informasi lebih lengkap tentang ekosistem ini bisa dipelajari dari repository [Carik Ecosystem](https://github.com/CarikBot/ecosystem/)
 
 Menu pilihan di bawah ini juga merupakan contoh fasilitas dari platform ini.
-</text>
+            </text>
     </hook>
     <node CREATED="1614419779280" ID="193b56735e689ae86a01d91513" MODIFIED="1614419779280" POSITION="right" TEXT="🗓 Alur Kerja">
       <node BACKGROUND_COLOR="#F2F2F2" CREATED="1614419779280" ID="61lrimrpaj3e6ejcmn8shl9n9u" MODIFIED="1614419779280" TEXT="*ALUR KERJA*&#10;[.](https://raw.githubusercontent.com/CarikBot/ecosystem/main/images/Carik-Integration.png)&#10;Alur Kerja *Ecosystem Platform* ini bisa dipelajari lebih lengkap di [Repositor Carik](https://github.com/CarikBot/ecosystem/#alur-kerja) di Github.">
