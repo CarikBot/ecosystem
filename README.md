@@ -61,7 +61,7 @@ Beberapa pengertian terhadap kata yang disampaikan berulang di dokumen ini:
 Sebagian kode sumber _microservice_ yang ada saat ini, dan yang berlisensi terbuka, akan mulai didistribusikan ke repositori ini.
 
 
-# Donation
+## Donation
 
 Kami menerima donasi. Donasi akan digunakan untuk pengembangan dan memastikan layanan [Carik Bot](https://carik.id) dan [Carik Ecosystem](https://github.com/CarikBot/ecosystem/) tetap berjalan.
 
@@ -77,14 +77,11 @@ dengan mengirim isi pesan `donasi`.
 
 ![donation](images/donation.jpg)
 
-# Credits
+## Credits
 
 Carik Bot is developed by [Luri Darmawan](https://github.com/luridarmawan/) and 20+ amazing contributors. Special thanks to Hastura, Mbah Don and Delli for originally creating Carik character.
 
-# Premium Support
+## Premium Support
 
 [Carik Bot](https://carik.id), as an open source project, is free to use and always will be. [Cakti](https://cakti.id/) offers premium Chat Bot app design/development services. Email us at [support@carik.id](mailto:support@carik.id) to get in touch for more details.
-
-
-
 
