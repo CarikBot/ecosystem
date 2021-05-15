@@ -85,6 +85,3 @@ Carik Bot is developed by [Luri Darmawan](https://github.com/luridarmawan/) and 
 
 [Carik Bot](https://carik.id), as an open source project, is free to use and always will be. [Cakti](https://cakti.id/) offers premium Chat Bot app design/development services. Email us at [support@carik.id](mailto:support@carik.id) to get in touch for more details.
 
-
-
-
