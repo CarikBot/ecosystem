@@ -33,6 +33,7 @@ if ($pages===false) Output(404, 'Maaf, informasi tidak ditemukan. Coba cek ulang
 $Text = "Ditemukan informasi ini:\n";
 foreach ($pages as $key => $page) {
   $title = $page['title'];
+  $title = htmlspecialchars_decode($title, ENT_QUOTES);
   $content = @$page['extract'];
   $Text .= "\n*$title*\n$content";
 }
