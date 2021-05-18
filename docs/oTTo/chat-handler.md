@@ -12,7 +12,7 @@ Sistemnya yang sangat fleksibel memudahkan untuk dihubungkan dengan sistem inter
 
 [**Carik oTTo**](https://carik.id/otto/) sangat mudah diintegrasikan dengan internal sistem Anda. Cukup dengan membuat API (_Application Programming Interface_) dan memasukkannya ke dalam konfigurasi aplikasi Carik oTTo di ponsel android Anda.
 
-![integrasi](04-integration setting.png)
+![integrasi](integration-setting.png)
 
 ### Payload
 
