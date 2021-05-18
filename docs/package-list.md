@@ -32,6 +32,7 @@ Daftar paket yang tersedia di dalam Ecosystem.
 | Package | Description | Author |
 |---|---|---|
 |[CarikBot](../data/main/CarikBot)|Carik Bot default menu<br>Keyword:|Luri Darmawan|
+|[oTTo](../data/main/oTTo)|Carik oTTo<br>Keyword:<br />- info (otto\|oto)<br />- info carik (otto\|oto)|Luri Darmawan|
 
 ## other
 | Package | Description | Author |
