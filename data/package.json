@@ -70,6 +70,14 @@
         "special_keyword": "crb",
         "root_menu_type": "button",
         "author": "Luri Darmawan"
+      },
+      "oTTo": {
+        "name": "oTTo",
+        "description": "Carik oTTo",
+        "special_keyword": "otto",
+        "pattern": ["info (otto|oto)", "info carik (otto|oto)"],
+        "root_menu_type": "button",
+        "author": "Luri Darmawan"
       }
     },
     "other": {
