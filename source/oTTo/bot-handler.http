@@ -1,0 +1,23 @@
+
+# API Tester
+
+@BaseURL="http://localhost/otto/bot-handler.php"
+@Message="halo apa kabar"
+@UserId="chat-user-id"
+
+### send message
+curl -L {{BaseURL}} \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "message": {
+    "message_id": 0,
+    "text": {{Message}},
+    "chat": {
+      "id": {{UserId}}
+    },
+    "from": {
+      "id": {{UserId}},
+      "name": "name"
+    }
+  }
+}'
