@@ -1,0 +1,5 @@
+https://jannahqu.id/api/news?start=0&length=5
+
+https://jannahqu.id/api/programs?start=0&length=9
+
+
