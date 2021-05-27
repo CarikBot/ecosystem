@@ -1,7 +1,8 @@
 {
   "functions": {
-    "oTTo/bot-handler.php": {
-      "runtime": "vercel-php@0.4.0"
+    "oTTo/api/bot-handler.php": {
+      "runtime": "vercel-php@0.4.0",
+      "maxDuration": 30
     }
   }
 }
