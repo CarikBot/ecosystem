@@ -55,6 +55,6 @@ Setiap API yang dilewatkan melalui **oTTo** diwajibkan memiliki output berformat
 
 ## Example
 
-Contoh _code_ untuk bot handler ini tersedia di [https://github.com/CarikBot/ecosystem/tree/main/source/oTTo](https://github.com/CarikBot/ecosystem/tree/main/source/oTTo). Terdapat 2 contoh skrip dengan menggunakan bahasa pemrograman PHP dan JS.
+Contoh _code_ untuk bot handler ini tersedia di [https://github.com/CarikBot/ecosystem/tree/main/source/oTTo](https://github.com/CarikBot/ecosystem/tree/main/source/oTTo). Terdapat 2 contoh skrip dengan menggunakan bahasa pemrograman PHP dan google-script.
 
 Skri tersebut hanya contoh sederhana dengan membandingkan kata menggunakan regex. Anda dapat menambahkannya sesuai dengan kebutuhan termasuk jika akan menerapkan NLP ataupun _Machine Learning_ di dalamnya.
