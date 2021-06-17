@@ -28,6 +28,9 @@ class PHPID{
   const PHP_EVENT_LIST_URL = 'https://raw.githubusercontent.com/phpid-jakarta/phpid-online-learning-2020/master/data.json';
   const PHP_AJARI_URL = 'https://raw.githubusercontent.com/phpid-jakarta/ajari-koding/master/data.json';
   const INDONESIAN_MONTH_LIST = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+  const PHP_TRAKTEER_WIDGET_URL = 'https://trakteer.id/phpid?sfz=false&page=1';
+  const PHP_TRAKTEER_PATTERN = '/(.*) mentraktir (.*) Cendol/';
+  const PHP_CENDOL_VALUE = 5000;
   
   public function __construct(){
     $this->Referer = @$_SERVER['HTTP_REFERER'];
@@ -93,6 +96,48 @@ class PHPID{
       $lists[] = $item;
     }
     return $lists;
+  }
+
+  public static function DonationList(){
+    $options = [
+      "http" => [
+        "method" => "GET",
+        "header" => "X-Requested-With: XMLHttpRequest\r\n"
+      ]
+    ];
+    $context = stream_context_create($options);
+    $html = file_get_contents(self::PHP_TRAKTEER_WIDGET_URL, false, $context);
+    if (empty($html)) return [];
+
+    $dom = new DOMDocument();
+    $dom->preserveWhiteSpace = false;
+    @$dom->loadHTML($html);
+
+    $finder = new DomXPath($dom);
+    $nodes = $finder->query('//div[contains(@class,"feed-list")]/div');
+    if (0==($nodes->length)) return [];
+    $nodeList = [];
+    foreach ($nodes as $node) {
+      $item = [];
+      $e = $finder->query('div[contains(@class,"content")]/div[contains(@class,"caption")]', $node);
+      $caption = trim($e->item(0)->textContent);
+      $caption = str_replace("\n", "", $caption);
+      $caption = str_replace("\r", "", $caption);
+      $caption = str_replace("\t", " ", $caption);
+      $caption = preg_replace('/\s+/', ' ', $caption);
+
+      preg_match(self::PHP_TRAKTEER_PATTERN, $caption, $matches, PREG_OFFSET_CAPTURE);
+      $name = $matches[1][0];
+      $cendol = $matches[2][0];
+      $value = $cendol * self::PHP_CENDOL_VALUE;
+
+      $item['name'] = $name;
+      $item['cendol'] = $cendol;
+      $item['value'] = $value;
+      $nodeList[] = $item;
+    }
+
+    return $nodeList;
   }
 
   private static function searchTags( $ATags, $ATopicTags){
