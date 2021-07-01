@@ -1,5 +1,8 @@
 <?php
 /** #1
+ * Preview Product List
+ * Example with internal configuration. Using API integration is highly recommended
+ * 
  * USAGE
  *   curl http://localhost:8000/product.php -d ""
  * 

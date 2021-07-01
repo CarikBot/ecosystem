@@ -1,5 +1,7 @@
 <?php
 /** #3
+ * Add to Cart
+ * 
  * USAGE
  *   curl http://localhost:8000/addtocart.php -d "productId=1&amount=2"
  * 

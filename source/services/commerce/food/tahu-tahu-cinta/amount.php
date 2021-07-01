@@ -1,5 +1,7 @@
 <?php
 /** #2
+ * Number of Item to be ordered
+ * 
  * USAGE
  *   curl http://localhost:8000/amount.php -d "productId=1"
  * 
