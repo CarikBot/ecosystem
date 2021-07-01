@@ -15,8 +15,10 @@
 $RequestContent = file_get_contents('php://input');
 if (!empty($RequestContent)){
   $RequestContentAsJson = json_decode($RequestContent, true);
-  foreach ($RequestContentAsJson['data'] as $key => $value) {
-    $_POST[$key] = $value;
+  if ($RequestContentAsJson != false){
+    foreach ($RequestContentAsJson['data'] as $key => $value) {
+      $_POST[$key] = $value;
+    }
   }
 }
 
