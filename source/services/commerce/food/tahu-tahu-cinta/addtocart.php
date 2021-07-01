@@ -32,10 +32,9 @@ if (empty($Amount)) Output(0, 'Maaf, pemesanan gagal. Parameter tidak lengkap.')
 
 $product = $LocalConfig['packages']['commerce'][$commerceCategory][$commerceName]['products'][$ProductId-1];
 $address = $LocalConfig['packages']['commerce'][$commerceCategory][$commerceName]['address'];
-
+$productName = trim(RemoveEmoji($product['name']));
 $price = $product['price'];
 $total = $Amount * $price;
-
 
 $Text = "Kamu memesan *'$product[name]'*";
 $Text .= "\nsejumlah *$Amount porsi/paket*";
@@ -48,7 +47,7 @@ $Text .= "\n$address";
 $Text .= "\n\nJaga kesehatan dan Tetap Prokes.";
 
 $buttons = [];
-$buttons[] = AddButton( '💶 Ya, pesan', "text=$commerceCode $ProductId $Amount $price ".$product['name']);
+$buttons[] = AddButton( '💶 Ya, pesan', "text=$commerceCode $ProductId $Amount $price $productName");
 $buttons[] = AddButton( '✖️ Batal', 'text=batal');
 $buttonList[] = $buttons;
 
