@@ -20,6 +20,8 @@ include_once "../../../config.php";
 include_once "../../../lib/lib.php";
 include_once "./config.php";
 
+// Get Product List
+// Example with internal configuration. Using API integration is highly recommended
 $products = $LocalConfig['packages']['commerce'][$commerceCategory][$commerceName]['products'];
 
 $Text = "";
