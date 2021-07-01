@@ -10,7 +10,7 @@ Hanya dengan menggunakan aplikasi mobile Android, Anda sudah bisa membuat _chat 
 
 Dukungan terhadap berbagai platform media sosial akan semakin memudahkan Anda dalam menjawab pesan-pesan yang datang berulang.
 
-Sistemnya yang sangat fleksibel memudahkan untuk dihubungkan dengan sistem internal Anda, misal untuk info produk, cek resi pengiriman, daftar hadir dan banyak hal lainnya. Dan yang penting lagi, terintegrasi dengan saran pembayaran elektronik (QRIS, eWallet, Transfer).
+Sistemnya yang sangat fleksibel memudahkan untuk dihubungkan dengan sistem internal Anda, misal untuk info produk, cek resi pengiriman, daftar hadir dan banyak hal lainnya. Dan yang penting lagi, terintegrasi dengan sarana pembayaran elektronik (QRIS, eWallet, Transfer).
 
 [Carik oTTo](https://carik.id/otto/)
             </text>
@@ -44,6 +44,13 @@ Sistemnya yang sangat fleksibel memudahkan untuk dihubungkan dengan sistem inter
         <node ID="5ppcda6b3e6s4j6ajpj58u6bhg" TEXT="button"/>
       </node>
       <node ID="1s4rbi8saah41t1qusr89jmha5" TEXT="Action">
+        <node ID="35blj9bsuvbu4357b2eilq1slc" TEXT="🗓 Info">
+          <hook NAME="accessories/plugins/NodeNote.properties">
+            <text>
+                            callback:info otto
+                        </text>
+          </hook>
+        </node>
         <node ID="3a091b3lft8momvv6cl1ihao71" TEXT="🌟 Download">
           <hook NAME="accessories/plugins/NodeNote.properties">
             <text>
@@ -65,7 +72,14 @@ Sistemnya yang sangat fleksibel memudahkan untuk dihubungkan dengan sistem inter
         <node ID="4nialk5o9rqvphair8lac0uvmd" TEXT="button"/>
       </node>
       <node ID="76j28oufc2flhsikqipjrbo76u" TEXT="Action">
-        <node ID="3e30blibp5honcsh7v2che22te" TEXT="🗒 Panduan">
+        <node ID="3e30blibp5honcsh7v2che22te" TEXT="🗓 Info">
+          <hook NAME="accessories/plugins/NodeNote.properties">
+            <text>
+                            callback:info otto
+                        </text>
+          </hook>
+        </node>
+        <node ID="57ogbhf1golmmpkn6fpjv66bcm" TEXT="🗒 Panduan">
           <hook NAME="accessories/plugins/NodeNote.properties">
             <text>
                             callback:panduan otto
