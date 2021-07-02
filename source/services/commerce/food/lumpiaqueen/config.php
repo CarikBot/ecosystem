@@ -30,6 +30,10 @@ $LocalConfig = [
             [
               "name" => "🥰 Lumpia Rebung",
               "price" => 45000
+            ],
+            [
+              "name" => "🥰 Lumpia Demo",
+              "price" => 1500
             ]
           ]
         ]  
