@@ -35,11 +35,14 @@ $Text .= "\nHarga: Rp. " . number_format($product['price'], 0,',','.');
 $Text .= "\nMau pesen berapa?";
 
 $buttons = [];
-$buttons[] = AddButton( '1', "text=$commerceCode $ProductId 1");
-$buttons[] = AddButton( '2', "text=$commerceCode $ProductId 2");
-$buttons[] = AddButton( '3', "text=$commerceCode $ProductId 3");
-$buttons[] = AddButton( '4', "text=$commerceCode $ProductId 4");
-$buttons[] = AddButton( '5', "text=$commerceCode $ProductId 5");
+for ($i=1; $i <= 5; $i++) {
+  $buttons[] = AddButton( $i, "text=$commerceCode $ProductId $i");
+}
+$buttonList[] = $buttons;
+$buttons = [];
+for ($i=6; $i <= 10; $i++) {
+  $buttons[] = AddButton( $i, "text=$commerceCode $ProductId $i");
+}
 $buttonList[] = $buttons;
 $buttons = [];
 $buttons[] = AddButton( '✖️ Batal', 'text=batal');

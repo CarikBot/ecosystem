@@ -38,10 +38,10 @@ $total = $Amount * $price;
 
 $Text = "Kamu memesan *'$product[name]'*";
 $Text .= "\nsejumlah *$Amount porsi/paket*";
-$Text .= "\nHarga per porsi: Rp. " . number_format($price, 0,',','.');
+$Text .= "\nHarga per paket: Rp. " . number_format($price, 0,',','.');
 $Text .= "\nTotal belanja: Rp. " . number_format($total, 0,',','.');
 $Text .= "\n";
-$Text .= "\nKami akan segera menyiapkan pesananmu setelah pembayaran terkonfirmasi.";
+$Text .= "\nPesanan akan disiapkan setelah pembayaran terkonfirmasi.";
 $Text .= "\n*Pesanan bisa diambil di:*";
 $Text .= "\n$address";
 $Text .= "\n\nJaga kesehatan dan Tetap Prokes.";
