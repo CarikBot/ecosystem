@@ -51,3 +51,12 @@ Informasi tentang Agile Manifesto di group [Agile Indonesia](https://t.me/agilei
 | Fitur | Keyword |
 |---|---|
 | Daftar Startup |`daftar startup di cafestartup` <br>Menampilkan daftar startup yang tergabung di group CafeStartup. |
+
+### Kendaraan Listrik
+
+_move to [Automotive](https://github.com/CarikBot/ecosystem/tree/main/data/automotive/Automotive)_
+
+| Fitur | Keyword |
+|---|---|
+| Jadwal Event |`jadwal event kendaraan listrik` <br>Menampilkan jadwal event Kendaraan Listrik Indonesia.|
+
