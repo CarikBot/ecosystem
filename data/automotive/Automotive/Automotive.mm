@@ -32,23 +32,23 @@ Dapatkan informasi tentang otomotif di sini.
                         <node ID="3o44v4t70qk1tear3d1n28moqe" TEXT="button"/>
                     </node>
                     <node ID="1hb2kbpnnr6hjh9jrlbtv71f2m" TEXT="Action">
-                        <node FOLDER="true" ID="1cq25isahr7pra2o1fr1g7t8tq" TEXT="Merk">
-                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0r7drm2h9h621utvcj9deu68kp" TEXT="*Merk*&#10;&#10;- [Gesits Electric Bike](https://www.kendaraanlistrik.net/2007/08/sepeda-motor-listrik-gesits.html)&#10;- [Goes-On e-Bike Conversion Kit](https://www.kendaraanlistrik.net/2007/08/sepeda-motor-listrik-gesits.html)&#10;- [Jarvis Electric Bike](https://www.kendaraanlistrik.net/2019/09/jarvis-electric-bike.html)&#10;- [Redwheels Electric Skateboard](https://www.kendaraanlistrik.net/2007/08/redwheels-eboard.html)&#10;- [Selis Electric Bike](http://www.kendaraanlistrik.net/2012/05/selis-jual-sepeda-listrik-kit.html)&#10;- [Skutis Electric Scooter](http://www.kendaraanlistrik.net/2007/07/skutis-corporation.html)&#10;- [Viar Sepeda Motor Listrik](http://www.kendaraanlistrik.net/2007/08/viar-sepeda-motor-listrik.html)&#10;- [Volta Sepeda Motor Listrik](https://www.kendaraanlistrik.net/2007/07/volta-motor-listrik.html)&#10;&#10;Sumber: [Kendaraan Listrik]()">
+                        <node ID="1cq25isahr7pra2o1fr1g7t8tq" TEXT="Merk">
+                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0r7drm2h9h621utvcj9deu68kp" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/brand/">
                                 <font NAME="SansSerif" SIZE="10"/>
                             </node>
                         </node>
-                        <node FOLDER="true" ID="7is6pet89pebi1irtuhhmr6cg5" TEXT="Wilayah">
-                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0nem6c9qr4240itl1muv2d6dc1" TEXT="*Berdasarkan Wilayah*&#10;&#10;- [Seluruh Indonesia](http://www.kendaraanlistrik.net/search/label/nasional)&#10;- [Bali](http://www.kendaraanlistrik.net/search/label/bali)&#10;- [Bandung](http://www.kendaraanlistrik.net/search/label/bandung)&#10;- [Bekasi](http://www.kendaraanlistrik.net/search/label/bekasi)&#10;- [Bogor](http://www.kendaraanlistrik.net/search/label/bogor)&#10;- [Cirebon](http://www.kendaraanlistrik.net/search/label/cirebon)&#10;- [Jakarta](http://www.kendaraanlistrik.net/search/label/jakarta)&#10;- [Karawang](http://www.kendaraanlistrik.net/search/label/karawang)&#10;- [Makassar](http://www.kendaraanlistrik.net/search/label/makasar)&#10;- [Medan](http://www.kendaraanlistrik.net/search/label/medan)&#10;- [Palembang](http://www.kendaraanlistrik.net/search/label/palembang)&#10;- [Pangandaran](http://www.kendaraanlistrik.net/search/label/pangandaran)&#10;- [Semarang](http://www.kendaraanlistrik.net/search/label/semarang)&#10;- [Surabaya](http://www.kendaraanlistrik.net/search/label/surabaya)&#10;- [Solo](http://www.kendaraanlistrik.net/search/label/solo)&#10;- [Tangerang](http://www.kendaraanlistrik.net/search/label/tangerang)&#10;- [Yogyakarta](http://www.kendaraanlistrik.net/search/label/yogyakarta)&#10;&#10;Sumber: [Kendaraan Listrik](https://www.kendaraanlistrik.net/p/seller.html)&#10;">
+                        <node ID="7is6pet89pebi1irtuhhmr6cg5" TEXT="Wilayah">
+                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0nem6c9qr4240itl1muv2d6dc1" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/location/">
                                 <font NAME="SansSerif" SIZE="10"/>
                             </node>
                         </node>
-                        <node FOLDER="true" ID="3ehpmkfdu50vbh61os1ntseni9" TEXT="Customized">
-                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0u48heb6e9gglp211flu1f7uvf" TEXT="*Customized/Spare Parts*&#10;&#10;- [Custom bike](http://www.kendaraanlistrik.net/2019/08/custom-electric-bike.html)&#10;- [Baterai](http://www.kendaraanlistrik.net/2007/08/daftar-penjual-baterai-sepeda-motor.html)&#10;- [Roda Penggerak](http://www.kendaraanlistrik.net/2007/08/daftar-penjual-motor-penggerak.html)&#10;- [Perbaikan](http://service.kendaraanlistrik.net/)">
+                        <node ID="3ehpmkfdu50vbh61os1ntseni9" TEXT="Customized">
+                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0u48heb6e9gglp211flu1f7uvf" TEXT="*Customized/Spare Parts*&#10;- [Custom bike](http://kendaraanlistrik.net/product/custom/?q=Custom%20Bike)&#10;- [Baterai](http://kendaraanlistrik.net/product/custom/?q=Baterai)&#10;- [Penggerak Roda](http://kendaraanlistrik.net/product/custom/?q=Penggerak%20Roda)&#10;">
                                 <font NAME="SansSerif" SIZE="10"/>
                             </node>
                         </node>
-                        <node FOLDER="true" ID="75f55sanraqs84bc9kihvcfprf" TEXT="Sewa Kendaraan">
-                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7bjk2rufo425mat4olvhdf670c" TEXT="*Sewa Kendaraan Listrik*&#10;&#10;- [Skutis Otoped Listrik, Jakarta &amp; Bali](https://www.kendaraanlistrik.net/2007/07/skutis-corporation.html)&#10;- [Migo Sepeda Motor Listrik, Jakarta, Bali &amp; Surabaya](https://play.google.com/store/apps/details?id=com.lcit.migo)&#10;- [GoWes Otoped &amp; Sepeda Motor Listrik, Jakarta](https://play.google.com/store/apps/details?id=com.jimatt.gowes)&#10;&#10;Sumber: [Kendaraan Listrik](https://www.kendaraanlistrik.net/p/seller.html)&#10;">
+                        <node ID="75f55sanraqs84bc9kihvcfprf" TEXT="Sewa Kendaraan">
+                            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7bjk2rufo425mat4olvhdf670c" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/rent/">
                                 <font NAME="SansSerif" SIZE="10"/>
                             </node>
                         </node>
