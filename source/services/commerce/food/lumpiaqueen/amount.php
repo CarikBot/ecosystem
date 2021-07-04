@@ -29,6 +29,7 @@ $ProductId = @$requestData['productId'];
 if (empty($ProductId)) Output(0, 'Maaf, pemesanan gagal. Parameter tidak lengkap.');
 $product = $LocalConfig['packages']['commerce'][$commerceCategory][$commerceName]['products'][$ProductId-1];
 $productName = trim(RemoveEmoji($product['name']));
+$productName = preg_replace('/[\(\)\[\]]+/', '-', $productName);
 
 $Text = "Kamu memesan *'$productName'*";
 $Text .= "\nHarga: Rp. " . number_format($product['price'], 0,',','.');

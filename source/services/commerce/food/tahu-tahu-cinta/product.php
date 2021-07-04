@@ -43,6 +43,7 @@ $buttons = [];
 $buttonList = [];
 foreach ($products as $key => $item) {
   $name = $item['name'];
+  $name = preg_replace('/[\(\)\[\]]+/', '-', $name);
   $buttons[] = AddButton( $name, "text=$commerceCode ".($key+1));
   if ($key % 2 != 0){
     $buttonList[] = $buttons;

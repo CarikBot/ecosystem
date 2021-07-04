@@ -33,10 +33,11 @@ if (empty($Amount)) Output(0, 'Maaf, pemesanan gagal. Parameter tidak lengkap.')
 $product = $LocalConfig['packages']['commerce'][$commerceCategory][$commerceName]['products'][$ProductId-1];
 $address = $LocalConfig['packages']['commerce'][$commerceCategory][$commerceName]['address'];
 $productName = trim(RemoveEmoji($product['name']));
+$productName = preg_replace('/[\(\)\[\]]+/', '-', $productName);
 $price = $product['price'];
 $total = $Amount * $price;
 
-$Text = "Kamu memesan *'$product[name]'*";
+$Text = "Kamu memesan *'$productName'*";
 $Text .= "\nsejumlah *$Amount porsi/paket*";
 $Text .= "\nHarga per paket: Rp. " . number_format($price, 0,',','.');
 $Text .= "\nTotal belanja: Rp. " . number_format($total, 0,',','.');
