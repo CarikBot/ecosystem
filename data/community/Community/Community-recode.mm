@@ -6,15 +6,15 @@
                 Informasi sebagian komunitas yang ada di dalam ekosistem Carik.
             </text>
     </hook>
-    <node ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="PHP Indonesia">
+    <node FOLDER="true" ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="PHP Indonesia">
       <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="61lrimrpaj3e6ejcmn8shl9n9u" TEXT="*PHP Indonesia*&#10;&#10;PHP Indonesia bermaksud menghimpun, mendorong meningkatkan dan memanfaatkan potensi segenap pihak yang bergerak di bidang Pemrograman PHP dan Pemrograman lainnya yang mendukung, untuk mewujudkan suatu kondisi yang saling melengkapi dalam rangka pencapaian tujuan PHP Indonesia.&#10;&#10;PHP Indonesia bertujuan menumbuhkan, mengembangkan dan meningkatkan keahlian, produktivitas, profesionalisme, peningkatan daya saing untuk pemenuhan pasar piranti lunak nasional dalam rangka pembangunan bangsa dan negara, melalui sumber daya pemrogram berbasis PHP dalam lingkup nasional, dan meningkatkan kesejahteraan anggota.&#10;&#10;[PHP Indonesia](https://phpindonesia.id)">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
       <node FOLDER="true" ID="3sb8427stqs420ii6u3s3d091k" TEXT="Action Type">
         <node FOLDER="true" ID="3a7vdlpi5o748vlk0f5c21a3ra" TEXT="button"/>
       </node>
-      <node ID="2l3m8pp3lm0ga6ae639q0aphdf" TEXT="Action">
-        <node ID="3eqq333cf9adlc0cs41rc9ohp2" TEXT="🗓 Daftar Event">
+      <node FOLDER="true" ID="2l3m8pp3lm0ga6ae639q0aphdf" TEXT="Action">
+        <node FOLDER="true" ID="3eqq333cf9adlc0cs41rc9ohp2" TEXT="🗓 Daftar Event">
           <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0l4pjbjh7qn8dc7rf58ah7useh" TEXT="{ecosystem_baseurl}/services/community/php-indonesia/event-list/">
             <font NAME="SansSerif" SIZE="10"/>
           </node>
@@ -26,27 +26,27 @@
             <node FOLDER="true" ID="1h4md09mqlofbjda2r7cm5bllc" TEXT="(phpid|php) online learning"/>
           </node>
         </node>
-        <node ID="5kqp5o42pfjrppou6qodb6olp8" TEXT="📚 Ajari Koding">
+        <node FOLDER="true" ID="5kqp5o42pfjrppou6qodb6olp8" TEXT="📚 Ajari Koding">
           <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="63mdunfpc07odg0s48knp8f3mo" TEXT="{ecosystem_baseurl}/services/community/php-indonesia/ajari/">
             <font NAME="SansSerif" SIZE="10"/>
           </node>
-          <node ID="09t0flrsp034o09o29losdb64u" TEXT="pattern">
+          <node FOLDER="true" ID="09t0flrsp034o09o29losdb64u" TEXT="pattern">
             <node FOLDER="true" ID="6ge3pctvo8jputr1lonssoqigp" TEXT="(ajari|ajarin) koding @keyword"/>
-            <node ID="57ohri257q6gk91h8kgdokhjsi" TEXT="(ajari|ajarin) koding"/>
+            <node FOLDER="true" ID="57ohri257q6gk91h8kgdokhjsi" TEXT="(ajari|ajarin) koding"/>
           </node>
         </node>
-        <node ID="2egvvm31oqlqqlgr7pvmogu5jv" TEXT="🌟 Media Social">
+        <node FOLDER="true" ID="2egvvm31oqlqqlgr7pvmogu5jv" TEXT="🌟 Media Social">
           <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="3166lt5gnd7ndkpp8qdpo17ivs" TEXT="*Media PHP Indonesia*&#10;&#10;- [Situs PHP Indonesia](https://phpindonesia.id)&#10;- [Facebook Group](https://www.facebook.com/groups/phpid/)&#10;- [PHPID for Student](https://t.me/PHPIDforBusiness)&#10;- [PHPID for Business](https://t.me/PHPIDforStudent)&#10;">
             <font NAME="SansSerif" SIZE="10"/>
           </node>
         </node>
-        <node ID="1jl60qf7kpvjbmd1srr0m69nb5" TEXT="📖 Online Learning">
+        <node FOLDER="true" ID="1jl60qf7kpvjbmd1srr0m69nb5" TEXT="📖 Online Learning">
           <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="2q5u8qn18bidc6aqlkn19f8pkv" TEXT="{ecosystem_baseurl}/services/community/php-indonesia/online-learning/">
             <font NAME="SansSerif" SIZE="10"/>
           </node>
-          <node ID="50v5lc62kdat14apdg4uucv2hq" TEXT="pattern">
+          <node FOLDER="true" ID="50v5lc62kdat14apdg4uucv2hq" TEXT="pattern">
             <node FOLDER="true" ID="7mnivvt8pu254mng8clvslften" TEXT="phpid learning @keyword"/>
-            <node ID="6555r85uuabd2psclfcsi0aubp" TEXT="phpid learning"/>
+            <node FOLDER="true" ID="6555r85uuabd2psclfcsi0aubp" TEXT="phpid learning"/>
           </node>
         </node>
       </node>
@@ -55,7 +55,7 @@
         <node FOLDER="true" ID="2h251mr2snlu0n5ai0v3urapo7" TEXT="info phpid"/>
       </node>
     </node>
-    <node ID="0nnkj362qjdt2e440i3jqctqpt" POSITION="right" TEXT="Pascal Indonesia">
+    <node FOLDER="true" ID="0nnkj362qjdt2e440i3jqctqpt" POSITION="right" TEXT="Pascal Indonesia">
       <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="1ef9bohqd1s5k48ulq2in80ik5" TEXT="*Komunitas Pascal Indonesia*&#10;&#10;Komunitas Pascal Indonesia merupakan komunitas para pecinta/penggemar/entusias terhadap perkembangan teknologi bahasa pemrograman Pascal.&#10;&#10;[Pascal Indonesia](https://www.pascal-id.org/)">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
@@ -89,7 +89,7 @@
         <node FOLDER="true" ID="0giq1ioco64lebc6la4q1f7239" TEXT="komunitas pascal"/>
       </node>
     </node>
-    <node ID="7094402ikuhh0qec7lkbsob0uh" POSITION="right" TEXT="DevC Indonesia">
+    <node FOLDER="true" ID="7094402ikuhh0qec7lkbsob0uh" POSITION="right" TEXT="DevC Indonesia">
       <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="14bt88jbagnp7v8q420p9gg2ro" TEXT="*Facebook Developer Circle*&#10;&#10;This is a forum for developers in Indonesia and its surroundings who are interested in building on the Facebook platform to interact and collaborate other developers who share similar interests.&#10;Technologies discussed here include all the products listed on this page:&#10;https://developers.facebook.com/products&#10;&#10;This group is not for asking questions about using Facebook or your profile, asking people to like your page or app, advertising your site, posting photos of yourself, etc. Such posts may be removed and you may also be removed from the group.&#10;Please remember to be respectful and considerate to other members of the group at all times.&#10;Don't hesitate to participate by making fresh posts, making a comment or asking a question.&#10;If you are asking a question please search first to make sure that your question has not been answered already.&#10;Let's connect, share and build!&#10;For documentation and latest updates from Facebook, visit the Facebook for Developers site: https://developers.facebook.com/&#10;&#10;">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
@@ -101,42 +101,66 @@
                 </text>
       </hook>
     </node>
-    <node ID="4jpb2h78goutvtpbbuq01uollf" POSITION="left" TEXT="FemaleGeek">
+    <node FOLDER="true" ID="4jpb2h78goutvtpbbuq01uollf" POSITION="left" TEXT="FemaleGeek">
       <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="12a2hvit6us288h0rb5vle10cv" TEXT="*FemaleGeek*&#10;&#10;Grup khusus wanita yang berkecimpung di dunia IT.">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
     </node>
-    <node ID="2qb8gc8k5i5g25hs2v6n47043k" POSITION="left" TEXT="CafeStartup">
+    <node FOLDER="true" ID="2qb8gc8k5i5g25hs2v6n47043k" POSITION="left" TEXT="CafeStartup">
       <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0rrruji336qn2ffkq93nsh59em" TEXT="*CafeStartup 140315*&#10;&#10;Grup yang membahas segala tentang StartUp baik development, bisnis, funding, investor dll. Group ini bisa ditemui di [telegram group](https://t.me/Cafestartup), dan beberapa kali mengadakan aktivitas online/offline.">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
       <node FOLDER="true" ID="1t6chk9jn76oj2lb76hdjv2c0v" TEXT="Action Type">
         <node FOLDER="true" ID="2etoaqi16ivgqddo0cc50pm97d" TEXT="button"/>
       </node>
-      <node ID="6jgqptn8idbv2bphtt70vnklmc" TEXT="Action">
-        <node ID="261vdu5j5aaaohafppd80doocf" TEXT="📚 Daftar Startup">
+      <node FOLDER="true" ID="6jgqptn8idbv2bphtt70vnklmc" TEXT="Action">
+        <node FOLDER="true" ID="261vdu5j5aaaohafppd80doocf" TEXT="📚 Daftar Startup">
           <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6vboje8u33of1noebkpd513n4v" TEXT="{ecosystem_baseurl}/services/community/cafestartup/startuplist/">
             <font NAME="SansSerif" SIZE="10"/>
           </node>
-          <node ID="3q6henvg18p15boat6ssiv79gj" TEXT="pattern">
-            <node ID="0endri00dnplbi9h0q6s6p1ijt" TEXT="(daftar|list) startup di cafestartup"/>
+          <node FOLDER="true" ID="3q6henvg18p15boat6ssiv79gj" TEXT="pattern">
+            <node FOLDER="true" ID="0endri00dnplbi9h0q6s6p1ijt" TEXT="(daftar|list) startup di cafestartup"/>
             <node FOLDER="true" ID="5lb90rfi601f5tqtlrnfpjm9jt" TEXT="(daftar|list) startup @Page"/>
-            <node ID="57cdaj1rp3os35460704gb08o8" TEXT="(daftar|list) startup"/>
+            <node FOLDER="true" ID="57cdaj1rp3os35460704gb08o8" TEXT="(daftar|list) startup"/>
             <node FOLDER="true" ID="7durtehfm7jpcmnlvosuc3k8aa" TEXT="slcf @Page"/>
             <node FOLDER="true" ID="5177pfhdc7j3q8vaokduraic8f" TEXT="cfsl @Page"/>
           </node>
         </node>
-        <node ID="70jbk7b1pvnnkci0lhcfln67vv" TEXT="🗓 Daftar Event">
+        <node FOLDER="true" ID="70jbk7b1pvnnkci0lhcfln67vv" TEXT="🗓 Daftar Event">
           <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="79e7qe0eg16na9nou4jfdri55n" TEXT="*Daftar Event Cafestartup*&#10;&#10;Maaf, saat ini belum ada informasi event CafeStartup">
             <font NAME="SansSerif" SIZE="10"/>
           </node>
-          <node ID="4n7n4h9n6qeada9c9finf6bm9p" TEXT="pattern">
+          <node FOLDER="true" ID="4n7n4h9n6qeada9c9finf6bm9p" TEXT="pattern">
             <node FOLDER="true" ID="7bns8k09jrhk3jfi363h9rk7a2" TEXT="(daftar|jadwal) event (cafestartup|cs)"/>
           </node>
         </node>
       </node>
-      <node ID="0rgagk6d0l3ch9k26q1dk64e8q" TEXT="pattern">
+      <node FOLDER="true" ID="0rgagk6d0l3ch9k26q1dk64e8q" TEXT="pattern">
         <node FOLDER="true" ID="3emmbva631kjma639ud79b1eb1" TEXT="info (cafestartup|cafe startup)"/>
+      </node>
+    </node>
+    <node ID="2010mqfqnqk1p7seqjk5to0bqj" POSITION="left" TEXT="Kendaraan Listrik">
+      <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="2cc53ehj142njvikekbb2lvu4b" TEXT="KendaraanListrik.net adalah komunitas tempat bertukar pengalaman antar masyarakat yang ingin belajar merakit sendiri secara cuma-cuma, memperbaiki, atau bahkan sekedar mempelajari cara penggunaan yang lebih optimal.">
+        <font NAME="SansSerif" SIZE="10"/>
+      </node>
+      <node FOLDER="true" ID="4m2gku1eo1s8lple8kf94j850h" TEXT="Action Type">
+        <node FOLDER="true" ID="6tit9fudbhi8liodua03dbbjku" TEXT="button"/>
+      </node>
+      <node ID="448ilm56t82varu38273gia2su" TEXT="Action">
+        <node ID="2ura74716dvsm3d50dk4rl58g9" TEXT="🗓 Daftar Event">
+          <hook NAME="accessories/plugins/NodeNote.properties">
+            <text>
+                            callback=jadwal event kendaraan listrik
+                        </text>
+          </hook>
+        </node>
+        <node ID="2macq1piutch17n8ior6o57odh" TEXT="🏍 Produk">
+          <hook NAME="accessories/plugins/NodeNote.properties">
+            <text>
+                            callback=produk kendaraan listrik
+                        </text>
+          </hook>
+        </node>
       </node>
     </node>
   </node>
