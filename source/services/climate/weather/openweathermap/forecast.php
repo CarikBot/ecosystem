@@ -28,7 +28,7 @@ $parameters['appid'] = @$Config['packages']['climate']['openweathermap']['appid'
 $parameters['lang'] = "id";
 $parameters['units'] = "metric";
 $parameters['mode'] = "json";
-$parameters['cnt'] = "7";
+$parameters['cnt'] = "8";
 $parameters['q'] = "jakarta,id";
 $parameters = http_build_query($parameters);
 $url = FORECAST_API_URL.'?'.$parameters;
@@ -42,10 +42,10 @@ $lat = $data['city']['coord']['lat'];
 $lon = $data['city']['coord']['lon'];
 $forecastList = $data['list'];
 
-$i = 0;
-$Text = "*Prakiraan Cuaca $cityName*\n";
-foreach ($forecastList as $day) {
-  $date = date('d', strtotime("$i days", strtotime(date('Y-m-d'))));
+$Text = "*Prakiraan Cuaca di $cityName*\n";
+foreach ($forecastList as $key => $day) {
+  if (0==$key) continue;
+  $date = date('d', strtotime("$key days", strtotime(date('Y-m-d'))));
   $description = $day['weather'][0]['description'];
   $description = str_replace('awan pecah', 'berawan', $description);
   $description = ucwords($description);
