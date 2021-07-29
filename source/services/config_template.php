@@ -24,6 +24,11 @@ $CurrentURL = (isset($_SERVER['HTTPS']) ? "https" : "http")."://".$_SERVER['HTTP
 
 $Config = [
   "packages" => [
+    "climate" => [
+      "openweathermap" => [
+        "appid" => ""
+      ]
+    ],
     "main" => [
       "CarikBot" => [
         "token" => "your_token"

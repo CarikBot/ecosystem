@@ -103,6 +103,8 @@ foreach ($startupList as $value) {
   $name = $value['Nama_Startup'];
   $name = str_replace('_', '\_', $name);
   $name = str_replace('www.', '', $name);
+  $name = str_replace('https://', '', $name);
+  $name = str_replace('http://', '', $name);
   //TODO: if not domainname, dont lowercase
   $name = trim(strtolower($name));
   $username = $value['Username_Telegram'];
