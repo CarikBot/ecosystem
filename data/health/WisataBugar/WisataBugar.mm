@@ -97,7 +97,7 @@ Free sesi latihan dapat dilihat pada channel [MasGunggung](https://bit.ly/MasGun
                         <node ID="70jmo2plrj6ipu3p8kvaojqj7c" TEXT="(stress|stres) dalam sudut pandang yang membahagiakan"/>
                     </node>
                 </node>
-                <node FOLDER="true" ID="5bmm8d10ttne5iq0iqkl6u5ons" TEXT="Manfaan Napas Diafragma">
+                <node FOLDER="true" ID="5bmm8d10ttne5iq0iqkl6u5ons" TEXT="Manfaat Napas Diafragma">
                     <node BACKGROUND_COLOR="#F2F2F2" ID="1qbtcnls5uaqms0mdpk1688dmv" TEXT="*Manfaat Napas Diafragma*&#10;&#10;Merangsang produksi Melatonin yang merupakan counter dari Cortisol.&#10;https://www.youtube.com/watch?v=GLgepWi2Rl0">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
