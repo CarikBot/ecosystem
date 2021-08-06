@@ -9,7 +9,7 @@ Dapatkan informasi tentang otomotif di sini.
             </text>
     </hook>
     <node ID="624a5ab8-e8c1-4d73-bd22-d59ba7a75861" POSITION="right" TEXT="🏍 Kendaraan Listrik">
-      <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="55k5a46vmbk928ppfo4vhhn2pr" TEXT="KendaraanListrik.net adalah komunitas tempat bertukar pengalaman antar masyarakat yang ingin belajar merakit sendiri secara cuma-cuma, memperbaiki, atau bahkan sekedar mempelajari cara penggunaan yang lebih optimal.">
+      <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="55k5a46vmbk928ppfo4vhhn2pr" TEXT="[KendaraanListrik.net](https://kendaraanlistrik.net/) adalah komunitas tempat bertukar pengalaman antar masyarakat yang ingin belajar merakit sendiri secara cuma-cuma, memperbaiki, atau bahkan sekedar mempelajari cara penggunaan yang lebih optimal.">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
       <node ID="43kk3ep9rgiua1akp4gq9hk3mk" TEXT="Action Type">
@@ -43,7 +43,7 @@ Dapatkan informasi tentang otomotif di sini.
               </node>
             </node>
             <node ID="3ehpmkfdu50vbh61os1ntseni9" TEXT="Customized">
-              <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0u48heb6e9gglp211flu1f7uvf" TEXT="*Customized/Spare Parts*&#10;- [Custom bike](http://kendaraanlistrik.net/product/custom/?q=Custom%20Bike)&#10;- [Baterai](http://kendaraanlistrik.net/product/custom/?q=Baterai)&#10;- [Penggerak Roda](http://kendaraanlistrik.net/product/custom/?q=Penggerak%20Roda)&#10;">
+              <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0u48heb6e9gglp211flu1f7uvf" TEXT="*Customized/Spare Parts*&#10;- [Custom bike](https://kendaraanlistrik.net/product/custom/?q=Custom%20Bike)&#10;- [Baterai](https://kendaraanlistrik.net/product/custom/?q=Baterai)&#10;- [Penggerak Roda](https://kendaraanlistrik.net/product/custom/?q=Penggerak%20Roda)&#10;">
                 <font NAME="SansSerif" SIZE="10"/>
               </node>
             </node>
