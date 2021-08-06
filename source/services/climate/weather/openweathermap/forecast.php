@@ -29,7 +29,7 @@ $parameters['lang'] = "id";
 $parameters['units'] = "metric";
 $parameters['mode'] = "json";
 $parameters['cnt'] = "8";
-$parameters['q'] = "jakarta,id";
+$parameters['q'] = $City;
 $parameters = http_build_query($parameters);
 $url = FORECAST_API_URL.'?'.$parameters;
 
@@ -51,7 +51,6 @@ foreach ($forecastList as $key => $day) {
   $description = ucwords($description);
   $temp = $day['temp']['day'];
   $Text .= "\n$date: $description ($temp)";
-  $i++;
 }
 
 $Text .= "\n\nTetap prokes dan jaga diri yaa.";

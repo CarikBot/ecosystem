@@ -42,7 +42,9 @@ $contentAsArray = json_decode($content, true);
 
 $Text = "*Merk Kendaraan Listrik*:\n";
 foreach ($contentAsArray as $merk) {
-  $url = "http://kendaraanlistrik.net/product/brand/?q=".($merk['merk']);
+  if ($merk['merk']=='Custom') continue;
+  if (!empty($merk['directLink'])) continue;
+  $url = "http://kendaraanlistrik.net/product/brand/?q=".(($merk['merk']));
   $Text .= "\n- [$merk[merk]]($url)";
 }
 

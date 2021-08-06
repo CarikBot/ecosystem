@@ -12,6 +12,7 @@
  */
 
 // force post data from json request content
+$RequestContentAsJson = "";
 $RequestContent = file_get_contents('php://input');
 if (!empty($RequestContent)){
   $RequestContentAsJson = json_decode($RequestContent, true);
@@ -65,6 +66,19 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   $array['image'] = $AImageURL;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
+}
+
+function SendAndAbort($content){
+  ob_start();
+  echo $content;
+  $buffer_size = ob_get_length();
+  session_write_close();
+  header("Content-Encoding: none\r\n");
+  header("Content-Length: $buffer_size\r\n");
+  header("Connection: close\r\n");
+  ob_end_flush();
+  if( ob_get_level() > 0 ) ob_flush();
+  flush();  
 }
 
 function isGroupChat(){
