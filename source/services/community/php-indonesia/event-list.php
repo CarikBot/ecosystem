@@ -52,5 +52,7 @@ foreach ($events as $key => $event) {
   $Text .= "\n";
 }
 
+$Text .= "\nLihat juga rekaman sesi sebelumnya di [Channel Youtube PHPID](https://www.youtube.com/channel/UCLTH3NjDdbPLYbOby2YjxsA)";
+
 //die($Text);
 Output(0, $Text);
