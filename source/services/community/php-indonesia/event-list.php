@@ -20,7 +20,7 @@ include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "PHPID_lib.php";
 
-$footer = "\nLihat juga rekaman sesi sebelumnya di [Channel Youtube PHPID](https://www.youtube.com/channel/UCLTH3NjDdbPLYbOby2YjxsA)";
+$footer = "\nLihat juga rekaman sesi sebelumnya di [Channel Youtube PHPID](https://www.youtube.com/channel/UCLTH3NjDdbPLYbOby2YjxsA) atau cari infonya di [learning.byphp.id](https://learning.byphp.id/)";
 
 $events = PHPID::PastEvent();
 if (!$events) Output(0, 'Maaf, informasi online learning belum tersedia.'.$footer);
