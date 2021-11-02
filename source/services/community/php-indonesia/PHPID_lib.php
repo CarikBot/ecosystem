@@ -25,7 +25,7 @@
  * @author Luri Darmawan <luri@carik.id>
  */
 class PHPID{
-  const PHP_EVENT_LIST_URL = 'https://raw.githubusercontent.com/phpid-jakarta/phpid-online-learning-2020/master/data.json';
+  const PHP_EVENT_LIST_URL = 'https://raw.githubusercontent.com/phpid-jakarta/phpid-learning/api/data.json';
   const PHP_AJARI_URL = 'https://raw.githubusercontent.com/phpid-jakarta/ajari-koding/master/data.json';
   const INDONESIAN_MONTH_LIST = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
   const PHP_TRAKTEER_WIDGET_URL = 'https://trakteer.id/phpid?sfz=false&page=1';
