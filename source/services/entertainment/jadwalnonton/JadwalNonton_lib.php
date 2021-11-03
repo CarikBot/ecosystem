@@ -11,10 +11,17 @@ class JadwalNonton {
     $this->Referer = @$_SERVER['HTTP_REFERER'];
   }
 
-  public function GetStudioList($ACity){
+  public function GetStudioList($ACity, $AIndex = 0){
     $city = strtolower(str_replace(' ', '-', $ACity));
+    $studioFile = "cache/bioskop-".$ACity.".json";
+
+    $tmpData = readTextFile($studioFile);
+    if (!empty($tmpData)){
+      return json_decode($tmpData, true);
+    }
     
     $url = self::BASE_URL . "di-" . $city . '/';
+    if ($AIndex > 0) $url .= '?page='.$AIndex;
     $html = file_get_html($url);
     $s = strip_tags($html->find('h1 span', 0)->innertext);
     if (strtolower($s) <> strtolower(trim($ACity))) return [];
@@ -26,6 +33,21 @@ class JadwalNonton {
       $item['name'] = $name;
       $item['url'] = $url;
       $studios[] = $item;
+    }
+
+    $pagination = $html->find("div.paggingcont ul li");
+    if ((count($pagination)>0) && ($AIndex == 0)){
+      $index = 1;
+      while ($index++ < count($pagination)){
+        usleep(750);
+        $std = $this->GetStudioList($ACity, $index);
+        $studios = array_merge($studios,$std);
+      }
+    }
+
+    if ($AIndex == 0){
+      $json = json_encode($studios);
+      writeTextFile($studioFile, $json);
     }
 
     return $studios;
@@ -41,7 +63,7 @@ class JadwalNonton {
       $item['title'] = $row->find("h2 a", 0)->innertext;
       $item['rating'] = $row->find("span.rating", 0)->innertext;
       $item['description'] = $row->find("p", 0)->innertext;
-      $item['price'] = $row->find("p.htm", 0)->innertext;
+      $item['price'] = @$row->find("p.htm", 0)->innertext;
       $item['price'] = str_replace("Harga tiket masuk Rp ", "", $item['price']);
 
       $hours = [];

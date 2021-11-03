@@ -1,7 +1,7 @@
 <?php
 /**
  * USAGE
- *   curl "http://localhost:4000/?city=semarang&studio=1"
+ *   curl "http://localhost:4000/?city=semarang-1&studio=1"
  *   curl "{ecosystem_baseurl}/services/entertainment/jadwalnonton/" -d "id=434769"
  * 
  * @date       04-01-2021 01:35
@@ -39,6 +39,7 @@ if (empty($Studio)){
 }
 
 $cityList = @file_get_contents("city.txt");
+$cityList = str_replace("\r", "", $cityList);
 $cityAsArray = explode("\n", strtolower($cityList));
 if (!in_array($City, $cityAsArray)){
   $cityList = str_replace("\n", ", ", $cityList);
@@ -63,7 +64,16 @@ if (empty($Studio)){
   Output(0, $text, 'text', $buttonList, 'menu', '', '', 'Tampilkan', true);
 }
 
-$schedules = $JadwalNonton->GetSchedule($studios,$Studio);
+$studioFile = "schedule-$City-$Studio";
+$tmpData = readCache($studioFile, 60);
+if (empty($tmpData)){
+  $schedules = $JadwalNonton->GetSchedule($studios,$Studio);
+  $s = json_encode($schedules, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  writeCache($studioFile, $s);
+}else{
+  $schedules = json_decode($tmpData, true);
+}
+
 $studioName = $studios[$Studio-1]['name'];
 if (count($schedules)==0){
   Output(0, "Maaf, informasi jadwal bioskop $studioName belum tersedia.");
@@ -78,7 +88,7 @@ foreach ($schedules as $schedule) {
   foreach ($schedule['hours'] as $hour) {
     $text .= "$hour ";
   }
-  $text .= "\nRp. ".$schedule['price'];
+  if (!empty($schedule['price'])) $text .= "\nRp. ".$schedule['price'];
   $text .= "\n";
 }
 
