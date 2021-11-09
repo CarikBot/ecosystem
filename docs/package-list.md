@@ -45,6 +45,7 @@ Daftar paket yang tersedia di dalam Ecosystem.
 |---|---|---|
 |[Ajaro](../data/partner/Ajaro)|Ajaro Indonesia<br>Keyword:<br />- info ajaro<br />- ^(ajaro)|Syahroni|
 |[ERPid](../data/partner/ERPid)|ERP Indonesia<br>Keyword:<br />- info (erpid\|erp)<br />- ^(erpid)|Nofriza Nindiyasari|
+|[EDNAio](../data/partner/EDNAio)|EDNA<br>Keyword:<br />- info (edna\|edna)<br />- ^(edna)|Dipo|
 
 ## property
 | Package | Description | Author |

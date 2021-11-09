@@ -20,9 +20,10 @@ include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "PHPID_lib.php";
 
+$footer = "\nLihat juga rekaman sesi sebelumnya di [Channel Youtube PHPID](https://www.youtube.com/channel/UCLTH3NjDdbPLYbOby2YjxsA) atau cari infonya di [learning.byphp.id](https://learning.byphp.id/)";
 
 $events = PHPID::PastEvent();
-if (!$events) Output(0, 'Maaf, informasi online learning belum tersedia.');
+if (!$events) Output(0, 'Maaf, informasi online learning belum tersedia.'.$footer);
 
 $Text = "𝕁𝕒𝕕𝕨𝕒𝕝 𝕆𝕟𝕝𝕚𝕟𝕖 𝕃𝕖𝕒𝕣𝕟𝕚𝕟𝕘 ℙℍℙ𝕀𝔻:\n";
 foreach ($events as $key => $event) {
@@ -51,6 +52,8 @@ foreach ($events as $key => $event) {
   }
   $Text .= "\n";
 }
+
+$Text .= $footer;
 
 //die($Text);
 Output(0, $Text);
