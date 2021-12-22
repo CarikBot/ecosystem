@@ -14,8 +14,8 @@
  * @link       http://www.aksiide.com
  * @since
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 //error_reporting(E_NONE);
 include_once "../../config.php";
 require_once "../../lib/lib.php";
@@ -65,11 +65,11 @@ if (empty($Studio)){
 }
 
 $studioFile = "schedule-$City-$Studio";
-$tmpData = readCache($studioFile, 60);
+$tmpData = @readCache($studioFile, 60);
 if (empty($tmpData)){
   $schedules = $JadwalNonton->GetSchedule($studios,$Studio);
   $s = json_encode($schedules, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
-  writeCache($studioFile, $s);
+  @writeCache($studioFile, $s);
 }else{
   $schedules = json_decode($tmpData, true);
 }
