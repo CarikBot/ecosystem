@@ -1,6 +1,7 @@
 <?php
 /**
  * USAGE
+ *   curl "localhost:8080/detail.php" -d "id=434769"
  *   curl "http://localhost/services/ecosystem/entertainment/themoviedb/detail/" -d "id=434769"
  *   curl "{ecosystem_baseurl}/services/entertainment/themoviedb/detail/" -d "id=434769"
  * 
@@ -54,9 +55,18 @@ if (!empty($image)){
   if ($ChannelId=='whatsapp'){
     Output( 0, $Text);
   }else{
-    OutputWithImage(0, "tunggu sebentar..", $image, $Text);
+    //OutputWithImage(0, "tunggu sebentar..", $image, $Text);
   }
 }
 
 //die($Text);
-Output( 0, $Text);
+//Output( 0, $Text);
+
+$buttons = [];
+$buttons[] = AddButton( '🗓 Jadwal Bioskop', "text=jadwal bioskop");
+$buttons[] = AddButton( '🌆 Bioskop Jakarta', "text=jdwlbskp jakarta");
+$buttonList[] = $buttons;
+
+//die($Text);
+Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', false);
+
