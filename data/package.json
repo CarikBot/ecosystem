@@ -117,6 +117,15 @@
         "root_menu_type": "button",
         "author": "Nofriza Nindiyasari",
         "site": "https://erp.id"
+      },
+      "EDNAio": {
+        "name": "EDNAio",
+        "description": "EDNA",
+        "special_keyword": "edna",
+        "pattern": ["info (edna|edna)","^(edna)"],
+        "root_menu_type": "button",
+        "author": "Dipo",
+        "site": "https://edna.io"
       }
     },
     "property": {

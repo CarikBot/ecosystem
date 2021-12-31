@@ -13,12 +13,12 @@
             <node FOLDER="true" ID="3sb8427stqs420ii6u3s3d091k" TEXT="Action Type">
                 <node FOLDER="true" ID="3a7vdlpi5o748vlk0f5c21a3ra" TEXT="button"/>
             </node>
-            <node FOLDER="true" ID="2l3m8pp3lm0ga6ae639q0aphdf" TEXT="Action">
+            <node ID="2l3m8pp3lm0ga6ae639q0aphdf" TEXT="Action">
                 <node FOLDER="true" ID="3eqq333cf9adlc0cs41rc9ohp2" TEXT="&#128467; Daftar Event">
                     <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0l4pjbjh7qn8dc7rf58ah7useh" TEXT="{ecosystem_baseurl}/services/community/php-indonesia/event-list/">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
-                    <node FOLDER="true" ID="7nut6i8ltbrjhtchs1s8pps0gq" TEXT="pattern">
+                    <node ID="7nut6i8ltbrjhtchs1s8pps0gq" TEXT="pattern">
                         <node FOLDER="true" ID="06vqvaf3lvtre99735a1f3lriq" TEXT="(jadwal|jdwl) phpid"/>
                         <node FOLDER="true" ID="5ec9gni7nnl27om1uins5kkh9j" TEXT="(jadwal|jdwl) online learning (php|phpid)"/>
                         <node FOLDER="true" ID="4r7f6s5oenkgtf7agd6ncrbu99" TEXT="(jadwal|jdwl) (meetup|streaming|online|event) (php|phpid)"/>
@@ -35,8 +35,8 @@
                         <node FOLDER="true" ID="57ohri257q6gk91h8kgdokhjsi" TEXT="(ajari|ajarin) koding"/>
                     </node>
                 </node>
-                <node FOLDER="true" ID="2egvvm31oqlqqlgr7pvmogu5jv" TEXT="&#127775; Media Social">
-                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="3166lt5gnd7ndkpp8qdpo17ivs" TEXT="*Media PHP Indonesia*&#10;&#10;- [Situs PHP Indonesia](https://phpindonesia.id)&#10;- [Facebook Group](https://www.facebook.com/groups/phpid/)&#10;- [PHPID for Student](https://t.me/PHPIDforBusiness)&#10;- [PHPID for Business](https://t.me/PHPIDforStudent)&#10;">
+                <node ID="2egvvm31oqlqqlgr7pvmogu5jv" TEXT="&#127775; Media Social">
+                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="3166lt5gnd7ndkpp8qdpo17ivs" TEXT="*Media PHP Indonesia*&#10;&#10;- [Situs PHP Indonesia](https://phpindonesia.id)&#10;- [Youtube Channel](https://bit.ly/phpid-channel)&#10;- [Facebook Group](https://www.facebook.com/groups/phpid/)&#10;- [PHPID for Student](https://t.me/PHPIDforBusiness)&#10;- [PHPID for Business](https://t.me/PHPIDforStudent)&#10;">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
                 </node>
@@ -90,7 +90,7 @@
             </node>
         </node>
         <node FOLDER="true" ID="7094402ikuhh0qec7lkbsob0uh" POSITION="right" TEXT="DevC Indonesia">
-            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="14bt88jbagnp7v8q420p9gg2ro" TEXT="*Facebook Developer Circle*&#10;&#10;This is a forum for developers in Indonesia and its surroundings who are interested in building on the Facebook platform to interact and collaborate other developers who share similar interests.&#10;Technologies discussed here include all the products listed on this page:&#10;https://developers.facebook.com/products&#10;&#10;This group is not for asking questions about using Facebook or your profile, asking people to like your page or app, advertising your site, posting photos of yourself, etc. Such posts may be removed and you may also be removed from the group.&#10;Please remember to be respectful and considerate to other members of the group at all times.&#10;Don't hesitate to participate by making fresh posts, making a comment or asking a question.&#10;If you are asking a question please search first to make sure that your question has not been answered already.&#10;Let's connect, share and build!&#10;For documentation and latest updates from Facebook, visit the Facebook for Developers site: https://developers.facebook.com/&#10;&#10;">
+            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="14bt88jbagnp7v8q420p9gg2ro" TEXT="*Meta Developer Circle*&#10;&#10;This is a forum for developers in Indonesia and its surroundings who are interested in building on the Facebook platform to interact and collaborate other developers who share similar interests.&#10;Technologies discussed here include all the products listed on this page:&#10;https://developers.facebook.com/products&#10;&#10;This group is not for asking questions about using Meta or your profile, asking people to like your page or app, advertising your site, posting photos of yourself, etc. Such posts may be removed and you may also be removed from the group.&#10;Please remember to be respectful and considerate to other members of the group at all times.&#10;Don't hesitate to participate by making fresh posts, making a comment or asking a question.&#10;If you are asking a question please search first to make sure that your question has not been answered already.&#10;Let's connect, share and build!&#10;For documentation and latest updates from Meta, visit the Meta for Developers site: https://developers.facebook.com/&#10;&#10;">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
         </node>
