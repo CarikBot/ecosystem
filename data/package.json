@@ -44,6 +44,15 @@
       }
     },
     "health": {
+      "KankerPayudara": {
+        "name": "KankerPayudara",
+        "description": "Informasi tentang kanker payudara, dari gejala, penyebab, diagnosis, pencegahan dan pengobatan.",
+        "special_keyword": "knkpyd",
+        "pattern": ["info kanker payudara"],
+        "root_menu_type": "button",
+        "author": "Nila Puspita",
+        "site": "https://carik.id"
+      },
       "PMIJateng": {
         "name": "PMIJateng",
         "description": "Informasi stok darah, jadwal MU dan alamat UDD dari PMI Jawa Tengah",
