@@ -25,6 +25,7 @@ Daftar paket yang tersedia di dalam Ecosystem.
 ## health
 | Package | Description | Author |
 |---|---|---|
+|[KankerPayudara](../data/health/KankerPayudara)|Informasi tentang kanker payudara, dari gejala, penyebab, diagnosis, pencegahan dan pengobatan.<br>Keyword:<br />- info kanker payudara|Nila Puspita|
 |[PMIJateng](../data/health/PMIJateng)|Informasi stok darah, jadwal MU dan alamat UDD dari PMI Jawa Tengah<br>Keyword:<br />- info pmi jateng<br />- info pmi|Danang Priyono|
 |[RDDMIKSemar](../data/health/RDDMIKSemar)|Informasi Donor Darah dari Relawan Donor Darah MIK Semar<br>Keyword:<br />- info donor<br />- donor darah<br />- ^donor<br />- ^rddmiksemar|Luri Darmawan|
 

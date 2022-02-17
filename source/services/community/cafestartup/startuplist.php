@@ -120,6 +120,7 @@ foreach ($startupList as $value) {
 
 $buttons = [];
 if ($page>1){
+  $buttons[] = AddButton( '◀️◀️', 'text=slcf 1');
   $buttons[] = AddButton( '◀️ prev', 'text=slcf '.($page-1));
 }
 $command = 'text=slcf '.($page+1);
