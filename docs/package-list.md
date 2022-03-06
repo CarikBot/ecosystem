@@ -22,9 +22,15 @@ Daftar paket yang tersedia di dalam Ecosystem.
 |---|---|---|
 |[Entertainment](../data/entertainment/Entertainment)|Informasi hiburan, khususnya movie/film<br>Keyword:<br />- info (entertainment\|hiburan)|Luri Darmawan|
 
+## finance
+| Package | Description | Author |
+|---|---|---|
+|[ksp212](../data/finance/ksp212)|Koperasi Syariah 212<br>Keyword:<br />- info (ksp\|ksp212)||
+
 ## health
 | Package | Description | Author |
 |---|---|---|
+|[KankerPayudara](../data/health/KankerPayudara)|Informasi tentang kanker payudara, dari gejala, penyebab, diagnosis, pencegahan dan pengobatan.<br>Keyword:<br />- info kanker payudara|Nila Puspita|
 |[PMIJateng](../data/health/PMIJateng)|Informasi stok darah, jadwal MU dan alamat UDD dari PMI Jawa Tengah<br>Keyword:<br />- info pmi jateng<br />- info pmi|Danang Priyono|
 |[RDDMIKSemar](../data/health/RDDMIKSemar)|Informasi Donor Darah dari Relawan Donor Darah MIK Semar<br>Keyword:<br />- info donor<br />- donor darah<br />- ^donor<br />- ^rddmiksemar|Luri Darmawan|
 
