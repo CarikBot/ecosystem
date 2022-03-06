@@ -1,6 +1,6 @@
 {
   "name": "carik-ecosystem",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Carik Bot Microservice Ecosystem",
   "packages": {
     "automotive": {
@@ -41,6 +41,15 @@
         "root_menu_type": "none",
         "author": "Luri Darmawan",
         "site": "https://carik.id"
+      }
+    },
+    "finance": {
+      "ksp212": {
+        "name": "ksp212",
+        "description": "Koperasi Syariah 212",
+        "special_keyword": "ksp",
+        "pattern": ["info (ksp|ksp212)"],
+        "root_menu_type": "button"
       }
     },
     "health": {
