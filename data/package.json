@@ -47,7 +47,7 @@
       "ksp212": {
         "name": "ksp212",
         "description": "Koperasi Syariah 212",
-        "special_keyword": "ksp",
+        "special_keyword": "kspx",
         "pattern": ["info (ksp|ksp212)"],
         "root_menu_type": "button"
       }
