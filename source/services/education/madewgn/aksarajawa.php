@@ -25,7 +25,6 @@ if (empty($Keyword)){
   Output(200, 'Maaf, permintaan tidak lengkap.');
 }
 
-$Keyword = 'ini huruf jawa';
 $url = "https://api.madewgn.my.id/jawa/latin?input=$Keyword";
 $postData = [];
 $postData = http_build_query($postData);
