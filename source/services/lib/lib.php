@@ -59,6 +59,7 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
 }
 
 function OutputQuestion($AText, $AACtion, $AURL){
+  @header("Content-type:application/json");
   $output['code'] = 0;
   $output['text'] = $AText;
   $output['type'] = 'action';
