@@ -82,6 +82,12 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   die($output);
 }
 
+function GetBaseUrl(){
+  $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
+  $domainLink = $protocol . '://' . $_SERVER['HTTP_HOST'];
+  return $domainLink;
+}
+
 function SendAndAbort($content){
   ob_start();
   echo $content;
