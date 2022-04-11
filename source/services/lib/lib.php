@@ -16,7 +16,7 @@ $RequestContentAsJson = "";
 $RequestContent = file_get_contents('php://input');
 if (!empty($RequestContent)){
   $RequestContentAsJson = json_decode($RequestContent, true);
-  if ($RequestContentAsJson != false){
+  if (isset($RequestContentAsJson['data'])){
     foreach ($RequestContentAsJson['data'] as $key => $value) {
       $_POST[$key] = $value;
     }
@@ -56,6 +56,19 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     }
     $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
     die($output);
+}
+
+function OutputQuestion($AText, $AACtion, $AURL){
+  $output['code'] = 0;
+  $output['text'] = $AText;
+  $output['type'] = 'action';
+  $output['action']['type'] = 'form';
+  $output['action']['platform'] = 'generic';
+  $output['action']['url'] = $AURL;
+  $output['action']['data'] = $AACtion;
+
+  $output = json_encode($output, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  die($output);
 }
 
 function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
@@ -289,6 +302,7 @@ function AddButtonURL( $ATitle, $AURL, $Size = "full"){
 function AddButtonAction( $AArray, $AButtonList){
   $AArray['type'] = 'action';
   $AArray['action']['type'] = 'button';
+  if (!empty($AURL)) $AArray['action']['url'] = $AURL;
   $AArray['action']['data'] = $AButtonList;
   return $AArray;
 }
@@ -300,4 +314,11 @@ function AddCard($ATitle, $ADescription, $AImageURL, $AURL){
   $item['image_url'] = $AImageURL;
   $item['url'] = $AURL;
   return $item;   
+}
+
+function AddQuestion( $AType, $AVariableName, $ATitle){
+  $item['title'] = $ATitle;
+  $item['name'] = $AVariableName;
+  $item['type'] = $AType;
+  return $item;
 }
