@@ -34,14 +34,14 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
 .
             </text>
         </hook>
-        <node FOLDER="true" ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="&#127782; Cuaca">
+        <node ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="&#127782; Cuaca">
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="61lrimrpaj3e6ejcmn8shl9n9u" TEXT="Cuaca memang lagi tidak menentu. Hujan hampir tiap hari, panaspun seperti mantan yang dinanti. Cari informasi cuaca di kotamu di sini.">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
             <node FOLDER="true" ID="34v7r318aenr666fpq01cugfnf" TEXT="Action Type">
                 <node FOLDER="true" ID="4ie4bu0071d822mts7q7l176ss" TEXT="button"/>
             </node>
-            <node FOLDER="true" ID="35gt00dgj7bmqb86f0gbkn5i4v" TEXT="Action">
+            <node ID="35gt00dgj7bmqb86f0gbkn5i4v" TEXT="Action">
                 <node FOLDER="true" ID="87ce8e4d-5528-4c4f-a50c-08dd4c674514" TEXT="&#127782; Cuaca">
                     <hook NAME="accessories/plugins/NodeNote.properties">
                         <text>
@@ -49,14 +49,14 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node FOLDER="true" ID="df9193fb-a813-43a4-b674-aa9cae3304dd" TEXT="&#127755; BMKG">
+                <node ID="df9193fb-a813-43a4-b674-aa9cae3304dd" TEXT="&#127755; BMKG">
                     <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="1bn1adtvorf7ghr4ofc2uhsocb" TEXT="Informasi prakiraan cuaca, gempabumi dan tsunami bisa dari sini.&#10;Tapi pastikan kroscek dengan BMKG yaa..">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
                     <node FOLDER="true" ID="6ndkb2hef5n1jg762sue9g9uur" TEXT="Action Type">
                         <node FOLDER="true" ID="43cdf0vc5o3nbeqh71o01va0hv" TEXT="button"/>
                     </node>
-                    <node FOLDER="true" ID="70gcgn90dg29tm288poadt676e" TEXT="Action">
+                    <node ID="70gcgn90dg29tm288poadt676e" TEXT="Action">
                         <node FOLDER="true" ID="3c62d87b-0358-4aca-bb61-0b5134761596" TEXT="&#127964; Gempa">
                             <hook NAME="accessories/plugins/NodeNote.properties">
                                 <text>
@@ -104,7 +104,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node FOLDER="true" ID="3c0hshobn4tef9ehdhsvfjblsk" TEXT="&#129440; Covid-19">
+                <node ID="3c0hshobn4tef9ehdhsvfjblsk" TEXT="&#129440; Covid-19">
                     <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6f61lekgatujtiai77qivhjrgr" TEXT="http://public-nlp.carik.id/services/health/covid/?compact=1&amp;province=">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
