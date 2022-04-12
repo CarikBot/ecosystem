@@ -59,6 +59,7 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
 }
 
 function OutputQuestion($AText, $AACtion, $AURL){
+  @header("Content-type:application/json");
   $output['code'] = 0;
   $output['text'] = $AText;
   $output['type'] = 'action';
@@ -79,6 +80,12 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   $array['image'] = $AImageURL;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
+}
+
+function GetBaseUrl(){
+  $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
+  $domainLink = $protocol . '://' . $_SERVER['HTTP_HOST'];
+  return $domainLink;
 }
 
 function SendAndAbort($content){
