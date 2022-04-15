@@ -7,6 +7,11 @@ MBTI dan DISC adalah dua instrumen psikometrik yang memungkinkan prediksi dan ev
 
 Data dan informasi dikutip dari berbagai sumber.
 
+## Contoh Hasil Test
+
+- MBTI: https://carik.id/personality-test/?id=68c0f6025d0ead18e7efc1d3407cb8e5949b6339
+- DISC: https://carik.id/personality-test/?id=f3c2c7b0fb3762b31d9a17f4c31bbeb4370485ex
+
 ![personality](images/disc.png)
 
 ![personality](images/mbti.png)
