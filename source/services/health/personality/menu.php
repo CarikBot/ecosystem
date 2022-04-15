@@ -25,6 +25,16 @@ $Text .= " Cukup luangkan waktu dan cari tempat yang kondusif agar kamu lebih fo
 $Text .= " Hasil tes bisa kamu dapatkan setelah mengisi semua pertanyaan dengan lengkap.";
 $Text .= "\n";
 
+if (isGroupChat()){
+  $Text .= "\nTest ini hanya boleh dilakukan chat langsung ke Carik.";
+  if ('telegram'==@$_POST['ChannelId']) {
+    $buttons[] = AddButtonURL("🎖 Ikut Test", "https://t.me/CarikBot?start=personality_test");
+    $buttonList[] = $buttons;
+    Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', true);
+  }
+  if ('whatsapp'==@$_POST['ChannelId']) $Text .= "\n[Whatsapp](wa.me/6287887100878?text=personality+test)";
+  Output(0, $Text);
+}
 $buttons = [];
 $buttons[] = AddButton( '🎖 MBTI Test', 'text=mbti test');
 $buttons[] = AddButton( '🏅 DISC Test', 'text=disc test');
