@@ -51,6 +51,7 @@ $code = $resultInfo['Test_Result'][0];
 if ('MBTI'==$resultInfo['Test_Name']) $code = strtolower($resultInfo['Test_Result']);
 $fileName = 'data/'.strtolower($resultInfo['Test_Name'].'-'.$code).'.txt';
 $description = readTextFile($fileName);
+$description = str_replace('Ciri-ciri', '*Ciri-ciri*', $description);
 $resultInfo['Description'] = $description;
 if ('DISC'==$resultInfo['Test_Name']) $resultInfo['Test_Result'] = DISC_RESULT[$resultInfo['Test_Result'][0]];
 

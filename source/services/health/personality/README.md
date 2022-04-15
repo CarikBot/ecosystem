@@ -7,3 +7,8 @@ MBTI dan DISC adalah dua instrumen psikometrik yang memungkinkan prediksi dan ev
 
 Data dan informasi dikutip dari berbagai sumber.
 
+![personality](images/disc.png)
+
+![personality](images/mbti.png)
+
+
