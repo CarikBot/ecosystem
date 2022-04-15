@@ -1,0 +1,19 @@
+{
+  "post_date" : "2022-04-15 12:22:27",
+  "user_id" : "5-fromID",
+  "full_name" : "Nama Saya (manual set)",
+  "client_id" : "201",
+  "UserID" : "5-fromID",
+  "FullName" : "Nama Saya (manual set)",
+  "ClientID" : "201",
+  "data" : {
+    "jenisKelamin" : "1",
+    "institution" : "Lembaga Bukan Negara",
+    "q1" : "J",
+    "q2" : "E",
+    "q3" : "P",
+    "q4" : "J",
+    "q5" : "T",
+    "submit" : "OK"
+  }
+}

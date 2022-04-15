@@ -84,7 +84,7 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
 
 function GetBaseUrl(){
   $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
-  $domainLink = $protocol . '://' . $_SERVER['HTTP_HOST'];
+  $domainLink = $protocol . '://' . @$_SERVER['HTTP_HOST'];
   return $domainLink;
 }
 
@@ -285,6 +285,14 @@ function ArrayInsert( $array, $insert, $position ) {
   return array_slice($array, 0, $position, TRUE) + $insert + array_slice($array, $position, NULL, TRUE);
 }
 
+function ShuffleArray($array) {
+  $keys = array_keys($array);
+  shuffle($keys);
+  foreach($keys as $key) {
+      $new[$key] = $array[$key];
+  }
+  return $new;
+}
 
 /**
  * CUSTOM ACTION
@@ -323,9 +331,15 @@ function AddCard($ATitle, $ADescription, $AImageURL, $AURL){
   return $item;   
 }
 
-function AddQuestion( $AType, $AVariableName, $ATitle){
+function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
   $item['title'] = $ATitle;
   $item['name'] = $AVariableName;
   $item['type'] = $AType;
+  if ('option' == $AType){
+    $item['options'] = @$AData['options'];
+    if (isset($AData['values'])){
+      $item['values'] = @$AData['values'];
+    }
+  }
   return $item;
 }
