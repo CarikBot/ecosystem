@@ -123,6 +123,8 @@ $code = sha1($UserId.$DateAsInteger);
 $url = "https://carik.id/personality-test/?id=$code";
 $Text .= "\nHasil test anda bisa dilihat melalui [tautan ini]($url)";
 
+//TODO: save result test to system
+
 // submit to system
 $GFA = new GoogleFormAutomation;
 $GFA->FormId = $Config['packages']['health']['personality']['googleform_id'];
