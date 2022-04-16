@@ -27,12 +27,13 @@ ini_set("allow_url_fopen", 1);
 require_once "../../lib/lib.php";
 require_once "../../lib/GoogleForm_lib.php";
 require_once "../../config.php";
+date_default_timezone_set('Asia/Jakarta');
 
 const REGEX_EXPRESSION = '/(?<value>(?<=\()[A-Za-z](?=\)))/';
 const JENIS_KELAMIN = ['', 'Laki-laki', 'Perempuan'];
 
-$UserId = @$RequestContentAsJson['UserID'];
-$FullName = @$RequestContentAsJson['FullName'];
+$UserId = @$RequestContentAsJson['user_id'];
+$FullName = @$RequestContentAsJson['full_name'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
@@ -142,7 +143,8 @@ $postData = [
   'entry.382061660' => $jenisKelamin,
   'entry.558529546' => strtoupper($RequestContentAsJson['data']['institution']),
   'entry.850495111' => 'DISC',
-  'entry.665691566' => $testResult
+  'entry.665691566' => $testResult,
+  'entry.495695927' => $Date
 ];
 if (!$GFA->Submit($postData)){
   Output(400, 'Gagal dalam penyimpanan data.');
