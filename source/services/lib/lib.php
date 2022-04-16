@@ -58,12 +58,13 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     die($output);
 }
 
-function OutputQuestion($AText, $AACtion, $AURL){
+function OutputQuestion($AText, $AACtion, $AURL, $AFormName = ''){
   @header("Content-type:application/json");
   $output['code'] = 0;
   $output['text'] = $AText;
   $output['type'] = 'action';
   $output['action']['type'] = 'form';
+  if (!empty($AFormName)) $output['action']['name'] = $AFormName;
   $output['action']['platform'] = 'generic';
   $output['action']['url'] = $AURL;
   $output['action']['data'] = $AACtion;

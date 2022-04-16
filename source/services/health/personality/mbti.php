@@ -82,7 +82,7 @@ if (!isset($RequestContentAsJson['data']['submit'])){
   $questionData[] = $questions;
 
   $url = GetBaseUrl() . '/services/health/personality/mbti/';
-  OutputQuestion( $Text, $questionData, $url);  
+  OutputQuestion( $Text, $questionData, $url, 'MBTI Test');
 }
 
 // Processing

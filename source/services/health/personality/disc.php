@@ -91,7 +91,7 @@ if (!isset($RequestContentAsJson['data']['submit'])){
   $questionData[] = $section03;
 
   $url = GetBaseUrl() . '/services/health/personality/disc/';
-  OutputQuestion( $Text, $questionData, $url);  
+  OutputQuestion( $Text, $questionData, $url, 'DISC Test');
 }
 
 // Processing
