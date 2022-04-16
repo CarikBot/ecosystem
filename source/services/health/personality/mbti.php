@@ -137,7 +137,8 @@ $postData = [
   'entry.558529546' => strtoupper($RequestContentAsJson['data']['institution']),
   'entry.850495111' => 'MBTI',
   'entry.665691566' => strtoupper($testResult),
-  'entry.495695927' => $Date
+  'entry.495695927' => $Date,
+  'entry.846529421' => json_encode($Data, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE)
 ];
 if (!$GFA->Submit($postData)){
   Output(400, 'Gagal dalam penyimpanan data.');

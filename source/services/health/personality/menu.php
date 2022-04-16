@@ -41,4 +41,4 @@ $buttons[] = AddButton( '🏅 DISC Test', 'text=disc test');
 $buttonList[] = $buttons;
 
 //die($Text);
-Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', false);
+Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', false, 2);
