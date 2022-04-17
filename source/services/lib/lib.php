@@ -36,10 +36,11 @@ if (empty($FirstName)) {
   if (count($f)>1) $LastName = $f[1];
 }
 
-function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false){
+function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0){
     @header("Content-type:application/json");
     $array['code'] = $ACode;
     $array[$AField] = $AMessage;
+    if ($AWeight>0) $array['weight'] = $AWeight;
     if (!is_null($AAction)){
         $array['type'] = 'action';
         $array['action']['type'] = $AActionType;
@@ -58,10 +59,11 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     die($output);
 }
 
-function OutputQuestion($AText, $AACtion, $AURL, $AFormName = ''){
+function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0){
   @header("Content-type:application/json");
   $output['code'] = 0;
   $output['text'] = $AText;
+  if ($AWeight>0) $array['weight'] = $AWeight;
   $output['type'] = 'action';
   $output['action']['type'] = 'form';
   if (!empty($AFormName)) $output['action']['name'] = $AFormName;

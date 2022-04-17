@@ -1,12 +1,15 @@
 <?php
 /**
  * MBTI Test
+ * ref:
+ *   https://www.16personalities.com/id/tes-kepribadian 
  * 
  * USAGE:
- *   curl "http://localhost:8001/mbti.php" -d "@body-mbti.json"
+ *   curl "http://localhost:8001/mbti16.php" -d "@body-mbti16.json"
+ *   curl "http://ecosystem.carik.id/services/health/personality/mbti16/"  -d "@body-mbti16.json"
  *   
  *
- * @date       14-04-2022 15:25
+ * @date       17-04-2022 13:25
  * @category   Router
  * @package    router tools
  * @subpackage
@@ -26,45 +29,41 @@ ini_set('display_startup_errors', 0);
 ini_set("allow_url_fopen", 1);
 require_once "../../lib/lib.php";
 require_once "../../lib/GoogleForm_lib.php";
-require_once "../../lib/simplexlsx/src/SimpleXLSX.php";
 require_once "../../config.php";
 date_default_timezone_set('Asia/Jakarta');
 
 const REGEX_EXPRESSION = '/(?<value>(?<=\()[A-Za-z](?=\)))/';
 const JENIS_KELAMIN = ['', 'Laki-laki', 'Perempuan'];
-const MBTI_FILE = "ref/mbti.xlsx";
+const OPTIONS_TEXT = [
+  "Sangat Setuju Sekali",
+  "Sangat Setuju",
+  "Setuju",
+  "Biasa aja",
+  "Tidak Setuju",
+  "Sangat Tidak Setuju",
+  "Sangat Tidak Setuju Sekali"  
+];
 
 $UserId = @$RequestContentAsJson['user_id'];
 $FullName = @$RequestContentAsJson['full_name'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
-if (!isset($RequestContentAsJson['data']['submit'])){
-  //Build quetions
-  if (!( $xlsx = SimpleXLSX::parse(MBTI_FILE))) {
-    Output(0, "Maaf, sedang gangguan simulasi testing.");
-  }
-  
-  $questions = [];
-  $sheets = $xlsx->sheetNames();
-  $questionNumber = 0;
-  foreach ($sheets as $sheetIndex => $sheetName) {
-    $rowIndex = 0;
-    foreach ( $xlsx->rows($sheetIndex) as $r ) {
-      $questionNumber++;
-      $label = "q".$questionNumber;
+$content = readTextFile('ref/mbti16.json');
+$dataTest = json_decode($content, true);
 
-      $options = [];
-      $data = [];
-      $options[] = cleanUpTitle($r[0]);
-      $options[] = cleanUpTitle($r[3]);
-      $data['options'] = $options;
-      $data['values'] = [$r[1],$r[2]];
-      $questions[] = AddQuestion('option', $label, "#", $data);
-      //if (3==$questionNumber) break;
-    };
+if (!isset($RequestContentAsJson['data']['submit'])){
+  //Build quetions  
+  $dataOptions['options'] = OPTIONS_TEXT;
+  $questionNumber = 0;
+  foreach ($dataTest as $item) {
+    $questionNumber++;
+    $label = "a".$questionNumber;
+    $title = $item['text'];
+    $questions[] = AddQuestion('option', $label, $title, $dataOptions);
+    //if (3==$questionNumber) break;
   }
-  shuffle($questions);
+  //shuffle($questions);
 
   $Text = "*MBTI Test*\nTes MBTI ini bertujuan untuk menemukan diri dalam 16 tipe kepribadian MBTI. Kenali lebih jauh dirimu untuk berkembang setidaknya satu persen setiap harinya!";
   $Text .= "Pilihlah salah satu pernyataan yang paling sesuai dengan diri Anda dengan mengetik angka sesuai pilihan anda.";
@@ -81,36 +80,56 @@ if (!isset($RequestContentAsJson['data']['submit'])){
   $questionData[] = $generalQuestion;
   $questionData[] = $questions;
 
-  $url = GetBaseUrl() . '/services/health/personality/mbti/';
+  $url = GetBaseUrl() . '/services/health/personality/mbti16/';
   OutputQuestion( $Text, $questionData, $url, 'MBTI Test');
 }
 
 // Processing
+$institution = strtoupper($RequestContentAsJson['data']['institution']);
 $jenisKelamin = $RequestContentAsJson['data']['jenisKelamin'];
 $jenisKelamin = JENIS_KELAMIN[$jenisKelamin];
-
 $Data = $RequestContentAsJson['data'];
-$score['I'] = 0;
-$score['E'] = 0;
-$score['S'] = 0;
-$score['N'] = 0;
-$score['T'] = 0;
-$score['F'] = 0;
-$score['J'] = 0;
-$score['P'] = 0;
-$total = 0;
-foreach ($Data as $key => $value) {
-  $value = strtoupper($value);
-  if (!isset($score[$value])) continue;
-  $score[$value] = $score[$value] + 1;
-  $total++;
-}
-$testResult = ($score['I'] > $score['E']) ? 'I' : 'E';
-$testResult .= ($score['S'] > $score['N']) ? 'S' : 'N';
-$testResult .= ($score['T'] > $score['F']) ? 'T' : 'F';
-$testResult .= ($score['J'] > $score['P']) ? 'J' : 'P';
 
-//TODO: Check validasi data
+$questions = [];
+foreach ($Data as $key => $value) {
+  preg_match('/^a([0-9]*)$/', $key, $matches);
+  if (count($matches)==0) continue;
+  $answerIndex = $matches[1];
+  $realValue = $value-4;
+
+  $questionText = $dataTest[$answerIndex-1]['text'];
+  $questions[] = [
+    "text" => $questionText,
+    "answer" => $realValue
+  ];
+}
+
+// build raw data 16perso
+$output['questions'] = $questions;
+$output['gender'] = null;
+$output['inviteCode'] = '';
+$output['teamInviteKey'] = '';
+$output['extraData'] = [];
+$outputAsJsonString = json_encode($output);
+
+$options = [
+  "http" => [
+      "method" => "POST",
+      'header'=> "Content-type: application/json\r\n"
+        . "Content-Length: " . strlen($outputAsJsonString) . "\r\n",
+      'content' => $outputAsJsonString
+  ]
+];
+$context = stream_context_create($options);
+$url = 'https://www.16personalities.com/id/hasil-tes';
+$result = file_get_contents($url, false, $context);
+if (empty($result)){
+  //TODO: save current data
+  Output("Maaf, penghitungan hasil test tidak berhasil.");
+}
+$result = @json_decode($result, true)['redirect'];
+$testResult = strstr($result, '-');
+$testResult = strtoupper(str_replace('-', '', $testResult));
 
 $Text = "Hai $FullName, hasil test MBTI kamu adalah:";
 $Text .= "\n*$testResult*";
@@ -135,7 +154,7 @@ $postData = [
   'entry.1157306265' => strtoupper($FullName),
   'entry.382061660' => $jenisKelamin,
   'entry.558529546' => strtoupper($RequestContentAsJson['data']['institution']),
-  'entry.850495111' => 'MBTI',
+  'entry.850495111' => 'MBTI2',
   'entry.665691566' => strtoupper($testResult),
   'entry.495695927' => $Date,
   'entry.846529421' => json_encode($Data, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE)

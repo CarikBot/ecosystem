@@ -46,14 +46,17 @@ foreach ($testResult as $row) {
 if (0==count($resultInfo)){
   Output(404, "Hasil test '$ID' tidak ditemukan.");
 }
+unset($resultInfo['Keterangan']);
 
+$testName = $resultInfo['Test_Name'];
+if ('MBTI2'==$testName) $testName = 'MBTI';
 $code = $resultInfo['Test_Result'][0];
-if ('MBTI'==$resultInfo['Test_Name']) $code = strtolower($resultInfo['Test_Result']);
-$fileName = 'data/'.strtolower($resultInfo['Test_Name'].'-'.$code).'.txt';
+if ('MBTI'==$testName) $code = strtolower($resultInfo['Test_Result']);
+$fileName = 'data/'.strtolower($testName.'-'.$code).'.txt';
 $description = readTextFile($fileName);
 $description = str_replace('Ciri-ciri', '*Ciri-ciri*', $description);
 $resultInfo['Description'] = $description;
-if ('DISC'==$resultInfo['Test_Name']) $resultInfo['Test_Result'] = DISC_RESULT[$resultInfo['Test_Result'][0]];
+if ('DISC'==$testName) $resultInfo['Test_Result'] = DISC_RESULT[$resultInfo['Test_Result'][0]];
 
 @header("Content-type:application/json");
 $output['code'] = 0;
