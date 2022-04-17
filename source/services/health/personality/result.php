@@ -55,6 +55,7 @@ if ('MBTI'==$testName) $code = strtolower($resultInfo['Test_Result']);
 $fileName = 'data/'.strtolower($testName.'-'.$code).'.txt';
 $description = readTextFile($fileName);
 $description = str_replace('Ciri-ciri', '*Ciri-ciri*', $description);
+$description = preg_replace('/(ENFJ|ENFP|ENTJ|ENTP|ESFJ|ESFP|ESTJ|ESTP|INFJ|INFP|INTJ|INTP|ISFJ|ISFP|ISTJ|ISTP)/', '<a href="/personality/${1}">${1}</a>', $description);
 $resultInfo['Description'] = $description;
 if ('DISC'==$testName) $resultInfo['Test_Result'] = DISC_RESULT[$resultInfo['Test_Result'][0]];
 

@@ -36,6 +36,8 @@ const MBTI_FILE = "ref/mbti.xlsx";
 
 $UserId = @$RequestContentAsJson['user_id'];
 $FullName = @$RequestContentAsJson['full_name'];
+if (empty($UserId)) $UserId = @$RequestContentAsJson['data']['user_id'];
+if (empty($FullName)) $FullName = @$RequestContentAsJson['data']['FullName'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
@@ -65,6 +67,25 @@ if (!isset($RequestContentAsJson['data']['submit'])){
     };
   }
   shuffle($questions);
+
+  if (!empty($UserId)){
+    // submit notification to system
+    $GFA = new GoogleFormAutomation;
+    $GFA->FormId = $Config['packages']['health']['personality']['googleform_id'];
+    $postData = [
+      'entry.1497848011' => "$UserId-$Date",
+      'entry.129360943' => $UserId,
+      'entry.1157306265' => strtoupper($FullName),
+      'entry.382061660' => '',
+      'entry.558529546' => '',
+      'entry.850495111' => 'MBTI',
+      'entry.665691566' => '',
+      'entry.495695927' => $Date,
+      'entry.846529421' => 'waiting'
+    ];
+    if (!$GFA->Submit($postData)){
+    };
+  }
 
   $Text = "*MBTI Test*\nTes MBTI ini bertujuan untuk menemukan diri dalam 16 tipe kepribadian MBTI. Kenali lebih jauh dirimu untuk berkembang setidaknya satu persen setiap harinya!";
   $Text .= "Pilihlah salah satu pernyataan yang paling sesuai dengan diri Anda dengan mengetik angka sesuai pilihan anda.";
