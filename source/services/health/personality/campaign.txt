@@ -1,3 +1,5 @@
+**PERSONALITY TEST**
+
 Mau tahu kepribadianmu? juga potensi-potensimu?
 
 Tes kepribadian adalah metode untuk menilai konstruksi kepribadian manusia. Kebanyakan instrumen penilaian kepribadian sebenarnya adalah langkah-langkah kuesioner laporan diri introspektif atau laporan dari catatan kehidupan seperti skala penilaian.
@@ -5,3 +7,8 @@ Tes kepribadian adalah metode untuk menilai konstruksi kepribadian manusia. Keba
 Bisa coba di semua media pesan instan yang sudah didukung Carik.
 
 bit.ly/crk-personality-test
+
+atau langsung chat Carik di t.me/CarikBot?start=personality_test
+
+
+<script src="https://carik.id/assets/js/jquery.floating-social-share.js"></script>
