@@ -1,0 +1,9 @@
+Update info.
+
+Jika akan konfirmasi pembayaran bisa langsung ke chatbot Carik, baik telegram, line maupun whatsapp.
+- Telegram: t.me/CarikBot?start=konfirmasi_pembayaran
+- Whatsapp: wa.me/6287887100878?text=konfirmasi+pembayaran
+- Line: line.me/ti/p/~@carik
+- Facebook: m.me/Carik.Bot
+
+Prosesnya akan dilayani otomatis.

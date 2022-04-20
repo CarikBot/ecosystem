@@ -1,0 +1,3 @@
+# KiOSS Hosting
+`category: partner`
+

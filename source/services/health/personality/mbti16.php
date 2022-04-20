@@ -6,7 +6,6 @@
  * 
  * USAGE:
  *   curl "http://localhost:8001/mbti16.php" -d "@body-mbti16.json"
- *   curl "http://ecosystem.carik.id/services/health/personality/mbti16/"  -d "@body-mbti16.json"
  *   
  *
  * @date       17-04-2022 13:25
