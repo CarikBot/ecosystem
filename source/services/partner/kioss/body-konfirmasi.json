@@ -1,0 +1,29 @@
+{
+  "post_date" : "2022-04-20 05:35:24",
+  "user_id" : "5-fromID",
+  "full_name" : "Nama Saya (manual set)",
+  "client_id" : "201",
+  "FullName" : "Nama Saya (manual set)",
+  "ClientID" : "201",
+  "data" : {
+    "fullName_t" : "",
+    "fullName" : "nama lengkap",
+    "email_t" : "",
+    "email" : "email@email.com",
+    "phone_t" : "",
+    "phone" : "0812312312312",
+    "invoiceNo_t" : "",
+    "invoiceNo" : "-",
+    "paymentFor_t" : "Lain-lain",
+    "paymentFor" : "1",
+    "paymentBank_t" : "BCA (4620-313-586)",
+    "paymentBank" : "1",
+    "amount_t" : "",
+    "amount" : "150000",
+    "date_t" : "",
+    "date" : "20/04/2022",
+    "note_t" : "",
+    "note" : "terima kasih",
+    "submit" : "OK"
+  }
+}
