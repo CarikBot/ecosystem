@@ -1,0 +1,18 @@
+{
+  "post_date" : "2022-04-25 00:11:14",
+  "user_id" : "5-fromID",
+  "full_name" : "Nama Test",
+  "client_id" : "201",
+  "session" : "46a0b97494b18591b875428aec77e22e5cbba588",
+  "FullName" : "Nama Test",
+  "ClientID" : "201",
+  "data" : {
+    "bank_t" : "BRI - Bank Rakyat Indonesia",
+    "bankt" : "BRI - Bank Rakyat Indonesia",
+    "bank" : "1",
+    "account_t" : "",
+    "accountt" : "",
+    "account" : "109101005696533",
+    "submit" : "OK"
+  }
+}

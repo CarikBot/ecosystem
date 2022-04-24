@@ -39,7 +39,11 @@ if (empty($FullName)) $FullName = @$RequestContentAsJson['data']['FullName'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
-if (!isset($RequestContentAsJson['data']['submit'])){
+if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
+  Output(0, 'Personality Test DISC telah dibatalkan');
+}
+
+if ('OK' != @$RequestContentAsJson['data']['submit']){
   //Build quetions
   $discContent = readTextFile( 'ref/disc.txt');
   $discContent = str_replace("\r\n", "\n", $discContent);

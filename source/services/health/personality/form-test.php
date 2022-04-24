@@ -32,9 +32,12 @@ if (empty($FullName)) $FullName = @$RequestContentAsJson['data']['FullName'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
+if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
+  Output(0, 'Pengisian form telah dibatalkan');
+}
 
 // Generate question
-if (!isset($RequestContentAsJson['data']['submit'])){
+if ('OK' != @$RequestContentAsJson['data']['submit']){
   $questionsInCategory1[] = AddQuestion('string', 'city', 'Kamu tinggal di mana');
   $questionData[] = $questionsInCategory1;
 

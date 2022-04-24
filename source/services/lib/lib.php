@@ -127,7 +127,13 @@ function curl_get_file_contents($URL)
     $c = curl_init();
     curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($c, CURLOPT_URL, $URL);
+    curl_setopt($c, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($c, CURLOPT_SSL_VERIFYPEER, 0);
     $contents = curl_exec($c);
+    if (curl_errno($c)) {
+      $error_msg = curl_error($c);
+      //die($error_msg);
+    }
     curl_close($c);
 
     if ($contents) return $contents;

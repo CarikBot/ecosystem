@@ -53,7 +53,11 @@ $DateAsInteger = strtotime($Date);
 $content = readTextFile('ref/mbti16.json');
 $dataTest = json_decode($content, true);
 
-if (!isset($RequestContentAsJson['data']['submit'])){
+if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
+  Output(0, 'Personality Test MBTI #2 telah dibatalkan');
+}
+
+if ('OK' != @$RequestContentAsJson['data']['submit']){
   //Build quetions  
   $dataOptions['options'] = OPTIONS_TEXT;
   $questionNumber = 0;
