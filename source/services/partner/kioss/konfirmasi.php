@@ -60,7 +60,11 @@ if (empty($FullName)) $FullName = @$RequestContentAsJson['data']['FullName'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
-if (!isset($RequestContentAsJson['data']['submit'])){
+if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
+  Output(0, "Konfirmasi telah dibatalkan.\nTerima kasih");
+}
+
+if ('OK' != @$RequestContentAsJson['data']['submit']){
   //Build quetions  
   $Text = "*Konfirmasi Pembayaran*";
   $Text .= "\nAnda bisa melakukan konfirmasi pembayaran melalui layanan chat ini.";
@@ -142,7 +146,7 @@ $Text .= "\nCatatan:\n ".$Data['note'];
 $options['url'] = $Config['packages']['partner']['kioss']['dashboard_url'];
 $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
 $options['dashboard'] = 1;
-SendMessage(201, $Config['packages']['partner']['kioss']['recipient'],$Text, $options);
+SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
 
 $Text = "Mohon ditunggu yaa...";
 $Text .= "\nKami akan segera melakukan verifikasi dan memproses pembayaraan Anda dalam 1x24 jam.";

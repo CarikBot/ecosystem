@@ -41,7 +41,11 @@ if (empty($FullName)) $FullName = @$RequestContentAsJson['data']['FullName'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
 
-if (!isset($RequestContentAsJson['data']['submit'])){
+if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
+  Output(0, 'Personality Test MBTI telah dibatalkan');
+}
+
+if ('OK' != @$RequestContentAsJson['data']['submit']){
   //Build quetions
   if (!( $xlsx = SimpleXLSX::parse(MBTI_FILE))) {
     Output(0, "Maaf, sedang gangguan simulasi testing.");
