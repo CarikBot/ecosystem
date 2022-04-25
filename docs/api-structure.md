@@ -47,6 +47,47 @@ Dari ilustrasi di atas ini akan terbaca: terdapat pilihan menu "Contoh". Dan jik
 
 URL di atas hanya bersifat contoh saja. Jika anda memiliki api eksternal sendiri, silakan disesuaikan, misal: `https://api.yourdomain.tld/endpoint/path/path`.
 
+
+## Action Response
+
+[Carik Bot](https://carik.id) mempunyai fitur untuk bisa memberikan jawaban yang bersifat **rich content**, seperti bentuk menu, tombol, bahkan dalam bentuk form/essay.
+
+Struktur API-nya merupakan pengembangan dari struktur api default di atas. Hanya perlu menambahkan beberapa tag informasi saja, khususnya menambahkan tag `type` dengan nilai `action`.
+
+```json
+{
+  "code": 0,
+  "text": "Kalimat yang akan ditampilkan ke pengguna.",
+  "type": "action",
+  "action": {
+    "type": "[action_type]",
+    "url": "webhook_hanya_untuk_action_form",
+    "data": [
+    ]
+  }
+}
+```
+
+Dan keterangan dari isi tag action adalah:
+
+| Parameter | Deskripsi |
+|---|---|
+| type | Tipe action yang akan dibuat, pilihannya: menu, buttton, form |
+| url | Jika tipe action-nya adalah form, url ini merupakan webhook yang akan diakses ketika isian form selesai dilakukan. |
+| data | Isi data dari masing2 action, dengan struktur tertentu. |
+
+### Menu
+
+Salah satu yang paling sering digunakan dalam chatbot adalah adanya fitur menu. User diminta memilih salah satu menu yang tersedia.
+
+### Tombol
+
+Pada beberapa platform pesan instan memberikan kemudahan dalam mengakses pilihan pesan dalam bentuk tombol/button. Pengguna tidak perlu menuliskan angka-angka memu, tetapi cukup dengan memilih tombol yang tersedia. Anda tidak perlu risau bagimana jika platform yang anda gunakan tidak mendukung adanya tombol. Jangan khawatir, karena platform [Carik Ecosystem](https://carik.id) akan otomatis mengubahnya menjadi `menu` pilihan biasa.
+
+## Form
+
+//todo:
+
 ## Arsitektur
 
 Sebagai gambaran bagaimana proses dan alur platform ekosistem ini bisa dilihat dari ilustrasi berikut ini.
