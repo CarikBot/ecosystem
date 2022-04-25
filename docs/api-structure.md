@@ -73,14 +73,14 @@ Dan keterangan dari isi tag action adalah:
 | Parameter | Deskripsi |
 |---|---|
 | type | Tipe action yang akan dibuat, pilihannya: menu, buttton, form |
-| url | Jika tipe action-nya adalah form, url ini merupakan webhook yang akan diakses ketika isian form selesai dilakukan. |
-| data | Isi data dari masing2 action, dengan struktur tertentu. |
+| url | Jika tipe action-nya adalah form, url ini merupakan endpoint webhook yang akan diakses ketika isian form selesai dilakukan. |
+| data | Isi data dari masing-masing action, dengan struktur tertentu. |
 
 ### Menu
 
-Salah satu yang paling sering digunakan dalam chatbot adalah adanya fitur menu. User diminta memilih salah satu menu yang tersedia.
+Salah satu yang paling sering digunakan dalam chatbot adalah adanya fitur menu, di mana user diminta untuk memilih salah satu menu yang tersedia.
 
-Data dalam bisa memiliki 2 level baris. Hal ini untuk mengakomodir kompatibilitas antar platform. Setiap baris sebaiknya cukup memiliki maksimal 4 menu saja.
+Data ini memiliki 2 level. Hal ini untuk mengakomodir kompatibilitas antar platform. Setiap baris sebaiknya cukup memiliki maksimal 4 menu saja.
 
 Tiap item menu memiliki konfigurasi sebagai berikut:
 
@@ -95,7 +95,7 @@ Tiap item menu memiliki konfigurasi sebagai berikut:
 | Parameter | Deskripsi |
 |---|---|
 | text | Judul dari menu tersebut. |
-| callback_data | Berupa parametered value. Yang artinya, jika menu tersebut dipilih, seolah-olah pengguna mengirimkan teks tersebut ke sistem chatbot.<br>Untuk contoh di atas, chatbot akan menerima perintah `echo pilih saya`.  |
+| callback_data | Berupa *parametered value*. Yang artinya, jika menu tersebut dipilih, seolah-olah pengguna mengirimkan teks tersebut ke sistem chatbot.<br>Untuk contoh di atas, chatbot akan menerima perintah `echo pilih saya`.  |
 
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json menu ini](./ex-action-menu.json).
 
@@ -103,11 +103,11 @@ Contoh lengkap struktur json bisa kamu lihat dari [contoh file json menu ini](./
 
 ### Tombol
 
-Pada beberapa platform pesan instan memberikan kemudahan dalam mengakses pilihan pesan dalam bentuk tombol/button. Pengguna tidak perlu menuliskan angka-angka memu, tetapi cukup dengan memilih tombol yang tersedia. Anda tidak perlu risau bagimana jika platform yang anda gunakan tidak mendukung adanya tombol. Jangan khawatir, karena platform [Carik Ecosystem](https://carik.id) akan otomatis mengubahnya menjadi `menu` pilihan biasa.
+Pada beberapa platform pesan instan memberikan kemudahan dalam mengakses pilihan pesan dalam bentuk tombol/button. Pengguna tidak perlu menuliskan angka-angka menu, tetapi cukup dengan memilih tombol yang tersedia. Anda tidak perlu risau bagimana jika platform yang anda gunakan tidak mendukung adanya tombol. Jangan khawatir, karena platform [Carik Ecosystem](https://carik.id) akan otomatis mengubahnya menjadi format yang didukung, defaultnya akan berbentu `menu`.
 
 Untuk catatan lagi, tiap platform pesan instan mempunyai kebijakan berbeda dalam penggunaan tombol, khususnya jumlah tombol yang diperbolehkan. Carik menyarankan cukup maksimal 4 tombol dalam setiap pesan, agar kompatibel di semua platform.
 
-Selain mengubah isi tag `action` menjadi `button`, selebih sama dengan dengan stuktur menu di atas.
+Selain mengubah isi tag `action` menjadi `button`, selebihnya sama dengan dengan stuktur menu di atas.
 
 ```json
 {
@@ -123,12 +123,12 @@ Selain mengubah isi tag `action` menjadi `button`, selebih sama dengan dengan st
         {
           "text": "Update Corona",
           "callback_data": "text=update corona"
-        },
-        .
-        .
-        .
+        }
+        
+        
+        
       ]
-
+    ]
   }
 }
 ```
@@ -138,9 +138,9 @@ Selain mengubah isi tag `action` menjadi `button`, selebih sama dengan dengan st
 | text | Judul dari menu tersebut. |
 | callback_data | Berupa parametered value. Yang artinya, jika menu tersebut dipilih, seolah-olah pengguna mengirimkan teks tersebut ke sistem chatbot.<br>Untuk contoh di atas, chatbot akan menerima perintah `echo pilih saya`.  |
 | url | Opsional. Tombol akan berfungsi sebagai **link** menuju tautan tertentu.<br>`callback_data` tidak aktif jika tag `url` ini diisi. |
-| size | Ukuran tinggi browser saat tautan diakses.<br>**Hanya untuk facebook messenger.** 
-| button_title | Opsional. TTeks default jika platform mempunyai fitur **grouping button** |
-| imageDefault | Opsional. TURL Gambar jika platform mempunyai fitur untuk menampilkan gambar default |
+| size | Ukuran tinggi browser saat tautan diakses.<br>*Hanya untuk facebook messenger.* 
+| button_title | Opsional. Teks default jika platform mempunyai fitur **grouping button** |
+| imageDefault | Opsional. Tautan Gambar jika platform mempunyai fitur untuk menampilkan gambar default |
 
 
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json tombol ini](./ex-action-button.json).
@@ -159,7 +159,6 @@ Sama seperti **action** menu dan tombol di atas, struktur json form juga sama, h
   "action": {
     "type": "form",
     "name": "Form Test",
-    "platform": "generic",
     "url": "your_endpoint_url",
     "data": [
       [
@@ -177,9 +176,9 @@ Sama seperti **action** menu dan tombol di atas, struktur json form juga sama, h
             "perempuan"
           ]
         }
-        .
-        .
-        .
+
+
+
       ]
     ]
   }
@@ -189,7 +188,7 @@ Sama seperti **action** menu dan tombol di atas, struktur json form juga sama, h
 | Parameter | Deskripsi |
 |---|---|
 | name | Nama Form |
-| url | **url endpoint** dari API yang akan menerima hit saat form selesai diisi.<br>Ketentuan dan parameter yang akan dilempar ke endpoint ini bisa dilihat di bagian [*form handler*](#form-handler) di bawah. | 
+| url | **url endpoint** dari API/webhook yang akan menerima hit saat form selesai diisi.<br>Ketentuan dan parameter yang akan dilempar ke endpoint ini bisa dilihat di bagian [*form handler*](#form-handler) di bawah. | 
 
 Ketentuan dalam pembuatan item data pertanyaan
 
@@ -199,7 +198,7 @@ Ketentuan dalam pembuatan item data pertanyaan
 | nama | Nama variabel untuk menyimpan jawaban |
 | type | tipe data, berupa: *string*, *boolean*, *numeric*, *date* dan *option* |
 
-Platform [Ecosystem Carik](https://github.com/CarikBot/ecosystem) akan secara otomatis melakukan validasi pada setiap jawaban dari pengguna.
+Platform [Ecosystem Carik](https://github.com/CarikBot/ecosystem) akan secara otomatis melakukan **validasi** pada setiap jawaban dari pengguna.
 
 Tipe `option` akan dipakai pada pertanyaan yang bersifat pilihan, misal: jenis kelamin atau soal-soal kuesioner. Datanya berbentuk larik seperti berikut:
 
@@ -213,6 +212,8 @@ Tipe `option` akan dipakai pada pertanyaan yang bersifat pilihan, misal: jenis k
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json form ini](./ex-action-form.json).
 
 #### Form Handler
+
+---
 
 **Form Handler** ini berfungsi sebagai *service* yang akan mengolah jawaban dari pengguna. URL form handler akan diakses pada dua kemungkinan, saat form selesai diisi atau saat dibatalkan.
 
@@ -228,11 +229,11 @@ Parameter yang diterima oleh form handler berformat json dengan template seperti
     "var01": "[value01]",
     "var02": "[value02]",
     "var03": "[value03]",
-    "var04_t": "[option_title]",
+    "var04_t": "[selected_option_title]",
     "var04": "[value04]",
-    .
-    .
-    .
+
+
+
     "submit" : "OK/CANCEL"
   }
 }
