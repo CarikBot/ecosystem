@@ -79,9 +79,13 @@ $Account = str_replace('-', '', $Account);
 $Account = str_replace('-', '', $Account);
 $Account = str_replace(' ', '', $Account);
 $BankId = $Data['bank'];
+$BankName = $Data['bank_t'];
 $postData['bankId'] = $BankId;
 $postData['bankAccountNumber'] = $Account;
 $postData = json_encode($postData);
+
+$buttons[] = AddButtonURL("❗️ Laporkan Rekening", "https://cekrekening.id/laporkan-rekening?norek=");
+$buttonList[] = $buttons;
 
 $options = [
   "http" => [
@@ -93,11 +97,15 @@ $options = [
 ];
 $context = stream_context_create($options);
 $result = @file_get_contents(ACCOUNT_CHECK, false, $context);
-if (empty($result)) Output(0, "Maaf, informasi tentang rekening $Account tidak berhasil Carik temukan.\nCoba lagi nanti yaa.");
+if (empty($result)) {
+  $Text = "Maaf, informasi tentang rekening $Account ($BankName) tidak berhasil Carik temukan.\nCoba lagi nanti yaa.";
+  Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', true);
+}
 
 $accountData = json_decode($result, true);
 if ($accountData['status'] == false){
-  Output(0, "Data tentang rekening $Account tidak ditemukan.");
+  $Text = "Data tentang rekening $Account ($BankName) tidak ditemukan.";
+  Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', true);
 }
 
 $detailReport = $accountData['data']['laporanDetail'];
@@ -112,7 +120,7 @@ foreach ($detailReport as $report) {
 
 $Text = "*Hasil Cek Rekening*";
 $Text .= "\nRekening: $Account";
-$Text .= "\n".$Data['bank_t'];
+$Text .= "\n$BankName";
 $Text .= "\n*".$accountData['message']."*";
 $Text .= "\n";
 $Text .= "\n*Riwayat Pelaporan*";
@@ -122,5 +130,5 @@ $Text .= "\n";
 $Text .= "\nInformasi lebih lengkap silakan kunjungi [Cek Rekening](https://cekrekening.id/)";
 
 //die($Text);
-Output(0, $Text);
-
+//Output( 0, $Text);
+Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', true);
