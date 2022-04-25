@@ -1,0 +1,30 @@
+{
+  "code": 0,
+  "text": "Ketik angka sesuai pilihan Anda.",
+  "type": "action",
+  "action": {
+    "type": "menu",
+    "data": [
+      [
+        {
+          "text": "Pilihan 1",
+          "callback_data": "text=echo pilih saya"
+        },
+        {
+          "text": "Info Covid",
+          "callback_data": "text=info covid"
+        },
+        {
+          "text": "Form Pendaftaran",
+          "callback_data": "text=form pendaftaran"
+        }
+      ],
+      [
+        {
+          "text": "Nomor Telp Penting",
+          "callback_data": "_=&action=query&text=nomor telp penting"
+        }
+      ]
+    ]
+  }
+}

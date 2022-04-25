@@ -1,0 +1,37 @@
+{
+  "code": 0,
+  "text": "Contoh penggunaan action button.",
+  "type": "action",
+  "action": {
+    "type": "button",
+    "button_title": "Tampilkan",
+    "imageDefault": "https://carik.id/images/banner.jpg",
+    "data": [
+      [
+        {
+          "text": "📝 Update",
+          "callback_data": "text=update corona"
+        },
+        {
+          "text": "Test Edit",
+          "callback_data": "text=test"
+        },
+        {
+          "text": "Pemkab/Pemkot",
+          "callback_data": "text=tanggap corona kota"
+        }
+      ],
+      [
+        {
+          "text": "☎️ URL",
+          "url": "https://carik.id",
+          "size": "tall"
+        },
+        {
+          "text": "☎️ Test button",
+          "callback_data": "text=test button"
+        }
+      ]
+    ]
+  }
+}
