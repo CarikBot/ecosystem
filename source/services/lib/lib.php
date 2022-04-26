@@ -156,6 +156,13 @@ function isStringExist($needle, $AText){
   return strpos($AText, $needle) !== false;
 }
 
+function removeWhiteSpace($text){
+  $text = preg_replace('/[\t\n\r\0\x0B]/', '', $text);
+  $text = preg_replace('/([\s])\1+/', ' ', $text);
+  $text = trim($text);
+  return $text;
+}
+
 function RemoveEmoji($string){
   // Match Enclosed Alphanumeric Supplement
   $regex_alphanumeric = '/[\x{1F100}-\x{1F1FF}]/u';
@@ -323,7 +330,7 @@ function AddButtonURL( $ATitle, $AURL, $Size = "full"){
   $item['size'] = $Size;
   return $item;   
 }
-function AddButtonAction( $AArray, $AButtonList){
+function AddButtonAction( $AArray, $AButtonList, $AURL = ''){
   $AArray['type'] = 'action';
   $AArray['action']['type'] = 'button';
   if (!empty($AURL)) $AArray['action']['url'] = $AURL;
