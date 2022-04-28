@@ -216,6 +216,20 @@ function writeTextFile( $AFileName, $AText){
   }
 }
 
+function AddToLog( $AText, $AFileLog = ""){
+  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs.txt";
+  $file = fopen($AFileLog, 'a');
+  if ($file) {
+    $date = date('YmdHis');
+    $text = "$date: $AText";
+    fwrite($file, $text.PHP_EOL);
+    fclose($file);
+    return true;
+  }else{
+    return false;
+  }
+}
+
 function readCache( $AName, $AAgeInMinute = 30){
   $fileName = "cache/$AName.txt";
   if (!file_exists($fileName)){
