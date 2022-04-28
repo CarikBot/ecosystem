@@ -47,9 +47,214 @@ Dari ilustrasi di atas ini akan terbaca: terdapat pilihan menu "Contoh". Dan jik
 
 URL di atas hanya bersifat contoh saja. Jika anda memiliki api eksternal sendiri, silakan disesuaikan, misal: `https://api.yourdomain.tld/endpoint/path/path`.
 
-## Arsitektur
 
-Sebagai gambaran bagaimana proses dan alur platform ekosistem ini bisa dilihat dari ilustrasi berikut ini.
+## Action Response
 
-![arsitektur](../images/Carik-Integration.png)
+[Carik Bot](https://carik.id) mempunyai fitur untuk bisa memberikan jawaban yang bersifat **rich content**, seperti bentuk menu, tombol, bahkan dalam bentuk form/essay.
 
+Struktur API-nya merupakan pengembangan dari struktur api default di atas. Hanya perlu menambahkan beberapa tag informasi saja, khususnya menambahkan tag `type` dengan nilai `action`.
+
+```json
+  {
+    "code": 0,
+    "text": "Kalimat yang akan ditampilkan ke pengguna.",
+    "type": "action",
+    "action": {
+      "type": "[action_type]",
+      "url": "webhook_hanya_untuk_action_form",
+      "suffix": "[optional]",
+      "data": [
+      ]
+    }
+  }
+```
+
+Dan keterangan dari isi tag action adalah:
+
+| Parameter | Deskripsi |
+|---|---|
+| type | Tipe action yang akan dibuat, pilihannya: menu, buttton, form |
+| url | (opsional) Jika tipe action-nya adalah form, url ini merupakan endpoint webhook yang akan diakses ketika isian form selesai dilakukan. |
+| suffix | (opsional) Kalimat yang akan dicantumkan dibawah/setelah daftar menu.<br>Tulisan default: *"Contoh, untuk memilih menu "[menu]", ketik: 1"* |
+| data | Isi data dari masing-masing action, dengan struktur tertentu. |
+
+### Menu
+
+![Menu](../images/screenshoot/menu.png)
+
+Salah satu yang paling sering digunakan dalam chatbot adalah adanya fitur menu, di mana user diminta untuk memilih salah satu menu yang tersedia.
+
+Data ini memiliki 2 level. Hal ini untuk mengakomodir kompatibilitas antar platform. Setiap baris sebaiknya cukup memiliki maksimal 4 menu saja.
+
+Tiap item menu memiliki konfigurasi sebagai berikut:
+
+```json
+  {
+    "text": "Judul Menu",
+    "callback_data": "text=echo pilih saya"
+  },
+
+```
+
+| Parameter | Deskripsi |
+|---|---|
+| text | Judul dari menu tersebut. |
+| callback_data | Berupa *parametered value*. Yang artinya, jika menu tersebut dipilih, seolah-olah pengguna mengirimkan teks tersebut ke sistem chatbot.<br>Untuk contoh di atas, chatbot akan menerima perintah `echo pilih saya`.  |
+
+Contoh lengkap struktur json bisa kamu lihat dari [contoh file json menu ini](./ex-action-menu.json).
+
+Anda bisa mencoba contoh menu ini melalu Carik dengan keyword: `MENU TEST`.
+
+
+### Tombol
+
+![Button](../images/screenshoot/button.png)
+
+Pada beberapa platform pesan instan memberikan kemudahan dalam mengakses pilihan pesan dalam bentuk tombol/button. Pengguna tidak perlu menuliskan angka-angka menu, tetapi cukup dengan memilih tombol yang tersedia. Anda tidak perlu risau bagimana jika platform yang anda gunakan tidak mendukung adanya tombol. Jangan khawatir, karena platform [Carik Ecosystem](https://carik.id) akan otomatis mengubahnya menjadi format yang didukung, defaultnya akan berbentu `menu`.
+
+Untuk catatan lagi, tiap platform pesan instan mempunyai kebijakan berbeda dalam penggunaan tombol, khususnya jumlah tombol yang diperbolehkan. Carik menyarankan cukup maksimal 4 tombol dalam setiap pesan, agar kompatibel di semua platform.
+
+Selain mengubah isi tag `action` menjadi `button`, selebihnya sama dengan dengan stuktur menu di atas.
+
+```json
+{
+  "code": 0,
+  "text": "Contoh penggunaan action button.",
+  "type": "action",
+  "action": {
+    "type": "button",
+    "button_title": "Tampilkan",
+    "imageDefault": "https://carik.id/images/banner.jpg",
+    "data": [
+      [
+        {
+          "text": "Update Corona",
+          "callback_data": "text=update corona"
+        }
+        
+        
+        
+      ]
+    ]
+  }
+}
+```
+
+| Parameter | Deskripsi |
+|---|---|
+| text | Judul dari menu tersebut. |
+| callback_data | Berupa parametered value. Yang artinya, jika menu tersebut dipilih, seolah-olah pengguna mengirimkan teks tersebut ke sistem chatbot.<br>Untuk contoh di atas, chatbot akan menerima perintah `echo pilih saya`.  |
+| url | Opsional. Tombol akan berfungsi sebagai **link** menuju tautan tertentu.<br>`callback_data` tidak aktif jika tag `url` ini diisi. |
+| size | Ukuran tinggi browser saat tautan diakses.<br>*Hanya untuk facebook messenger.* 
+| button_title | Opsional. Teks default jika platform mempunyai fitur **grouping button** |
+| imageDefault | Opsional. Tautan Gambar jika platform mempunyai fitur untuk menampilkan gambar default |
+
+
+Contoh lengkap struktur json bisa kamu lihat dari [contoh file json tombol ini](./ex-action-button.json).
+
+Anda bisa mencoba contoh menu ini melalu Carik dengan keyword: `BUTTON TEST`.
+
+## Form
+
+![Form](../images/screenshoot/form.png)
+
+Fitur ini bermanfaat jika Anda membutuhkan chatbot yang berfungsi untuk mendapatkan input dari pengguna secara berturutan, misal seperti form pendaftaran, form feedback, survey, kuesioner, soal ujian dan sebagainya.
+
+Sama seperti **action** menu dan tombol di atas, struktur json form juga sama, hanya mengubah isi tag `type` menjadi `form` saja.
+
+```json
+{
+  "code": 0,
+  "text": "Hi .\nIni adalah contoh/template untuk membuat form.",
+  "type": "action",
+  "action": {
+    "type": "form",
+    "name": "Form Test",
+    "url": "your_endpoint_url",
+    "data": [
+      [
+        {
+          "title": "Nama Lengkap",
+          "name": "fullName",
+          "type": "string"
+        },
+        {
+          "title": "#Jenis Kelamin",
+          "name": "jenisKelamin",
+          "type": "option",
+          "options": [
+            "Laki-laki",
+            "perempuan"
+          ]
+        }
+
+
+
+      ]
+    ]
+  }
+}
+```
+
+| Parameter | Deskripsi |
+|---|---|
+| name | Nama Form |
+| url | **url endpoint** dari API/webhook yang akan menerima hit saat form selesai diisi.<br>Ketentuan dan parameter yang akan dilempar ke endpoint ini bisa dilihat di bagian [*form handler*](#form-handler) di bawah. | 
+
+Ketentuan dalam pembuatan item data pertanyaan
+
+| Parameter | Deskripsi |
+|---|---|
+| title | Teks dari pertanyaan |
+| nama | Nama variabel untuk menyimpan jawaban |
+| type | tipe data, berupa: *string*, *boolean*, *numeric*, *date* dan *option* |
+
+Platform [Ecosystem Carik](https://github.com/CarikBot/ecosystem) akan secara otomatis melakukan **validasi** pada setiap jawaban dari pengguna.
+
+Tipe `option` akan dipakai pada pertanyaan yang bersifat pilihan, misal: jenis kelamin atau soal-soal kuesioner. Datanya berbentuk larik seperti berikut:
+
+```json
+  "options": [
+    "Laki-laki",
+    "perempuan"
+  ]
+```
+
+Contoh lengkap struktur json bisa kamu lihat dari [contoh file json form ini](./ex-action-form.json).
+
+#### Form Handler
+
+---
+
+**Form Handler** ini berfungsi sebagai *service* yang akan mengolah jawaban dari pengguna. URL form handler akan diakses pada dua kemungkinan, saat form selesai diisi atau saat dibatalkan.
+
+Parameter yang diterima oleh form handler berformat json dengan template seperti ini:
+
+```json
+{
+  "post_date" : "2022-04-25 00:11:14",
+  "user_id" : "[user_id]",
+  "full_name" : "[full_name]",
+  "session" : "[session_id]",
+  "data" : {
+    "var01": "[value01]",
+    "var02": "[value02]",
+    "var03": "[value03]",
+    "var04_t": "[selected_option_title]",
+    "var04": "[value04]",
+
+
+
+    "submit" : "OK/CANCEL"
+  }
+}
+```
+
+| Submit Value | Deskripsi |
+|---|---|
+| OK | Form selesai diisi, dan variable `data` berisi hasil isian pengguna. |
+| CANCEL | Form batal diisi atas permintaan pengguna. |
+
+Contoh skrip untuk mengolah hasil isian form ini bisa dilihat dari [Skrip PHP](../source/services/tools/example/form.php) ini. Pada dasarnya kamu bebas membuat API ini dalam bahasa pemrograman apapun yang kamu suka.
+
+Anda bisa mencoba hasil dari contoh form ini melalu Carik dengan keyword: `FORM TEST`.

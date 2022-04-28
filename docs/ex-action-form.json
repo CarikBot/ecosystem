@@ -1,0 +1,29 @@
+{
+  "code": 0,
+  "text": "Hi .\nIni adalah contoh/template untuk membuat form.",
+  "type": "action",
+  "action": {
+    "type": "form",
+    "name": "Form Test",
+    "platform": "generic",
+    "url": "your_endpoint_url",
+    "data": [
+      [
+        {
+          "title": "Nama Lengkap",
+          "name": "fullName",
+          "type": "string"
+        },
+        {
+          "title": "#Jenis Kelamin",
+          "name": "jenisKelamin",
+          "type": "option",
+          "options": [
+            "Laki-laki",
+            "perempuan"
+          ]
+        }
+      ]
+    ]
+  }
+}
