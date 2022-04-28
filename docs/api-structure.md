@@ -62,6 +62,7 @@ Struktur API-nya merupakan pengembangan dari struktur api default di atas. Hanya
     "action": {
       "type": "[action_type]",
       "url": "webhook_hanya_untuk_action_form",
+      "suffix": "[optional]",
       "data": [
       ]
     }
@@ -73,7 +74,8 @@ Dan keterangan dari isi tag action adalah:
 | Parameter | Deskripsi |
 |---|---|
 | type | Tipe action yang akan dibuat, pilihannya: menu, buttton, form |
-| url | Jika tipe action-nya adalah form, url ini merupakan endpoint webhook yang akan diakses ketika isian form selesai dilakukan. |
+| url | (opsional) Jika tipe action-nya adalah form, url ini merupakan endpoint webhook yang akan diakses ketika isian form selesai dilakukan. |
+| suffix | (opsional) Kalimat yang akan dicantumkan dibawah/setelah daftar menu.<br>Tulisan default: *"Contoh, untuk memilih menu "[menu]", ketik: 1"* |
 | data | Isi data dari masing-masing action, dengan struktur tertentu. |
 
 ### Menu

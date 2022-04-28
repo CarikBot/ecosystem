@@ -1,28 +1,34 @@
 {
   "code": 0,
-  "text": "Ketik angka sesuai pilihan Anda.",
+  "text": "Silakan pilih menu yang tersedia di bawah ini.",
   "type": "action",
   "action": {
     "type": "menu",
+    "suffix": "",
     "data": [
       [
         {
           "text": "Pilihan 1",
-          "callback_data": "text=echo pilih saya"
+          "callback_data": "text=echo Saya memilih Pilihan 1"
         },
         {
-          "text": "Info Covid",
-          "callback_data": "text=info covid"
+          "text": "Contoh Tombol",
+          "callback_data": "text=button test"
         },
         {
-          "text": "Form Pendaftaran",
-          "callback_data": "text=form pendaftaran"
+          "text": "Contoh Form Pendaftaran",
+          "callback_data": "text=Contoh Form Pendaftaran"
         }
       ],
       [
         {
-          "text": "Nomor Telp Penting",
-          "callback_data": "_=&action=query&text=nomor telp penting"
+          "text": "🏡 Situs Official",
+          "url": "https://carik.id",
+          "callback_data": "text=echo kunjungi https://carik.id"
+        },
+        {
+          "text": "🥇 Donasi",
+          "callback_data": "text=saya mau donasi"
         }
       ]
     ]
