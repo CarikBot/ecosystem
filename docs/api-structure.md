@@ -108,7 +108,7 @@ Anda bisa mencoba contoh menu ini melalu Carik dengan keyword: `MENU TEST`.
 
 ### Tombol
 
-![Menu](../images/screenshoot/button.png)
+![Button](../images/screenshoot/button.png)
 
 Pada beberapa platform pesan instan memberikan kemudahan dalam mengakses pilihan pesan dalam bentuk tombol/button. Pengguna tidak perlu menuliskan angka-angka menu, tetapi cukup dengan memilih tombol yang tersedia. Anda tidak perlu risau bagimana jika platform yang anda gunakan tidak mendukung adanya tombol. Jangan khawatir, karena platform [Carik Ecosystem](https://carik.id) akan otomatis mengubahnya menjadi format yang didukung, defaultnya akan berbentu `menu`.
 
@@ -155,6 +155,8 @@ Contoh lengkap struktur json bisa kamu lihat dari [contoh file json tombol ini](
 Anda bisa mencoba contoh menu ini melalu Carik dengan keyword: `BUTTON TEST`.
 
 ## Form
+
+![Form](../images/screenshoot/form.png)
 
 Fitur ini bermanfaat jika Anda membutuhkan chatbot yang berfungsi untuk mendapatkan input dari pengguna secara berturutan, misal seperti form pendaftaran, form feedback, survey, kuesioner, soal ujian dan sebagainya.
 
@@ -253,4 +255,6 @@ Parameter yang diterima oleh form handler berformat json dengan template seperti
 | OK | Form selesai diisi, dan variable `data` berisi hasil isian pengguna. |
 | CANCEL | Form batal diisi atas permintaan pengguna. |
 
-{TODO} Contoh penggunaan form ini ....
+Contoh skrip untuk mengolah hasil isian form ini bisa dilihat dari [Skrip PHP](../source/services/tools/example/form.php) ini. Pada dasarnya kamu bebas membuat API ini dalam bahasa pemrograman apapun yang kamu suka.
+
+Anda bisa mencoba hasil dari contoh form ini melalu Carik dengan keyword: `FORM TEST`.

@@ -132,7 +132,7 @@ $phone = 'wa.me/62'.substr($phone,1);
 $Text = "*Konfirmasi Pembayaran*";
 $Text .= "\n".$Data['paymentFor_t'];
 $Text .= "\n";
-$Text .= "\nNama : ".$Data['fullName'];
+$Text .= "\nNama : ".$fullName;
 $Text .= "\nEmail: ".$Data['email'];
 $Text .= "\nPhone: ".$phone;
 
@@ -148,10 +148,12 @@ $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
 $options['dashboard'] = 1;
 SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
 
-$Text = "Mohon ditunggu yaa...";
+$Text = "*Konfirmsi Pembayaran*";
 $Text .= "\nKami akan segera melakukan verifikasi dan memproses pembayaraan Anda dalam 1x24 jam.";
 $Text .= "\nKesalahan pengisian dalam konfirmasi pembayaran dapat mengakibatkan tertundanya proses aktifasi/perpanjangan domain/hosting pesanan anda";
-$Text .= "\n\nTerima kasih";
+$Text .= "\n";
+$Text .= "\nMohon ditunggu yaa...";
+$Text .= "\nTerima kasih";
 //die($Text);
 Output(0, $Text);
 
