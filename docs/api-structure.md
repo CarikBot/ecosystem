@@ -80,6 +80,8 @@ Dan keterangan dari isi tag action adalah:
 
 ### Menu
 
+![Menu](../images/screenshoot/menu.png)
+
 Salah satu yang paling sering digunakan dalam chatbot adalah adanya fitur menu, di mana user diminta untuk memilih salah satu menu yang tersedia.
 
 Data ini memiliki 2 level. Hal ini untuk mengakomodir kompatibilitas antar platform. Setiap baris sebaiknya cukup memiliki maksimal 4 menu saja.
@@ -101,9 +103,12 @@ Tiap item menu memiliki konfigurasi sebagai berikut:
 
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json menu ini](./ex-action-menu.json).
 
+Anda bisa mencoba contoh menu ini melalu Carik dengan keyword: `MENU TEST`.
 
 
 ### Tombol
+
+![Menu](../images/screenshoot/button.png)
 
 Pada beberapa platform pesan instan memberikan kemudahan dalam mengakses pilihan pesan dalam bentuk tombol/button. Pengguna tidak perlu menuliskan angka-angka menu, tetapi cukup dengan memilih tombol yang tersedia. Anda tidak perlu risau bagimana jika platform yang anda gunakan tidak mendukung adanya tombol. Jangan khawatir, karena platform [Carik Ecosystem](https://carik.id) akan otomatis mengubahnya menjadi format yang didukung, defaultnya akan berbentu `menu`.
 
@@ -146,6 +151,8 @@ Selain mengubah isi tag `action` menjadi `button`, selebihnya sama dengan dengan
 
 
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json tombol ini](./ex-action-button.json).
+
+Anda bisa mencoba contoh menu ini melalu Carik dengan keyword: `BUTTON TEST`.
 
 ## Form
 
