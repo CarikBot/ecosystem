@@ -25,7 +25,7 @@ $Text .= "\nInformasi tentang API dan struktur/format outputnya telah disediakan
 
 $buttons = [];
 $buttons[] = AddButton("Jadwal Sholat", "text=jadwal sholat");
-$buttons[] = AddButton("Update Covid", "text=mode=edit&update covid");
+$buttons[] = AddButton("Update Covid", "mode=edit&text=update covid");
 $buttonList[] = $buttons;
 
 $buttons = [];
