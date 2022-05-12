@@ -47,7 +47,7 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
         $array['action']['type'] = $AActionType;
         $array['action']['button_title'] = $AButtonTitle;
         if (!empty($AThumbail)){
-            $array['action']['imageDefault'] = $AThumbail; 
+            $array['action']['imageDefault'] = $AThumbail;
         }
         //$array['action']['mode'] = $AMode;
         $array['action']['data'] = $AAction;
@@ -262,7 +262,7 @@ function dateDifferentFromDateString($ADate1, $ADate2){
   $t1 = strtotime($ADate1);
   $t2 = strtotime($ADate2);
   $dateDiff = $t1 - $t2;
-  return $dateDiff;  
+  return $dateDiff;
 }
 
 function getRequestBody(){
@@ -331,8 +331,17 @@ function ShuffleArray($array) {
 
 /**
  * CUSTOM ACTION
- * 
+ *
  */
+
+function FeedBackAndDonation($AText, $AButtonList = []){
+  $buttons = [];
+  $buttons[] = AddButton("📝 Kritik & Saran", "text=mau kritik");
+  $buttons[] = AddButton("🌟 Donasi", "text=mau donasi");
+  $AButtonList[] = $buttons;
+
+  Output( 0, $AText, 'text', $AButtonList, 'button', '', 'https://carik.id/images/banner.jpg');
+}
 
 function AddButton( $ATitle, $AAction, $AImageURL = ''){
   $item['text'] = $ATitle;
@@ -340,14 +349,14 @@ function AddButton( $ATitle, $AAction, $AImageURL = ''){
   if (!empty($AImageURL)){
       $item['image'] = $AImageURL;
   }
-  return $item;   
+  return $item;
 }
 //size: compact, tall, full -> facebook
 function AddButtonURL( $ATitle, $AURL, $Size = "full"){
   $item['text'] = $ATitle;
   $item['url'] = $AURL;
   $item['size'] = $Size;
-  return $item;   
+  return $item;
 }
 function AddButtonAction( $AArray, $AButtonList, $AURL = ''){
   $AArray['type'] = 'action';
@@ -363,7 +372,7 @@ function AddCard($ATitle, $ADescription, $AImageURL, $AURL){
   $item['sub_title'] = $ADescription;
   $item['image_url'] = $AImageURL;
   $item['url'] = $AURL;
-  return $item;   
+  return $item;
 }
 
 function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
