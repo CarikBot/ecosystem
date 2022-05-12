@@ -148,7 +148,7 @@ $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
 $options['dashboard'] = 1;
 SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
 
-$Text = "*Konfirmsi Pembayaran*";
+$Text = "*Konfirmasi Pembayaran*";
 $Text .= "\nKami akan segera melakukan verifikasi dan memproses pembayaraan Anda dalam 1x24 jam.";
 $Text .= "\nKesalahan pengisian dalam konfirmasi pembayaran dapat mengakibatkan tertundanya proses aktifasi/perpanjangan domain/hosting pesanan anda";
 $Text .= "\n";
