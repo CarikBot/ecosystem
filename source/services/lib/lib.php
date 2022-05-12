@@ -106,7 +106,7 @@ function SendAndAbort($content){
   header("Connection: close\r\n");
   ob_end_flush();
   if( ob_get_level() > 0 ) ob_flush();
-  flush();  
+  flush();
 }
 
 function isGroupChat(){
@@ -312,7 +312,7 @@ function RenameArrKey($oldKey, $newKey, $arr){
 }
 
 /**
- * $array : The initial array i want to modify 
+ * $array : The initial array i want to modify
  * $insert : the new array i want to add, eg array('key' => 'value') or array('value')
  * $position : the position where the new array will be inserted into. Please mind that arrays start at 0
  */
