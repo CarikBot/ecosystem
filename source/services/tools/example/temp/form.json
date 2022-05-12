@@ -1,0 +1,66 @@
+{
+  "components": [
+    {
+      "text": "# File an Invoice\n\nAdd your invoice details below.",
+      "type": "text",
+      "id": "Field_15poqyf"
+    },
+    {
+      "key": "creditor",
+      "label": "Creditor",
+      "type": "textfield",
+      "validate": {
+        "required": true
+      },
+      "id": "Field_1qj3g1e",
+      "description": "deskripsi field"
+    },
+    {
+      "description": "An invoice number in the format: C-123.",
+      "key": "invoiceNumber",
+      "label": "Invoice Number",
+      "type": "textfield",
+      "validate": {
+        "pattern": "^C-[0-9]+$"
+      },
+      "id": "Field_0ct83wl"
+    },
+    {
+      "label": "Text Field",
+      "type": "textfield",
+      "id": "Field_1rc0kgp",
+      "key": "field_1rdvx4c"
+    },
+    {
+      "values": [
+        {
+          "label": "Value",
+          "value": "value"
+        }
+      ],
+      "label": "Select",
+      "type": "select",
+      "id": "Field_0vhit24",
+      "key": "field_1agqfk4"
+    },
+    {
+      "text": "# ini adalah sesuatu\n",
+      "type": "text",
+      "id": "Field_0ks0jx4"
+    },
+    {
+      "action": "submit",
+      "key": "submit",
+      "label": "Submit",
+      "type": "button",
+      "id": "Field_1k462tr"
+    }
+  ],
+  "schemaVersion": 4,
+  "exporter": {
+    "name": "form-js (https://demo.bpmn.io)",
+    "version": "0.7.1"
+  },
+  "type": "default",
+  "id": "Form_0867lpj"
+}
