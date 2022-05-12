@@ -2,6 +2,7 @@
 /**
  * Button Example
  * 
+ * 
  * @date       28-04-2022 12:23
  * @category   example
  * @package    button example
@@ -24,8 +25,7 @@ $Text .= "\nInformasi tentang API dan struktur/format outputnya telah disediakan
 
 $buttons = [];
 $buttons[] = AddButton("Jadwal Sholat", "text=jadwal sholat");
-$buttons[] = AddButton("Test Edit", "mode=edit&text=test");
-$buttons[] = AddButton("Update Covid", "text=update covid");
+$buttons[] = AddButton("Update Covid", "mode=edit&text=update covid");
 $buttonList[] = $buttons;
 
 $buttons = [];

@@ -36,10 +36,11 @@ if (empty($FirstName)) {
   if (count($f)>1) $LastName = $f[1];
 }
 
-function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0){
+function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0, $AReaction = ''){
     @header("Content-type:application/json");
     $array['code'] = $ACode;
     $array[$AField] = $AMessage;
+    if (!empty($AReaction)) $array['reaction'] = $AReaction;
     if ($AWeight>0) $array['weight'] = $AWeight;
     if (!is_null($AAction)){
         $array['type'] = 'action';
@@ -57,6 +58,10 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     }
     $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
     die($output);
+}
+
+function OutputWithReaction($ACode, $AMessage, $AReaction){
+  Output( $ACode, $AMessage, 'text', null, '', '', '', '', false, 0, $AReaction);
 }
 
 function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0){
@@ -101,7 +106,7 @@ function SendAndAbort($content){
   header("Connection: close\r\n");
   ob_end_flush();
   if( ob_get_level() > 0 ) ob_flush();
-  flush();  
+  flush();
 }
 
 function isGroupChat(){
@@ -216,6 +221,20 @@ function writeTextFile( $AFileName, $AText){
   }
 }
 
+function AddToLog( $AText, $AFileLog = ""){
+  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs.txt";
+  $file = fopen($AFileLog, 'a');
+  if ($file) {
+    $date = date('YmdHis');
+    $text = "$date: $AText";
+    fwrite($file, $text.PHP_EOL);
+    fclose($file);
+    return true;
+  }else{
+    return false;
+  }
+}
+
 function readCache( $AName, $AAgeInMinute = 30){
   $fileName = "cache/$AName.txt";
   if (!file_exists($fileName)){
@@ -293,7 +312,7 @@ function RenameArrKey($oldKey, $newKey, $arr){
 }
 
 /**
- * $array : The initial array i want to modify 
+ * $array : The initial array i want to modify
  * $insert : the new array i want to add, eg array('key' => 'value') or array('value')
  * $position : the position where the new array will be inserted into. Please mind that arrays start at 0
  */

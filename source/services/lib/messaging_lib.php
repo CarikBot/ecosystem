@@ -3,7 +3,6 @@
  * [x] USAGE
  *   $options['url'] = 'http://_______';
  *   $options['token'] = 'the_token';
- *   $options['dashboard'] = 1; //1: direct to dashboard
  *   if (SendMessage(201, '5-6281......','test wow keren sekali', $options)){
  *     ...
  *   }
@@ -36,7 +35,6 @@ function SendMessage($AClientId, $ATo, $AMessage, $AOptions = []){
   $payload['to'] = $to[1];
   $payload['name'] = $to[1];
   $payload['message'] = $AMessage;
-  //print_r($payload);die;
   $payloadAsJson = json_encode($payload, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
 
   $opts = [
@@ -57,4 +55,24 @@ function SendMessage($AClientId, $ATo, $AMessage, $AOptions = []){
   if (@$responseAsJson['code']!=0) return false; 
 
   return true;
+}
+
+function getTelegramPayerName($AUserId, $AToken = ''){
+  global $Config;
+  $return = "[$AUserId](tg://user?id=$AUserId)T";
+
+  $url = $Config['tools']['telewrapper'] . "getChatInfo?chat_id=$AUserId";
+  $url = "http://services.carik.id/tools/telewrapper/getChatInfo?chat_id=$AUserId";
+  $content = @file_get_contents($url);
+  if (empty($content)) return $return;
+
+  $json = json_decode($content, true);
+  if (false == @$json['ok']) return $return;
+  $chatInfo = @$json['result'];
+
+  $name = trim(@$chatInfo['first_name'].' '.@$chatInfo['last_name']);
+  $username = $chatInfo['username'];
+  if (!empty($username)) $username = "@$username";
+  $return = trim("[$name](tg://user?id=$AUserId) $username");
+  return $return;
 }

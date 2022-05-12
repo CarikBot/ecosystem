@@ -20,9 +20,11 @@ Silakan coba kirim pesan:
 `echo kalimat yang mau diecho`
 ";
 
+$reaction = '';
 if (!empty($OriginalText)){
   $Text = "Hi $FullName";
   $Text .= "\nAnda menuliskan: '$OriginalText'";
+  $reaction = 'love';
 }
 
-Output(200, $Text);
+OutputWithReaction(200, $Text, $reaction);
