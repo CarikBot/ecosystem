@@ -73,7 +73,11 @@ if ($html == false){
 $Text = "*Info Kredibel*";
 $Text .= "\nNomor telp: $Phone";
 foreach($html->find("p.mt-4") as $row) {
-  $Text .= "\n*".trim(strip_tags($row->innertext))."*";
+  $s = trim(strip_tags($row->innertext));
+  $s = explode("\n", $s);
+  $s = trim($s[0]);
+  if (empty($s)) continue;
+  $Text .= "\n*".$s."*";
 }
 $Text = trim($Text);
 $Text .= "\n\n[Info Selengkapnya]($url)";

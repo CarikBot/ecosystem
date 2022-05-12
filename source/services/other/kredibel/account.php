@@ -76,7 +76,9 @@ $Text .= "\nRekening: $Account";
 foreach($html->find("p.mt-4") as $row) {
   $s = trim(strip_tags($row->innertext));
   $s = explode("\n", $s);
-  $Text .= "\n*".$s[0]."*";
+  $s = trim($s[0]);
+  if (empty($s)) continue;
+  $Text .= "\n*".$s."*";
 }
 $Text = trim($Text);
 $Text .= "\n\n[Info Selengkapnya]($url)";
