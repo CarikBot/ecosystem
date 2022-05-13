@@ -289,6 +289,44 @@ function GetSavedKeyword($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
 }
 
 /**
+ *
+ */
+function encrypt($AString, $AKey, $ARandom = true) {
+  if ($ARandom){
+    $iv = random_bytes(16);
+  }else{
+    $iv = 'Carik Ecosystem!';
+  }
+  $key = cryptGetKey($AKey);
+  $result = cryptSign(openssl_encrypt($AString,'aes-256-ctr',$key,OPENSSL_RAW_DATA,$iv), $key);
+  return bin2hex($iv).bin2hex($result);
+}
+
+function decrypt($ADecryptedString, $AKey) {
+  $iv = hex2bin(substr($ADecryptedString, 0, 32));
+  $data = hex2bin(substr($ADecryptedString, 32));
+  $key = cryptGetKey($AKey);
+  if (!cryptVerify($data, $key)) {
+    return null;
+  }
+  return openssl_decrypt(mb_substr($data, 64, null, '8bit'),'aes-256-ctr',$key,OPENSSL_RAW_DATA,$iv);
+}
+
+  function cryptSign($message, $key) {
+    return hash_hmac('sha256', $message, $key) . $message;
+  }
+
+  function cryptVerify($bundle, $key) {
+    return hash_equals(
+      hash_hmac('sha256', mb_substr($bundle, 64, null, '8bit'), $key),
+      mb_substr($bundle, 0, 64, '8bit')
+    );
+  }
+  function cryptGetKey($password, $keysize = 16) {
+    return hash_pbkdf2('sha256',$password,'some_token',100000,$keysize,true);
+  }
+
+/**
  * $startupList = ArrayPagination($startupList, $page, $amountPerPage, true);
  */
 function ArrayPagination($AArray, $APage, $AAMountPerPage, $AWithModulo = false){
