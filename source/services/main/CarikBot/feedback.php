@@ -47,6 +47,7 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 if ('OK' != @$RequestContentAsJson['data']['submit']){
   // Build your question here
   $Text = "*Feedback Form*";
+  $Text .= "\n";
   $Text .= "\nHi $FullName, akan ada beberapa pertanyaan dari saya. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant ini.";
   $Text .= "\nMohon bantuannya yaa 🙏🏼";
   $Text .= "\n";

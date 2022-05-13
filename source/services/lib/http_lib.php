@@ -1,8 +1,8 @@
 <?php
 /**
- * 
+ *
  * $parser = new HTTPClient();
- * 
+ *
  **/
 #namespace Library\ Parser;
 define( '_IERR_HTTP', 901 );
@@ -55,7 +55,7 @@ class HTTPClient
         curl_setopt( $curl, CURLOPT_SSL_VERIFYHOST, 0 );
         if (!$sslDefault){
             curl_setopt( $curl, CURLOPT_SSLVERSION, $sslVersion );
-            //curl_setopt( $curl, CURLOPT_SSL_CIPHER_LIST, 'SSLv3');    
+            //curl_setopt( $curl, CURLOPT_SSL_CIPHER_LIST, 'SSLv3');
         }
         curl_setopt( $curl, CURLOPT_VERBOSE, false );
 
@@ -144,7 +144,7 @@ class HTTPClient
         curl_setopt( $curl, CURLOPT_SSLVERSION, 1);
 		curl_setopt( $curl, CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt( $curl, CURLOPT_SSL_VERIFYPEER, false);
-        
+
         //curl_setopt( $curl, CURLOPT_SSL_CIPHER_LIST, 'SSLv3');
         curl_setopt( $curl, CURLOPT_VERBOSE, false );
 
