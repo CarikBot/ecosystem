@@ -46,6 +46,9 @@ class GoogleFormAutomation
       return false;
     }
 
+    if (strpos($result, 'Halaman Tidak Ditemukan') !== false) return false;
+    if (strpos($result, 'saat ini tidak dapat membuka file') !== false) return false;
+
     return true;
   }
 
