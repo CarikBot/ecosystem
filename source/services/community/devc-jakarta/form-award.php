@@ -51,12 +51,21 @@ $UserId = @$RequestContentAsJson['data']['user_id'];
 $FullName = @$RequestContentAsJson['data']['FullName'];
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
+$fileName = "./data/$UserId.txt";
 
 if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
-  OutputWithReaction(0, "Pengisian form DevC Jakarta Volunteer Award telah dibatalkan.\nTerima kasih.", 'sad');
+  OutputWithReaction(0, "Pengisian form *DevC Jakarta Volunteer Award* telah dibatalkan.\nTerima kasih.", 'sad');
 }
 
 if ('OK' != @$RequestContentAsJson['data']['submit']){
+  $str = readTextFile($fileName);
+  if (!empty($str)){
+    $Text = "Maaf, form ini hanya bisa diisi 1x saja.";
+    $Text .= "\nSilakan hubungi DevC Lead jika kamu ingin mengisi ulang form ini";
+    $Text .= "\nTerima kasih.";
+    OutputWithReaction(0, $Text, 'sorry');
+  }
+
   // Build your question here
   $Text = "*DevC Jakarta Volunteer Award*";
   $Text .= "\nSilakan isi form berikut ini.";
@@ -76,19 +85,23 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 
 // Processing Data
 $Data = $RequestContentAsJson['data'];
-$fullName = strtoupper($Data['fullName']);
 
-// Submit to GFORM
-$GFA = new GoogleFormAutomation;
-$GFA->FormId = @$Config['packages']['community']['devc-jakarta']['award_form_id'];
+// Save History
 $postData = [
   FORM_ID_OWNERSHIP => $Data['ownership_t'],
   FORM_ID_HELPFUL => $Data['helpful_t'],
   FORM_ID_COUNTON => $Data['counton_t'],
   FORM_ID_THOUGHTS => $Data['thoughts'],
 ];
+$str = $Date . '|' . json_encode($postData, true);
+writeTextFile($fileName, $str);
+
+// Submit to GFORM
+$GFA = new GoogleFormAutomation;
+$GFA->FormId = @$Config['packages']['community']['devc-jakarta']['award_form_id'];
 if (!$GFA->Submit($postData)){
-  OutputWithReaction(400, "Maaf, gagal dalam penyimpanan data.\nNanti tolong diulang lagi yaaa", 'love');
+  $Text = "Maaf, gagal dalam penyimpanan data.\nSilakan hubungi DevC Jakarta Lead.";
+  OutputWithReaction(400, $Text, 'sorry');
 };
 
 $Text = "Hi $FullName, isian form DevC Jakarta Volunteer Award sudah saya terima.";
