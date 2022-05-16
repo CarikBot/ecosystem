@@ -158,6 +158,7 @@ function grepStr( $AAfter, $ABefore, $AText){
 }
 
 function isStringExist($needle, $AText){
+  if (empty($needle)) return false;
   return strpos($AText, $needle) !== false;
 }
 
