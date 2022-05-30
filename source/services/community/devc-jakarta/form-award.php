@@ -60,7 +60,7 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 if ('OK' != @$RequestContentAsJson['data']['submit']){
   $str = readTextFile($fileName);
   if (!empty($str)){
-    $Text = "Maaf, form ini hanya bisa diisi 1x saja.";
+    $Text = "Maaf, kamu hanya punya 1x kesempatan untuk mengisi form ini.";
     $Text .= "\nSilakan hubungi DevC Lead jika kamu ingin mengisi ulang form ini";
     $Text .= "\nTerima kasih.";
     OutputWithReaction(0, $Text, 'sorry');
@@ -93,7 +93,7 @@ $postData = [
   FORM_ID_COUNTON => $Data['counton_t'],
   FORM_ID_THOUGHTS => $Data['thoughts'],
 ];
-$str = $Date . '|' . json_encode($postData, true);
+$str = "$Date|$FullName|". json_encode($postData, true);
 writeTextFile($fileName, $str);
 
 // Submit to GFORM

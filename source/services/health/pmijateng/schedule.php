@@ -14,6 +14,8 @@ $PMIJateng->APIBaseURL = $BaseURL;
 $schedules = $PMIJateng->Schedule($Keyword);
 
 if (0==count($schedules)) {
+  $Text = "Jadwal MU untuk sementara belum tersedia.";
+  Output(0, $Text);
   $Text = "Untuk mencari Jadwal MU PMI, silakan pilih dari pilihan berikut:";
   $menuData = [];
   $cityTemp = [];

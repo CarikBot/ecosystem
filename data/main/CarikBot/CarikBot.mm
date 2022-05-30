@@ -377,21 +377,8 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                             </node>
                         </node>
                         <node ID="7m50s01k9qqslfb0jd58mrsnf3" TEXT="Isi nominal sendiri">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4ipb283fbmojp3nsb3tv3mtt7c" TEXT="Anda bisa memilih donasi dengan besar nominal sesuai kenginan sendiri.">
+                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4ipb283fbmojp3nsb3tv3mtt7c" TEXT="{ecosystem_baseurl}/services/main/CarikBot/donasi/">
                                 <font NAME="SansSerif" SIZE="10"/>
-                            </node>
-                            <node FOLDER="true" ID="735pbf7v3f1j1hmv2cutbv3aa0" TEXT="Action Type">
-                                <node FOLDER="true" ID="6uvo3267lsu9b0ni63bq36pnap" TEXT="button"/>
-                            </node>
-                            <node ID="3dl8j1ud4atiou79s69go0v5if" TEXT="Action">
-                                <node ID="17fhft6lj5vc8aq6srr46658kd" TEXT="Ya, donasi.">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="34ejbut30esqrmi9smo84lm9tp" TEXT="{ecosystem_baseurl}/services/main/CarikBot/donasi/">
-                                        <font NAME="SansSerif" SIZE="10"/>
-                                    </node>
-                                </node>
-                                <node FOLDER="true" ID="7if5qkm4fnnuk9dlm7u0dtrija" TEXT="Batal">
-                                    <node FOLDER="true" ID="20msbio6fnnntms36tf36bdo2e" TEXT="Baik, terima kasih."/>
-                                </node>
                             </node>
                         </node>
                     </node>
