@@ -1,6 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "PMIJateng_lib.php";
@@ -14,7 +14,7 @@ $PMIJateng->APIBaseURL = $BaseURL;
 $schedules = $PMIJateng->Schedule($Keyword);
 
 if (0==count($schedules)) {
-  $Text = "Jadwal MU untuk sementara belum bisa diperoleh.";
+  $Text = "Jadwal MU untuk sementara belum tersedia.";
   Output(0, $Text);
   $Text = "Untuk mencari Jadwal MU PMI, silakan pilih dari pilihan berikut:";
   $menuData = [];
