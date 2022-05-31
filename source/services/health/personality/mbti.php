@@ -46,6 +46,10 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 }
 
 if ('OK' != @$RequestContentAsJson['data']['submit']){
+  if (isGroupChat()){
+    Output(0, "Maaf, karena berkaitan dengan privasi, fitur ini hanya untuk _direct-chat_ ke Carik saja.");
+  }
+
   //Build quetions
   if (!( $xlsx = SimpleXLSX::parse(MBTI_FILE))) {
     Output(0, "Maaf, sedang gangguan simulasi testing.");
