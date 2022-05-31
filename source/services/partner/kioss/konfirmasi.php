@@ -50,7 +50,7 @@ const PAYMENT_FOR = [
   'Pembayaran Jasa', 'Lain-lain'
 ];
 const PAYMENT_BANK = [
-  'BCA (4620-313-586)', 'Mandiri'
+  'BCA (4620-313-586)', 'Mandiri (126-000-711-7509)'
 ];
 
 $UserId = @$RequestContentAsJson['user_id'];
