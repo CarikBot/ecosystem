@@ -40,13 +40,17 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 }
 
 if ('OK' != @$RequestContentAsJson['data']['submit']){
+    if (isGroupChat()){
+        Output(0, "Maaf, karena berkaitan dengan privasi, fitur ini hanya untuk _direct-chat_ ke Carik saja.");
+    }
     if (!( $xlsx = SimpleXLSX::parse(MBTI_FILE))) {
         Output(0, "Maaf, sedang gangguan simulasi testing.");
     }
     // Build your question here
     $Text = "*Test MBTI* (n)";
     $Text .= "\n*Instruksi:*";
-    $Text .= "\n Pilih Mana yang lebih sesuai dengan diri Anda.";
+    $Text .= "\n Pilih mana yang lebih sesuai dengan diri Anda.";
+    $Text .= "\n";
 
     $questions = [];
     $sheets = $xlsx->sheetNames();
