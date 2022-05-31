@@ -21,7 +21,7 @@ require_once "../../lib/lib.php";
 
 $Text = "*Button Example*";
 $Text .= "\nIni adalah contoh pembuatan tombol di platform [Carik Chatbot Ecosystem](https://github.com/CarikBot/ecosystem/).";
-$Text .= "\nInformasi tentang API dan struktur/format outputnya telah disediakan di [Dokumentasi API](https://github.com/CarikBot/ecosystem/blob/development/docs/api-structure.md)";
+$Text .= "\n\nInformasi tentang API dan struktur/format outputnya telah disediakan di [Dokumentasi API](https://github.com/CarikBot/ecosystem/blob/development/docs/api-structure.md)";
 
 $buttons = [];
 $buttons[] = AddButton("Jadwal Sholat", "text=jadwal sholat");
