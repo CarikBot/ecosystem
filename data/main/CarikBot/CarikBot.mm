@@ -358,24 +358,6 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 </node>
                             </node>
                         </node>
-                        <node ID="2j118qid49eu6kh10vhetcqlkh" TEXT="100rb">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="5oqccpmomdh8n1ut4ji1jpin5q" TEXT="Anda memilih donasi sebesar *Rp. 100.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (LinkAja,Ovo,GoPay) kesayangan Anda.">
-                                <font NAME="SansSerif" SIZE="10"/>
-                            </node>
-                            <node FOLDER="true" ID="2af578dcmpdvbungvm95ojkl9v" TEXT="Action Type">
-                                <node FOLDER="true" ID="6avqk8lf31hn6hb0dlofcghtoc" TEXT="button"/>
-                            </node>
-                            <node ID="5hr6bapo15umv19rhmia64empo" TEXT="Action">
-                                <node ID="7tjof4v15qd9le8lotpcggno84" TEXT="eWallet">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4j6v9790okp30k1cqfm0ol4190" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=100000&amp;description=Donasi+100rb">
-                                        <font NAME="SansSerif" SIZE="10"/>
-                                    </node>
-                                </node>
-                                <node FOLDER="true" ID="2f6ufc2733ffp6vllij9755rav" TEXT="Batal">
-                                    <node FOLDER="true" ID="2sj1u2891jtovuid9osgcmh1l4" TEXT="Baik, terima kasih."/>
-                                </node>
-                            </node>
-                        </node>
                         <node ID="7m50s01k9qqslfb0jd58mrsnf3" TEXT="Isi nominal sendiri">
                             <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4ipb283fbmojp3nsb3tv3mtt7c" TEXT="{ecosystem_baseurl}/services/main/CarikBot/donasi/">
                                 <font NAME="SansSerif" SIZE="10"/>
