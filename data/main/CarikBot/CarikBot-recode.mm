@@ -340,24 +340,6 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                 </node>
               </node>
             </node>
-            <node ID="3mqtg22g9n1j53dtvrkqlrd9vq" TEXT="50rb">
-              <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4qk6etmo3h5mknmmsip6ncgnng" TEXT="Anda memilih donasi sebesar *Rp. 50.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (LinkAja,Ovo,GoPay) kesayangan Anda.">
-                <font NAME="SansSerif" SIZE="10"/>
-              </node>
-              <node FOLDER="true" ID="5b2qs3kcsongg4j9ksh2hp0g05" TEXT="Action Type">
-                <node FOLDER="true" ID="70cpc161vc4qa95gvt3uu7rs6u" TEXT="button"/>
-              </node>
-              <node ID="0a05er1huecms0um5lsvvfch4g" TEXT="Action">
-                <node FOLDER="true" ID="7f3fvip4ahss64h5plhb9gofuh" TEXT="eWallet">
-                  <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="3akfjkk1nudgnsh0govjvl77jn" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=50000&amp;random=0&amp;description=Donasi+50rb">
-                    <font NAME="SansSerif" SIZE="10"/>
-                  </node>
-                </node>
-                <node FOLDER="true" ID="3mbf2shrlk9ilkr09hhph05h62" TEXT="Batal">
-                  <node FOLDER="true" ID="6vul8kef1eq9gkg82dk39u45bt" TEXT="Baik, terima kasih."/>
-                </node>
-              </node>
-            </node>
             <node ID="7m50s01k9qqslfb0jd58mrsnf3" TEXT="Isi nominal sendiri">
               <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4ipb283fbmojp3nsb3tv3mtt7c" TEXT="{ecosystem_baseurl}/services/main/CarikBot/donasi/">
                 <font NAME="SansSerif" SIZE="10"/>
