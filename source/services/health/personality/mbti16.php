@@ -165,15 +165,14 @@ $Text .= "\n";
 $testResult = strtolower($testResult);
 $description = readTextFile( "data/mbti-$testResult.txt");
 $Text .= "\n".$description;
+$Text .= "\n\nSumber tes: 16personalities";
 
-// test report
+// Test report
 $code = sha1($UserId.$DateAsInteger);
 $url = "https://carik.id/personality-test/?id=$code";
 $Text .= "\nHasil test anda bisa dilihat melalui [tautan ini]($url)";
 
-//TODO: save result test to system
-
-// submit to system
+// Submit result to system
 $GFA = new GoogleFormAutomation;
 $GFA->FormId = $Config['packages']['health']['personality']['googleform_id'];
 $postData = [
