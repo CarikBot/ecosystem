@@ -32,8 +32,14 @@ require_once "../../lib/simplexlsx/src/SimpleXLSX.php";
 require_once "../../config.php";
 date_default_timezone_set('Asia/Jakarta');
 
-const MBTI_FILE = "ref/mbti-nur.xlsx";
+$UserId = @$RequestContentAsJson['user_id'];
 $FullName = @$RequestContentAsJson['full_name'];
+if (empty($UserId)) $UserId = @$RequestContentAsJson['data']['user_id'];
+if (empty($FullName)) $FullName = @$RequestContentAsJson['data']['FullName'];
+$Date = date("Y-m-d H:i:s");
+$DateAsInteger = strtotime($Date);
+
+const MBTI_FILE = "ref/mbti-nur.xlsx";
 
 if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
     Output(0, "Pengisian form Test MBTI (n) telah dibatalkan.\nTerima kasih.");
@@ -122,6 +128,34 @@ $Text .= "\n";
 $testResult = strtolower($testResult);
 $description = readTextFile( "data/mbti-$testResult.txt");
 $Text .= "\n".$description;
+$Text .= "\n\nSumber tes: @hidayat365";
+
+
+// Test report
+$code = sha1($UserId.$DateAsInteger);
+$url = "https://carik.id/personality-test/?id=$code";
+$Text .= "\nHasil test anda bisa dilihat melalui [tautan ini]($url)";
+
+// Submit result to system
+$jenisKelamin = '';
+$intitution = 'NURH';
+$testName = 'MBTI(n)';
+$GFA = new GoogleFormAutomation;
+$GFA->FormId = $Config['packages']['health']['personality']['googleform_id'];
+$postData = [
+  'entry.1497848011' => $code,
+  'entry.129360943' => $UserId,
+  'entry.1157306265' => strtoupper($FullName),
+  'entry.382061660' => $jenisKelamin,
+  'entry.558529546' => $intitution,
+  'entry.850495111' => $testName,
+  'entry.665691566' => strtoupper($testResult),
+  'entry.495695927' => $Date,
+  'entry.846529421' => json_encode($Data, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE)
+];
+if (!$GFA->Submit($postData)){
+  Output(400, 'Gagal dalam penyimpanan data.');
+};
 
 //die($Text);
 Output(0, $Text);
