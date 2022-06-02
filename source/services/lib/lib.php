@@ -11,6 +11,9 @@
  * @since
  */
 
+const OK = 'OK';
+const CANCEL = 'CANCEL';
+
 // force post data from json request content
 $RequestContentAsJson = "";
 $RequestContent = file_get_contents('php://input');
