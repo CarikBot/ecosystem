@@ -22,7 +22,7 @@ if (0==count($addresses)) {
     $menuData[] = AddButton($title, "text=padd $city");
   }
   $buttonList[] = $menuData;
-  Output( 0, $Text, 'text', $buttonList, 'menu');
+  Output( 0, $Text, 'text', $buttonList, 'list');
 }
 
 $Text = "";

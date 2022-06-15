@@ -29,7 +29,7 @@ $buttons[] = AddButton("Update Covid", "mode=edit&text=update covid");
 $buttonList[] = $buttons;
 
 $buttons = [];
-$buttons[] = AddButtonURL("🏡 Situs Official", "https://carik.id", "tall");
+//$buttons[] = AddButtonURL("🏡 Situs Official", "https://carik.id", "tall");
 $buttons[] = AddButton("🥇 Donasi", "text=saya mau donasi");
 $buttonList[] = $buttons;
 

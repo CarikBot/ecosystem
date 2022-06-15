@@ -93,18 +93,6 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 $Data = $RequestContentAsJson['data'];
 $fullName = strtoupper($Data['fullName']);
 
-const FORM_ID_FULLNAME = 'entry.1951588136';
-const FORM_ID_EMAIL = 'entry.430329464';
-const FORM_ID_PHONE = 'entry.1405372525';
-const FORM_ID_PAYMENT_FOR = 'entry.1434055289';
-const FORM_ID_PAYMENT_INVOICE = 'entry.43864263';
-const FORM_ID_PAYMENT_BANK = 'entry.1559775497';
-const FORM_ID_AMOUNT = 'entry.810623611';
-const FORM_ID_DATE_DAY = 'entry.280061076_day';
-const FORM_ID_DATE_MONTH = 'entry.280061076_month';
-const FORM_ID_DATE_YEAR = 'entry.280061076_year';
-const FORM_ID_NOTE = 'entry.1261926768';
-
 // Submit to system
 $GFA = new GoogleFormAutomation;
 $GFA->FormId = $Config['packages']['partner']['kioss']['form_id'];

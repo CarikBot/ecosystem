@@ -79,7 +79,6 @@ $questionData[] = $section01;
 
 $Text = "Hi $FullName.";
 $Text .= "\nDi sini Anda bisa bebas memberikan donasi sesuai keinginan Anda lhoo.";
-$Text .= "\nSilakan tulis besar nominal yang akan Anda donasikan (dalam Rupiah)";
 $Text .= "\n";
 
 $url = GetBaseUrl() . '/services/main/CarikBot/donasi/';
