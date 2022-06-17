@@ -53,7 +53,7 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   $Text .= "\n";
 
   // general question
-  $generalQuestion[] = AddQuestion('option', 'rating', "Menurut Anda tentang layanan Carik", ["options"=>['Sangat tidak suka', 'Tidak Suka', 'Suka', 'Suka Banget']]);
+  $generalQuestion[] = AddQuestion('option', 'rating', "Menurut Anda tentang layanan Carik", ["options"=>['Suka Banget', 'Suka', 'Tidak Suka', 'Sangat tidak suka']]);
   $generalQuestion[] = AddQuestion('string', 'notes', "Ceritain dong tentang pengalaman menggunakan Carik. Atau boleh juga kritik dan saran Anda untuk Carik.\nMisal, layanan yang paling kamu suka, layanan yang perlu diadakan, apa yang perlu dikembangkan, dsb");
 
   $questionData[] = $generalQuestion;
