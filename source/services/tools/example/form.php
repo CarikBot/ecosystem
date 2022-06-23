@@ -39,10 +39,10 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 
   // general question
   $generalQuestion[] = AddQuestion('string', 'fullName', "Siapa nama Lengkap Anda");
+  $generalQuestion[] = AddQuestion('list', 'jenisKelamin', "Jenis Kelamin", ["options"=>['Laki-laki', 'perempuan']]);
   $generalQuestion[] = AddQuestion('string', 'email', "📧 Email Anda");
   $generalQuestion[] = AddQuestion('string', 'phone', "☎️ Nomor telepon/whatsapp\n(contoh: 08123456789)");
   $generalQuestion[] = AddQuestion('numeric', 'age', "Usia Anda");
-  $generalQuestion[] = AddQuestion('option', 'jenisKelamin', "Jenis Kelamin", ["options"=>['Laki-laki', 'perempuan']]);
 
   // other question
   $generalQuestion[] = AddQuestion('date', 'birthdate', "📅 Tanggal Lahir ");

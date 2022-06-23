@@ -75,9 +75,9 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   $generalQuestion[] = AddQuestion('string', 'email', "📧 Email Anda");
   $generalQuestion[] = AddQuestion('string', 'phone', "☎️ Nomor telepon/whatsapp\n(contoh: 08123456789)");
 
-  $paymentQuestion[] = AddQuestion('option', 'paymentFor', "Untuk pembayaran apa", ["options"=> PAYMENT_FOR]);
+  $paymentQuestion[] = AddQuestion('list', 'paymentFor', "Untuk pembayaran apa", ["options"=> PAYMENT_FOR]);
   $generalQuestion[] = AddQuestion('string', 'invoiceNo', "Nomor Invoice");
-  $paymentQuestion[] = AddQuestion('option', 'paymentBank', "Bank tujuan pembayaran", ["options"=> PAYMENT_BANK]);
+  $paymentQuestion[] = AddQuestion('list', 'paymentBank', "Bank tujuan pembayaran", ["options"=> PAYMENT_BANK]);
   $paymentQuestion[] = AddQuestion('number', 'amount', "Jumlah Pembayaran");
   $paymentQuestion[] = AddQuestion('date', 'date', "📅 Tanggal Pembayaran");
   $paymentQuestion[] = AddQuestion('string', 'note', "Keterangan pembayaran atau informasi lainnya");

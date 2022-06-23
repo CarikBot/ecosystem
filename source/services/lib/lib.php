@@ -421,7 +421,7 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
   $item['title'] = $ATitle;
   $item['name'] = $AVariableName;
   $item['type'] = $AType;
-  if ('option' == $AType){
+  if (('option' == $AType)||('list' == $AType)){
     $item['options'] = @$AData['options'];
     if (isset($AData['values'])){
       $item['values'] = @$AData['values'];
@@ -429,3 +429,30 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
   }
   return $item;
 }
+
+function isJson($string) {
+  json_decode($string);
+  return json_last_error() === JSON_ERROR_NONE;
+}
+
+/**
+ * Format Print
+ * Example:
+ *   formatPrint("Wohoo", ['blue', 'bold', 'italic','strikethrough']);
+ *   formatPrintLn("I'm invicible", ['yellow', 'italic']);
+ *   formatPrintLn("I'm invicible", ['yellow', 'bold']);
+ */
+function write(string $text = '', array $format=[]) {
+  $codes=[
+    'bold'=>1,
+    'italic'=>3, 'underline'=>4, 'strikethrough'=>9,
+    'black'=>30, 'red'=>31, 'green'=>32, 'yellow'=>33,'blue'=>34, 'magenta'=>35, 'cyan'=>36, 'white'=>37,
+    'blackbg'=>40, 'redbg'=>41, 'greenbg'=>42, 'yellowbg'=>44,'bluebg'=>44, 'magentabg'=>45, 'cyanbg'=>46, 'lightgreybg'=>47
+  ];
+  $formatMap = array_map(function ($v) use ($codes) { return $codes[$v]; }, $format);
+  echo "\e[".implode(';',$formatMap).'m'.$text."\e[0m";
+}
+function writeLn(string $text = '', array $format=[]) {
+  write($text, $format); echo "\r\n";
+}
+
