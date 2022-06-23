@@ -421,7 +421,7 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
   $item['title'] = $ATitle;
   $item['name'] = $AVariableName;
   $item['type'] = $AType;
-  if ('option' == $AType){
+  if (('option' == $AType)||('list' == $AType)){
     $item['options'] = @$AData['options'];
     if (isset($AData['values'])){
       $item['values'] = @$AData['values'];
