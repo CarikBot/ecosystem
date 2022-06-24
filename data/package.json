@@ -144,6 +144,15 @@
         "root_menu_type": "button",
         "author": "Dipo",
         "site": "https://edna.io"
+      },
+      "Taqmir": {
+        "name": "Taqmir",
+        "description": "Taqmir",
+        "special_keyword": "tqmr",
+        "pattern": ["info (taqmir|tqmr)","^(tqmr)"],
+        "root_menu_type": "button",
+        "author": "Mizno",
+        "site": "https://taqmir.com"
       }
     },
     "property": {
