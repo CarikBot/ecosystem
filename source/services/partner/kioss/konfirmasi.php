@@ -75,9 +75,9 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   $generalQuestion[] = AddQuestion('string', 'email', "📧 Email Anda");
   $generalQuestion[] = AddQuestion('string', 'phone', "☎️ Nomor telepon/whatsapp\n(contoh: 08123456789)");
 
-  $paymentQuestion[] = AddQuestion('option', 'paymentFor', "Untuk pembayaran apa", ["options"=> PAYMENT_FOR]);
+  $paymentQuestion[] = AddQuestion('list', 'paymentFor', "Untuk pembayaran apa", ["options"=> PAYMENT_FOR]);
   $generalQuestion[] = AddQuestion('string', 'invoiceNo', "Nomor Invoice");
-  $paymentQuestion[] = AddQuestion('option', 'paymentBank', "Bank tujuan pembayaran", ["options"=> PAYMENT_BANK]);
+  $paymentQuestion[] = AddQuestion('list', 'paymentBank', "Bank tujuan pembayaran", ["options"=> PAYMENT_BANK]);
   $paymentQuestion[] = AddQuestion('number', 'amount', "Jumlah Pembayaran");
   $paymentQuestion[] = AddQuestion('date', 'date', "📅 Tanggal Pembayaran");
   $paymentQuestion[] = AddQuestion('string', 'note', "Keterangan pembayaran atau informasi lainnya");
@@ -92,18 +92,6 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 // Processing
 $Data = $RequestContentAsJson['data'];
 $fullName = strtoupper($Data['fullName']);
-
-const FORM_ID_FULLNAME = 'entry.1951588136';
-const FORM_ID_EMAIL = 'entry.430329464';
-const FORM_ID_PHONE = 'entry.1405372525';
-const FORM_ID_PAYMENT_FOR = 'entry.1434055289';
-const FORM_ID_PAYMENT_INVOICE = 'entry.43864263';
-const FORM_ID_PAYMENT_BANK = 'entry.1559775497';
-const FORM_ID_AMOUNT = 'entry.810623611';
-const FORM_ID_DATE_DAY = 'entry.280061076_day';
-const FORM_ID_DATE_MONTH = 'entry.280061076_month';
-const FORM_ID_DATE_YEAR = 'entry.280061076_year';
-const FORM_ID_NOTE = 'entry.1261926768';
 
 // Submit to system
 $GFA = new GoogleFormAutomation;

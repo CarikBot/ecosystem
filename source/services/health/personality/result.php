@@ -50,6 +50,7 @@ unset($resultInfo['Keterangan']);
 
 $testName = $resultInfo['Test_Name'];
 if ('MBTI2'==$testName) $testName = 'MBTI';
+if ('MBTI(n)'==$testName) $testName = 'MBTI';
 $code = $resultInfo['Test_Result'][0];
 if ('MBTI'==$testName) $code = strtolower($resultInfo['Test_Result']);
 $fileName = 'data/'.strtolower($testName.'-'.$code).'.txt';
