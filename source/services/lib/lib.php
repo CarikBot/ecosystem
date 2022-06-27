@@ -39,6 +39,34 @@ if (empty($FirstName)) {
   if (count($f)>1) $LastName = $f[1];
 }
 
+function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffix = ''){
+  @header("Content-type:application/json");
+  $array['code'] = $ACode;
+  $array['text'] = $AMessage;
+  if (!empty($ASuffix)) $array['suffix'] = $ASuffix;
+  if (!empty($AReaction)) $array['reaction'] = $AReaction;
+  if (!is_null($AAction)){
+    $array['type'] = 'action';
+    foreach ($AAction as $key => $content) {
+      if ('button' == $key){
+        $array['action']['type'] = 'button';
+        $array['action']['button_title'] = 'Tampilkan';
+        //if (!empty($AThumbail)){
+        //    $array['action']['imageDefault'] = $AThumbail;
+        //}
+        $array['action']['data'] = $content;
+      };
+      if ('files' == $key){
+        $array['action']['files'] = $content;
+      };
+    }
+
+  }//if (!is_null($AAction))
+
+  $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  die($output);
+}
+
 function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0, $AReaction = ''){
     @header("Content-type:application/json");
     $array['code'] = $ACode;
