@@ -50,7 +50,9 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   // Build your question here
   $Text = "*Feedback Form*";
   $Text .= "\n";
-  $Text .= "\nHi $FullName, akan ada beberapa pertanyaan dari saya. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant ini.";
+  $Text .= "\nHi Kak $FullName yang tersayang.";
+  $Text .= "\nTerima kasih menjadi teman setia Carik.";
+  $Text .= "\nUntuk meningkatkan mutu layanan Carik, kami mohon bantuan untuk menjawab sedikit survei singkat ini. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant kesayangan.";
   $Text .= "\nMohon bantuannya yaa 🙏🏼";
   $Text .= "\n";
 
