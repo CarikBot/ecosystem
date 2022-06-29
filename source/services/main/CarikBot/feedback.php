@@ -52,7 +52,7 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   $Text .= "\n";
   $Text .= "\nHi Kak $FullName yang tersayang.";
   $Text .= "\nTerima kasih menjadi teman setia Carik.";
-  $Text .= "\nUntuk meningkatkan mutu layanan Carik, kami mohon bantuan untuk menjawab sedikit survei singkat ini. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant kesayangan.";
+  $Text .= "\nUntuk meningkatkan mutu layanan Carik, kami mohon bantuan untuk menjawab sedikit survei singkat ini. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant kesayangan ini.";
   $Text .= "\nMohon bantuannya yaa 🙏🏼";
   $Text .= "\n";
 
