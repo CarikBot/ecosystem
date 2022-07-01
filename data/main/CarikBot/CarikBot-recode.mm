@@ -346,9 +346,9 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
               </node>
             </node>
           </node>
-          <node FOLDER="true" ID="22g5oqmad3lj8ltvsvg932pk0l" TEXT="pattern">
-            <node FOLDER="true" ID="57cd2mk76b6on8oipjonu2ssdg" TEXT="dnsi"/>
-            <node FOLDER="true" ID="6tlc2vf5onnl8tj0n2mb60usvq" TEXT="donasi"/>
+          <node ID="22g5oqmad3lj8ltvsvg932pk0l" TEXT="pattern">
+            <node FOLDER="true" ID="6tlc2vf5onnl8tj0n2mb60usvq" TEXT="^donasi"/>
+            <node ID="1bi6a33ll4dcst97eqgkbuck5q" TEXT="(mau|pengen|pengin|info) donasi"/>
           </node>
         </node>
         <node FOLDER="true" ID="04o19n1jtmvlks92go9s3gf6ak" TEXT="🏠 Kembali"/>
