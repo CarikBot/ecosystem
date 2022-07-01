@@ -35,6 +35,8 @@ const FORM_ID_FULLNAME = 'entry.260424763';
 const FORM_ID_USERID = 'entry.363100674';
 const FORM_ID_MODUL = 'entry.1946344226';
 const FORM_ID_RATING = 'entry.891463682';
+const FORM_ID_INTERACTION = 'entry.1812881260';
+const FORM_ID_RECOMENDATION = 'entry.865760117';
 const FORM_ID_NOTES = 'entry.922043659';
 const FORM_ID_LOG = 'entry.1341416625';
 
@@ -48,12 +50,16 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   // Build your question here
   $Text = "*Feedback Form*";
   $Text .= "\n";
-  $Text .= "\nHi $FullName, akan ada beberapa pertanyaan dari saya. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant ini.";
+  $Text .= "\nHi Kak $FullName yang tersayang.";
+  $Text .= "\nTerima kasih menjadi teman setia Carik.";
+  $Text .= "\nUntuk meningkatkan mutu layanan Carik, kami mohon bantuan untuk menjawab sedikit survei singkat ini. Masukan dari Anda akan sangat membantu dalam pengembangan Carik Bot Assistant kesayangan ini.";
   $Text .= "\nMohon bantuannya yaa 🙏🏼";
   $Text .= "\n";
 
   // general question
-  $generalQuestion[] = AddQuestion('option', 'rating', "Menurut Anda tentang layanan Carik", ["options"=>['Suka Banget', 'Suka', 'Tidak Suka', 'Sangat tidak suka']]);
+  $generalQuestion[] = AddQuestion('option', 'rating', "Menurut Anda, seberapa suka Anda dengan layanan Carik", ["options"=>['Suka Banget', 'Suka', 'Tidak Suka', 'Sangat tidak suka']]);
+  $generalQuestion[] = AddQuestion('list', 'interaction', "Secara keseluruhan, seberapa mudah interaksi Anda melalui layanan chatbot Carik ini", ["options"=>['Wow, mudah banget', 'Cukup mudah', 'Sulit', 'Sangat sulit']]);
+  $generalQuestion[] = AddQuestion('list', 'recommendation', "Seberapa mungkin, Anda ingin merekomendasikan Carik kepada keluarga, kerabat atau rekanan?\n1. Sangat tidak mungkin, 10: Sangat mungkin.", ["options"=>['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']]);
   $generalQuestion[] = AddQuestion('string', 'notes', "Ceritain dong tentang pengalaman menggunakan Carik. Atau boleh juga kritik dan saran Anda untuk Carik.\nMisal, layanan yang paling kamu suka, layanan yang perlu diadakan, apa yang perlu dikembangkan, dsb");
 
   $questionData[] = $generalQuestion;
@@ -66,6 +72,8 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 $Data = $RequestContentAsJson['data'];
 $FullName = strtoupper($FullName);
 $Rating = strtoupper(@$Data['rating_t']);
+$Interaction = strtoupper(@$Data['interaction_t']);
+$Recomendation = strtoupper(@$Data['recommendation_t']);
 $Notes = @$Data['notes'];
 
 // Submit to system
@@ -76,6 +84,8 @@ $postData = [
   FORM_ID_USERID => $UserId,
   FORM_ID_MODUL => '',
   FORM_ID_RATING => $Rating,
+  FORM_ID_INTERACTION => $Interaction,
+  FORM_ID_RECOMENDATION => $Recomendation,
   FORM_ID_NOTES => $Notes,
   FORM_ID_LOG => json_encode($Data, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE)
 ];
@@ -87,6 +97,8 @@ if (!$GFA->Submit($postData)){
 $Text = "*Feedback Notification*";
 $Text .= "\nAda feedback masuk dari $FullName.";
 $Text .= "\nRating: $Rating";
+$Text .= "\nInteraction: $Interaction";
+$Text .= "\nRecomendation: $Recomendation";
 $Text .= "\nCatatan: $Notes";
 $options['url'] = $Config['packages']['partner']['kioss']['dashboard_url'];
 $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
