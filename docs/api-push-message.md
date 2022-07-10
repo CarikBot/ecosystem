@@ -74,7 +74,7 @@ Dengan ketentuan:
 
 Informasi tombol yang akan dibuat diletakkan pada variable `request/action/data`.
 
-Khusus untuk whatsapp, hanya mendukung maksimal 3 (tiga buah) tombol. Konten yang terdapat lebih dari 3 tombol akan otomatis dikonversi dalam format menu teks.
+Khusus untuk whatsapp, hanya mendukung maksimal 3 (tiga buah) tombol. Konten yang terdapat lebih dari 3 tombol akan otomatis dikonversi dalam format menu teks. Pada beberapa platform mendukung group tombol dalam beberapa baris kumpulan tombol.
 
 ![image](../images/screenshoot/button-wa-2.jpg)
 
