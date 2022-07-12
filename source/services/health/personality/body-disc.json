@@ -1,0 +1,30 @@
+{
+  "post_date" : "2022-04-14 20:40:46",
+  "user_id" : "5-fromID",
+  "full_name" : "Nama Saya (manual set)",
+  "client_id" : "201",
+  "UserID" : "5-fromID",
+  "FullName" : "Nama Saya (manual set)",
+  "ClientID" : "201",
+  "data" : {
+    "jenisKelamin" : "1",
+    "institution": "nama institution",
+    "q1" : "S",
+    "q2" : "S",
+    "q3" : "D",
+    "q4" : "I",
+    "q5" : "S",
+    "q6" : "C",
+    "q7" : "D",
+    "q8" : "I",
+    "q9" : "S",
+    "q10" : "S",
+    "q11" : "C",
+    "q12" : "I",
+    "q13" : "S",
+    "q14" : "S",
+    "q15" : "D",
+    "q16" : "I",
+    "submit" : "OK"
+  }
+}

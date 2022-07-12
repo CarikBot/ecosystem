@@ -34,14 +34,14 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
 .
             </text>
         </hook>
-        <node FOLDER="true" ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="&#127782; Cuaca">
+        <node ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="&#127782; Cuaca">
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="61lrimrpaj3e6ejcmn8shl9n9u" TEXT="Cuaca memang lagi tidak menentu. Hujan hampir tiap hari, panaspun seperti mantan yang dinanti. Cari informasi cuaca di kotamu di sini.">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
             <node FOLDER="true" ID="34v7r318aenr666fpq01cugfnf" TEXT="Action Type">
                 <node FOLDER="true" ID="4ie4bu0071d822mts7q7l176ss" TEXT="button"/>
             </node>
-            <node FOLDER="true" ID="35gt00dgj7bmqb86f0gbkn5i4v" TEXT="Action">
+            <node ID="35gt00dgj7bmqb86f0gbkn5i4v" TEXT="Action">
                 <node FOLDER="true" ID="87ce8e4d-5528-4c4f-a50c-08dd4c674514" TEXT="&#127782; Cuaca">
                     <hook NAME="accessories/plugins/NodeNote.properties">
                         <text>
@@ -49,14 +49,14 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node FOLDER="true" ID="df9193fb-a813-43a4-b674-aa9cae3304dd" TEXT="&#127755; BMKG">
+                <node ID="df9193fb-a813-43a4-b674-aa9cae3304dd" TEXT="&#127755; BMKG">
                     <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="1bn1adtvorf7ghr4ofc2uhsocb" TEXT="Informasi prakiraan cuaca, gempabumi dan tsunami bisa dari sini.&#10;Tapi pastikan kroscek dengan BMKG yaa..">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
                     <node FOLDER="true" ID="6ndkb2hef5n1jg762sue9g9uur" TEXT="Action Type">
                         <node FOLDER="true" ID="43cdf0vc5o3nbeqh71o01va0hv" TEXT="button"/>
                     </node>
-                    <node FOLDER="true" ID="70gcgn90dg29tm288poadt676e" TEXT="Action">
+                    <node ID="70gcgn90dg29tm288poadt676e" TEXT="Action">
                         <node FOLDER="true" ID="3c62d87b-0358-4aca-bb61-0b5134761596" TEXT="&#127964; Gempa">
                             <hook NAME="accessories/plugins/NodeNote.properties">
                                 <text>
@@ -104,7 +104,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node FOLDER="true" ID="3c0hshobn4tef9ehdhsvfjblsk" TEXT="&#129440; Covid-19">
+                <node ID="3c0hshobn4tef9ehdhsvfjblsk" TEXT="&#129440; Covid-19">
                     <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6f61lekgatujtiai77qivhjrgr" TEXT="http://public-nlp.carik.id/services/health/covid/?compact=1&amp;province=">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
@@ -340,82 +340,15 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 </node>
                             </node>
                         </node>
-                        <node ID="3mqtg22g9n1j53dtvrkqlrd9vq" TEXT="50rb">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4qk6etmo3h5mknmmsip6ncgnng" TEXT="Anda memilih donasi sebesar *Rp. 50.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (LinkAja,Ovo,GoPay) kesayangan Anda.">
+                        <node ID="7m50s01k9qqslfb0jd58mrsnf3" TEXT="Isi nominal sendiri">
+                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4ipb283fbmojp3nsb3tv3mtt7c" TEXT="{ecosystem_baseurl}/services/main/CarikBot/donasi/">
                                 <font NAME="SansSerif" SIZE="10"/>
-                            </node>
-                            <node FOLDER="true" ID="5b2qs3kcsongg4j9ksh2hp0g05" TEXT="Action Type">
-                                <node FOLDER="true" ID="70cpc161vc4qa95gvt3uu7rs6u" TEXT="button"/>
-                            </node>
-                            <node ID="0a05er1huecms0um5lsvvfch4g" TEXT="Action">
-                                <node FOLDER="true" ID="7f3fvip4ahss64h5plhb9gofuh" TEXT="eWallet">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="3akfjkk1nudgnsh0govjvl77jn" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=50000&amp;random=0&amp;description=Donasi+50rb">
-                                        <font NAME="SansSerif" SIZE="10"/>
-                                    </node>
-                                </node>
-                                <node FOLDER="true" ID="3mbf2shrlk9ilkr09hhph05h62" TEXT="Batal">
-                                    <node FOLDER="true" ID="6vul8kef1eq9gkg82dk39u45bt" TEXT="Baik, terima kasih."/>
-                                </node>
-                            </node>
-                        </node>
-                        <node ID="2j118qid49eu6kh10vhetcqlkh" TEXT="100rb">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="5oqccpmomdh8n1ut4ji1jpin5q" TEXT="Anda memilih donasi sebesar *Rp. 100.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (LinkAja,Ovo,GoPay) kesayangan Anda.">
-                                <font NAME="SansSerif" SIZE="10"/>
-                            </node>
-                            <node FOLDER="true" ID="2af578dcmpdvbungvm95ojkl9v" TEXT="Action Type">
-                                <node FOLDER="true" ID="6avqk8lf31hn6hb0dlofcghtoc" TEXT="button"/>
-                            </node>
-                            <node ID="5hr6bapo15umv19rhmia64empo" TEXT="Action">
-                                <node FOLDER="true" ID="7tjof4v15qd9le8lotpcggno84" TEXT="eWallet">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4j6v9790okp30k1cqfm0ol4190" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=100000&amp;description=Donasi+100rb">
-                                        <font NAME="SansSerif" SIZE="10"/>
-                                    </node>
-                                </node>
-                                <node FOLDER="true" ID="2f6ufc2733ffp6vllij9755rav" TEXT="Batal">
-                                    <node FOLDER="true" ID="2sj1u2891jtovuid9osgcmh1l4" TEXT="Baik, terima kasih."/>
-                                </node>
-                            </node>
-                        </node>
-                        <node ID="6q1ot5un874b3o1su75kseipab" TEXT="200rb">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="41v4e5v8c53igm22p95073aklo" TEXT="Anda memilih donasi sebesar *Rp. 200.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (LinkAja,Ovo,GoPay) kesayangan Anda.">
-                                <font NAME="SansSerif" SIZE="10"/>
-                            </node>
-                            <node FOLDER="true" ID="24ii53npkh8fdot3dqpce4g3b6" TEXT="Action Type">
-                                <node FOLDER="true" ID="77mlrb0i3l644tfnr7k8m6vlm7" TEXT="button"/>
-                            </node>
-                            <node ID="4rki15148us42jf85kk0to4onq" TEXT="Action">
-                                <node FOLDER="true" ID="1k8p9oifbj2r18luc17kluh1hu" TEXT="eWallet / Transfer">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="6qdndu86o77trq7p4abnsksl0l" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=200000&amp;description=Donasi+200rb">
-                                        <font NAME="SansSerif" SIZE="10"/>
-                                    </node>
-                                </node>
-                                <node FOLDER="true" ID="4pfrl7nbel8hvfm3eq4941e4j4" TEXT="Batal">
-                                    <node FOLDER="true" ID="6gjog481hd4v3358pio8r4hred" TEXT="Baik, terima kasih."/>
-                                </node>
-                            </node>
-                        </node>
-                        <node ID="7lmkhjf390ua99k626cbq0tg7u" TEXT="500rb">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4mu2ed60ki4037g562dvn926h2" TEXT="Anda memilih donasi sebesar *Rp. 500.000*.&#10;Pembayaran bisa dilakukan melalui scan *QRIS* atau *eWallet* (LinkAja,Ovo,GoPay) kesayangan Anda.">
-                                <font NAME="SansSerif" SIZE="10"/>
-                            </node>
-                            <node ID="33qk77sd6tp9mq38jehhmv9e78" TEXT="Action Type">
-                                <node FOLDER="true" ID="2u5fl5q53fitn8r99qtg956e2o" TEXT="button"/>
-                            </node>
-                            <node ID="77k4jum1jhkmj4u8u9b11ihed2" TEXT="Action">
-                                <node FOLDER="true" ID="17trevqi112k5p170tcce98cog" TEXT="eWallet / Transfer">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="3i8prgm6po9ue2i0emrptqt316" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=500000&amp;description=Donasi+500rb">
-                                        <font NAME="SansSerif" SIZE="10"/>
-                                    </node>
-                                </node>
-                                <node FOLDER="true" ID="2cq1m1uc890o7qada57d4posn2" TEXT="Batal">
-                                    <node FOLDER="true" ID="6c2ranm2av2torq7ndto1uff7o" TEXT="Baik, terima kasih."/>
-                                </node>
                             </node>
                         </node>
                     </node>
-                    <node FOLDER="true" ID="22g5oqmad3lj8ltvsvg932pk0l" TEXT="pattern">
-                        <node FOLDER="true" ID="57cd2mk76b6on8oipjonu2ssdg" TEXT="dnsi"/>
-                        <node FOLDER="true" ID="6tlc2vf5onnl8tj0n2mb60usvq" TEXT="donasi"/>
+                    <node ID="22g5oqmad3lj8ltvsvg932pk0l" TEXT="pattern">
+                        <node FOLDER="true" ID="6tlc2vf5onnl8tj0n2mb60usvq" TEXT="^donasi"/>
+                        <node ID="1bi6a33ll4dcst97eqgkbuck5q" TEXT="(mau|pengen|pengin|info) donasi"/>
                     </node>
                 </node>
                 <node FOLDER="true" ID="04o19n1jtmvlks92go9s3gf6ak" TEXT="&#127968; Kembali"/>

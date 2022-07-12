@@ -1,0 +1,2057 @@
+{
+  "status": true,
+  "code": "200",
+  "message": "Data ditemukan!",
+  "data": {
+    "laporan": {
+      "id": 396702,
+      "bank": {
+        "id": 1,
+        "bankName": "BRI - Bank Rakyat Indonesia",
+        "information": null,
+        "pathLogoColor": "thumb_bank.png",
+        "pathLogoBlack": "thumb_bank.png",
+        "tipebank": 1,
+        "prefix": null
+      },
+      "accountNo": "109101005696533",
+      "accountName": "dini apriska sari",
+      "kategoriAduan": {
+        "id": 1,
+        "deskripsi": "Penipuan Transaksi Online",
+        "parentId": 0,
+        "keterangan": "penipuan berhubungan dengan transaksi online",
+        "pathLogo": ""
+      },
+      "createdDate": 1649914095449
+    },
+    "laporanDetail": [
+      {
+        "id": 436844,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "kemarin pada tanggal 13 april saya melakukan transaksi online untuk membeli baju di sebuah online shop via instagram ,lalu saya sudah transfer dan deal dengan penjual namun saat ditanya akan dikirim kapan penjual menjawab besok ,lalu saya minta no resi dan tidak dikirim pula ,lalu saya chat kembali pada tanggal 14 april 2022, namun chat saya hanya di read saja ,sampai saya spam tidak dibalas pula ",
+        "totalLoss": 230000,
+        "sumberMedia": {
+          "id": 1,
+          "description": "WhatsApp",
+          "information": "Sosial Media whatsapp",
+          "active": true
+        },
+        "laporanDate": 1649914095449,
+        "incidentDate": null,
+        "reporterEmail": "al**********gmail.com",
+        "reporterFullname": "Alya**********",
+        "reporterPhoneNumber": "0853**********",
+        "reporterIdNumber": "1871**********",
+        "publicId": "f9b7bd85-1967-4176-8eb2-19a10d3346cd",
+        "reporterAddress": "Jl R**********",
+        "suspectName": "Liya Purnama Sari",
+        "suspectPhoneNumber": "087873336123",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 2,
+          "description": "Terverifikasi",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 90,
+        "verificator": {
+          "id": 90,
+          "email": "su**********gmail.com",
+          "telpNo": "0822******",
+          "fullname": "Suci**********",
+          "password": "**********",
+          "role": {
+            "id": 2,
+            "roleName": "Verifikator Laporan"
+          },
+          "userAccess": null,
+          "bank": null,
+          "ktpNo": "**********",
+          "address": null,
+          "pathPhoto": null,
+          "information": null,
+          "username": "su**********gmail.com",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1689265,
+            "idDetailLaporan": 436844,
+            "file": {
+              "id": 1871284,
+              "name": "BFDB49EE-FA69-4BE1-A650-A04346A87B9E.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1649914093571.jpeg"
+            },
+            "fileId": 1871284,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1649914095481,
+            "deleted": false
+          },
+          {
+            "id": 1689266,
+            "idDetailLaporan": 436844,
+            "file": {
+              "id": 1871285,
+              "name": "04404254-B979-43BB-AB9F-AF4C348C798C.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1649914094110.jpeg"
+            },
+            "fileId": 1871285,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1649914095482,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 111,
+          "name": "Kota Bandar Lampung"
+        },
+        "detailSumberMedia": "https://instagram.com/queenclmy.shop?igshid=YmMyMTA2M2Y=",
+        "remarks": null,
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1689267,
+            "idDetailLaporan": 436844,
+            "file": {
+              "id": 1871283,
+              "name": "C33176CD-A54C-4FD7-AADD-808D12953FA7.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1649914091523.jpeg"
+            },
+            "fileId": 1871283,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1649914095483,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 437320,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "saya berniat membelikan baju lebaran untuk keluarga besar saya di padang. saya mencari di instagram yang sesuai dengan uang saya. saya mendapatkan nomer whatsapp pelaku dari instagramnya dengan nama queenclmy.shop dan akhirnya saya hubungi nomer telpon yg tertera dan terjadi jual beli dan pentransferan dana sebesar 1.950.000 ",
+        "totalLoss": 1950000,
+        "sumberMedia": {
+          "id": 1,
+          "description": "WhatsApp",
+          "information": "Sosial Media whatsapp",
+          "active": true
+        },
+        "laporanDate": 1650008045434,
+        "incidentDate": null,
+        "reporterEmail": "ai**********gmail.com",
+        "reporterFullname": "sara**********",
+        "reporterPhoneNumber": "0882**********",
+        "reporterIdNumber": "3275**********",
+        "publicId": "363654fa-50bd-4e73-bd3b-362bff14ae64",
+        "reporterAddress": "Ruko**********",
+        "suspectName": "dini apriska sari",
+        "suspectPhoneNumber": "087873336123",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 2,
+          "description": "Terverifikasi",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 116,
+        "verificator": {
+          "id": 116,
+          "email": "fr**********corp.bri.co.id",
+          "telpNo": "0877******",
+          "fullname": "BRI **********",
+          "password": "**********",
+          "role": {
+            "id": 7,
+            "roleName": "Partner"
+          },
+          "userAccess": null,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "ktpNo": "**********",
+          "address": "",
+          "pathPhoto": "",
+          "information": "Verifikator Bank BRI",
+          "username": "fr**********corp.bri.co.id",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1691250,
+            "idDetailLaporan": 437320,
+            "file": {
+              "id": 1873406,
+              "name": "WhatsApp Image 2022-04-15 at 11.51.01.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650008044047.jpeg"
+            },
+            "fileId": 1873406,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650008045465,
+            "deleted": false
+          },
+          {
+            "id": 1691251,
+            "idDetailLaporan": 437320,
+            "file": {
+              "id": 1873407,
+              "name": "WhatsApp Image 2022-04-15 at 11.51.25.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650008044879.jpeg"
+            },
+            "fileId": 1873407,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650008045466,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 238,
+          "name": "Kota Tangerang"
+        },
+        "detailSumberMedia": "087873336123",
+        "remarks": "Nasabah yang dilaporkan sudah kami tindak lanjuti sesuai dengan ketentuan internal bank yang berlaku.\n\nDemikian atas perhatian dan kerjasama yang baik disampaikan terimakasih.",
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1691252,
+            "idDetailLaporan": 437320,
+            "file": {
+              "id": 1873405,
+              "name": "WhatsApp Image 2022-04-15 at 14.30.08.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650008042818.jpeg"
+            },
+            "fileId": 1873405,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650008045467,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 438198,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Saya melakukan pembayaran atas pakaian yg saya suka dan mulai transaksi",
+        "totalLoss": 950000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650194215602,
+        "incidentDate": null,
+        "reporterEmail": "we**********gmail.com",
+        "reporterFullname": "Nirm**********",
+        "reporterPhoneNumber": "0853**********",
+        "reporterIdNumber": "7471**********",
+        "publicId": "a1832714-192c-4520-93fc-fd3a7c4bedb3",
+        "reporterAddress": "Desa**********",
+        "suspectName": "Liya Purnama Sari",
+        "suspectPhoneNumber": "082269455896",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 1,
+          "description": "Open",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 150,
+        "verificator": {
+          "id": 150,
+          "email": "ku**********gmail.com",
+          "telpNo": "0821******",
+          "fullname": "Kurn**********",
+          "password": "**********",
+          "role": {
+            "id": 2,
+            "roleName": "Verifikator Laporan"
+          },
+          "userAccess": null,
+          "bank": null,
+          "ktpNo": "3174**********",
+          "address": null,
+          "pathPhoto": null,
+          "information": "",
+          "username": "kurn**********",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1694724,
+            "idDetailLaporan": 438198,
+            "file": {
+              "id": 1877115,
+              "name": "1CDDE044-DE58-4DE2-9C19-336F9D189545.png",
+              "contentType": "image/png",
+              "path": "File-1650194162900.png"
+            },
+            "fileId": 1877115,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650194215634,
+            "deleted": false
+          },
+          {
+            "id": 1694725,
+            "idDetailLaporan": 438198,
+            "file": {
+              "id": 1877116,
+              "name": "3F963C7C-D511-4DE9-B3E6-49ACB012ABAA.png",
+              "contentType": "image/png",
+              "path": "File-1650194175129.png"
+            },
+            "fileId": 1877116,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650194215635,
+            "deleted": false
+          },
+          {
+            "id": 1694726,
+            "idDetailLaporan": 438198,
+            "file": {
+              "id": 1877117,
+              "name": "8B3C46A9-74E1-47DE-96E6-836D1BE19439.png",
+              "contentType": "image/png",
+              "path": "File-1650194182092.png"
+            },
+            "fileId": 1877117,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650194215636,
+            "deleted": false
+          },
+          {
+            "id": 1694727,
+            "idDetailLaporan": 438198,
+            "file": {
+              "id": 1877118,
+              "name": "E5585F54-C156-4584-9159-05CF5B00E2C6.png",
+              "contentType": "image/png",
+              "path": "File-1650194184721.png"
+            },
+            "fileId": 1877118,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650194215638,
+            "deleted": false
+          },
+          {
+            "id": 1694728,
+            "idDetailLaporan": 438198,
+            "file": {
+              "id": 1877119,
+              "name": "4897EE7E-B44A-4163-A817-9D47CD74E2E9.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650194197465.jpeg"
+            },
+            "fileId": 1877119,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650194215639,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 403,
+          "name": "Kab. Kepulauan Sula"
+        },
+        "detailSumberMedia": "Instagram",
+        "remarks": null,
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1694729,
+            "idDetailLaporan": 438198,
+            "file": {
+              "id": 1877114,
+              "name": "2205782A-D500-4820-80DA-5FB20AE2628C.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650194136425.jpeg"
+            },
+            "fileId": 1877114,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650194215640,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 438331,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Awal mula saya tertarik untuk membeli barang di sebuah akun instagram dia @queenclmy.shop setelah itu saya berlanjut transaksi di WhatShaap orang tersebut mengirim nomer rekening dan saya berlanjut transfer.Setelah saya mengirim bukti transfer,Saya meminta Nomer resi Pengiriman,Tetapi tidak ada respon sama sekali,Pesan saya hanya dibacaa,Saya telepon juga tidak pernah ngangkat,Saya meminta bantuan teman saya untuk menghubungi tetapi teman saya malah diblokir,juga teman saya ada yang mencoba menghubungi dengan alasan jika mau order dan dibalas.Setelah saya cek dan cek lagi ternyata akun tersebut penipuan,juga Nama di nomer rekening dan nama di kontak tidakk sesuaii",
+        "totalLoss": 600000,
+        "sumberMedia": {
+          "id": 1,
+          "description": "WhatsApp",
+          "information": "Sosial Media whatsapp",
+          "active": true
+        },
+        "laporanDate": 1650228953059,
+        "incidentDate": null,
+        "reporterEmail": "pu**********gmail.com",
+        "reporterFullname": "PUTR**********",
+        "reporterPhoneNumber": "0852**********",
+        "reporterIdNumber": "3510**********",
+        "publicId": "275434d6-8fb1-4c20-a176-78cd0e7425b6",
+        "reporterAddress": "DSN.**********",
+        "suspectName": "LIYA PURNAMA SARI",
+        "suspectPhoneNumber": "087873336123",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 2,
+          "description": "Terverifikasi",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 148,
+        "verificator": {
+          "id": 148,
+          "email": "la**********gmail.com",
+          "telpNo": "0821******",
+          "fullname": "M. L**********",
+          "password": "**********",
+          "role": {
+            "id": 2,
+            "roleName": "Verifikator Laporan"
+          },
+          "userAccess": null,
+          "bank": null,
+          "ktpNo": "1871**********",
+          "address": null,
+          "pathPhoto": null,
+          "information": "",
+          "username": "la**********gmail.com",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1695265,
+            "idDetailLaporan": 438331,
+            "file": {
+              "id": 1877720,
+              "name": "36C4AE60-C47D-45BE-AA27-8426C57EF7DA.png",
+              "contentType": "image/png",
+              "path": "File-1650228948190.png"
+            },
+            "fileId": 1877720,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650228953089,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 232,
+          "name": "Kab. Banyuwangi"
+        },
+        "detailSumberMedia": "087873336123",
+        "remarks": null,
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1695266,
+            "idDetailLaporan": 438331,
+            "file": {
+              "id": 1877719,
+              "name": "image.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650228937920.jpg"
+            },
+            "fileId": 1877719,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650228953090,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 438685,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Indikasi penipuan penjualan online dari dari penjual dg nama IG @baneesa_butik saat ini dimana seting ganti ganti nama IG. \nSaya tertarik dengan baju seragam keluarga dengan harga Rp 850.000. Akhirnya saya langsung chat link wa yg terdapat di IG menanyakan ketersediaan produk, harga dan sampai terjadi transaksi. Penjual menggunakan rekeninv BRI dg no.rek 109101005696533 a.n Liya Purnama Sari pada tanggal 1u April 2022 pukul 10.54.22 dengan nominal Rp 850.000 Setelah saya transfer 1 hari tidak ada kabar sy pikir hari minggu. Akhirnya hafi senin saya wa tidak dibaca dan sy telp tidak diangkat. Sepertinya wa sy sudah diblokir. Sampai malam Senin jam 19.32 telp saya tidak diangkat.",
+        "totalLoss": 850000,
+        "sumberMedia": {
+          "id": 1,
+          "description": "WhatsApp",
+          "information": "Sosial Media whatsapp",
+          "active": true
+        },
+        "laporanDate": 1650285568169,
+        "incidentDate": null,
+        "reporterEmail": "ne**********yahoo.co.id",
+        "reporterFullname": "Nemi**********",
+        "reporterPhoneNumber": "0818**********",
+        "reporterIdNumber": "3174**********",
+        "publicId": "1e07cc6c-5b0a-4977-94a5-7ca4330ed06a",
+        "reporterAddress": "Peru**********",
+        "suspectName": "Liya Purnama Sari",
+        "suspectPhoneNumber": "08226945589",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 2,
+          "description": "Terverifikasi",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 116,
+        "verificator": {
+          "id": 116,
+          "email": "fr**********corp.bri.co.id",
+          "telpNo": "0877******",
+          "fullname": "BRI **********",
+          "password": "**********",
+          "role": {
+            "id": 7,
+            "roleName": "Partner"
+          },
+          "userAccess": null,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "ktpNo": "**********",
+          "address": "",
+          "pathPhoto": "",
+          "information": "Verifikator Bank BRI",
+          "username": "fr**********corp.bri.co.id",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1696706,
+            "idDetailLaporan": 438685,
+            "file": {
+              "id": 1879446,
+              "name": "Screenshot_20220418-193446_WhatsApp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650285524770.jpg"
+            },
+            "fileId": 1879446,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650285568200,
+            "deleted": false
+          },
+          {
+            "id": 1696707,
+            "idDetailLaporan": 438685,
+            "file": {
+              "id": 1879447,
+              "name": "Screenshot_20220418-193456_WhatsApp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650285538589.jpg"
+            },
+            "fileId": 1879447,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650285568202,
+            "deleted": false
+          },
+          {
+            "id": 1696708,
+            "idDetailLaporan": 438685,
+            "file": {
+              "id": 1879448,
+              "name": "Screenshot_20220418-193501_WhatsApp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650285549439.jpg"
+            },
+            "fileId": 1879448,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650285568203,
+            "deleted": false
+          },
+          {
+            "id": 1696709,
+            "idDetailLaporan": 438685,
+            "file": {
+              "id": 1879449,
+              "name": "Screenshot_20220418-193510_WhatsApp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650285558371.jpg"
+            },
+            "fileId": 1879449,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650285568204,
+            "deleted": false
+          },
+          {
+            "id": 1696710,
+            "idDetailLaporan": 438685,
+            "file": {
+              "id": 1879450,
+              "name": "Screenshot_20220418-193516_WhatsApp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650285564046.jpg"
+            },
+            "fileId": 1879450,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650285568205,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 143,
+          "name": "Kota Bekasi"
+        },
+        "detailSumberMedia": "Mobile Banking",
+        "remarks": "Nasabah yang dilaporkan sudah kami tindak lanjuti sesuai dengan ketentuan internal bank yang berlaku.\n\nDemikian atas perhatian dan kerjasama yang baik disampaikan terimakasih.\n",
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1696711,
+            "idDetailLaporan": 438685,
+            "file": {
+              "id": 1879444,
+              "name": "Screenshot_20220418-193732_Gallery.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650285476409.jpg"
+            },
+            "fileId": 1879444,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650285568206,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 438896,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Saya membeli baju ke baneesa butik dan mentransfer uang sesuai harga baju tersebut..tapi bajunya tidak dikirim malah WA dan IG saya diblokir..",
+        "totalLoss": 260000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650334742285,
+        "incidentDate": null,
+        "reporterEmail": "la**********gmail.com",
+        "reporterFullname": "Last**********",
+        "reporterPhoneNumber": "0857**********",
+        "reporterIdNumber": "3202**********",
+        "publicId": "3fd87b54-50fe-46a0-9622-083b1bd48ba6",
+        "reporterAddress": "Kp. **********",
+        "suspectName": "Liya Purnama Sari ",
+        "suspectPhoneNumber": "082269455896",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 5,
+          "description": "Ditolak",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 10,
+        "verificator": {
+          "id": 10,
+          "email": "nc**********gmail.com",
+          "telpNo": "0987******",
+          "fullname": "Nirm**********",
+          "password": "**********",
+          "role": {
+            "id": 2,
+            "roleName": "Verifikator Laporan"
+          },
+          "userAccess": null,
+          "bank": null,
+          "ktpNo": "**********",
+          "address": "Jaka**********",
+          "pathPhoto": null,
+          "information": null,
+          "username": "nc**********gmail.com",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1697542,
+            "idDetailLaporan": 438896,
+            "file": {
+              "id": 1880365,
+              "name": "Screenshot_2022-04-16-13-13-44-99_f339d16c976c0b263d991820e972fb72.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650334737405.jpg"
+            },
+            "fileId": 1880365,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650334742316,
+            "deleted": false
+          },
+          {
+            "id": 1697543,
+            "idDetailLaporan": 438896,
+            "file": {
+              "id": 1880366,
+              "name": "Screenshot_2022-04-16-13-13-44-99_f339d16c976c0b263d991820e972fb72.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650334740384.jpg"
+            },
+            "fileId": 1880366,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650334742317,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 157,
+          "name": "Kab. Sukabumi"
+        },
+        "detailSumberMedia": "Transaksi pembayaran lewat watsup",
+        "remarks": "Mohon maaf laporan Anda kami tolak karena tidak ada bukti percakapan dari awal hingga akhir percakapan, termasuk percakapan pemberian nomor rekening dari pelaku tindak pidana ITE dan laman chatroom saat/jika diblokir. Mohon dilengkapi dengan lampiran bukti yang jelas terbaca dan laporkan kembali secara lengkap agar dapat kami verifikasi. \nTerima kasih. \n-Admin_",
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1697544,
+            "idDetailLaporan": 438896,
+            "file": {
+              "id": 1880364,
+              "name": "Dok baru 2019-11-23 16.27.27_1.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650334736388.jpg"
+            },
+            "fileId": 1880364,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650334742318,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 439888,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "1. Pada tanggal 17 April 2022 kami melakukan pemesanan baju Dress Nadja Family Set senilai 1.400.000, dan kami transfer pada tanggal 17 april 2022 jam 11.29 senilai 1.400.000\n3. Pada tanggal 18 April 2022 kami melakukan pemesanan lagi 1 baju dengan nilai 172.000, dan kami transfer pada tanggal 18 april 2022 jam 17.00 \n4. Pada tanggal 20 April 2022 kami coba minta resi pengiriman namun tidak ada respon\n5. Pada tanggal 21 April 2022 ig, wa kami di blokir oleh akun tersebut.\n",
+        "totalLoss": 1572000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650521041452,
+        "incidentDate": null,
+        "reporterEmail": "mi**********gmai.com",
+        "reporterFullname": "MILA**********",
+        "reporterPhoneNumber": "0857**********",
+        "reporterIdNumber": "3671**********",
+        "publicId": "1bd03f0a-3e1e-414b-84a5-753805d6b824",
+        "reporterAddress": "Gang**********",
+        "suspectName": "Liya Purnama Sari",
+        "suspectPhoneNumber": "081328253440",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 13,
+          "deskripsi": "Jual Beli Online",
+          "parentId": 1,
+          "keterangan": "Jual Beli Online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 2,
+          "description": "Terverifikasi",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 116,
+        "verificator": {
+          "id": 116,
+          "email": "fr**********corp.bri.co.id",
+          "telpNo": "0877******",
+          "fullname": "BRI **********",
+          "password": "**********",
+          "role": {
+            "id": 7,
+            "roleName": "Partner"
+          },
+          "userAccess": null,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "ktpNo": "**********",
+          "address": "",
+          "pathPhoto": "",
+          "information": "Verifikator Bank BRI",
+          "username": "fr**********corp.bri.co.id",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1701613,
+            "idDetailLaporan": 439888,
+            "file": {
+              "id": 1884784,
+              "name": "WhatsApp Image 2022-04-21 at 12.34.27.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650521038431.jpeg"
+            },
+            "fileId": 1884784,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650521041485,
+            "deleted": false
+          },
+          {
+            "id": 1701614,
+            "idDetailLaporan": 439888,
+            "file": {
+              "id": 1884785,
+              "name": "WhatsApp Image 2022-04-21 at 12.34.26.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650521038934.jpeg"
+            },
+            "fileId": 1884785,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650521041486,
+            "deleted": false
+          },
+          {
+            "id": 1701615,
+            "idDetailLaporan": 439888,
+            "file": {
+              "id": 1884786,
+              "name": "WhatsApp Image 2022-04-21 at 12.49.05.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650521039475.jpeg"
+            },
+            "fileId": 1884786,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650521041487,
+            "deleted": false
+          },
+          {
+            "id": 1701616,
+            "idDetailLaporan": 439888,
+            "file": {
+              "id": 1884787,
+              "name": "WhatsApp Image 2022-04-21 at 12.47.54.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650521040561.jpeg"
+            },
+            "fileId": 1884787,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650521041489,
+            "deleted": false
+          },
+          {
+            "id": 1701617,
+            "idDetailLaporan": 439888,
+            "file": {
+              "id": 1884788,
+              "name": "WhatsApp Image 2022-04-21 at 12.47.52 (1).jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650521041003.jpeg"
+            },
+            "fileId": 1884788,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650521041490,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 238,
+          "name": "Kota Tangerang"
+        },
+        "detailSumberMedia": "https://instagram.com/aleza_collection.id?igshid=YmMyMTA2M2Y=",
+        "remarks": "Nasabah yang dilaporkan sudah kami tindak lanjuti sesuai dengan ketentuan internal bank yang berlaku.\n\nDemikian atas perhatian dan kerjasama yang baik disampaikan terimakasih.\n",
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1701618,
+            "idDetailLaporan": 439888,
+            "file": {
+              "id": 1884783,
+              "name": "WhatsApp Image 2022-04-21 at 12.58.22.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650521035231.jpeg"
+            },
+            "fileId": 1884783,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650521041491,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 439975,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Belanja di IG tgl 17 - 04 - 2021 diana butik transfer ke rekening 109101005696533 a.n liya purnamasari, dlkemudian setelah diminta bukti resi tidak memberi",
+        "totalLoss": 900000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650533283785,
+        "incidentDate": null,
+        "reporterEmail": "an**********gmail.com",
+        "reporterFullname": "Angg**********",
+        "reporterPhoneNumber": "0857**********",
+        "reporterIdNumber": "3205**********",
+        "publicId": "c307473f-a725-4383-bc86-542301027c81",
+        "reporterAddress": "Kp. **********",
+        "suspectName": "Liya purnama sari",
+        "suspectPhoneNumber": null,
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 2,
+          "description": "Terverifikasi",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 116,
+        "verificator": {
+          "id": 116,
+          "email": "fr**********corp.bri.co.id",
+          "telpNo": "0877******",
+          "fullname": "BRI **********",
+          "password": "**********",
+          "role": {
+            "id": 7,
+            "roleName": "Partner"
+          },
+          "userAccess": null,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "ktpNo": "**********",
+          "address": "",
+          "pathPhoto": "",
+          "information": "Verifikator Bank BRI",
+          "username": "fr**********corp.bri.co.id",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1701985,
+            "idDetailLaporan": 439975,
+            "file": {
+              "id": 1885209,
+              "name": "Screenshot_20220421-154916_Instagram.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650533277534.jpg"
+            },
+            "fileId": 1885209,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650533283816,
+            "deleted": false
+          },
+          {
+            "id": 1701986,
+            "idDetailLaporan": 439975,
+            "file": {
+              "id": 1885210,
+              "name": "Screenshot_20220421-154910_Instagram.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650533278889.jpg"
+            },
+            "fileId": 1885210,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650533283817,
+            "deleted": false
+          },
+          {
+            "id": 1701987,
+            "idDetailLaporan": 439975,
+            "file": {
+              "id": 1885211,
+              "name": "Screenshot_20220421-154905_Instagram.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650533280339.jpg"
+            },
+            "fileId": 1885211,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650533283818,
+            "deleted": false
+          },
+          {
+            "id": 1701988,
+            "idDetailLaporan": 439975,
+            "file": {
+              "id": 1885212,
+              "name": "Screenshot_20220421-154901_Instagram.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650533281489.jpg"
+            },
+            "fileId": 1885212,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650533283819,
+            "deleted": false
+          },
+          {
+            "id": 1701989,
+            "idDetailLaporan": 439975,
+            "file": {
+              "id": 1885213,
+              "name": "Screenshot_20220421-154847_Instagram.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650533282645.jpg"
+            },
+            "fileId": 1885213,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650533283820,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 156,
+          "name": "Kab. Cianjur"
+        },
+        "detailSumberMedia": "Transfer Brilink",
+        "remarks": "Nasabah yang dilaporkan sudah kami tindak lanjuti sesuai dengan ketentuan internal bank yang berlaku.\n\nDemikian atas perhatian dan kerjasama yang baik disampaikan terimakasih.\n",
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1701990,
+            "idDetailLaporan": 439975,
+            "file": {
+              "id": 1885208,
+              "name": "IMG-20211015-WA0010.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650533274676.jpg"
+            },
+            "fileId": 1885208,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650533283821,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 440333,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Dapat contact WhatsApp dari Akun jualan IG Quuenclmy.shop , transaksi di WHatsapp tgl 15 April Dan transfer Yang di tgl 15 April , tgl 19 April saya Tanya resi sampai hari ini tdk direspon Dan barang tidak ada ",
+        "totalLoss": 430000,
+        "sumberMedia": {
+          "id": 1,
+          "description": "WhatsApp",
+          "information": "Sosial Media whatsapp",
+          "active": true
+        },
+        "laporanDate": 1650607398338,
+        "incidentDate": null,
+        "reporterEmail": "na**********gmail.com",
+        "reporterFullname": "Putr**********",
+        "reporterPhoneNumber": "0822**********",
+        "reporterIdNumber": "2171**********",
+        "publicId": "de9a2106-3c25-41f5-81ff-014b12d8b888",
+        "reporterAddress": "Marb**********",
+        "suspectName": "Liya Purnama Sari ",
+        "suspectPhoneNumber": "087873336123",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 5,
+          "description": "Ditolak",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 116,
+        "verificator": {
+          "id": 116,
+          "email": "fr**********corp.bri.co.id",
+          "telpNo": "0877******",
+          "fullname": "BRI **********",
+          "password": "**********",
+          "role": {
+            "id": 7,
+            "roleName": "Partner"
+          },
+          "userAccess": null,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "ktpNo": "**********",
+          "address": "",
+          "pathPhoto": "",
+          "information": "Verifikator Bank BRI",
+          "username": "fr**********corp.bri.co.id",
+          "active": true
+        },
+        "files": [
+          {
+            "id": 1703449,
+            "idDetailLaporan": 440333,
+            "file": {
+              "id": 1886794,
+              "name": "image.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650607320858.jpg"
+            },
+            "fileId": 1886794,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650607398370,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 123,
+          "name": "Kota Batam"
+        },
+        "detailSumberMedia": "https://instagram.com/queenclmy.shop?igshid=YmMyMTA2M2Y=",
+        "remarks": "Mohon maaf laporan Anda kami tolak karena tidak melampirkan bukti transfer. Mohon dilengkapi dengan lampiran bukti yang jelas terbaca dan laporkan kembali secara lengkap agar dapat kami verifikasi. \nTerima kasih. \n-Admin_",
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1703450,
+            "idDetailLaporan": 440333,
+            "file": {
+              "id": 1886789,
+              "name": "image.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650607292875.jpg"
+            },
+            "fileId": 1886789,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650607398371,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 440707,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Pelaku melakukan jual beli baju gamis lebaran, dimana proses nya memakan waktu 4hr pembuatan seletah dilakukan pembayaran (PO), janji akan ada pengiriman Hari selasa,19 April 2022. Namun sampai saat ini belum ada pengiriman, pelaku di kontak tdk merespon Atau memberikan bukti Resi. Barang yg dijual diduga fiktif dengan total kerugian 670rb",
+        "totalLoss": 670000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650676836345,
+        "incidentDate": null,
+        "reporterEmail": "ni**********gmail.com",
+        "reporterFullname": "Nila**********",
+        "reporterPhoneNumber": "0813**********",
+        "reporterIdNumber": "3174**********",
+        "publicId": "e9c9b08c-5172-48c2-aa8d-50be03f6ba84",
+        "reporterAddress": "Jl A**********",
+        "suspectName": "Liya Purnama Sari",
+        "suspectPhoneNumber": "08226945589",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 13,
+          "deskripsi": "Jual Beli Online",
+          "parentId": 1,
+          "keterangan": "Jual Beli Online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 1,
+          "description": "Open",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 0,
+        "verificator": null,
+        "files": [
+          {
+            "id": 1705009,
+            "idDetailLaporan": 440707,
+            "file": {
+              "id": 1888455,
+              "name": "Screenshot_2022-04-23-08-19-11-645_com.whatsapp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650676823223.jpg"
+            },
+            "fileId": 1888455,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650676836378,
+            "deleted": false
+          },
+          {
+            "id": 1705010,
+            "idDetailLaporan": 440707,
+            "file": {
+              "id": 1888456,
+              "name": "IMG-20220415-WA0007.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650676828000.jpg"
+            },
+            "fileId": 1888456,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650676836379,
+            "deleted": false
+          },
+          {
+            "id": 1705011,
+            "idDetailLaporan": 440707,
+            "file": {
+              "id": 1888457,
+              "name": "Screenshot_2022-04-23-08-18-56-201_com.whatsapp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650676828583.jpg"
+            },
+            "fileId": 1888457,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650676836380,
+            "deleted": false
+          },
+          {
+            "id": 1705012,
+            "idDetailLaporan": 440707,
+            "file": {
+              "id": 1888458,
+              "name": "Screenshot_2022-04-23-08-18-52-873_com.whatsapp.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650676833208.jpg"
+            },
+            "fileId": 1888458,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650676836381,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 130,
+          "name": "Kodya Jakarta Barat"
+        },
+        "detailSumberMedia": "https://instagram.com/baneesa_butik",
+        "remarks": null,
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1705013,
+            "idDetailLaporan": 440707,
+            "file": {
+              "id": 1888454,
+              "name": "KTP Nila Puspita.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650676819861.jpg"
+            },
+            "fileId": 1888454,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650676836383,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 440746,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "Kronilogi\nHari sabtu  tgl 16 april 2022 saya melakukan pemesanan pakaian keluarga di salah satu toko pakaian di semarang melalui instagram\nTgl 17 april 2022 \nDia mengirimkan total biaya pukul 08.34\nPukul 17.49 saya mentransfer ke rekeninh ybs sejumlah 650000\nTgl 18 april hati senin saya tanyakan pesanan saya sudah diproses atw belum\nCm respon dicek dlu\nTapi sampai hari ini tdk ada kejelasan dan akun instagram n wa saya di blokir pelaku",
+        "totalLoss": 650000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650684525268,
+        "incidentDate": null,
+        "reporterEmail": "mi**********gmail.com",
+        "reporterFullname": "Meil**********",
+        "reporterPhoneNumber": "0852**********",
+        "reporterIdNumber": "1271**********",
+        "publicId": "56962417-6704-46a5-bb2c-b952f51a614e",
+        "reporterAddress": "Jala**********",
+        "suspectName": "Liya Purnama Sari",
+        "suspectPhoneNumber": null,
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 1,
+          "description": "Open",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 0,
+        "verificator": null,
+        "files": [
+          {
+            "id": 1705175,
+            "idDetailLaporan": 440746,
+            "file": {
+              "id": 1888622,
+              "name": "37C4D2DE-83AD-442F-8685-2A347C58D228.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650684522248.jpeg"
+            },
+            "fileId": 1888622,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650684525300,
+            "deleted": false
+          },
+          {
+            "id": 1705176,
+            "idDetailLaporan": 440746,
+            "file": {
+              "id": 1888623,
+              "name": "9E13AACA-74C7-4874-BF63-E3BA1B80FBF6.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650684522771.jpeg"
+            },
+            "fileId": 1888623,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650684525301,
+            "deleted": false
+          },
+          {
+            "id": 1705177,
+            "idDetailLaporan": 440746,
+            "file": {
+              "id": 1888624,
+              "name": "51631D26-5D51-4E9F-B02D-F46997EC79C3.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650684523417.jpeg"
+            },
+            "fileId": 1888624,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650684525302,
+            "deleted": false
+          },
+          {
+            "id": 1705178,
+            "idDetailLaporan": 440746,
+            "file": {
+              "id": 1888625,
+              "name": "859C941A-3F7B-45CC-8739-5290447700DA.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650684524055.jpeg"
+            },
+            "fileId": 1888625,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650684525303,
+            "deleted": false
+          },
+          {
+            "id": 1705179,
+            "idDetailLaporan": 440746,
+            "file": {
+              "id": 1888626,
+              "name": "E44DE3ED-03C0-4D62-86AF-B8C088451C35.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650684524814.jpeg"
+            },
+            "fileId": 1888626,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650684525304,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 27,
+          "name": "Kota Medan"
+        },
+        "detailSumberMedia": "https://www.instagram.com/baneesa_butik",
+        "remarks": null,
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1705180,
+            "idDetailLaporan": 440746,
+            "file": {
+              "id": 1888621,
+              "name": "image.jpg",
+              "contentType": "image/jpeg",
+              "path": "File-1650684511071.jpg"
+            },
+            "fileId": 1888621,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650684525305,
+            "deleted": false
+          }
+        ]
+      },
+      {
+        "id": 440975,
+        "laporanId": {
+          "id": 396702,
+          "bank": {
+            "id": 1,
+            "bankName": "BRI - Bank Rakyat Indonesia",
+            "information": null,
+            "pathLogoColor": "thumb_bank.png",
+            "pathLogoBlack": "thumb_bank.png",
+            "tipebank": 1,
+            "prefix": null
+          },
+          "accountNo": "109101005696533",
+          "accountName": "dini apriska sari",
+          "kategoriAduan": {
+            "id": 1,
+            "deskripsi": "Penipuan Transaksi Online",
+            "parentId": 0,
+            "keterangan": "penipuan berhubungan dengan transaksi online",
+            "pathLogo": ""
+          },
+          "createdDate": 1649914095449
+        },
+        "tipeAduan": {
+          "id": 1,
+          "description": "Laporan"
+        },
+        "chronology": "saya ditipu saat beli baju di olshop nya, h+1 setelah saya transfer uang ke rekeningnya, dia tidak membalas pesan saya hingga h+1minggu, saya terus nge chat selama seminggu, tapi dia hanya read, saya telpon jg tdk diangkat, stlh saya cek di apk getcontact, ternyata memang benar dia penipu, karena bnyk yg menamai nomor ny “penipu”",
+        "totalLoss": 560000,
+        "sumberMedia": {
+          "id": 3,
+          "description": "Instagram",
+          "information": "Sosial media instagram",
+          "active": true
+        },
+        "laporanDate": 1650720049505,
+        "incidentDate": null,
+        "reporterEmail": "an**********gmail.com",
+        "reporterFullname": "Andi**********",
+        "reporterPhoneNumber": "0895**********",
+        "reporterIdNumber": "1671**********",
+        "publicId": "a40b23fe-5c4b-4697-802f-f391b2b026f3",
+        "reporterAddress": "Masu**********",
+        "suspectName": "Liya Purnama Sari ",
+        "suspectPhoneNumber": "087873336123",
+        "grabTime": null,
+        "kategoriAduan": {
+          "id": 1,
+          "deskripsi": "Penipuan Transaksi Online",
+          "parentId": 0,
+          "keterangan": "penipuan berhubungan dengan transaksi online",
+          "pathLogo": ""
+        },
+        "verificationDate": null,
+        "status": {
+          "id": 1,
+          "description": "Open",
+          "tipeAduan": {
+            "id": 1,
+            "description": "Laporan"
+          }
+        },
+        "verificatorId": 0,
+        "verificator": null,
+        "files": [
+          {
+            "id": 1706109,
+            "idDetailLaporan": 440975,
+            "file": {
+              "id": 1889614,
+              "name": "A68E50CF-F1FA-47EC-8CE2-143952C4D129.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650720040053.jpeg"
+            },
+            "fileId": 1889614,
+            "idmedia": 1,
+            "media": {
+              "id": 1,
+              "description": "Evidence"
+            },
+            "uploaddate": 1650720049537,
+            "deleted": false
+          }
+        ],
+        "kota": {
+          "id": 95,
+          "name": "Kab. Banyuasin"
+        },
+        "detailSumberMedia": "https://instagram.com/queenclmy.shop?igshid=YmMyMTA2M2Y=",
+        "remarks": null,
+        "disputed": false,
+        "mediaIdentity": [
+          {
+            "id": 1706110,
+            "idDetailLaporan": 440975,
+            "file": {
+              "id": 1889613,
+              "name": "1E031047-FCB2-4362-890A-EF3D5F86F83C.jpeg",
+              "contentType": "image/jpeg",
+              "path": "File-1650720037538.jpeg"
+            },
+            "fileId": 1889613,
+            "idmedia": 2,
+            "media": {
+              "id": 2,
+              "description": "KTP"
+            },
+            "uploaddate": 1650720049538,
+            "deleted": false
+          }
+        ]
+      }
+    ]
+  }
+}

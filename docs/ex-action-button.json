@@ -1,0 +1,37 @@
+{
+  "code": 0,
+  "text": "*Button Example*\nIni adalah contoh pembuatan tombol di platform [Carik Chatbot Ecosystem](https://github.com/CarikBot/ecosystem/).\nInformasi tentang API dan struktur/format outputnya telah disediakan di [Dokumentasi API](https://github.com/CarikBot/ecosystem/blob/development/docs/api-structure.md)",
+  "type": "action",
+  "action": {
+    "type": "button",
+    "button_title": "Tampilkan",
+    "imageDefault": "https://carik.id/images/banner.jpg",
+    "data": [
+      [
+        {
+          "text": "Jadwal Sholat",
+          "callback_data": "text=jadwal sholat"
+        },
+        {
+          "text": "Test Edit",
+          "callback_data": "mode=edit&text=test"
+        },
+        {
+          "text": "Update Covid",
+          "callback_data": "text=update covid"
+        }
+      ],
+      [
+        {
+          "text": "🏡 Situs Official",
+          "url": "https://carik.id",
+          "size": "tall"
+        },
+        {
+          "text": "🥇 Donasi",
+          "callback_data": "text=saya mau donasi"
+        }
+      ]
+    ]
+  }
+}

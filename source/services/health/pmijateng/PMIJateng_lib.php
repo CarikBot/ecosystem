@@ -52,12 +52,13 @@ class PMIJateng{
   }
 
   public function Schedule($AKeyword){
-    if (empty($this->APIBaseURL)) return $this->stockFromWeb($AKeyword);
+    if (empty($this->APIBaseURL)) return $this->scheduleFromWeb($AKeyword);
     $keyword = urlencode(strtolower($AKeyword));
-    $jsonAsString = @file_get_contents($this->APIBaseURL.'jadwaldonor.php?keyword='.$keyword);
-    if (empty($jsonAsString)) return $this->stockFromWeb($AKeyword);
+    $jsonAsString = @file_get_contents($this->APIBaseURL.'jadwal_donor_new.php?name='.$keyword);
+    if (empty($jsonAsString)) return $this->scheduleFromWeb($AKeyword);
     $schedules = json_decode($jsonAsString, true);
-    $schedules = $schedules['result'];
+    if ($schedules['status']['code'] != 200) return [];
+    $schedules = $schedules['data'];
 
     $this->Schedules = [];
     foreach ($schedules as $node) {
@@ -82,6 +83,7 @@ class PMIJateng{
   }
 
   public function scheduleFromWeb($AKeyword){
+    return []; //bypass: unavailable udd source
     $html = @file_get_contents(self::BASE_URL);
     if (empty($html)) return [];
     $keyword = strtolower($AKeyword);
@@ -128,7 +130,8 @@ class PMIJateng{
     $jsonAsString = @file_get_contents($this->APIBaseURL.'stokdarah.php?keyword='.$keyword);
     if (empty($jsonAsString)) return $this->stockFromWeb($AKeyword);
     $stockList = json_decode($jsonAsString, true);
-    $stockList = $stockList['result'];
+    if ($stockList['status']['code'] != 200) return [];
+    $stockList = $stockList['data'];
 
     $this->Stocks = [];
     foreach ($stockList as $node) {
