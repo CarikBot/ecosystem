@@ -69,7 +69,9 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
 
 function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0, $AReaction = ''){
     @header("Content-type:application/json");
-    $array['code'] = $ACode;
+    $AMessage = str_replace("\r\n", '\n', $AMessage);
+    $AMessage = str_replace("\r", '\n', $AMessage);
+    $array['code'] = $ACode;    
     $array[$AField] = $AMessage;
     if (!empty($AReaction)) $array['reaction'] = $AReaction;
     if ($AWeight>0) $array['weight'] = $AWeight;
