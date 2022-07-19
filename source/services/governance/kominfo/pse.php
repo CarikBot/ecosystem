@@ -31,7 +31,12 @@ date_default_timezone_set('Asia/Jakarta');
 
 const PSE_TERBIT_URL = 'https://pse.kominfo.go.id/api/v1/jsonapi/tdpse-terbit/';
 
-$pseData = file_get_contents('data/pse.json');
+$pseData = readCache('pse', 120); // 120 minutes cache
+if (empty($pseData)){
+  $pseData = @file_get_contents(PSE_TERBIT_URL);
+  if (empty($pseData)) $pseData = file_get_contents('data/pse.json'); // base data
+  writeCache('pse', $pseData);
+}
 $pseData = json_decode($pseData, true);
 $pseData = $pseData['data'];
 
@@ -40,7 +45,7 @@ $Data = @$RequestContentAsJson['data'];
 $Text = "
 Pencarian informasi perusahaan yang sudah terdaftar di PSE Kominfo.
 format penulisan:
- ``` PSE [namaperusahaan]```
+ ``` INFO PSE [namaperusahaan]```
 ";
 $Keyword = urldecode(@$Data['keyword']);
 if (empty($Keyword)) Output(0, $Text);
@@ -68,7 +73,9 @@ foreach ($pseData as $pse) {
   $Text .= $item;
   $count++;
 }
-$Text .= "\nData per 19 Juli 2022 14.25.";
+$fileDateTime = filemtime('cache/pse.txt');
+$fileDateTime = date("d-m-Y H:i", $fileDateTime);
+$Text .= "\nupdate: $fileDateTime";
 
 if (0==$count){
   $Text = "Maaf, informasi PSE untuk keyword '$Keyword' tidak ditemukan.";
