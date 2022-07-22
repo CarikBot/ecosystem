@@ -76,6 +76,7 @@ foreach ($pseData as $pse) {
 $fileDateTime = filemtime('cache/pse.txt');
 $fileDateTime = date("d-m-Y H:i", $fileDateTime);
 $Text .= "\nupdate: $fileDateTime";
+$Text .= "\nsumber: pse.kominfo.go.id";
 
 if (0==$count){
   $Text = "Maaf, informasi PSE untuk keyword '$Keyword' tidak ditemukan.";
