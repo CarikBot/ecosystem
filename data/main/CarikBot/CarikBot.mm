@@ -312,7 +312,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node FOLDER="true" ID="1u416esmph5kpimuhc116ngn98" TEXT="button"/>
                             </node>
                             <node ID="0a318rreqrubq75ujfu2gggfug" TEXT="Action">
-                                <node FOLDER="true" ID="57d86af0u77klc8mtf433slf3l" TEXT="eWallet">
+                                <node FOLDER="true" ID="57d86af0u77klc8mtf433slf3l" TEXT="Ya, bayar">
                                     <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="0klqqbr2b1qbjbbv0grddcq5us" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=10000&amp;random=0&amp;description=Donasi+10rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
@@ -330,7 +330,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node FOLDER="true" ID="5i8u1ku8383bf8nftd8si5smut" TEXT="button"/>
                             </node>
                             <node ID="61ougbrj4cvmj5dmcraqcm0nj9" TEXT="Action">
-                                <node FOLDER="true" ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="eWallet">
+                                <node FOLDER="true" ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ya, bayar">
                                     <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="7vn986nrhaisltgqcgklrdfsce" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=25000&amp;random=0&amp;description=Donasi+25rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
