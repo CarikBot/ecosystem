@@ -94,8 +94,12 @@ if (!$GFA->Submit($postData)){
 };
 
 // Send Notification
+$userLink = '';
+$userInfo = explode('-', $UserId);
+if ($userInfo[0]==5) $userLink = "(wa.me/".$userInfo[1].')';
+
 $Text = "*Feedback Notification*";
-$Text .= "\nAda feedback masuk dari $FullName.";
+$Text .= "\nAda feedback masuk dari $FullName $userLink.";
 $Text .= "\nRating: $Rating";
 $Text .= "\nInteraction: $Interaction";
 $Text .= "\nRecomendation: $Recomendation";
