@@ -56,6 +56,14 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         //}
         $array['action']['data'] = $content;
       };
+      if ('list' == $key){
+        $array['action']['type'] = 'list';
+        $array['action']['data'] = $content;
+      };
+      if ('menu' == $key){
+        $array['action']['type'] = 'menu';
+        $array['action']['data'] = $content;
+      };
       if ('files' == $key){
         $array['action']['files'] = $content;
       };
@@ -71,7 +79,7 @@ function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionT
     @header("Content-type:application/json");
     $AMessage = str_replace("\r\n", '\n', $AMessage);
     $AMessage = str_replace("\r", '\n', $AMessage);
-    $array['code'] = $ACode;    
+    $array['code'] = $ACode;
     $array[$AField] = $AMessage;
     if (!empty($AReaction)) $array['reaction'] = $AReaction;
     if ($AWeight>0) $array['weight'] = $AWeight;
