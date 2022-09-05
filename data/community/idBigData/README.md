@@ -12,4 +12,4 @@ idBigData memiliki tujuan dan semangat :
 
 https://idbigdata.com/
 
-![KBI2022](kbi2022.jpg)
+![KBI2022](idBigData.png)
