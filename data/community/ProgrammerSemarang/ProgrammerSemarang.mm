@@ -9,7 +9,7 @@ Komunitas Programmer Semarang adalah sebuah Komunitas Koding di Daerah Semarang 
             </text>
         </hook>
         <node FOLDER="true" ID="624a5ab8-e8c1-4d73-bd22-d59ba7a75861" POSITION="right" TEXT="&#128467; Event">
-            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7gls24bdffbl382luoabb9fs7f" TEXT="*Event Programmer Semarang*&#13;&#10;&#13;&#10;Daftar event:&#13;&#10;- ...&#13;&#10;- ...&#13;&#10;- (link tidak tersedia)&#13;&#10;&#13;&#10;Event terdekat saat ini adalah:&#13;&#10;&#13;&#10;*Jurus Cantik dalam Membuat Chatbot*&#13;&#10;&#128467;  Sabtu, 24 September 2022 pukul 13.00 - 15.00&#13;&#10;&#128205; Kata Kopi Semarang&#13;&#10;Jl. Singosari Raya No.79a, Pleburan, Semarang.&#13;&#10;&#13;&#10;Info selengkapnya di situs offisial [Progammer Semarang](https://programmer-semarang.com/event/jurus-cantik-dalam-membuat-chatbot/)&#13;&#10;">
+            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7gls24bdffbl382luoabb9fs7f" TEXT="*Event Programmer Semarang*&#13;&#10;&#13;&#10;Daftar event:&#13;&#10;- [Jurus Cantik Membuat Bot](https://programmer-semarang.com/event/jurus-cantik-dalam-membuat-chatbot/)&#13;&#10;- Coming Soon&#13;&#10;- Coming Soon&#13;&#10;&#13;&#10;Event terdekat saat ini adalah:&#13;&#10;&#13;&#10;*Jurus Cantik dalam Membuat Chatbot*&#13;&#10;&#128467;  Sabtu, 24 September 2022 pukul 13.00 - 15.00&#13;&#10;&#128205; Kata Kopi Semarang&#13;&#10;Jl. Singosari Raya No.79a, Pleburan, Semarang.&#13;&#10;&#13;&#10;Info selengkapnya di situs offisial [Progammer Semarang](https://programmer-semarang.com/event/jurus-cantik-dalam-membuat-chatbot/)&#13;&#10;">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
             <node ID="7fo33qh2th6sojst7qnvq0u735" TEXT="Action Type">
