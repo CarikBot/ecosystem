@@ -61,7 +61,7 @@ function getTelegramPayerName($AUserId, $AToken = ''){
   global $Config;
   $return = "[$AUserId](tg://user?id=$AUserId)T";
 
-  $url = $Config['tools']['telewrapper'] . "getChatInfo?chat_id=$AUserId";
+  //$url = $Config['tools']['telewrapper'] . "getChatInfo?chat_id=$AUserId";
   $url = "http://services.carik.id/tools/telewrapper/getChatInfo?chat_id=$AUserId";
   $content = @file_get_contents($url);
   if (empty($content)) return $return;
