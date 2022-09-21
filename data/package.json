@@ -33,6 +33,13 @@
         "special_keyword": "psc",
         "pattern": ["info programmer semarang"],
         "root_menu_type": "button"
+      },
+      "Standupindo": {
+        "name": "Standupindo",
+        "description": "Stand Up Comedy Indonesia",
+        "special_keyword": "sci",
+        "pattern": ["info standupindo"],
+        "root_menu_type": "button"
       }
     },
     "education": {
