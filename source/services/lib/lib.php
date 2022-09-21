@@ -137,6 +137,11 @@ function GetBaseUrl(){
   return $domainLink;
 }
 
+function GetCurrentURL(){
+  $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  return $url;
+}
+
 function SendAndAbort($content){
   ob_start();
   echo $content;
