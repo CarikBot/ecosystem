@@ -13,6 +13,7 @@ Daftar paket yang tersedia di dalam Ecosystem.
 |[Community](../data/community/Community)|Community Support, seperti PHP Indonesia, Pascal Indonesia, DevC, CafeStartup, Agile Indonesia, FemaleGeek dan beberapa lagi yang mungkin belum tercatat.<br>Keyword:<br />- info (komunitas\|community)||
 |[idBigData](../data/community/idBigData)|idBigData adalah sebuah komunitas bagi penggiat, pengguna dan pelaku Big Data di Indonesia yang bersifat terbuka dan tidak berafiliasi terhadap produk tertentu.<br>Keyword:<br />- info (idbigdata)||
 |[ProgrammerSemarang](../data/community/ProgrammerSemarang)|Komunitas Programmer Semarang adalah sebuah Komunitas Koding di Daerah Semarang yang berkomitmen berkontribusi pada daerah dan mendukung Kota semarang menjadi Kota SMART CITY<br>Keyword:<br />- info programmer semarang||
+|[Standupindo](../data/community/Standupindo)|Stand Up Comedy Indonesia<br>Keyword:<br />- info standupindo||
 
 ## education
 | Package | Description | Author |
