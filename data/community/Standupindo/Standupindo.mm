@@ -42,7 +42,7 @@ https://standupindo.id
                 <node ID="4k0ch2cfvh91sp5teg0utcui6d" TEXT="tentang standup indo"/>
             </node>
         </node>
-        <node ID="5llsdi02pp5uh6bet3hugni1j0" POSITION="left" TEXT="&#128222; Kontak">
+        <node FOLDER="true" ID="5llsdi02pp5uh6bet3hugni1j0" POSITION="left" TEXT="&#128222; Kontak">
             <node BACKGROUND_COLOR="#F2F2F2" ID="75ibljtea1f3nmp91ab8l4n7la" TEXT="*Kontak Stand Up Indonesia*&#10;&#10;- Facebook, facebook.com/StandUpIndonesia&#10;- Twitter, twitter.com/standupindo&#10;- Instagram, instagram.com/standupindonesia&#10;- Youtube, youtube.com/channel/UCtzlnlsx8IC59zb_Pcd0s4Q/videos&#10;&#10;standupindo.id&#10;&#10;">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
