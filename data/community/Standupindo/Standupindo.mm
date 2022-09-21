@@ -43,7 +43,7 @@ https://standupindo.id
             </node>
         </node>
         <node FOLDER="true" ID="5llsdi02pp5uh6bet3hugni1j0" POSITION="left" TEXT="&#128222; Kontak">
-            <node BACKGROUND_COLOR="#F2F2F2" ID="75ibljtea1f3nmp91ab8l4n7la" TEXT="*Kontak Standupindo*&#10;&#10;- Facebook, facebook.com/StandUpIndonesia&#10;- Twitter, twitter.com/standupindo&#10;- Instagram, instagram.com/standupindonesia&#10;- Youtube, youtube.com/channel/UCtzlnlsx8IC59zb_Pcd0s4Q/videos&#10;&#10;standupindo.id&#10;&#10;">
+            <node BACKGROUND_COLOR="#F2F2F2" ID="75ibljtea1f3nmp91ab8l4n7la" TEXT="*Kontak Standupindo.*&#10;&#10;- Facebook, facebook.com/StandUpIndonesia&#10;- Twitter, twitter.com/standupindo&#10;- Instagram, instagram.com/standupindonesia&#10;- Youtube, youtube.com/channel/UCtzlnlsx8IC59zb_Pcd0s4Q/videos&#10;&#10;standupindo.id&#10;&#10;">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
             <node ID="51ckpdl7rf4gjo8h8avffh231t" TEXT="pattern">
