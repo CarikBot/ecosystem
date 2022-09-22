@@ -46,7 +46,7 @@ foreach ($communityList as $item) {
     $venue = $item['tempat'];
     $venue = trim(str_replace('-','', $venue));
     $Text .= "\n*$item[komunitas]*";
-    if (!(empty($tempat))) $Text .= "\n$venue";
+    if (!(empty($venue))) $Text .= "\n$venue";
     $Text .= "\n$item[hari], $item[jam]";
     $Text .= "\n$item[ig]";
     $Text .= "\n";    
