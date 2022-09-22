@@ -3,7 +3,7 @@
   <node ID="b9aa22deba98b3b20c7ac8aca2" STYLE="bubble" TEXT="Standupindo">
     <hook NAME="accessories/plugins/NodeNote.properties">
       <text>
-                *Standupindo*[.](https://standupindo.id/wp-content/uploads/2022/03/sucindo-logo-1024x236.png)
+                *Standupindo*[.](https://standupindo.id/wp-content/uploads/2020/01/logo-standupindo.png)
 
 Komunitas Stand Up Comedy Indonesia, selanjutnya dikenal dengan nama Stand Up Indonesia atau Standupindo lebih singkatnya, adalah komunitas yang dibentuk untuk mengumpulkan orang-orang yang tertarik dan sama-sama ingin belajar tentang stand up comedy, yang pada dasarnya mengumpulkan bakat-bakat para pelawak tunggal atau komika di seluruh Indonesia
 
@@ -19,7 +19,7 @@ https://standupindo.id
       </node>
     </node>
     <node FOLDER="true" ID="42l5hmkf6h40aq0laeuqjvqim6" POSITION="right" TEXT="🏅 About">
-      <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6pl8fv6r4qsohga07b1reqibng" TEXT="*Standupindo*[.](https://standupindo.id/wp-content/uploads/2022/03/sucindo-logo-1024x236.png)&#10;&#10;Komunitas Stand Up Comedy Indonesia, selanjutnya dikenal dengan nama Stand Up Indonesia atau Standupindo lebih singkatnya, adalah komunitas yang dibentuk untuk mengumpulkan orang-orang yang tertarik dan sama-sama ingin belajar tentang stand up comedy, yang pada dasarnya mengumpulkan bakat-bakat para pelawak tunggal atau komika di seluruh Indonesia&#10;&#10;SIlakan follow semua akun social media Standupindo link ada di bawah dan juga gabung newsletter kita untuk mendapatkan email seputar event terbaru kita.&#10;&#10;*Full Team Kabinet*&#10;&#10;Adjisdoaibu&#10;President&#10;&#10;Erwin&#10;Vice President&#10;&#10;Gilang Bhaskara&#10;Public Relations&#10;&#10;Rizky Ubaidillah&#10;Secretary&#10;&#10;M. Rizal&#10;Event Coordinator&#10;&#10;Sigit Sulistyo&#10;Minister Of FInance&#10;&#10;Bata Efendi&#10;Public Relations&#10;&#10;Ernest Prakasa&#10;Advisors&#10;&#10;&#10;Terima Kasih Banyak Ya Udah Main Kesini, Semoga Harimu Menyenangkan!&#10;https://standupindo.id&#10;">
+      <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6pl8fv6r4qsohga07b1reqibng" TEXT="*Standupindo*[.](https://standupindo.id/wp-content/uploads/2020/01/logo-standupindo.png)&#10;&#10;Komunitas Stand Up Comedy Indonesia, selanjutnya dikenal dengan nama Stand Up Indonesia atau Standupindo lebih singkatnya, adalah komunitas yang dibentuk untuk mengumpulkan orang-orang yang tertarik dan sama-sama ingin belajar tentang stand up comedy, yang pada dasarnya mengumpulkan bakat-bakat para pelawak tunggal atau komika di seluruh Indonesia&#10;&#10;SIlakan follow semua akun social media Standupindo link ada di bawah dan juga gabung newsletter kita untuk mendapatkan email seputar event terbaru kita.&#10;&#10;*Full Team Kabinet*&#10;&#10;Adjisdoaibu&#10;President&#10;&#10;Erwin&#10;Vice President&#10;&#10;Gilang Bhaskara&#10;Public Relations&#10;&#10;Rizky Ubaidillah&#10;Secretary&#10;&#10;M. Rizal&#10;Event Coordinator&#10;&#10;Sigit Sulistyo&#10;Minister Of FInance&#10;&#10;Bata Efendi&#10;Public Relations&#10;&#10;Ernest Prakasa&#10;Advisors&#10;&#10;&#10;Terima Kasih Banyak Ya Udah Main Kesini, Semoga Harimu Menyenangkan!&#10;https://standupindo.id&#10;">
         <font NAME="SansSerif" SIZE="10"/>
       </node>
       <node ID="0caud0gfce0matcau449qbpsro" TEXT="Action Type">
