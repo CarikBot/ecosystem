@@ -37,7 +37,7 @@
       "Standupindo": {
         "name": "Standupindo",
         "description": "Stand Up Comedy Indonesia",
-        "special_keyword": "sci",
+        "special_keyword": "sui",
         "pattern": ["info standupindo"],
         "root_menu_type": "button"
       }
