@@ -264,7 +264,7 @@ function RemoveEmoji($string){
 function StringCut($AText, $ALimit, $DoStripTags = false, $AddEllipsis = false){
   if ($AText){
     $AText = ($DoStripTags ? strip_tags($AText) : $AText);
-    $stringCut = substr($AText, 0, 50);
+    $stringCut = substr($AText, 0, $ALimit);
     $endPoint = strrpos($stringCut, ' ');
     $AText = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
     if ($AddEllipsis) $AText .= "...";
