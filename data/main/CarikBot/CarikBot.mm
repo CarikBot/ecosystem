@@ -49,7 +49,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node ID="df9193fb-a813-43a4-b674-aa9cae3304dd" TEXT="&#127755; BMKG">
+                <node FOLDER="true" ID="df9193fb-a813-43a4-b674-aa9cae3304dd" TEXT="&#127755; BMKG">
                     <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="1bn1adtvorf7ghr4ofc2uhsocb" TEXT="Informasi prakiraan cuaca, gempabumi dan tsunami bisa dari sini.&#10;Tapi pastikan kroscek dengan BMKG yaa..">
                         <font NAME="SansSerif" SIZE="10"/>
                     </node>
@@ -298,7 +298,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node ID="5rhphup4mu9nrhkvd91qvibcag" TEXT="&#127775; Donasi">
+                <node FOLDER="true" ID="5rhphup4mu9nrhkvd91qvibcag" TEXT="&#127775; Donasi">
                     <node FOLDER="true" ID="60u7lqhdc7a2l7upiag5a1u6sq" TEXT="Mau berdonasi ke @CarikBot?&#10;Boleh kok.&#10;Pilih nominal di bawah ini, selanjutnya kami akan memberikan kode *QRIS* kepada Anda.&#10;Pembayaran bisa dilakukan melalui jasa pembayaran yang kamu sukai.&#10;&#10;Terima kasih yaa&#10;"/>
                     <node FOLDER="true" ID="3c8hqumlqhiiputehgb5i4ir41" TEXT="Action Type">
                         <node FOLDER="true" ID="70kt1h0q09ap0l7hpigs474884" TEXT="button"/>
@@ -312,7 +312,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node FOLDER="true" ID="1u416esmph5kpimuhc116ngn98" TEXT="button"/>
                             </node>
                             <node ID="0a318rreqrubq75ujfu2gggfug" TEXT="Action">
-                                <node FOLDER="true" ID="57d86af0u77klc8mtf433slf3l" TEXT="eWallet">
+                                <node FOLDER="true" ID="57d86af0u77klc8mtf433slf3l" TEXT="Ya, bayar">
                                     <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="0klqqbr2b1qbjbbv0grddcq5us" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=10000&amp;random=0&amp;description=Donasi+10rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
@@ -330,7 +330,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node FOLDER="true" ID="5i8u1ku8383bf8nftd8si5smut" TEXT="button"/>
                             </node>
                             <node ID="61ougbrj4cvmj5dmcraqcm0nj9" TEXT="Action">
-                                <node FOLDER="true" ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="eWallet">
+                                <node FOLDER="true" ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ya, bayar">
                                     <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="7vn986nrhaisltgqcgklrdfsce" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=25000&amp;random=0&amp;description=Donasi+25rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
@@ -353,7 +353,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                 </node>
                 <node FOLDER="true" ID="04o19n1jtmvlks92go9s3gf6ak" TEXT="&#127968; Kembali"/>
             </node>
-            <node ID="3tlq8398fqh5t98u3e1k9at9qh" TEXT="pattern">
+            <node FOLDER="true" ID="3tlq8398fqh5t98u3e1k9at9qh" TEXT="pattern">
                 <node FOLDER="true" ID="7qpcokvslki1hebhsluki13qdr" TEXT="info (keuangan|finansial|finance)"/>
             </node>
         </node>

@@ -15,7 +15,7 @@ const OK = 'OK';
 const CANCEL = 'CANCEL';
 
 // force post data from json request content
-$RequestContentAsJson = "";
+$RequestContentAsJson = [];
 $RequestContent = file_get_contents('php://input');
 if (!empty($RequestContent)){
   $RequestContentAsJson = json_decode($RequestContent, true);
@@ -25,6 +25,12 @@ if (!empty($RequestContent)){
     }
   }
 }
+
+$Headers = [];
+if (function_exists('apache_request_headers')){
+  $Headers = @apache_request_headers();
+}
+$Token = @$Headers['token'];
 
 $UserId = urldecode(@$_POST['UserID']);
 $ChatId = urldecode(@$_POST['ChatID']);
@@ -56,6 +62,14 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         //}
         $array['action']['data'] = $content;
       };
+      if ('list' == $key){
+        $array['action']['type'] = 'list';
+        $array['action']['data'] = $content;
+      };
+      if ('menu' == $key){
+        $array['action']['type'] = 'menu';
+        $array['action']['data'] = $content;
+      };
       if ('files' == $key){
         $array['action']['files'] = $content;
       };
@@ -69,6 +83,8 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
 
 function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0, $AReaction = ''){
     @header("Content-type:application/json");
+    $AMessage = str_replace("\r\n", '\n', $AMessage);
+    $AMessage = str_replace("\r", '\n', $AMessage);
     $array['code'] = $ACode;
     $array[$AField] = $AMessage;
     if (!empty($AReaction)) $array['reaction'] = $AReaction;
@@ -121,10 +137,23 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   die($output);
 }
 
+function OutputData($ACode, $AData){
+  @header("Content-type:application/json");
+  $array['code'] = $ACode;
+  $array['data'] = $AData;
+  $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  die($output);
+}
+
 function GetBaseUrl(){
   $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
   $domainLink = $protocol . '://' . @$_SERVER['HTTP_HOST'];
   return $domainLink;
+}
+
+function GetCurrentURL(){
+  $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  return $url;
 }
 
 function SendAndAbort($content){
@@ -230,6 +259,39 @@ function RemoveEmoji($string){
   $clear_string = preg_replace($regex_dingbats, '', $clear_string);
 
   return $clear_string;
+}
+
+function StringCut($AText, $ALimit, $DoStripTags = false, $AddEllipsis = false){
+  if ($AText){
+    $AText = ($DoStripTags ? strip_tags($AText) : $AText);
+    $stringCut = substr($AText, 0, $ALimit);
+    $endPoint = strrpos($stringCut, ' ');
+    $AText = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+    if ($AddEllipsis) $AText .= "...";
+  }
+  return $AText;
+}
+
+function LimitTextWords($content = false, $limit = false, $stripTags = false, $ellipsis = false){
+  if ($content && $limit) {
+    $content = ($stripTags ? strip_tags($content) : $content);
+    $content = explode(' ', $content, $limit+1);
+    array_pop($content);
+    if ($ellipsis) {
+      array_push($content, '...');
+    }
+    $content = implode(' ', $content);
+  }
+  return $content;
+}
+
+function LimitTextChars($content = false, $limit = false, $stripTags = false, $ellipsis = false){
+  if ($content && $limit) {
+    $content  = ($stripTags ? strip_tags($content) : $content);
+    $ellipsis = ($ellipsis ? "..." : $ellipsis);
+    $content  = mb_strimwidth($content, 0, $limit, $ellipsis);
+  }
+  return $content;
 }
 
 function readTextFile( $AFileName){

@@ -1,0 +1,23 @@
+{
+    "post_date" : "2022-09-02 14:14:04",
+    "user_id" : "5-628123456789",
+    "full_name" : "Nama Test",
+    "client_id" : "201",
+    "session" : "e17702cb189ae7ef85125e6ad7a59aa395330345",
+    "FullName" : "Nama Test",
+    "ClientID" : "201",
+    "data" : {
+      "user_id" : "5-628123456789",
+      "channel_id" : "whatsapp",
+      "client_id" : "201",
+      "FullName" : "Nama Test",
+      "full_name" : "Nama Test",
+      "community_name" : "nama komunitas",
+      "name" : "namaku siapa",
+      "phone" : "0812123123",
+      "address" : "alamat ku",
+      "notes": "-",
+      "submit" : "OK"
+    }
+  }
+  

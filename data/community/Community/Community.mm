@@ -101,7 +101,7 @@
                 </text>
             </hook>
         </node>
-        <node FOLDER="true" ID="4jpb2h78goutvtpbbuq01uollf" POSITION="left" TEXT="FemaleGeek">
+        <node FOLDER="true" ID="4jpb2h78goutvtpbbuq01uollf" POSITION="right" TEXT="FemaleGeek">
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="12a2hvit6us288h0rb5vle10cv" TEXT="*FemaleGeek*&#10;&#10;Grup khusus wanita yang berkecimpung di dunia IT.">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
@@ -139,7 +139,7 @@
                 <node FOLDER="true" ID="3emmbva631kjma639ud79b1eb1" TEXT="info (cafestartup|cafe startup)"/>
             </node>
         </node>
-        <node ID="2010mqfqnqk1p7seqjk5to0bqj" POSITION="left" TEXT="Kendaraan Listrik">
+        <node FOLDER="true" ID="2010mqfqnqk1p7seqjk5to0bqj" POSITION="left" TEXT="Kendaraan Listrik">
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="2cc53ehj142njvikekbb2lvu4b" TEXT="KendaraanListrik.net adalah komunitas tempat bertukar pengalaman antar masyarakat yang ingin belajar merakit sendiri secara cuma-cuma, memperbaiki, atau bahkan sekedar mempelajari cara penggunaan yang lebih optimal.">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
@@ -162,6 +162,13 @@
                     </hook>
                 </node>
             </node>
+        </node>
+        <node ID="3ra5r96f9pruv6e62qtc41t7t9" POSITION="left" TEXT="Programmer Semarang">
+            <hook NAME="accessories/plugins/NodeNote.properties">
+                <text>
+                    callback:info programmer semarang
+                </text>
+            </hook>
         </node>
     </node>
 </map>

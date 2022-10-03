@@ -25,18 +25,9 @@ if (empty($Keyword)){
   Output(200, 'Maaf, permintaan tidak lengkap.');
 }
 
-$url = "https://api.madewgn.my.id/jawa/latin?input=$Keyword";
-$postData = [];
-$postData = http_build_query($postData);
-$options = [
-  "http" => [
-      "method" => "GET",
-      'header'=> "Content-Length: " . strlen($postData) . "\r\n",
-      'content' => $postData
-  ]
-];
-$context = stream_context_create($options);
-$result = @file_get_contents($url, false, $context);
+$parameter = urlencode($Keyword);
+$url = "https://api.madewgn.my.id/jawa/latin?input=$parameter";
+$result = curl_get_file_contents($url);
 if ($result==false) Output(0, "Maaf, proses konversi ke aksara jawa belum berhasil.");
 $json = json_decode($result, true);
 $aksara = @$json['aksara'];
