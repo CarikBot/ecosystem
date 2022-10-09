@@ -38,6 +38,8 @@ const FORM_ID_CHOOSE = 'entry.108523294';
 const VOTER_FILE = 'data/voter.json';
 const RULE_FILE = 'voting-rule.txt';
 
+$rule = readTextFile(RULE_FILE);
+
 $UserId = @$RequestContentAsJson['data']['user_id'];
 $FullName = @$RequestContentAsJson['data']['FullName'];
 $Pilihan = @$RequestContentAsJson['data']['Pilihan'];
@@ -50,14 +52,17 @@ if (empty($voterData)) $voterData = '{}';
 $voterDataAsJson = json_decode($voterData, true);
 $isVote = @$voterDataAsJson[$UserId];
 if (1 == $isVote){
-  Output(0, "Maaf, kamu sudah memilih. Pemilihan hanya boleh dilakukan 1 kali saja.\nTerima kasih.");
+  $Text = "Maaf, kamu sudah memilih. Pemilihan hanya boleh dilakukan 1 kali saja.\nTerima kasih.";
+  $Text .= "\n";
+  $Text .= "\n*Rule:*";
+  $Text .= "\n".$rule;
+  Output(0, $Text);
 }
 $voterDataAsJson[$UserId] = 1;
 
 // Submit to system
 $GFA = new GoogleFormAutomation;
 $GFA->FormId = @$Config['packages']['community']['phpid']['voting_form_id'];
-$GFA->FormId = '1FAIpQLSeIHgCrFiqSxnnskRqVGmJQiP1ctMMjTUaG_blFKUeKNW8f4g';
 $postData = [
   FORM_ID_FULLNAME => $FullName,
   FORM_ID_PHONE => $UserId,
