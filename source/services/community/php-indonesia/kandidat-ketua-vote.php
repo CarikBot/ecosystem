@@ -52,7 +52,8 @@ if (empty($voterData)) $voterData = '{}';
 $voterDataAsJson = json_decode($voterData, true);
 $isVote = @$voterDataAsJson[$UserId];
 if (1 == $isVote){
-  $Text = "Maaf, kamu sudah memilih. Pemilihan hanya boleh dilakukan 1 kali saja.\nTerima kasih.";
+  $Text = "Hai kak $FullName";
+  $Text .= "\nMaaf, kamu sudah memilih. Pemilihan hanya boleh dilakukan 1 kali saja.\nTerima kasih.";
   $Text .= "\n";
   $Text .= "\n*Rule:*";
   $Text .= "\n".$rule;
