@@ -43,6 +43,7 @@ $rule = readTextFile(RULE_FILE);
 $UserId = @$RequestContentAsJson['data']['user_id'];
 $FullName = @$RequestContentAsJson['data']['FullName'];
 $Pilihan = @$RequestContentAsJson['data']['Pilihan'];
+if (empty($Pilihan)) $Pilihan = @$_GET['pilihan'];
 $UserId = str_replace('5-', '', $UserId);
 $pilihan = @KANDIDAT[$Pilihan];
 
