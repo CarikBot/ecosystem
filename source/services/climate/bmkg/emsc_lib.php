@@ -25,7 +25,7 @@ class EMSC
   }
 
   //ARisk: risk/full
-  public function QuakeInfo($Country, $ARisk = 'risk'){
+  public function QuakeInfo($Country, $ARisk = 'risk', $MagnitudeMin = 5){
     $country = strtoupper($Country);
     $url = $this::BASE_URL . $ARisk;
     $result = @file_get_contents($url);
@@ -36,6 +36,8 @@ class EMSC
     $quakes = [];
     foreach ($data['features'] as $quake) {
       $place = @$quake['properties']['place']['region'];
+      $magnitude = @$quake['properties']['magnitude']['mag'];
+      if ($magnitude < $MagnitudeMin) continue;
       if (!isStringExist($country, $place)) continue;
       $quakes[] = $quake;
     }

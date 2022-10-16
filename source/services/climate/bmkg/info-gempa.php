@@ -49,7 +49,7 @@ $Text = trim($Text);
 $Text .= "\n\nUntuk info lebih akurat silakan cek di situs *BMKG*.";
 
 $EMSC = new Carik\EMSC;
-$quakeInfo = $EMSC->QuakeInfo('INDONESIA', 'risk');
+$quakeInfo = $EMSC->QuakeInfo('INDONESIA', 'risk', 5);
 if ($quakeInfo !== false){
   if (count($quakeInfo)>0){
     $Text .= "\n\n*Info Gempa dari EMSC*\n";
