@@ -15,7 +15,7 @@ const OK = 'OK';
 const CANCEL = 'CANCEL';
 
 // force post data from json request content
-$RequestContentAsJson = "";
+$RequestContentAsJson = [];
 $RequestContent = file_get_contents('php://input');
 if (!empty($RequestContent)){
   $RequestContentAsJson = json_decode($RequestContent, true);
@@ -25,6 +25,12 @@ if (!empty($RequestContent)){
     }
   }
 }
+
+$Headers = [];
+if (function_exists('apache_request_headers')){
+  $Headers = @apache_request_headers();
+}
+$Token = @$Headers['token'];
 
 $UserId = urldecode(@$_POST['UserID']);
 $ChatId = urldecode(@$_POST['ChatID']);
@@ -127,6 +133,14 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   $array['text'] = $AMessage;
   $array['image_caption'] = $ACaption;
   $array['image'] = $AImageURL;
+  $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  die($output);
+}
+
+function OutputData($ACode, $AData){
+  @header("Content-type:application/json");
+  $array['code'] = $ACode;
+  $array['data'] = $AData;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
 }
@@ -245,6 +259,39 @@ function RemoveEmoji($string){
   $clear_string = preg_replace($regex_dingbats, '', $clear_string);
 
   return $clear_string;
+}
+
+function StringCut($AText, $ALimit, $DoStripTags = false, $AddEllipsis = false){
+  if ($AText){
+    $AText = ($DoStripTags ? strip_tags($AText) : $AText);
+    $stringCut = substr($AText, 0, $ALimit);
+    $endPoint = strrpos($stringCut, ' ');
+    $AText = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+    if ($AddEllipsis) $AText .= "...";
+  }
+  return $AText;
+}
+
+function LimitTextWords($content = false, $limit = false, $stripTags = false, $ellipsis = false){
+  if ($content && $limit) {
+    $content = ($stripTags ? strip_tags($content) : $content);
+    $content = explode(' ', $content, $limit+1);
+    array_pop($content);
+    if ($ellipsis) {
+      array_push($content, '...');
+    }
+    $content = implode(' ', $content);
+  }
+  return $content;
+}
+
+function LimitTextChars($content = false, $limit = false, $stripTags = false, $ellipsis = false){
+  if ($content && $limit) {
+    $content  = ($stripTags ? strip_tags($content) : $content);
+    $ellipsis = ($ellipsis ? "..." : $ellipsis);
+    $content  = mb_strimwidth($content, 0, $limit, $ellipsis);
+  }
+  return $content;
 }
 
 function readTextFile( $AFileName){

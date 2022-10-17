@@ -53,20 +53,18 @@ if (!empty($image)) $Text .= "[.]($image)";
 if (!empty($IMDBid)) $Text .= "\n[IMDB](https://www.imdb.com/title/$IMDBid)";
 if (!empty($image)){
   if ($ChannelId=='whatsapp'){
-    Output( 0, $Text);
+    //Output( 0, $Text);
   }else{
     //OutputWithImage(0, "tunggu sebentar..", $image, $Text);
   }
 }
 
-//die($Text);
-//Output( 0, $Text);
+$buttonList = [];
+$button = [];
+$button[] = AddButton( '🗓 Jadwal Bioskop', "text=jadwal bioskop");
+$button[] = AddButton( '🌆 Bioskop Jakarta', "text=jdwlbskp jakarta");
+$buttonList[] = $button;
 
-$buttons = [];
-$buttons[] = AddButton( '🗓 Jadwal Bioskop', "text=jadwal bioskop");
-$buttons[] = AddButton( '🌆 Bioskop Jakarta', "text=jdwlbskp jakarta");
-$buttonList[] = $buttons;
-
-//die($Text);
-Output( 0, $Text, 'text', $buttonList, 'button', '', '', 'Tampilkan', false);
-
+$actions['button'] = $buttonList;
+if (!empty($image)) $actions['files'] = $image;
+RichOutput(0, $Text, $actions);
