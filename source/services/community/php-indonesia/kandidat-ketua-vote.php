@@ -32,6 +32,9 @@ date_default_timezone_set('Asia/Jakarta');
 
 const KANDIDAT = ['', 'Nur Hidayat', 'Mizno Kruge', 'Luri Darmawan'];
 
+// Bypass
+Output(0, "Sesi pemilihan ketua PHPID telah berakhir.\nTerima kasih atas partisipasinya.");
+
 const FORM_ID_FULLNAME = 'entry.1367380316';
 const FORM_ID_PHONE = 'entry.1756747829';
 const FORM_ID_CHOOSE = 'entry.108523294';
