@@ -27,6 +27,7 @@ class API
   public $BaseURL = '';
   public $Token = '';
   public $DeviceToken = '';
+  public $ClientId = '';
 
   public function __construct(){
   }
@@ -120,6 +121,37 @@ class API
     $item['url'] = $AURL;
     $item['size'] = $Size;
     return $item;
+  }
+
+  /**
+   * TASK
+   */
+  public function AddTask( $AUserId, $AFirstName, $ALastName, $ASubject, $ADescription, $AModule = ''){
+    if (empty($this->ClientId)) return false;
+    $payLoad['client_id'] = $this->ClientId;
+    $payLoad['user_id'] = $AUserId;
+    $payLoad['first_name'] = $AFirstName;
+    $payLoad['last_name'] = $ALastName;
+    $payLoad['subject'] = $ASubject;
+    $payLoad['description'] = $ADescription;
+    $payLoad['module'] = $AModule;
+
+    $payloadAsJson = json_encode($payLoad, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+    $opts = [
+      "http" => [
+          "method" => "POST",
+          'header'=> "Content-Type: application/json\r\n"
+            . "Content-Length: " . strlen($payloadAsJson) . "\r\n"
+            . "token: ".$this->Token."\r\n",
+          'content' => $payloadAsJson
+      ]
+    ];
+    $context = stream_context_create($opts);
+    $url = rtrim($this->BaseURL,'/\\').'/task/';
+    $result = @file_get_contents($url, false, $context);
+    if (empty($result)) return false;
+    $responseAsJson = @json_decode($result, true);
+    return $responseAsJson;
   }
 
 }
