@@ -28,6 +28,7 @@ ini_set("allow_url_fopen", 1);
 require_once "../../lib/lib.php";
 require_once "../../lib/GoogleForm_lib.php";
 require_once "../../lib/messaging_lib.php";
+require_once "../../lib/CarikAPI_lib.php";
 require_once "../../config.php";
 date_default_timezone_set('Asia/Jakarta');
 
@@ -107,7 +108,15 @@ $Text .= "\nCatatan: $Notes";
 $options['url'] = $Config['packages']['partner']['kioss']['dashboard_url'];
 $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
 $options['dashboard'] = 1;
-SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
+//SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
+
+// Send notification to cs
+$API = new Carik\API;
+$API->BaseURL = $Config['packages']['partner']['kioss']['api_url'];
+$API->DeviceToken = $Config['packages']['partner']['kioss']['device_token'];
+$recipient = explode('-', $Config['packages']['partner']['kioss']['recipient'])[1];
+$recipientName = $Config['packages']['partner']['kioss']['recipient_name'];
+$r = $API->SendMessage('whatsapp', $recipientName, $recipient, $Text, []);
 
 // Thankyou
 $Text = "Terima kasih yaa atas masukannya.\nCarik jadi makin bersemangat lagi.";
