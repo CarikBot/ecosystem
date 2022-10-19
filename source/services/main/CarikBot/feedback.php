@@ -41,8 +41,10 @@ const FORM_ID_RECOMENDATION = 'entry.865760117';
 const FORM_ID_NOTES = 'entry.922043659';
 const FORM_ID_LOG = 'entry.1341416625';
 
+$ClientId = @$RequestContentAsJson['client_id'];
 $UserId = @$RequestContentAsJson['data']['user_id'];
 $FullName = @$RequestContentAsJson['data']['FullName'];
+if (empty($ClientId)) $ClientId = @$RequestContentAsJson['data']['client_id'];
 
 if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
   Output(0, "Pengisian form feedback telah dibatalkan.\nTerima kasih.");
@@ -110,12 +112,20 @@ $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
 $options['dashboard'] = 1;
 //SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
 
-// Send notification to cs
+// Add Ticket & Send notification to cs
 $API = new Carik\API;
+$API->ClientId = $ClientId;
 $API->BaseURL = $Config['packages']['partner']['kioss']['api_url'];
+$API->Token = $Config['packages']['partner']['kioss']['token'];
 $API->DeviceToken = $Config['packages']['partner']['kioss']['device_token'];
 $recipient = explode('-', $Config['packages']['partner']['kioss']['recipient'])[1];
 $recipientName = $Config['packages']['partner']['kioss']['recipient_name'];
+
+$r = $API->AddTask($UserId, $FullName, '', 'Feedback', 'text', 'feedback');
+if ($r !== false){
+  $ticketCode = $r['data']['code'];
+  $Text .= "\n\nTicket #$ticketCode";
+}
 $r = $API->SendMessage('whatsapp', $recipientName, $recipient, $Text, []);
 
 // Thankyou
