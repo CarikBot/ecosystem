@@ -66,7 +66,7 @@ foreach ($pseData as $pse) {
   $item .= "\nTanggal terbit: ".$pse['attributes']['tanggal_terbit'];
   $item .= "\nStatus: ".$pse['attributes']['status_id'];
   //$item .= "\n[Link](".$pse['attributes']['qr_code'].')';
-  $item .= "\n[Link](https://pse.kominfo.go.id/tdpse-detail/$id)";
+  //$item .= "\n[Link](https://pse.kominfo.go.id/tdpse-detail/$id)";
   $item .= "\n".$pse['attributes']['nomor_tanda_daftar'];
   $item .= "\n".$pse['attributes']['lokalitas'];
   $item .= "\n";
