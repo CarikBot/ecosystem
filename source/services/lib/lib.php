@@ -293,6 +293,15 @@ function LimitTextChars($content = false, $limit = false, $stripTags = false, $e
   }
   return $content;
 }
+function fixHtml($html) {
+  $dom = new DOMDocument();
+  @$dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ) );
+  $return = '';
+  foreach ( $dom->getElementsByTagName( 'body' )->item(0)->childNodes as $v ) {
+      $return .= $dom->saveHTML( $v );
+  }
+  return $return;
+}
 
 function readTextFile( $AFileName){
   $result = '';

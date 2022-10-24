@@ -121,7 +121,7 @@ $API->DeviceToken = $Config['packages']['partner']['kioss']['device_token'];
 $recipient = explode('-', $Config['packages']['partner']['kioss']['recipient'])[1];
 $recipientName = $Config['packages']['partner']['kioss']['recipient_name'];
 
-$r = $API->AddTask($UserId, $FullName, '', 'Feedback', 'text', 'feedback');
+$r = $API->AddTask($UserId, $FullName, '', 'Feedback', $Text, 'feedback');
 if ($r !== false){
   $ticketCode = $r['data']['code'];
   $Text .= "\n\nTicket #$ticketCode";
