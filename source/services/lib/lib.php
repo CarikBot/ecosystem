@@ -30,7 +30,7 @@ $Headers = [];
 if (function_exists('apache_request_headers')){
   $Headers = @apache_request_headers();
 }
-$Token = @$Headers['token'];
+$Token = @$Headers['Token'];
 
 $UserId = urldecode(@$_POST['UserID']);
 $ChatId = urldecode(@$_POST['ChatID']);
