@@ -376,8 +376,13 @@ function getRequestBodyAsArray(){
   return json_decode(getRequestBody(),true);
 }
 
+function GetSavedParameter($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
+  return GetSavedKeyword($AKeyword, $ADefaultValue, $AMaxAgeInMinutes);
+}
+
 function GetSavedKeyword($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
   if (empty($AKeyword)) return '';
+  if (!isStringExist('saved', $AKeyword)) $AKeyword = 'saved'.$AKeyword;
   $a = urldecode(@$_POST[$AKeyword]);
   $a = @explode('|', $a);
   $date = @$a[0];
