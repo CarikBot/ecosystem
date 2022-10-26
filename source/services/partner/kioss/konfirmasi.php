@@ -122,7 +122,6 @@ $phone = $Data['phone'];
 $phone = 'wa.me/62'.substr($phone,1);
 $Text = "*Konfirmasi Pembayaran*";
 $Text .= "\n".$Data['paymentFor_t'];
-$Text .= "\n";
 $Text .= "\nNama : ".$fullName;
 $Text .= "\nEmail: ".$Data['email'];
 $Text .= "\nPhone: ".$phone;
