@@ -294,6 +294,7 @@ function LimitTextChars($content = false, $limit = false, $stripTags = false, $e
   }
   return $content;
 }
+
 function fixHtml($html) {
   $dom = new DOMDocument();
   @$dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ) );
@@ -302,6 +303,17 @@ function fixHtml($html) {
       $return .= $dom->saveHTML( $v );
   }
   return $return;
+}
+
+function TitleCase($string)
+{
+  return preg_replace_callback(
+    '~[/.-]\p{Ll}~u',
+    function ($m) {
+        return mb_strtoupper($m[0], 'UTF-8');
+    },
+    mb_convert_case($string, MB_CASE_TITLE, 'UTF-8')
+  );
 }
 
 function readTextFile( $AFileName){
