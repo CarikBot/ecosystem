@@ -77,6 +77,9 @@ $menuData = [];
 foreach ($movies as $movie) {
   $id = $movie['id'];
   $title = $movie['title'];
+  $title = str_replace('`', '', $title);
+  $title = str_replace('_', '', $title);
+  $title = str_replace('*', '', $title);
   $releaseDate = $movie['release_date'];
   if (!empty($releaseDate)) $releaseDate = " (".substr($releaseDate, 0, 4).")";
   $title = $title.$releaseDate;
