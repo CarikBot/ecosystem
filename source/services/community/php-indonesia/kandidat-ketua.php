@@ -33,6 +33,9 @@ date_default_timezone_set('Asia/Jakarta');
 
 const RULE_FILE = 'voting-rule.txt';
 
+// Bypass
+Output(0, "Sesi pemilihan ketua PHPID telah berakhir.\nTerima kasih atas partisipasinya.");
+
 $UserId = @$RequestContentAsJson['data']['user_id'];
 $FullName = @$RequestContentAsJson['data']['FullName'];
 
