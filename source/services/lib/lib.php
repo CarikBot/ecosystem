@@ -158,6 +158,8 @@ function GetCurrentURL(){
 }
 
 function SendAndAbort($content){
+  ignore_user_abort(true);
+  set_time_limit(0);
   ob_start();
   echo $content;
   $buffer_size = ob_get_length();
@@ -168,6 +170,9 @@ function SendAndAbort($content){
   ob_end_flush();
   if( ob_get_level() > 0 ) ob_flush();
   flush();
+  if (function_exists('fastcgi_finish_request')) {
+    fastcgi_finish_request();
+  }
 }
 
 function isGroupChat(){
