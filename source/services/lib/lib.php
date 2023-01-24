@@ -75,6 +75,7 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         $array['action']['files'] = $content;
       };
     }
+    if (!empty(@$AAction['suffix'])) $array['action']['suffix'] = @$AAction['suffix'];
 
   }//if (!is_null($AAction))
 
@@ -384,6 +385,15 @@ function dateDifferentFromDateString($ADate1, $ADate2){
   $t2 = strtotime($ADate2);
   $dateDiff = $t1 - $t2;
   return $dateDiff;
+}
+
+function DateAdd($NumberOfDay){
+  $numberOfDay = ($NumberOfDay > 0) ? "+$NumberOfDay" : "-$NumberOfDay";
+  $date = date('Y-m-d', strtotime("$numberOfDay day"));
+  return $date;
+
+  //any date
+  //date('Y-m-d', strtotime("+1 day", strtotime($date)));
 }
 
 function toHijriah($tanggal){

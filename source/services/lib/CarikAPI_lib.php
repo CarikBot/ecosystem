@@ -15,7 +15,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.3
+ * @version    0.0.4
  * @link       http://www.aksiide.com
  * @since
  */
@@ -126,7 +126,7 @@ class API
   /**
    * TASK
    */
-  public function AddTask( $AUserId, $AFirstName, $ALastName, $ASubject, $ADescription, $AModule = ''){
+  public function AddTask( $AUserId, $AFirstName, $ALastName, $ASubject, $ADescription, $AModule = '', $ACustomCode = '', $AIsRound = true){
     if (empty($this->ClientId)) return false;
     $payLoad['client_id'] = $this->ClientId;
     $payLoad['user_id'] = $AUserId;
@@ -135,6 +135,8 @@ class API
     $payLoad['subject'] = $ASubject;
     $payLoad['description'] = $ADescription;
     $payLoad['module'] = $AModule;
+    $payLoad['round'] = ($AIsRound == true) ? 1 : 0;
+    if (!empty($ACustomCode)) $payLoad['code'] = $ACustomCode;
 
     $payloadAsJson = json_encode($payLoad, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
     $opts = [

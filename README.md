@@ -75,13 +75,17 @@ Pemberian donasi bisa dilakukan melalui chat langsung ke Carik Bot di:
 
 dengan mengirim isi pesan `donasi`.
 
+Atau bisa melalui [Halaman Sponsor untuk Luri Darmawan](https://github.com/sponsors/luridarmawan/).
+
 ![donation](images/donation.jpg)
 
 ## Credits
 
 Carik Bot is developed by [Luri Darmawan](https://github.com/luridarmawan/) and 20+ amazing contributors. Special thanks to Hastura, Mbah Don and Delli for originally creating Carik character.
 
+If you found this project interesting, please consider [sponsoring me](https://github.com/sponsors/luridarmawan/).
+
 ## Premium Support
 
-[Carik Bot](https://carik.id), as an open source project, is free to use and always will be. [Cakti](https://cakti.id/) offers premium Chat Bot app design/development services. Email us at [support@carik.id](mailto:support@carik.id) to get in touch for more details.
+[Carik Bot](https://carik.id), as an open source project, is free to use and always will be. [Ajaro](https://ajaro.id/) offers premium Chat Bot app design/development services. Email us at [halo@carik.id](mailto:halo@carik.id) to get in touch for more details.
 
