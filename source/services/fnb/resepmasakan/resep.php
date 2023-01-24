@@ -41,7 +41,11 @@ $Query = urldecode($Query);
 if (empty($Query)) Output(0, "Maaf, parameter pencarian resep tidak lengkap.");
 
 $Text = '';
+$Resep = [];
 
+
+// disable resepmasakan.id
+/*
 $parser = new HTTPClient();
 $args['url'] = RESEPMASAKAN_BASE_URL . '?s=' . $Query;
 $result = $parser->httpGet( $args);
@@ -56,7 +60,6 @@ $classname="type-post";
 //$articles = $finder->query("//article[contains(@class, '$classname')]/div");
 $articles = $finder->query("//article[contains(@class, '$classname')]");
 
-$Resep = array();
 foreach ($articles as $item) {
   $a = array();
   $node = $finder->query("div/div/header/h2/a", $item);
@@ -68,6 +71,7 @@ foreach ($articles as $item) {
 
   $Resep[] = $a;
 }
+*/
 
 if (count($Resep)>0){
   $Text = "*Info Resep yang ditemukan:*\n\n";

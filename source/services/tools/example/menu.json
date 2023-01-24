@@ -4,7 +4,7 @@
   "type": "action",
   "action": {
     "type": "menu",
-    "suffix": "",
+    "suffix": "Ketik *menu* untuk kembali ke menu utama.",
     "data": [
       [
         {
