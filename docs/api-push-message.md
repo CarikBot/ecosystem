@@ -80,3 +80,7 @@ Khusus untuk whatsapp, hanya mendukung maksimal 3 (tiga buah) tombol. Konten yan
 
 ![image](../images/screenshoot/button-wa.jpg)
 
+
+## Postman Collection
+
+- [Messaging](https://www.postman.com/carik-bot/workspace/messaging/request/22199750-c902991f-37f0-4da4-b0ff-2a6f3760d5ad)

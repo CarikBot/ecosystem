@@ -15,7 +15,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.4
+ * @version    0.0.5
  * @link       http://www.aksiide.com
  * @since
  */
@@ -56,6 +56,7 @@ class API
     if ((empty($ATo) || empty($AMessage))) return false;
 
     $data['platform'] = $APlatform;
+    $data['full_name'] = $AFullName;//compatibility
     $data['name'] = $AFullName;
     $data['user_id'] = $ATo;
     $data['text'] = $AMessage;
