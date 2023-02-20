@@ -3,7 +3,7 @@
  * SIMULASI DEPOSITO HANDLER
  * 
  * USAGE:
- *   curl "http://localhost:8001/donasi.php" -d "@body-donasi.json"
+ *   curl "http://ecosystem.carik.test/services/main/CarikBot/donasi.php" -d "@body-donasi.json"
  *   
  *
  * @date       12-07-2021 23:24
@@ -64,12 +64,8 @@ if ('OK' == @$RequestContentAsJson['data']['submit']){
   }
   AddToLog($result);
   @header("Content-type:application/json");
-  $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+  //$output = json_encode($result, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($result);
-
-  $Text = "Hi $FullName, Anda akan berdonasi sebesar Rp. ".number_format($nominal, 0,',','.');
-  //$Text .= "\n$url";
-  Output(0, $Text);
 }
 
 

@@ -47,7 +47,7 @@ contoh
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
             <node ID="6c31c48e-8422-49d9-9743-b46e3b269229" TEXT="pattern">
-                <node ID="00f74802-8ce4-4077-b26a-0dc4307f9ca2" TEXT="jadwal bioskop"/>
+                <node ID="00f74802-8ce4-4077-b26a-0dc4307f9ca2" TEXT="jadwal (bioskop|studio21)"/>
             </node>
         </node>
     </node>

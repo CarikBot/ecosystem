@@ -48,6 +48,7 @@ const FORM_ID_LOG = 'entry.388930010';
 const PAYMENT_FOR = [
   'Deposit Domain/Hosting', 'Pembayaran Invoice', 
   'Pembayaran Domain', 'Pembayaran Hosting',
+  'Speech Processing',
   'Pembayaran Jasa', 'Lain-lain'
 ];
 const PAYMENT_BANK = [
