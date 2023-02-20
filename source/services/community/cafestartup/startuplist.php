@@ -30,8 +30,9 @@ if ((empty($DocId))||(empty($ScriptId))||(empty($SheetName))){
 }
 
 $GroupID = urldecode(@$_POST['GroupID_']);
-$page = @$_POST['Page'];
+$page = @$_POST['page'];
 $format = @$_GET['format'];
+if (empty($page)) $page = @$RequestContentAsJson['page'];
 if (!is_numeric($page)) $page = '';
 
 $GS = new GoogleScript;
