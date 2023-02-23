@@ -16,7 +16,7 @@ require_once('../../lib/CarikOpenAI_lib.php');
 const BUILDER_PLATFORM = 'openai';
 
 $responsePrefix = [
-  "Query yang terbentuk kira-kira seperti informasi berikut:"
+  "Query yang terbentuk kira-kira seperti informasi berikut"
 ];
 $prefix = $responsePrefix[array_rand($responsePrefix)];
 
