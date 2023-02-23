@@ -26,6 +26,7 @@ $userId = @$userInfo[1];
 
 if (empty($Text)) $Text = @$RequestContentAsJson['data']['original_text'];
 $Sentence = @$RequestContentAsJson['data']['sentence'];
+$ChannelId = @$RequestContentAsJson['data']['channel_id'];
 $DatabaseProduct = @$RequestContentAsJson['data']['database_value'];
 if (empty($DatabaseProduct)) $DatabaseProduct = 'sql';
 if (empty($Sentence)) $Sentence = @$RequestContentAsJson['data']['reply_from_text'];
@@ -34,7 +35,16 @@ if (empty($Sentence)){
   Output(0, $Text);
 }
 
-$question = "Buat query $DatabaseProduct dan informasi dalam bahasa Indonesia: \"$Sentence\"";
+
+$cacheLink = urlencode($Sentence);
+$cache = readCache($cacheLink, 60);
+if (!empty($cache)){
+  $Text = "$prefix:\n $cache";
+  Output(0, $Text);
+}
+
+
+$question = "Buat query $DatabaseProduct: \"$Sentence\"";
 
 $responseAnswer = false;
 if (BUILDER_PLATFORM == 'you'){
@@ -69,6 +79,11 @@ $answer = @$responseAnswer['text'];
 if (empty($answer)){
   Output(0, "Maaf, lagi ga bisa bikinquery. Masih pening nihh.... Nanti aja dulu yaa.\nMakasih");
 }
+if ($ChannelId=='telegram'){
+  $answer = str_replace('_', '\_', $answer);
+}
+
+writeCache($cacheLink, $answer);
 
 $Text = "$prefix:\n $answer";
 Output(0, $Text);
