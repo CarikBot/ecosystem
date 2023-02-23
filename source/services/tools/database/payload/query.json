@@ -1,18 +1,16 @@
 {
   "post_date" : "2022-11-29 08:12:16",
-  "user_id" : "5-6287876469000",
-  "full_name" : "uLil Test",
+  "user_id" : "5-628123456789",
+  "full_name" : "Your Full Name",
   "client_id" : "201",
   "session" : "537d147c22090240839e6cc838d18d3d736b64f4",
   "bot_id" : "Carik",
-  "FullName" : "uLil Test",
-  "ClientID" : "201",
+  "ClientID" : "0",
   "data" : {
     "user_id" : "5-6281806572299",
     "channel_id" : "whatsapp",
-    "client_id" : "201",
-    "FullName" : "uLil Test",
-    "full_name" : "uLil Test",
+    "client_id" : "0",
+    "full_name" : "Your Full Name",
     "sentence": "Calculate the sum of salaries from the last year"
   }
 }
