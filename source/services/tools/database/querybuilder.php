@@ -5,8 +5,8 @@
  * USAGE
  *   curl "http://ecosystem.carik.test/services/tools/database/querybuilder/" -d "@payload/query.json"
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 //error_reporting(E_ALL);
 
 require_once "../../config.php";
@@ -36,7 +36,8 @@ if (empty($Sentence)){
 }
 
 
-$cacheLink = urlencode($Sentence);
+$cacheLink = (urlencode($Sentence));
+if (strlen($cacheLink)>200) $cacheLink = md5($cacheLink);
 $cache = readCache($cacheLink, 60);
 if (!empty($cache)){
   $Text = "$prefix:\n $cache";
@@ -77,7 +78,7 @@ if ($responseAnswer == false){
 
 $answer = @$responseAnswer['text'];
 if (empty($answer)){
-  Output(0, "Maaf, lagi ga bisa bikinquery. Masih pening nihh.... Nanti aja dulu yaa.\nMakasih");
+  Output(0, "Maaf, lagi ga bisa bikin query. Masih pening nihh.... Nanti aja dulu yaa.\nMakasih");
 }
 if ($ChannelId=='telegram'){
   $answer = str_replace('_', '\_', $answer);
