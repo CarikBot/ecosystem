@@ -25,12 +25,24 @@ Tentunya anda ingin mendapatkan informasi siapa yang mengirimkan pesan untuk tuj
 
 | Parameter | Deskripsi |
 |---|---|
-| UserID | User ID pengguna. |
-| ChatID | Jika [chatbot](t.me/carikBot) digunakan di dalam group, ChatID ini berisi id dari group tersebut. |
-| FullName | Nama pengguna. |
-| OriginalText | Isi pesan asli yang dikirimkan oleh pengguna kepada [chatbot](t.me/carikBot) sebelum dilakukan pemetaan oleh NLP [Carik](t.me/carikBot).  |
-| ChannelId | Channel aplikasi yang digunakan, yaitu: telegram, facebook, line, whatsapp, dan sebagainya. |
+| user_id | User ID pengguna.<br>format: "channel_code-original_user_id" |
+| chat_id | (opsional) Jika [chatbot](t.me/carikBot) digunakan di dalam group, ChatID ini berisi id dari group tersebut. |
+| channel_id | Channel aplikasi yang digunakan, yaitu: telegram, facebook, line, whatsapp, dan sebagainya. |
+| full_name | Nama pengguna. |
+| original_text | Isi pesan asli yang dikirimkan oleh pengguna kepada [chatbot](t.me/carikBot) sebelum dilakukan pemetaan oleh NLP [Carik](t.me/carikBot).  |
 
+### Contoh Payload
+
+```json
+{
+  "data": {
+    "user_id": "5-6281234567890",
+    "channel_id": "whatsapp",
+    "full_name": "Luri Darmawan",
+    "original_text": "jadwal dokter hari ini"
+  }
+}
+```
 
 ## Contoh: API Echo
 
