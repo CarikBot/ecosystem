@@ -50,7 +50,8 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 
   $questionData[] = $generalQuestion;
 
-  $url = GetBaseUrl() . '/services/tools/example/form/';
+  //$url = GetBaseUrl() . '/services/tools/example/form/';
+  $url = GetCurrentURL();
   OutputQuestion( $Text, $questionData, $url, 'Contoh Form');
 }
 
