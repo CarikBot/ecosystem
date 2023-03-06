@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version
+ * @version    3.0.0
  * @link       http://www.aksiide.com
  * @since
  */
@@ -336,7 +336,7 @@ function readTextFile( $AFileName){
 }
 
 function writeTextFile( $AFileName, $AText){
-  $file = fopen ($AFileName, 'w+');
+  $file = @fopen ($AFileName, 'w+');
   if ($file) {
       fwrite($file, $AText);
       fclose($file);
