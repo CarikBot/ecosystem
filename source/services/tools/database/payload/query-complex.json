@@ -1,0 +1,16 @@
+{
+  "post_date": "2022-11-29 08:12:16",
+  "user_id": "5-628123456789",
+  "full_name": "Your Full Name",
+  "client_id": "201",
+  "session": "537d147c22090240839e6cc838d18d3d736b64f4",
+  "bot_id": "Carik",
+  "ClientID": "0",
+  "data": {
+    "user_id": "5-628123456789",
+    "channel_id": "whatsapp",
+    "client_id": "0",
+    "full_name": "Your Full Name",
+    "sentence": "buatkan query replace untuk tabel berikut CREATE TABLE karyawan (\r\n  idkaryawan INT(11) NOT NULL AUTO_INCREMENT,\r\n  nik VARCHAR(15) NULL DEFAULT NULL COMMENT 'NIK' COLLATE 'utf8_general_ci',\r\n  namakaryawan VARCHAR(50) NULL DEFAULT NULL COMMENT 'NAMA KARYAWAN' COLLATE 'utf8_general_ci',\r\n  jabatan VARCHAR(30) NULL DEFAULT NULL COMMENT 'JABATAN' COLLATE 'utf8_general_ci',\r\n  area VARCHAR(15) NULL DEFAULT NULL COMMENT 'AREA' COLLATE 'utf8_general_ci',\r\n  foto LONGBLOB NULL DEFAULT NULL,\r\n  PRIMARY KEY (idkaryawan) USING BTREE\r\n)\r\nCOLLATE='utf8_general_ci'\r\nENGINE=InnoDB\r\nROW_FORMAT=COMPACT\r\nAUTO_INCREMENT=4308\r\n;"
+  }
+}
