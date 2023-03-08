@@ -56,15 +56,18 @@ if (BUILDER_PLATFORM == 'openai'){
   $token = @$Config['services']['openai']['token'];
   $AI = new Carik\OpenAI;
   $AI->Token = $token;
-  $result = $AI->Completition($question);
+  $result = $AI->ChatCompletition($question);
   if ($result !== false){
     $choices = $result['choices'];
     $text = '';
     foreach ($choices as $choice) {
-      $text = @$choice['text']."\n";
+      $text = @$choice['message']['content']."\n";
     }
     $text = str_replace('?\n\n', '', $text);
     $text = str_replace("?\n\n", '', $text);
+    $text = str_replace("*", '\*', $text);
+    $text = str_replace("_", '\_', $text);
+    //$text = str_replace("_", '', $text);
     $text = str_replace('""', '"', $text);
     $text = trim($text);
     $responseAnswer['code'] = 0;
