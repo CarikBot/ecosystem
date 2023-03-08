@@ -9,13 +9,21 @@
  *     $API->DeviceToken = 'your token';
  *     $API->SendMessage('whatsapp', 'Full Name, 'userid', 'text', []);
  * 
+ *   [x] Add Task
+ *     // $TaskType: 0: General, 1: Inquiry, 2: Complain, 3: Appointment, 4: Spam/Scam, 5:Other
+ *     // const TaskType = [ 'General', 'Inquiry', 'Complain', 'Appointment', 'Billing', 'Spam/Scam', 'Other'];
+ *     $r = $API->AddTask($UserId, $fullName, '', $Subject, $Description, 'appointment', '', true, $TaskType);
+ *
+ *   [x] Event Log
+ *     $r = $API->AddEventLog('modulename', 'sourcename', 'eventname', $request, $result);
+ *
  * @date       02-08-2020 12:47
  * @category   API
  * @package    Carik
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.5
+ * @version    0.0.7
  * @link       http://www.aksiide.com
  * @since
  */
@@ -127,7 +135,8 @@ class API
   /**
    * TASK
    */
-  public function AddTask( $AUserId, $AFirstName, $ALastName, $ASubject, $ADescription, $AModule = '', $ACustomCode = '', $AIsRound = true){
+
+  public function AddTask( $AUserId, $AFirstName, $ALastName, $ASubject, $ADescription, $AModule = '', $ACustomCode = '', $AIsRound = true, $ATaskType = 0){
     if (empty($this->ClientId)) return false;
     $payLoad['client_id'] = $this->ClientId;
     $payLoad['user_id'] = $AUserId;
@@ -136,6 +145,7 @@ class API
     $payLoad['subject'] = $ASubject;
     $payLoad['description'] = $ADescription;
     $payLoad['module'] = $AModule;
+    $payLoad['type'] = $ATaskType;
     $payLoad['round'] = ($AIsRound == true) ? 1 : 0;
     if (!empty($ACustomCode)) $payLoad['code'] = $ACustomCode;
 
@@ -151,6 +161,44 @@ class API
     ];
     $context = stream_context_create($opts);
     $url = rtrim($this->BaseURL,'/\\').'/task/';
+    $result = @file_get_contents($url, false, $context);
+    if (empty($result)) return false;
+    $responseAsJson = @json_decode($result, true);
+    return $responseAsJson;
+  }
+
+  /**
+   * EVENT LOG
+   */
+
+   public function AddEventLog( $AModulName, $ASource, $AEventName, $ARequest, $AResult, $ACustomDate = '', $AReferenceId = '', $ATimeUsage = 0){
+    if (empty($this->ClientId)) return false;
+    $payLoad['client_id'] = $this->ClientId;
+    $payLoad['module'] = $AModulName;
+    $payLoad['source'] = $ASource;
+    $payLoad['event_name'] = $AEventName;
+    $payLoad['request'] = $ARequest;
+    $payLoad['result'] = $AResult;
+    if (!empty($ACustomDate)){
+      $payLoad['custom_date'] = $ACustomDate;
+    }
+    if (!empty($AReferenceId)){
+      $payLoad['ref_id'] = $AReferenceId;
+    }
+    $payLoad['time_usage'] = $ATimeUsage;
+
+    $payloadAsJson = json_encode($payLoad, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+    $opts = [
+      "http" => [
+          "method" => "POST",
+          'header'=> "Content-Type: application/json\r\n"
+            . "Content-Length: " . strlen($payloadAsJson) . "\r\n"
+            . "token: ".$this->Token."\r\n",
+          'content' => $payloadAsJson
+      ]
+    ];
+    $context = stream_context_create($opts);
+    $url = rtrim($this->BaseURL,'/\\').'/eventlog/track/'.$this->ClientId.'/';
     $result = @file_get_contents($url, false, $context);
     if (empty($result)) return false;
     $responseAsJson = @json_decode($result, true);

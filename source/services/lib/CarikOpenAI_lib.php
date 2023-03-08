@@ -5,11 +5,11 @@
  * USAGE
  *   [x] Completition
  *     $AI = new Carik\OpenAI;
- *     $AI->Token = 'your token';
+ *     $AI->Token = 'your_token';
  *     $result = $AI->Completition('halo apa kabar?');
  *
  *   [x] Default
- *     $AI->Model = 'text-davinci-003';
+ *     $AI->Model = 'gpt-3.5-turbo';
  *     $AI->Token = 250;
  *
  *
@@ -31,8 +31,10 @@ class OpenAI
   const BASE_URL = 'https://api.openai.com/v1/';
   public $BaseURL = '';
   public $Token = '';
-  public $Model = 'text-davinci-003';
+  //public $Model = 'text-davinci-003';
+  public $Model = 'gpt-3.5-turbo';
   public $MaxTokens = 250;
+  public $Temperature = 0;
 
   public $ResultText = '';
   public $ErrorMessage = '';
@@ -119,6 +121,22 @@ class OpenAI
     $payload['max_tokens'] = $this->MaxTokens; 
 
     $result = $this->getPostData('completions', $payload);
+    return $result;
+  }
+
+  public function ChatCompletition($APrompt, $ARole = 'user'){
+    if (!$this->isPermitted()) return false;
+    if (empty($APrompt)) return false;
+
+    $message['role'] = $ARole;
+    $message['content'] = $APrompt;
+
+    $payload['model'] = $this->Model;
+    $payload['max_tokens'] = $this->MaxTokens; 
+    $payload['temperature'] = $this->Temperature;
+    $payload['messages'][] = $message;
+
+    $result = $this->getPostData('chat/completions', $payload);
     return $result;
   }
 
