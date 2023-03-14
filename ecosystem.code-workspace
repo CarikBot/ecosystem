@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"editor.tabCompletion": "on",
+		"diffEditor.codeLens": true
+	}
 }
