@@ -6,9 +6,11 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.0
+ * @version    3.0.1
  * @link       http://www.aksiide.com
  * @since
+ * @history
+ *   - curl_get_file_contents: timeout
  */
 
 const OK = 'OK';
@@ -194,13 +196,19 @@ function isPrivateChat(){
   }
 }
 
-function curl_get_file_contents($URL)
+function curl_get_file_contents($URL, $ATimeout= 0)
 {
     $c = curl_init();
     curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($c, CURLOPT_URL, $URL);
     curl_setopt($c, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER, 0);
+    if ($ATimeout>0){
+      if ($ATimeout > 10) $ATimeout = 3;
+      //curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); //wait indefinitely
+      //curl_setopt($ch, CURLOPT_TIMEOUT_MS, $ATimeoutMiliSecond);
+      curl_setopt($c, CURLOPT_TIMEOUT, $ATimeout);
+    }
     $contents = curl_exec($c);
     if (curl_errno($c)) {
       $error_msg = curl_error($c);
