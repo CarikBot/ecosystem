@@ -19,7 +19,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.1
+ * @version    0.0.2
  * @link       http://www.aksiide.com
  * @since
  */
@@ -108,11 +108,15 @@ class OpenAI
     return $responseAsJson;
   }
 
-  public function Completitions($APrompt){
-    return $this->Completition($APrompt);
+  public function Completition($APrompt){
+    return $this->Completion($APrompt);
   }
 
-  public function Completition($APrompt){
+  public function Completitions($APrompt){
+    return $this->Completion($APrompt);
+  }
+
+  public function Completion($APrompt){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
 
@@ -125,6 +129,10 @@ class OpenAI
   }
 
   public function ChatCompletition($APrompt, $ARole = 'user'){
+    return $this->ChatCompletion($APrompt, $ARole);
+  }
+
+  public function ChatCompletion($APrompt, $ARole = 'user'){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
 
@@ -132,7 +140,7 @@ class OpenAI
     $message['content'] = $APrompt;
 
     $payload['model'] = $this->Model;
-    $payload['max_tokens'] = $this->MaxTokens; 
+    $payload['max_tokens'] = $this->MaxTokens;
     $payload['temperature'] = $this->Temperature;
     $payload['messages'][] = $message;
 
