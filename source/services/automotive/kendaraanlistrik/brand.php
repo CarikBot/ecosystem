@@ -21,32 +21,5 @@ include_once "../../config.php";
 require_once "../../lib/lib.php";
 date_default_timezone_set('Asia/Jakarta');
 
-const KENDARAANLISTRIK_PRODUCT_URL = "http://kendaraanlistrik.net/contents/products.json";
-
-$context = stream_context_create(
-  array(
-      'http' => array(
-          'follow_location' => false
-      ),
-      'ssl' => array(
-          "verify_peer"=>false,
-          "verify_peer_name"=>false,
-      ),
-  )
-);
-$content = file_get_contents(KENDARAANLISTRIK_PRODUCT_URL, false, $context);
-if (empty($content)){
-  Output(0, 'Maaf, informasi Merk Kendaraan Listrik belum ditemukan.');
-}
-$contentAsArray = json_decode($content, true);
-
-$Text = "*Merk Kendaraan Listrik*:\n";
-foreach ($contentAsArray as $merk) {
-  if ($merk['merk']=='Custom') continue;
-  if (!empty($merk['directLink'])) continue;
-  $url = "http://kendaraanlistrik.net/product/brand/?q=".(($merk['merk']));
-  $Text .= "\n- [$merk[merk]]($url)";
-}
-
-//die($Text);
+$Text = "Informasi tentang produk-produk kendaraan listrik bisa Anda jumpai dari [tautan](https://kendaraanlistrik.net/Produk.html?carikbot) ini.";
 Output(0, $Text);
