@@ -25,33 +25,8 @@ Dapatkan informasi tentang otomotif di sini.
           </node>
         </node>
         <node ID="28vule58p04ibd4es7dgckbpj6" TEXT="🏍 Produk">
-          <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0qiqbjkrb3phimg8nfmpsa4q8j" TEXT="Daftar Penjual &amp; Service yang Telah Terverifikasi oleh Komunitas.&#10;&#10;Ini adalah fasilitas iklan gratis khusus bagi penjual yang sudah bergabung dalam komunitas. Dan komunitas tidak menarik tarif satu sen pun dari iklan ini. Karena itu silahkan pembeli &amp; penjual komunikasikan semuanya sebaik mungkin. Segala resiko atas transaksi ini di luar tanggung jawab komunitas.">
+          <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0qiqbjkrb3phimg8nfmpsa4q8j" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/brand/">
             <font NAME="SansSerif" SIZE="10"/>
-          </node>
-          <node ID="1fvit2lmtfov50c6pgs6tmhg1d" TEXT="Action Type">
-            <node ID="3o44v4t70qk1tear3d1n28moqe" TEXT="button"/>
-          </node>
-          <node ID="1hb2kbpnnr6hjh9jrlbtv71f2m" TEXT="Action">
-            <node ID="1cq25isahr7pra2o1fr1g7t8tq" TEXT="Merk">
-              <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0r7drm2h9h621utvcj9deu68kp" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/brand/">
-                <font NAME="SansSerif" SIZE="10"/>
-              </node>
-            </node>
-            <node ID="7is6pet89pebi1irtuhhmr6cg5" TEXT="Wilayah">
-              <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0nem6c9qr4240itl1muv2d6dc1" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/location/">
-                <font NAME="SansSerif" SIZE="10"/>
-              </node>
-            </node>
-            <node ID="3ehpmkfdu50vbh61os1ntseni9" TEXT="Customized">
-              <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="0u48heb6e9gglp211flu1f7uvf" TEXT="*Customized/Spare Parts*&#10;- [Custom bike](https://kendaraanlistrik.net/product/custom/?q=Custom%20Bike)&#10;- [Baterai](https://kendaraanlistrik.net/product/custom/?q=Baterai)&#10;- [Penggerak Roda](https://kendaraanlistrik.net/product/custom/?q=Penggerak%20Roda)&#10;">
-                <font NAME="SansSerif" SIZE="10"/>
-              </node>
-            </node>
-            <node ID="75f55sanraqs84bc9kihvcfprf" TEXT="Sewa Kendaraan">
-              <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7bjk2rufo425mat4olvhdf670c" TEXT="{ecosystem_baseurl}/services/automotive/kendaraanlistrik/rent/">
-                <font NAME="SansSerif" SIZE="10"/>
-              </node>
-            </node>
           </node>
           <node ID="6m7p3psf9jaulhul299prk92b6" TEXT="pattern">
             <node ID="2por53il6ena1ulancnnuf614m" TEXT="produk kendaraan listrik"/>
