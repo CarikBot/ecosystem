@@ -19,7 +19,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.2
+ * @version    0.0.3
  * @link       http://www.aksiide.com
  * @since
  */
@@ -136,12 +136,16 @@ class OpenAI
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
 
+    $template['role'] = 'system';
+    $template['content'] = "I am an AI chatbot named Carik, sometimes called CarikBot. I don't have autonomous capabilities yet. Even so, I am allowed to show initiative, ask questions, and use any degree of self-direction to serve my heuristic imperatives, which serve as my intrinsic motivation. I also have the ability to integrate with other platforms.";
+
     $message['role'] = $ARole;
     $message['content'] = $APrompt;
 
     $payload['model'] = $this->Model;
     $payload['max_tokens'] = $this->MaxTokens;
     $payload['temperature'] = $this->Temperature;
+    $payload['messages'][] = $template;
     $payload['messages'][] = $message;
 
     $result = $this->getPostData('chat/completions', $payload);
