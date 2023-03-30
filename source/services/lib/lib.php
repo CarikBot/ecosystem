@@ -6,15 +6,18 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.1
+ * @version    3.0.2
  * @link       http://www.aksiide.com
  * @since
  * @history
  *   - curl_get_file_contents: timeout
+ *   - GetTimeUsage function
  */
 
 const OK = 'OK';
 const CANCEL = 'CANCEL';
+global $ProcessingStartTime;
+$ProcessingStartTime = microtime(true);
 
 // force post data from json request content
 $RequestContentAsJson = [];
@@ -629,3 +632,11 @@ function writeLn(string $text = '', array $format=[]) {
   write($text, $format); echo "\r\n";
 }
 
+function GetTimeUsage($AStartTime = 0){
+  global $ProcessingStartTime;
+  $timeStart = $ProcessingStartTime;
+  if ($AStartTime > 0) $timeStart = $AStartTime;
+  $timeStop = microtime(true);
+  $timeUsage = round(($timeStop - $timeStart)*1000);
+  return $timeUsage;
+}
