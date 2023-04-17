@@ -19,7 +19,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.3
+ * @version    0.0.2
  * @link       http://www.aksiide.com
  * @since
  */
@@ -29,6 +29,7 @@ namespace Carik;
 class OpenAI
 {
   const BASE_URL = 'https://api.openai.com/v1/';
+  const SYSTEM_PROMPT = "Saya adalah chatbot AI bernama Carik. Saya memang belum memiliki kemampuan otonom. Meski begitu, saya diizinkan untuk menunjukkan inisiatif, mengajukan pertanyaan, dan menggunakan tingkat pengarahan diri apa pun untuk melayani keharusan heuristik saya, yang berfungsi sebagai motivasi intrinsik saya. Saya juga memiliki kemampuan untuk berintegrasi dengan platform lain. Usahakan berikan jawaban dalam bahasa Indonesia.";
   public $BaseURL = '';
   public $Token = '';
   //public $Model = 'text-davinci-003';
@@ -108,15 +109,15 @@ class OpenAI
     return $responseAsJson;
   }
 
-  public function Completition($APrompt){
-    return $this->Completion($APrompt);
+  public function Completion($APrompt){
+    return $this->Completition($APrompt);
   }
 
   public function Completitions($APrompt){
-    return $this->Completion($APrompt);
+    return $this->Completition($APrompt);
   }
 
-  public function Completion($APrompt){
+  public function Completition($APrompt){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
 
@@ -128,16 +129,13 @@ class OpenAI
     return $result;
   }
 
-  public function ChatCompletition($APrompt, $ARole = 'user'){
-    return $this->ChatCompletion($APrompt, $ARole);
+  public function ChatCompletion($APrompt, $ARole = 'user'){
+    return $this->ChatCompletition($APrompt, $ARole);
   }
 
-  public function ChatCompletion($APrompt, $ARole = 'user'){
+  public function ChatCompletition($APrompt, $ARole = 'user'){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
-
-    $template['role'] = 'system';
-    $template['content'] = "I am an AI chatbot named Carik, sometimes called CarikBot. I don't have autonomous capabilities yet. Even so, I am allowed to show initiative, ask questions, and use any degree of self-direction to serve my heuristic imperatives, which serve as my intrinsic motivation. I also have the ability to integrate with other platforms.";
 
     $message['role'] = $ARole;
     $message['content'] = $APrompt;
@@ -145,7 +143,10 @@ class OpenAI
     $payload['model'] = $this->Model;
     $payload['max_tokens'] = $this->MaxTokens;
     $payload['temperature'] = $this->Temperature;
-    $payload['messages'][] = $template;
+    $payload['messages'][] = [
+      "role" => "system",
+      "content" => OpenAI::SYSTEM_PROMPT
+    ];
     $payload['messages'][] = $message;
 
     $result = $this->getPostData('chat/completions', $payload);
