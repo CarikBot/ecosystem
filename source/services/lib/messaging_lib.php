@@ -71,7 +71,7 @@ function getTelegramPayerName($AUserId, $AToken = ''){
   $chatInfo = @$json['result'];
 
   $name = trim(@$chatInfo['first_name'].' '.@$chatInfo['last_name']);
-  $username = $chatInfo['username'];
+  $username = @$chatInfo['username'];
   if (!empty($username)) $username = "@$username";
   $return = trim("[$name](tg://user?id=$AUserId) $username");
   return $return;
