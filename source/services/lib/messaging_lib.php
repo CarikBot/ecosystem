@@ -13,7 +13,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version
+ * @version    0.0.1
  * @link       http://www.aksiide.com
  * @since
  */
@@ -48,7 +48,14 @@ function SendMessage($AClientId, $ATo, $AMessage, $AOptions = []){
   ];
   $context = stream_context_create($opts);
   $url = $AOptions['url'] . "messaging/$platform/sendmessage/";
-  $result = file_get_contents($url, false, $context);
+  try {
+    $result = file_get_contents($url, false, $context);
+  }catch(Exception $e) {
+    if (function_exists('AddToLog')){
+      AddToLog("messagelib: $url");
+      AddToLog("--> error: " + $e->getMessage());
+    }
+  }
   if (empty($result)) return false;
   $responseAsJson = @json_decode($result, true);
   if (count($responseAsJson)==0) return false;
