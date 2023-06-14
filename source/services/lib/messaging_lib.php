@@ -18,6 +18,7 @@
  * @since
  */
 
+// deprecated
 function SendMessage($AClientId, $ATo, $AMessage, $AOptions = []){
   if (($AClientId==0) || (empty($AClientId)) || (empty($ATo) || empty($AMessage))) return false;
   if ((empty($AOptions['url']) || (empty($AOptions['token'])))) return false;
