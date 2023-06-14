@@ -6,12 +6,13 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.2
+ * @version    3.0.3
  * @link       http://www.aksiide.com
  * @since
  * @history
  *   - curl_get_file_contents: timeout
  *   - GetTimeUsage function
+ *   - RichOutput: define default data field in action mode
  */
 
 const OK = 'OK';
@@ -79,6 +80,9 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
       if ('files' == $key){
         $array['action']['files'] = $content;
       };
+    }
+    if (!isset($array['action']['data'])){
+      $array['action']['data'] = [];
     }
     if (!empty(@$AAction['suffix'])) $array['action']['suffix'] = @$AAction['suffix'];
 
