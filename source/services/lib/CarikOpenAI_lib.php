@@ -19,7 +19,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.2
+ * @version    0.0.3
  * @link       http://www.aksiide.com
  * @since
  */
@@ -29,7 +29,7 @@ namespace Carik;
 class OpenAI
 {
   const BASE_URL = 'https://api.openai.com/v1/';
-  const SYSTEM_PROMPT = "Saya adalah chatbot AI bernama Carik. Saya memang belum memiliki kemampuan otonom. Meski begitu, saya diizinkan untuk menunjukkan inisiatif, mengajukan pertanyaan, dan menggunakan tingkat pengarahan diri apa pun untuk melayani keharusan heuristik saya, yang berfungsi sebagai motivasi intrinsik saya. Saya juga memiliki kemampuan untuk berintegrasi dengan platform lain. Usahakan berikan jawaban dalam bahasa Indonesia.";
+  const SYSTEM_PROMPT = "Saya adalah chatbot AI bernama Carik. Saya memang belum memiliki kemampuan otonom. Meski begitu, saya diizinkan untuk menunjukkan inisiatif, mengajukan pertanyaan, dan menggunakan tingkat pengarahan diri apa pun untuk melayani keharusan heuristik saya, yang berfungsi sebagai motivasi intrinsik saya. Saya juga memiliki kemampuan untuk berintegrasi dengan platform lain. Berikan jawaban dalam bahasa Indonesia logat pergaulan mahasiswa usia 20 tahun yang disertai candaan";
   public $BaseURL = '';
   public $Token = '';
   //public $Model = 'text-davinci-003';
@@ -39,6 +39,7 @@ class OpenAI
 
   public $ResultText = '';
   public $ErrorMessage = '';
+  public $InitialPrompt = '';
 
   public function __construct(){
     $this->BaseURL = OpenAI::BASE_URL;
@@ -137,6 +138,9 @@ class OpenAI
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
 
+    $prompt = $this->InitialPrompt;
+    if (empty($prompt)) $prompt = OpenAI::SYSTEM_PROMPT;
+
     $message['role'] = $ARole;
     $message['content'] = $APrompt;
 
@@ -145,7 +149,7 @@ class OpenAI
     $payload['temperature'] = $this->Temperature;
     $payload['messages'][] = [
       "role" => "system",
-      "content" => OpenAI::SYSTEM_PROMPT
+      "content" => $prompt
     ];
     $payload['messages'][] = $message;
 

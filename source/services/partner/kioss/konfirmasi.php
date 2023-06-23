@@ -126,6 +126,7 @@ $Text .= "\n".$Data['paymentFor_t'];
 $Text .= "\nNama : ".$fullName;
 $Text .= "\nEmail: ".$Data['email'];
 $Text .= "\nPhone: ".$phone;
+$Text .= "\nID: ".$UserId;
 
 $Text .= "\nNomor Invoice: ".$Data['invoiceNo'];
 $Text .= "\nPembayaran: ".$Data['paymentFor_t'];
