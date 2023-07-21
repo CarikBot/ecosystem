@@ -39,11 +39,11 @@ if (function_exists('apache_request_headers')){
 $Token = @$Headers['Token'];
 if (empty($Token)) $Token = @$Headers['token'];
 
-$UserId = urldecode(@$_POST['UserID']);
-$ChatId = urldecode(@$_POST['ChatID']);
-$GroupId = urldecode(@$_POST['GroupID']);
+$UserId = @urldecode(@$_POST['UserID']);
+$ChatId = @urldecode(@$_POST['ChatID']);
+$GroupId = @urldecode(@$_POST['GroupID']);
 $ChannelId = @$_POST['ChannelId'];
-$FullName = urldecode(@$_POST['FullName']);
+$FullName = @urldecode(@$_POST['FullName']);
 $FirstName = @$_POST['FirstName'];
 $LastName = @$_POST['LastName'];
 if (empty($FirstName)) {
