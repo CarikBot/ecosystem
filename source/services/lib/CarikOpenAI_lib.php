@@ -145,7 +145,9 @@ class OpenAI
     $message['content'] = $APrompt;
 
     $payload['model'] = $this->Model;
-    $payload['max_tokens'] = $this->MaxTokens;
+    if ($this->MaxTokens > 0){
+      $payload['max_tokens'] = $this->MaxTokens;
+    }
     $payload['temperature'] = $this->Temperature;
     $payload['messages'][] = [
       "role" => "system",
