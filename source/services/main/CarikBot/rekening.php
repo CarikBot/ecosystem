@@ -9,7 +9,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.2
+ * @version    0.0.1
  * @link       http://www.aksiide.com
  * @since
  */
