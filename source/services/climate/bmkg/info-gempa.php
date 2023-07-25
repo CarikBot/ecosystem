@@ -16,37 +16,40 @@
  * @link       http://www.aksiide.com
  * @since
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 require_once "../../config.php";
 require_once "../../lib/lib.php";
 require_once "emsc_lib.php";
 
 
 $url = $Config['packages']['climate']['bmkg']['autogempa'];
-$result = file_get_contents($url);
-$data = json_decode($result, true);
+$result = @file_get_contents($url);
+$data = @json_decode($result, true);
+if (!empty($data)){
+  $potensi = @$data['Infogempa']['gempa']['Potensi'];
+  $dirasakan = @$data['Infogempa']['gempa']['Dirasakan'];
+  if ($dirasakan=='-') $dirasakan = '';
+  $pos = strpos($potensi, 'Potensi tsunami');
+  if (($pos!==false) && ($pos===0)) $potensi = 'Potensi tsunami';
 
-$potensi = @$data['Infogempa']['gempa']['Potensi'];
-$dirasakan = @$data['Infogempa']['gempa']['Dirasakan'];
-if ($dirasakan=='-') $dirasakan = '';
-$pos = strpos($potensi, 'Potensi tsunami');
-if (($pos!==false) && ($pos===0)) $potensi = 'Potensi tsunami';
+  $imgUrl = "https://bmkg-content-inatews.storage.googleapis.com/".$data['Infogempa']['gempa']['Shakemap'];
+  //$Text = "*Info Gempa*[.]($imgUrl)";
+  $Text = "*Info Gempa*\n";
+  $Text .= "\n".$data['Infogempa']['gempa']['Tanggal']. ' ' . $data['Infogempa']['gempa']['Jam'];
+  $Text .= "\n".$data['Infogempa']['gempa']['Wilayah'];
+  $Text .= "\nKedalaman: ".$data['Infogempa']['gempa']['Kedalaman'];
+  $Text .= "\nMagnitude: ".$data['Infogempa']['gempa']['Magnitude'];
+  $Text .= "\nLintang: ".$data['Infogempa']['gempa']['Lintang'];
+  $Text .= "\nBujur: ".$data['Infogempa']['gempa']['Bujur'];
+  $Text .= "\n".$potensi;
+  $Text .= "\n".$dirasakan;
+  $Text = trim($Text);
+  $Text .= "\n\nUntuk info lebih akurat silakan cek di situs *BMKG*.";
+}else{
+  $Text = "Belum berhasil mendapatkan informasi gempa dari BMKG.";
+}
 
-$imgUrl = "https://bmkg-content-inatews.storage.googleapis.com/".$data['Infogempa']['gempa']['Shakemap'];
-//$Text = "*Info Gempa*[.]($imgUrl)";
-$Text = "*Info Gempa*\n";
-$Text .= "\n".$data['Infogempa']['gempa']['Tanggal']. ' ' . $data['Infogempa']['gempa']['Jam'];
-$Text .= "\n".$data['Infogempa']['gempa']['Wilayah'];
-$Text .= "\nKedalaman: ".$data['Infogempa']['gempa']['Kedalaman'];
-$Text .= "\nMagnitude: ".$data['Infogempa']['gempa']['Magnitude'];
-$Text .= "\nLintang: ".$data['Infogempa']['gempa']['Lintang'];
-$Text .= "\nBujur: ".$data['Infogempa']['gempa']['Bujur'];
-$Text .= "\n".$potensi;
-$Text .= "\n".$dirasakan;
-$Text = trim($Text);
-
-$Text .= "\n\nUntuk info lebih akurat silakan cek di situs *BMKG*.";
 
 $EMSC = new Carik\EMSC;
 $quakeInfo = $EMSC->QuakeInfo('INDONESIA', 'risk', 5);
