@@ -20,7 +20,8 @@ date_default_timezone_set("Asia/Jakarta");
 require_once "../../lib/lib.php";
 require_once "../../lib/date_lib.php";
 
-$hijri = HijriCalendar::GregorianToHijri(time());
-$Text = $hijri[1] . ' ' . HijriCalendar::monthName($hijri[0]) . ' ' . $hijri[2] . ' H';
+$HC = new HijriCalendar;
+$hijri = $HC->GregorianToHijri(time());
+$Text = $hijri[1] . ' ' . $HC->monthName($hijri[0]) . ' ' . $hijri[2] . ' H';
 
 Output(0, $Text);
