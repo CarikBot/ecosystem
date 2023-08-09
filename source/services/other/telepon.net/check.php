@@ -35,14 +35,13 @@ function findPhoneInfo($APhone){
   $TN = new Carik\TeleponNet;
   $result = $TN->Check($APhone);
   if ($result==false) return "Maaf, informasi nomor *$APhone* tidak ditemukan.";
-  $text = "Ditemukan informasi tentang $APhone berikut:";
-  $text .= "\n$result[estimation]";
+  $text = "Ditemukan informasi tentang *$APhone* berikut:";
+  $text .= "\n*$result[estimation]*";
   $text .= "\nPenilaian: $result[rate]";
   $text .= "\nJumlah laporan: $result[report]";
   return $text;
 }
 
-//$Phone = '02180511793';
 if (!empty($Phone)){
   $Text = findPhoneInfo($Phone);
   RichOutput(0, $Text);
@@ -56,7 +55,7 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 if ('OK' != @$RequestContentAsJson['data']['submit']){
   // Build your question here
   $Text = "*Cek nomor telepon*";
-  $Text .= "\nSilakan isi informasi ini.";
+  $Text .= "\nLayanan ini untuk mencari informasi apakah nomor yang telp kamu termasuk scammer/penipu atau bukan.";
   $Text .= "\n";
 
   // general question
