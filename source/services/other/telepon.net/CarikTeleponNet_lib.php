@@ -50,7 +50,7 @@ class TeleponNet
     //$html = file_get_contents("x.html");
     //$html = @file_get_contents($url);
 
-    $html = file_get_html($url);
+    $html = @file_get_html($url);
     if (empty($html)) return false;
     if (isStringExist("That page can’t be found", $html)) return false;
 
