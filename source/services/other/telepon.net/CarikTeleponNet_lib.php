@@ -44,6 +44,7 @@ class TeleponNet
 
   public function Check($APhone){
     $phone = str_replace("+62", "", $APhone);
+    $phone = preg_replace("/[^0-9]/", "", $phone);
     if (substr($phone, 0, 1) == "0") $phone = substr($phone, 1);
     $url = TeleponNet::BASE_URL . $phone . '/';
     //$html = file_get_contents("x.html");
