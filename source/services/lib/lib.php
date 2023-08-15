@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.3
+ * @version    3.0.5
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -163,7 +163,7 @@ function GetBaseUrl(){
 }
 
 function GetCurrentURL(){
-  $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $url = "http" . ((@$_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . @$_SERVER['HTTP_HOST'] . @$_SERVER['REQUEST_URI'];
   return $url;
 }
 
