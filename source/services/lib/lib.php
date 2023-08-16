@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.6
+ * @version    3.0.7
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -343,12 +343,15 @@ function TitleCase($string)
  *   $text = TagOrderToNumber($text);
  *   $text = TagOrderToNumber($text, "ul");
  */
-function TagOrderToNumber($html, $tag = "ol")
+function TagOrderToNumber($html, $tag = "ol", $IsUseNumber = true)
 {
+  global $_useNumber;
+  $_useNumber = $IsUseNumber;
   $pattern = "/<$tag>(.*?)<\/$tag>/s";
   $return = preg_replace_callback(
     $pattern,
     function ($m) {
+      global $_useNumber;
       $liHtml = $m[1];
       $dom = new DOMDocument();
       $dom->loadHTML($liHtml);
@@ -357,12 +360,14 @@ function TagOrderToNumber($html, $tag = "ol")
       foreach ($items as $index => $item) {
         $caption = $item->nodeValue;
         $number = $index + 1;
-        $replacementText .= "$number. $caption\n";
+        $prefix = ($_useNumber) ? "$number." : "-";
+        $replacementText .= "$prefix $caption\n";
       }
       return $replacementText;
     },
     $html
   );
+  unset($_useNumber);
   return $return;
 }
 
