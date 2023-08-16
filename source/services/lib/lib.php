@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.5
+ * @version    3.0.6
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -336,6 +336,36 @@ function TitleCase($string)
     mb_convert_case($string, MB_CASE_TITLE, 'UTF-8')
   );
 }
+
+/**
+ * Convert HTML tag OL to plain text numbering
+ * USAGE:
+ *   $text = TagOrderToNumber($text);
+ *   $text = TagOrderToNumber($text, "ul");
+ */
+function TagOrderToNumber($html, $tag = "ol")
+{
+  $pattern = "/<$tag>(.*?)<\/$tag>/s";
+  $return = preg_replace_callback(
+    $pattern,
+    function ($m) {
+      $liHtml = $m[1];
+      $dom = new DOMDocument();
+      $dom->loadHTML($liHtml);
+      $items = $dom->getElementsByTagName("li");
+      $replacementText = "";
+      foreach ($items as $index => $item) {
+        $caption = $item->nodeValue;
+        $number = $index + 1;
+        $replacementText .= "$number. $caption\n";
+      }
+      return $replacementText;
+    },
+    $html
+  );
+  return $return;
+}
+
 
 function readTextFile( $AFileName){
   $result = '';
