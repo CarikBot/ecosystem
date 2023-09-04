@@ -6,11 +6,20 @@
  *   [x] Completition
  *     $AI = new Carik\OpenAI;
  *     $AI->Token = 'your_token';
+ *     $AI->Moderation = true; // default is moderated
  *     $result = $AI->Completition('halo apa kabar?');
  *
  *   [x] Default
  *     $AI->Model = 'gpt-3.5-turbo';
  *     $AI->Token = 250;
+ *
+ *   [x] Check is flagged
+ *     //ref:
+ *     //  https://platform.openai.com/docs/guides/moderation/quickstart
+ *     $result = $AI->IsFlagged('siapa presiden indonesia siakarang?');
+ *     if ($result){
+ *       print_r($AI->Flags);
+ *     }
  *
  *
  * @date       22-02-2023 08:53
@@ -19,7 +28,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.3
+ * @version    0.0.5
  * @link       http://www.aksiide.com
  * @since
  */
@@ -36,6 +45,8 @@ class OpenAI
   public $Model = 'gpt-3.5-turbo';
   public $MaxTokens = 250;
   public $Temperature = 0;
+  public $Moderation = true;
+  public $Flags = [];
 
   public $ResultText = '';
   public $ErrorMessage = '';
@@ -110,6 +121,22 @@ class OpenAI
     return $responseAsJson;
   }
 
+  public function IsFlagged($APrompt){
+    if (!$this->isPermitted()) return false;
+    if (empty($APrompt)) return false;
+
+    $this->Flags = [];
+    $payload['input'] = $APrompt;
+
+    $result = $this->getPostData('moderations', $payload);
+    $flagged = @$result['results'][0]['flagged'];
+    if ($flagged == true){
+      $this->Flags = $result['results'];
+      return true;
+    }
+    return false;
+  }
+
   public function Completion($APrompt){
     return $this->Completition($APrompt);
   }
@@ -121,6 +148,14 @@ class OpenAI
   public function Completition($APrompt){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
+
+    if ($this->Moderation){
+      $flagged = $this->IsFlagged($APrompt);
+      if ($flagged){
+        die("x: $flagged");
+        return false;
+      }
+    }
 
     $payload['model'] = $this->Model;
     $payload['prompt'] = $APrompt;
@@ -137,6 +172,13 @@ class OpenAI
   public function ChatCompletition($APrompt, $ARole = 'user'){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
+
+    if ($this->Moderation){
+      $flagged = $this->IsFlagged($APrompt);
+      if ($flagged){
+        return false;
+      }
+    }
 
     $prompt = $this->InitialPrompt;
     if (empty($prompt)) $prompt = OpenAI::SYSTEM_PROMPT;
