@@ -38,14 +38,14 @@ if (empty($html)){
   RichOutput(0, $Text);
 }
 
-$Text = "*Daftar Event Blockdev.id*";
+$Text = "*DAFTAR EVENT BLOCKDEVID*";
 $Text .= "\n";
 foreach($html->find("div.col-lg-4") as $row) {
   $date = strip_tags($row->find("li")[0]->innertext);
   $title = strip_tags($row->find("h4")[0]->innertext);
   $url = "https://blockdev.id".($row->find("h4 a")[0]->href);
 
-  $Text .= "\n- $title";
+  $Text .= "\n*$title*";
   $Text .= "\n$date";
   $Text .= "\n$url";
   $Text .= "\n";
