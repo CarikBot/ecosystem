@@ -31,7 +31,6 @@ require_once "../../lib/simplehtmldom_2_0/simple_html_dom.php";
 
 const BASE_URL = "https://blockdev.id/event";
 $url = BASE_URL;
-$url = "event.html";
 $html = file_get_html($url);
 if (empty($html)){
   $Text = "Maaf, informasi event Blockdev.id belum bisa saya dapatkan.";
