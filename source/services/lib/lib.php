@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.7
+ * @version    3.0.8
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -148,10 +148,10 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   die($output);
 }
 
-function OutputData($ACode, $AData){
+function OutputData($ACode, $AData, $DataLabel = 'data'){
   @header("Content-type:application/json");
   $array['code'] = $ACode;
-  $array['data'] = $AData;
+  $array[$DataLabel] = $AData;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
 }
