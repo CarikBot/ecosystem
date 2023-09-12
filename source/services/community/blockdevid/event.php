@@ -46,7 +46,7 @@ foreach($html->find("div.col-lg-4") as $row) {
   $url = "https://blockdev.id".($row->find("h4 a")[0]->href);
 
   $Text .= "\n*$title*";
-  $Text .= "\n$date";
+  //$Text .= "\n$date";
   $Text .= "\n$url";
   $Text .= "\n";
 }
