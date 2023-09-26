@@ -253,5 +253,7 @@ backup.bat
 backup.sh
 yarn.lock
 source/services/config.php
+**/cache/*.txt
+**/logs/*.txt
 #LAST_UPDATED_DEVELOPMENT
 #LAST_UPDATED

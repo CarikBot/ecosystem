@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.8
+ * @version    3.0.9
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -157,7 +157,7 @@ function OutputData($ACode, $AData, $DataLabel = 'data'){
 }
 
 function GetBaseUrl(){
-  $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
+  $protocol = @strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
   $domainLink = $protocol . '://' . @$_SERVER['HTTP_HOST'];
   return $domainLink;
 }
