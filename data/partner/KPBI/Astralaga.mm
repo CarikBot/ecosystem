@@ -26,7 +26,7 @@ ihasa.id/astralaga-2023
             </node>
         </node>
         <node FOLDER="true" ID="4phh2q0rdh4phea0001s8vohaj" POSITION="right" TEXT="✍️ Pendaftaran">
-            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="56pkk3cu1e452qg1eu270ejk5l" TEXT="*Pendaftaran ASTRALAGA*&#10;&#10;Pendaftaran bisa dilakukan secara online melalu [tautan berikut](https://bit.ly/AstralagaBOT2023)&#10;">
+            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="56pkk3cu1e452qg1eu270ejk5l" TEXT="*Pendaftaran ASTRALAGA BOT KPBI 2023*&#10;21 Oktober 2023&#10;&#10;✍️ *Pendaftaran:*&#10;bit.ly/AstralagaBOT2023&#10;&#10;&#128182; *Biaya:*&#10;Pria: Rp. 200.000.&#10;Wanita: Rp. 150.000&#10;&#10;&#127975; *Rekening pendaftaran:*&#10;BSI 1001332078&#10;An. Yan Rusdi Kamal&#10;&#10;&#128216; *Tata cara lomba/THB:*&#10;https://ihasa.id/files/astralaga-thb.pdf&#10;&#10;&#127919; *Desain Target:*&#10;bit.ly/TargetAstralagaBOT2023&#10;&#10;&#10;">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
             <node ID="7mq15f3k07sghd8r12rjg8fggt" TEXT="pattern">
