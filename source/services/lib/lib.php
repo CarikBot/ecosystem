@@ -6,13 +6,14 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.9
+ * @version    3.0.11
  * @link       http://www.aksiide.com
  * @since
  * @history
  *   - curl_get_file_contents: timeout
  *   - GetTimeUsage function
  *   - RichOutput: define default data field in action mode
+ *   - OutputData: Default response field
  */
 
 const OK = 'OK';
@@ -151,6 +152,7 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
 function OutputData($ACode, $AData, $DataLabel = 'data'){
   @header("Content-type:application/json");
   $array['code'] = $ACode;
+  $array['count'] = count($AData);
   $array[$DataLabel] = $AData;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
