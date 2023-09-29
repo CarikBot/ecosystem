@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.11
+ * @version    3.0.12
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -588,6 +588,16 @@ function ShuffleArray($array) {
   return $new;
 }
 
+function IsExistInArray($AText, $AArrays, $AFieldName){
+  foreach ($AArrays as $row) {
+    $item = @$row[$AFieldName];
+    if ($item==$AText){
+      return $row;
+    }
+  }
+  return false;
+}
+
 /**
  * CUSTOM ACTION
  *
@@ -650,6 +660,18 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
 function isJson($string) {
   json_decode($string);
   return json_last_error() === JSON_ERROR_NONE;
+}
+
+function ReformatOptions($AOptions){
+  $index = 0;
+  foreach ($AOptions as $row) {
+    $options = $row['options'];
+    if (empty($options)) $options = '{}';
+    $options = json_decode($options, true);
+    $AOptions[$index]['options'] = $options;
+    $index++;
+  }
+  return $AOptions;
 }
 
 /**
