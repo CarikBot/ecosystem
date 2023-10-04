@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.12
+ * @version    3.0.14
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -662,13 +662,20 @@ function isJson($string) {
   return json_last_error() === JSON_ERROR_NONE;
 }
 
-function ReformatOptions($AOptions){
+// if (IsDebug()) { //--// }
+function IsDebug() {
+  $debugFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".debug";
+  if (file_exists($debugFile)) return true;
+  return false;
+}
+
+function ReformatOptions($AOptions, $AFieldName = 'options'){
   $index = 0;
   foreach ($AOptions as $row) {
-    $options = $row['options'];
+    $options = $row[$AFieldName];
     if (empty($options)) $options = '{}';
     $options = json_decode($options, true);
-    $AOptions[$index]['options'] = $options;
+    $AOptions[$index][$AFieldName] = $options;
     $index++;
   }
   return $AOptions;
