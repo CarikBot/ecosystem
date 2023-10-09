@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.14
+ * @version    3.0.15
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -396,7 +396,7 @@ function writeTextFile( $AFileName, $AText){
 }
 
 function AddToLog( $AText, $AFileLog = ""){
-  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs.txt";
+  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs-" . Date("Ymd") . ".txt";
   $file = fopen($AFileLog, 'a');
   if ($file) {
     $date = date('YmdHis');
@@ -666,6 +666,13 @@ function isJson($string) {
 function IsDebug() {
   $debugFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".debug";
   if (file_exists($debugFile)) return true;
+  return false;
+}
+
+// if (IsLocal()) { //--// }
+function IsLocal() {
+  $localFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".local";
+  if (file_exists($localFile)) return true;
   return false;
 }
 

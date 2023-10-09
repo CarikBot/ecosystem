@@ -1,4 +1,18 @@
 {
+  "rest-client.enableTelemetry": false,
   "editor.tabCompletion": "on",
-  "diffEditor.codeLens": true
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "editor.detectIndentation": false,
+  "diffEditor.codeLens": true,
+  "window.density.editorTabHeight": "compact"
 }
