@@ -6,13 +6,14 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.7
+ * @version    3.0.16
  * @link       http://www.aksiide.com
  * @since
  * @history
  *   - curl_get_file_contents: timeout
  *   - GetTimeUsage function
  *   - RichOutput: define default data field in action mode
+ *   - OutputData: Default response field
  */
 
 const OK = 'OK';
@@ -148,16 +149,17 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   die($output);
 }
 
-function OutputData($ACode, $AData){
+function OutputData($ACode, $AData, $DataLabel = 'data'){
   @header("Content-type:application/json");
   $array['code'] = $ACode;
-  $array['data'] = $AData;
+  $array['count'] = count($AData);
+  $array[$DataLabel] = $AData;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
 }
 
 function GetBaseUrl(){
-  $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
+  $protocol = @strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
   $domainLink = $protocol . '://' . @$_SERVER['HTTP_HOST'];
   return $domainLink;
 }
@@ -394,7 +396,7 @@ function writeTextFile( $AFileName, $AText){
 }
 
 function AddToLog( $AText, $AFileLog = ""){
-  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs.txt";
+  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs-" . Date("Ymd") . ".txt";
   $file = fopen($AFileLog, 'a');
   if ($file) {
     $date = date('YmdHis');
@@ -586,6 +588,17 @@ function ShuffleArray($array) {
   return $new;
 }
 
+function IsExistInArray($AText, $AArrays, $AFieldName){
+  if (!is_array($AArrays)) return false;
+  foreach ($AArrays as $row) {
+    $item = @$row[$AFieldName];
+    if ($item==$AText){
+      return $row;
+    }
+  }
+  return false;
+}
+
 /**
  * CUSTOM ACTION
  *
@@ -648,6 +661,32 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
 function isJson($string) {
   json_decode($string);
   return json_last_error() === JSON_ERROR_NONE;
+}
+
+// if (IsDebug()) { //--// }
+function IsDebug() {
+  $debugFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".debug";
+  if (file_exists($debugFile)) return true;
+  return false;
+}
+
+// if (IsLocal()) { //--// }
+function IsLocal() {
+  $localFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".local";
+  if (file_exists($localFile)) return true;
+  return false;
+}
+
+function ReformatOptions($AOptions, $AFieldName = 'options'){
+  $index = 0;
+  foreach ($AOptions as $row) {
+    $options = $row[$AFieldName];
+    if (empty($options)) $options = '{}';
+    $options = json_decode($options, true);
+    $AOptions[$index][$AFieldName] = $options;
+    $index++;
+  }
+  return $AOptions;
 }
 
 /**

@@ -23,7 +23,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.7
+ * @version    0.0.11
  * @link       http://www.aksiide.com
  * @since
  */
@@ -32,12 +32,16 @@ namespace Carik;
 
 class API
 {
+  private $DB = false;
   public $BaseURL = '';
   public $Token = '';
   public $DeviceToken = '';
   public $ClientId = '';
+  public $Helpdesk;
+  public $BranchId = 0;
 
   public function __construct(){
+    $this->Helpdesk = new APIHelpdesk();
   }
 
   public function __get($property) {
@@ -48,6 +52,15 @@ class API
     if (property_exists($this, $property)) $this->$property = $value;
     if ($property=='DB') {
       //$this->Cart->DB = $value;
+    }
+    if ($property=='Token'){
+      $this->Helpdesk->Token = $value;
+    }
+    if ($property=='BaseURL'){
+      $this->Helpdesk->BaseURL = $value;
+    }
+    if ($property=='ClientId'){
+      $this->Helpdesk->ClientId = $value;
     }
     return $this;
   }
@@ -105,6 +118,9 @@ class API
             . "Content-Length: " . strlen($payloadAsJson) . "\r\n"
             . "token: ".$this->DeviceToken."\r\n",
           'content' => $payloadAsJson
+      ],
+      'ssl' => [
+        "verify_peer" => false
       ]
     ];
     $context = stream_context_create($opts);
@@ -146,7 +162,9 @@ class API
     $payLoad['description'] = $ADescription;
     $payLoad['module'] = $AModule;
     $payLoad['type'] = $ATaskType;
+    $payLoad['branch_id'] = $this->BranchId;
     $payLoad['round'] = ($AIsRound == true) ? 1 : 0;
+
     if (!empty($ACustomCode)) $payLoad['code'] = $ACustomCode;
 
     $payloadAsJson = json_encode($payLoad, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
@@ -199,6 +217,54 @@ class API
     ];
     $context = stream_context_create($opts);
     $url = rtrim($this->BaseURL,'/\\').'/eventlog/track/'.$this->ClientId.'/';
+    $result = @file_get_contents($url, false, $context);
+    if (empty($result)) return false;
+    $responseAsJson = @json_decode($result, true);
+    return $responseAsJson;
+  }
+
+}
+
+class APIHelpdesk
+{
+  public $DB = false;
+  public $ClientId = 0;
+  public $BaseURL = "";
+  public $Token = '';
+
+  public function __construct(){
+  }
+
+  public function GetClientTickets($AUserId){
+    if (empty($AUserId)) return false;
+    $user = explode('-', $AUserId);
+    $url = rtrim($this->BaseURL,'/\\')."/task/?client_id=$this->ClientId&code=&user_id=$user[1]";
+    $result = @file_get_contents($url);
+    if (empty($result)) return false;
+    $responseAsJson = @json_decode($result, true);
+    if (@$responseAsJson['code'] != 0) return false;
+    return @$responseAsJson['data']['tasks'];
+  }
+
+  public function AddNPS($AParameters = [], $AModule = ''){
+    if (empty($AParameters)) return false;
+    if (empty($this->ClientId)) return false;
+    $date = date("Y-m-d H:i:s");
+    $dateAsInteger = strtotime($date);
+
+
+    $payloadAsJson = json_encode($AParameters, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
+    $opts = [
+      "http" => [
+          "method" => "POST",
+          'header'=> "Content-Type: application/json\r\n"
+            . "Content-Length: " . strlen($payloadAsJson) . "\r\n"
+            . "token: ".$this->Token."\r\n",
+          'content' => $payloadAsJson
+      ]
+    ];
+    $context = stream_context_create($opts);
+    $url = rtrim($this->BaseURL,'/\\').'/helpdesk/nps/' . $this->ClientId . "/?module=$AModule";
     $result = @file_get_contents($url, false, $context);
     if (empty($result)) return false;
     $responseAsJson = @json_decode($result, true);
