@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.15
+ * @version    3.0.16
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -589,6 +589,7 @@ function ShuffleArray($array) {
 }
 
 function IsExistInArray($AText, $AArrays, $AFieldName){
+  if (!is_array($AArrays)) return false;
   foreach ($AArrays as $row) {
     $item = @$row[$AFieldName];
     if ($item==$AText){

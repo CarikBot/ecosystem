@@ -12,6 +12,16 @@
   "[python]": {
     "editor.tabSize": 4
   },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.idea": true,
+    "**/.github": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
   "editor.detectIndentation": false,
   "diffEditor.codeLens": true,
   "window.density.editorTabHeight": "compact"
