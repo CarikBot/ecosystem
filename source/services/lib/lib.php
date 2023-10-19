@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.16
+ * @version    3.0.17
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -688,6 +688,15 @@ function ReformatOptions($AOptions, $AFieldName = 'options'){
   }
   return $AOptions;
 }
+
+function FormatPhoneNumber($phone){
+  $phone = preg_replace("/[\W_]+/u", '', $phone); //alphanumeric only
+  if (substr($phone, 0, 1) == '0'){
+    $phone = '62'.substr($phone, 1);
+  }
+  return $phone;
+}
+
 
 /**
  * Format Print
