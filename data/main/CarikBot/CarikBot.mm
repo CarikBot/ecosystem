@@ -25,7 +25,7 @@ Carik saat ini baru tersedia di:
 - Telegram, t.me/carikbot
 - Facebook, m.me/Carik.Bot
 - FB Page, fb.me/Carik.Bot
-- Line, line.me/ti/p/~@carik
+- Line, page.line.me/oev6975y
 - Instagram, instagram.com/carikbot/
 - Android App, carik.id/app
 
