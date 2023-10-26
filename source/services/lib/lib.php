@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.17
+ * @version    3.0.18
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -14,6 +14,7 @@
  *   - GetTimeUsage function
  *   - RichOutput: define default data field in action mode
  *   - OutputData: Default response field
+ *   - AlphanumericOnly
  */
 
 const OK = 'OK';
@@ -697,6 +698,10 @@ function FormatPhoneNumber($phone){
   return $phone;
 }
 
+function AlphanumericOnly($AText){
+  $AText = preg_replace("/[\W_]+/u", '', $AText); //alphanumeric only
+  return $AText;
+}
 
 /**
  * Format Print
