@@ -60,7 +60,7 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 $Data = $RequestContentAsJson['data'];
 $confirm = (@$Data['confirm'] == 'Y') ? true : false;
 if (!$confirm){
-  $text = "Isian form telah dibatalkan.";
+  $text = "Isian form telah dibatalkan. Anda boleh mengulang lagi atau memilih pilihan berikut ini.";
   $buttons = [];
   $buttons[] = AddButton('Menu utama', "text=menu");
   $buttonList[] = $buttons;
