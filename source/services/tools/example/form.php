@@ -2,7 +2,7 @@
 /**
  * Form Example
  * Ini adalah contoh implementasi form di dalam ecosystem Carik.
- * 
+ *
  * @date       28-04-2022 16:48
  * @category   example
  * @package    form example
@@ -47,6 +47,7 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   // other question
   $generalQuestion[] = AddQuestion('date', 'birthdate', "📅 Tanggal Lahir ");
   $generalQuestion[] = AddQuestion('boolean', 'married', "Apakah anda sudah menikah? (Y/T)");
+  $generalQuestion[] = AddQuestion('boolean', 'confirm', "Apakah anda sudah yakin dengan informasi yang Anda sampaikan? (Y/T)");
 
   $questionData[] = $generalQuestion;
 
@@ -57,8 +58,19 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 
 // Processing Data
 $Data = $RequestContentAsJson['data'];
-$fullName = strtoupper($Data['fullName']);
+$confirm = (@$Data['confirm'] == 'Y') ? true : false;
+if (!$confirm){
+  $text = "Isian form telah dibatalkan.";
+  $buttons = [];
+  $buttons[] = AddButton('Menu utama', "text=menu");
+  $buttonList[] = $buttons;
+  $actions['menu'] = $buttonList;
+  $actions['suffix'] = 'Ketik *menu* untuk kembali ke menu utama.';
+  RichOutput(0, $text, $actions);
+}
 
+
+$fullName = strtoupper($Data['fullName']);
 $jenisKelamin = $Data['jenisKelamin'];
 $married = ($Data['married'] == 'Y') ? "Menikah" : "Tidak Menikah";
 $phone = $Data['phone'];
