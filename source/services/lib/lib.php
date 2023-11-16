@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.17
+ * @version    3.0.19
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -14,6 +14,8 @@
  *   - GetTimeUsage function
  *   - RichOutput: define default data field in action mode
  *   - OutputData: Default response field
+ *   - AlphanumericOnly
+ *   - Cache Path
  */
 
 const OK = 'OK';
@@ -79,7 +81,8 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         $array['action']['data'] = $content;
       };
       if ('files' == $key){
-        $array['action']['files'] = $content;
+        // $array['action']['files'] = $content; //old version compatibility
+        $array['action']['data']['files'] = $content;
       };
     }
     if (!isset($array['action']['data'])){
@@ -409,8 +412,8 @@ function AddToLog( $AText, $AFileLog = ""){
   }
 }
 
-function readCache( $AName, $AAgeInMinute = 30){
-  $fileName = "cache/$AName.txt";
+function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache'){
+  $fileName = "$APath/$AName.txt";
   if (!file_exists($fileName)){
       return '';
   }
@@ -421,8 +424,8 @@ function readCache( $AName, $AAgeInMinute = 30){
 
   return readTextFile( $fileName);
 }
-function writeCache( $AName, $AText){
-  $fileName = "cache/$AName.txt";
+function writeCache( $AName, $AText, $APath = 'cache'){
+  $fileName = "$APath/$AName.txt";
   writeTextFile( $fileName, $AText);
 }
 
@@ -697,6 +700,10 @@ function FormatPhoneNumber($phone){
   return $phone;
 }
 
+function AlphanumericOnly($AText){
+  $AText = preg_replace("/[\W_]+/u", '', $AText); //alphanumeric only
+  return $AText;
+}
 
 /**
  * Format Print
