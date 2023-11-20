@@ -1,0 +1,33 @@
+{
+  "post_date" : "2022-11-29 08:12:16",
+  "user_id" : "5-6281234567890",
+  "full_name" : "uLil Test",
+  "client_id" : "201",
+  "session" : "537d147c22090240839e6cc838d18d3d736b64f4",
+  "bot_id" : "carik",
+  "FullName" : "uLil Test",
+  "ClientID" : "201",
+  "data" : {
+    "user_id" : "5-6281234567890",
+    "channel_id" : "whatsapp",
+    "client_id" : "201",
+    "FullName" : "uLil Test",
+    "full_name" : "Luri Darmawan",
+
+    "blood" : "1",
+    "blood_t" : "O-",
+    "component" : "WBX",
+    "donor_type" : "1",
+    "donor_type_t": "Biasa",
+    "amount" : "2",
+    "patient_name" : "Nama Pasien",
+    "family_phone" : "081234567890",
+    "hospital" : "Nama RS",
+    "donor_place" : "Dimana-aja",
+    "note" : "catetan",
+    "date" : "20/11/2023",
+
+    "confirm": "Y",
+    "submit" : "OK"
+  }
+}
