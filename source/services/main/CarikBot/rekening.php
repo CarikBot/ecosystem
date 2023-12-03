@@ -1,8 +1,8 @@
 <?php
 /**
  * Rekening Carik untuk Donasi
- * 
- * 
+ *
+ *
  * @date       28-06-2022 01:32
  * @category   main
  * @package    CarikBot

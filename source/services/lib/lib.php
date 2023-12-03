@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.19
+ * @version    3.0.20
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -81,8 +81,8 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         $array['action']['data'] = $content;
       };
       if ('files' == $key){
-        // $array['action']['files'] = $content; //old version compatibility
-        $array['action']['data']['files'] = $content;
+        $array['action']['files'] = $content; //old version compatibility
+        //$array['action']['data']['files'] = $content;
       };
     }
     if (!isset($array['action']['data'])){
