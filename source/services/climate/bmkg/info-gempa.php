@@ -1,11 +1,11 @@
 <?php
 /**
  * Gempa Terkini
- * 
+ *
  * USAGE
  *   curl http://localhost:8001/gempa-terkini.php
- * 
- * 
+ *
+ *
  * @date       28-06-2022 01:32
  * @category   Climate
  * @package    BMKG
@@ -73,9 +73,9 @@ if ($quakeInfo !== false){
       $Text .= "\nMagnitude: ".$properties['magnitude']['mag'];
       $Text .= "\nLintang: ".$properties['location']['lat'];
       $Text .= "\nBujur: ".$properties['location']['lon'];
-  
+
       if ($properties['tsunami']['type'] == 'NONE'){
-        //$Text .= "\nTidak berpotensi tsunami";  
+        //$Text .= "\nTidak berpotensi tsunami";
       }
 
       $Text .= "\n";

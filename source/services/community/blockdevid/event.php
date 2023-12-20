@@ -1,7 +1,7 @@
 <?php
 /**
  * Event Komunitas Blockchain di Indonesia
- * 
+ *
  * USAGE:
  *   curl -L "http://ecosystem.carik.test/services/community/blockdevid/event/"
  *
@@ -38,16 +38,37 @@ if (empty($html)){
   RichOutput(0, $Text);
 }
 
-$Text = "*DAFTAR EVENT BLOCKDEVID*";
-$Text .= "\n";
+$events = [];
 foreach($html->find("div.col-lg-4") as $row) {
   $date = strip_tags($row->find("li")[0]->innertext);
   $title = strip_tags($row->find("h4")[0]->innertext);
   $url = "https://blockdev.id".($row->find("h4 a")[0]->href);
 
-  $Text .= "\n*$title*";
-  //$Text .= "\n$date";
-  $Text .= "\n$url";
+  $eventDate = DateTime::createFromFormat('d M Y', $date);
+  $currentDate = new DateTime();
+  $dateRange = $currentDate->sub(new DateInterval('P14D')); //14 days
+  if ($eventDate < $dateRange) {
+    continue;
+  }
+  $event['date'] = $date;
+  $event['title'] = $title;
+  $event['url'] = $url;
+  $events[] = $event;
+
+}
+
+if (count($events)==0){
+  $text = "Maaf, saat ini belum ada informasi event BlockDevid.";
+  RichOutput(0, $text);
+}
+
+$Text = "*DAFTAR EVENT BLOCKDEVID*";
+$Text .= "\n";
+foreach ($events as $event) {
+  $date = $event['date'];
+  $Text .= "\n*$event[title]*";
+  $Text .= "\n$date" ;
+  $Text .= "\n$event[url]";
   $Text .= "\n";
 }
 
