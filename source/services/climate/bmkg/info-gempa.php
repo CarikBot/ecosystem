@@ -26,16 +26,18 @@ require_once "emsc_lib.php";
 $url = $Config['packages']['climate']['bmkg']['autogempa'];
 $result = @file_get_contents($url);
 $data = @json_decode($result, true);
+$wilayahGempa = "";
 if (!empty($data)){
   $potensi = @$data['Infogempa']['gempa']['Potensi'];
   $dirasakan = @$data['Infogempa']['gempa']['Dirasakan'];
+  $wilayahGempa = $data['Infogempa']['gempa']['Wilayah'];
   if ($dirasakan=='-') $dirasakan = '';
   $pos = strpos($potensi, 'Potensi tsunami');
-  if (($pos!==false) && ($pos===0)) $potensi = 'Potensi tsunami';
+  if (($pos!==false) && ($pos===0)) $potensi = '*Potensi tsunami*';
 
   $imgUrl = "https://bmkg-content-inatews.storage.googleapis.com/".$data['Infogempa']['gempa']['Shakemap'];
   //$Text = "*Info Gempa*[.]($imgUrl)";
-  $Text = "*Info Gempa*\n";
+  $Text = "▍ *Info Gempa*\n";
   $Text .= "\n".$data['Infogempa']['gempa']['Tanggal']. ' ' . $data['Infogempa']['gempa']['Jam'];
   $Text .= "\n".$data['Infogempa']['gempa']['Wilayah'];
   $Text .= "\nKedalaman: ".$data['Infogempa']['gempa']['Kedalaman'];
@@ -45,11 +47,37 @@ if (!empty($data)){
   $Text .= "\n".$potensi;
   $Text .= "\n".$dirasakan;
   $Text = trim($Text);
-  $Text .= "\n\nUntuk info lebih akurat silakan cek di situs *BMKG*.";
 }else{
   $Text = "Belum berhasil mendapatkan informasi gempa dari BMKG.";
 }
 
+// Gempat Dirasakan
+$url = "https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.json";
+$result = @file_get_contents($url);
+$data = @json_decode($result, true);
+$i = 0;
+if (!empty($data)){
+  $text = "\n\n▍ *Daftar Gempa Terkini M 5.0+*";
+  foreach (@$data['Infogempa']['gempa'] as $gempa) {
+    if ($i>4) break;
+    $potensi = @$gempa['Potensi'];
+    $dirasakan = @$gempa['Dirasakan'];
+    $text .= "\n";
+    $text .= "\n*".$gempa['Wilayah']."*";
+    $text .= "\n".$gempa['Tanggal']. ' ' . $gempa['Jam'];
+    $text .= "\nKedalaman: ".$gempa['Kedalaman'];
+    $text .= "\nMagnitude: ".$gempa['Magnitude'];
+    $text .= "\nLintang: ".$gempa['Lintang'];
+    $text .= "\nBujur: ".$gempa['Bujur'];
+    $text .= "\n".$potensi;
+    $text .= "\n".$dirasakan;
+    $i++;
+  }
+
+}
+
+$Text .= $text;
+$Text .= "\n\nUntuk info lebih valid dan terpercaya, silakan cek di situs *BMKG*.";
 
 $EMSC = new Carik\EMSC;
 $quakeInfo = $EMSC->QuakeInfo('INDONESIA', 'risk', 5);
@@ -88,7 +116,7 @@ $button[] = AddButton("🌦 Cuaca", "text=info cuaca");
 //$button[] = AddButton("🏜 Gempa", "text=info gempa");
 $buttonList[] = $button;
 
-$file['caption'] = 'Peta Guncangan';
+$file['caption'] = "Peta Guncangan: $wilayahGempa";
 $file['type'] = 'image';
 $file['url'] = $imgUrl;
 $files[] = $file;
