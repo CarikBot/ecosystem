@@ -5,6 +5,9 @@ include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "../../lib/CarikSuperSearch_lib.php";
 
+// disable feature
+RichOutput(0, 'Maaf, informasi covid tidak tersedia.');
+
 $BaseURL = @$Config['packages']['health']['Covid19']['vaksin_info_url'];
 if (empty($BaseURL)) Output(500, 'Maaf, informasi vaksin covid-19 gagal diperoleh.');
 
@@ -30,7 +33,7 @@ foreach ($nodes as $key => $node) {
 }
 $Text .= "\n\nSumber: [Covid19.go.id](https://covid19.go.id/vaksin-covid19)";
 
-$SuperSearch = new CarikSuperSearch;
+$SuperSearch = new Carik\SuperSearch;
 $SuperSearch->Token = $Config['packages']['tools']['GlobalSearch']['token'];
 $SuperSearch->BaseURL = $Config['packages']['tools']['GlobalSearch']['base_url'];
 $SuperSearch->ChannelId = 'telegram';
