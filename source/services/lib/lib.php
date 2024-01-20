@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.22
+ * @version    3.0.23
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -19,11 +19,14 @@
  *   - Remove Markdown
  *   - RemoveItemsByFieldValue
  *   - get user id and phone
+ *   - get client id from payload
  */
 
 const OK = 'OK';
 const CANCEL = 'CANCEL';
 global $ProcessingStartTime;
+global $Date;
+global $DateAsInteger;
 $ProcessingStartTime = microtime(true);
 $Date = date("Y-m-d H:i:s");
 $DateAsInteger = strtotime($Date);
@@ -51,6 +54,7 @@ $UserId = @urldecode(@$_POST['UserID']);
 $ChatId = @urldecode(@$_POST['ChatID']);
 $GroupId = @urldecode(@$_POST['GroupID']);
 $ChannelId = @$_POST['ChannelId'];
+$ClientId = @$_POST['client_id'];
 $FullName = @urldecode(@$_POST['FullName']);
 $FirstName = @$_POST['FirstName'];
 $LastName = @$_POST['LastName'];
@@ -60,6 +64,7 @@ if (empty($FirstName)) {
   if (count($f)>1) $LastName = $f[1];
 }
 if (empty($UserId)) $UserId = @$RequestContentAsJson['data']['user_id'];
+if (empty($ClientId)) $UserId = @$RequestContentAsJson['data']['client_id'];
 $userInfo = @explode('-', $UserId);
 $Phone = @$userInfo[1];
 
