@@ -59,7 +59,7 @@ $i = 0;
 if (!empty($data)){
   $text = "\n\n▍ *Daftar Gempa Terkini M 5.0+*";
   foreach (@$data['Infogempa']['gempa'] as $gempa) {
-    if ($i>4) break;
+    if ($i>3) break;
     $potensi = @$gempa['Potensi'];
     $dirasakan = @$gempa['Dirasakan'];
     $text .= "\n";
