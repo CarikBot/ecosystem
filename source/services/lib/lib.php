@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.23
+ * @version    3.0.24
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -20,6 +20,7 @@
  *   - RemoveItemsByFieldValue
  *   - get user id and phone
  *   - get client id from payload
+ *   - send abort for array content
  */
 
 const OK = 'OK';
@@ -189,6 +190,7 @@ function SendAndAbort($content){
   ignore_user_abort(true);
   set_time_limit(0);
   ob_start();
+  if (is_array($content)) $content = json_encode($content, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   echo $content;
   $buffer_size = ob_get_length();
   session_write_close();
