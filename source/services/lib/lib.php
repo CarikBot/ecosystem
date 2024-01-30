@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.24
+ * @version    3.0.25
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -21,6 +21,7 @@
  *   - get user id and phone
  *   - get client id from payload
  *   - send abort for array content
+ *   - files in action
  */
 
 const OK = 'OK';
@@ -95,8 +96,8 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         $array['action']['data'] = $content;
       };
       if ('files' == $key){
-        // $array['action']['files'] = $content; //old version compatibility
-        $array['action']['data']['files'] = $content;
+        $array['action']['files'] = $content;
+        // $array['action']['data']['files'] = $content; // conflict with button list
       };
     }
     if (!isset($array['action']['data'])){
