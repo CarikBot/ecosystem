@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.20
+ * @version    3.0.25
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -16,12 +16,22 @@
  *   - OutputData: Default response field
  *   - AlphanumericOnly
  *   - Cache Path
+ *   - Remove Markdown
+ *   - RemoveItemsByFieldValue
+ *   - get user id and phone
+ *   - get client id from payload
+ *   - send abort for array content
+ *   - files in action
  */
 
 const OK = 'OK';
 const CANCEL = 'CANCEL';
 global $ProcessingStartTime;
+global $Date;
+global $DateAsInteger;
 $ProcessingStartTime = microtime(true);
+$Date = date("Y-m-d H:i:s");
+$DateAsInteger = strtotime($Date);
 
 // force post data from json request content
 $RequestContentAsJson = [];
@@ -46,6 +56,7 @@ $UserId = @urldecode(@$_POST['UserID']);
 $ChatId = @urldecode(@$_POST['ChatID']);
 $GroupId = @urldecode(@$_POST['GroupID']);
 $ChannelId = @$_POST['ChannelId'];
+$ClientId = @$_POST['client_id'];
 $FullName = @urldecode(@$_POST['FullName']);
 $FirstName = @$_POST['FirstName'];
 $LastName = @$_POST['LastName'];
@@ -54,6 +65,10 @@ if (empty($FirstName)) {
   $FirstName = $LastName = $f[0];
   if (count($f)>1) $LastName = $f[1];
 }
+if (empty($UserId)) $UserId = @$RequestContentAsJson['data']['user_id'];
+if (empty($ClientId)) $UserId = @$RequestContentAsJson['data']['client_id'];
+$userInfo = @explode('-', $UserId);
+$Phone = @$userInfo[1];
 
 function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffix = ''){
   @header("Content-type:application/json");
@@ -81,8 +96,8 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
         $array['action']['data'] = $content;
       };
       if ('files' == $key){
-        $array['action']['files'] = $content; //old version compatibility
-        //$array['action']['data']['files'] = $content;
+        $array['action']['files'] = $content;
+        // $array['action']['data']['files'] = $content; // conflict with button list
       };
     }
     if (!isset($array['action']['data'])){
@@ -176,6 +191,7 @@ function SendAndAbort($content){
   ignore_user_abort(true);
   set_time_limit(0);
   ob_start();
+  if (is_array($content)) $content = json_encode($content, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   echo $content;
   $buffer_size = ob_get_length();
   session_write_close();
@@ -290,6 +306,7 @@ function RemoveEmoji($string){
 
 function StringCut($AText, $ALimit, $DoStripTags = false, $AddEllipsis = false){
   if ($AText){
+    if (strlen($AText)<$ALimit) return $AText;
     $AText = ($DoStripTags ? strip_tags($AText) : $AText);
     $stringCut = substr($AText, 0, $ALimit);
     $endPoint = strrpos($stringCut, ' ');
@@ -319,6 +336,22 @@ function LimitTextChars($content = false, $limit = false, $stripTags = false, $e
     $content  = mb_strimwidth($content, 0, $limit, $ellipsis);
   }
   return $content;
+}
+
+function RemoveMarkdown($Text){
+    // Hapus tag inline seperti *bold*, _italic_, `code`
+    $Text = preg_replace('/(\*|_|\`)(.*?)\1/', '$2', $Text);
+
+    // Hapus tag header seperti # Header
+    $Text = preg_replace('/\#+\s+(.*)/', '$1', $Text);
+
+    // Hapus tag list seperti * List item
+    $Text = preg_replace('/(\*\s+|\-\s+)(.*)/', '$2', $Text);
+
+    // Hapus tag link seperti [text](url)
+    $Text = preg_replace('/\[([^\]]+)\]\(([^)]+)\)/', '$1', $Text);
+
+    return $Text;
 }
 
 function fixHtml($html) {
@@ -601,6 +634,15 @@ function IsExistInArray($AText, $AArrays, $AFieldName){
   }
   return false;
 }
+
+function RemoveItemsByFieldValue(&$array, $field, $valueToRemove) {
+  foreach ($array as $key => $item) {
+      if ($item[$field] == $valueToRemove) {
+          unset($array[$key]);
+      }
+  }
+}
+
 
 /**
  * CUSTOM ACTION
