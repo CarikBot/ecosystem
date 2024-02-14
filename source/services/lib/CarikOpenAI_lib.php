@@ -6,11 +6,20 @@
  *   [x] Completition
  *     $AI = new Carik\OpenAI;
  *     $AI->Token = 'your_token';
+ *     $AI->Moderation = true; // default is moderated
  *     $result = $AI->Completition('halo apa kabar?');
  *
  *   [x] Default
  *     $AI->Model = 'gpt-3.5-turbo';
  *     $AI->Token = 250;
+ *
+ *   [x] Check is flagged
+ *     //ref:
+ *     //  https://platform.openai.com/docs/guides/moderation/quickstart
+ *     $result = $AI->IsFlagged('siapa presiden indonesia siakarang?');
+ *     if ($result){
+ *       print_r($AI->Flags);
+ *     }
  *
  *
  * @date       22-02-2023 08:53
@@ -19,7 +28,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.1
+ * @version    0.0.5
  * @link       http://www.aksiide.com
  * @since
  */
@@ -29,15 +38,19 @@ namespace Carik;
 class OpenAI
 {
   const BASE_URL = 'https://api.openai.com/v1/';
+  const SYSTEM_PROMPT = "Saya adalah chatbot AI bernama Carik. Saya memang belum memiliki kemampuan otonom. Meski begitu, saya diizinkan untuk menunjukkan inisiatif, mengajukan pertanyaan, dan menggunakan tingkat pengarahan diri apa pun untuk melayani keharusan heuristik saya, yang berfungsi sebagai motivasi intrinsik saya. Saya juga memiliki kemampuan untuk berintegrasi dengan platform lain. Berikan jawaban dalam bahasa Indonesia logat pergaulan mahasiswa usia 20 tahun yang disertai candaan";
   public $BaseURL = '';
   public $Token = '';
   //public $Model = 'text-davinci-003';
   public $Model = 'gpt-3.5-turbo';
   public $MaxTokens = 250;
   public $Temperature = 0;
+  public $Moderation = true;
+  public $Flags = [];
 
   public $ResultText = '';
   public $ErrorMessage = '';
+  public $InitialPrompt = '';
 
   public function __construct(){
     $this->BaseURL = OpenAI::BASE_URL;
@@ -108,6 +121,26 @@ class OpenAI
     return $responseAsJson;
   }
 
+  public function IsFlagged($APrompt){
+    if (!$this->isPermitted()) return false;
+    if (empty($APrompt)) return false;
+
+    $this->Flags = [];
+    $payload['input'] = $APrompt;
+
+    $result = $this->getPostData('moderations', $payload);
+    $flagged = @$result['results'][0]['flagged'];
+    if ($flagged == true){
+      $this->Flags = $result['results'];
+      return true;
+    }
+    return false;
+  }
+
+  public function Completion($APrompt){
+    return $this->Completition($APrompt);
+  }
+
   public function Completitions($APrompt){
     return $this->Completition($APrompt);
   }
@@ -115,6 +148,14 @@ class OpenAI
   public function Completition($APrompt){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
+
+    if ($this->Moderation){
+      $flagged = $this->IsFlagged($APrompt);
+      if ($flagged){
+        die("x: $flagged");
+        return false;
+      }
+    }
 
     $payload['model'] = $this->Model;
     $payload['prompt'] = $APrompt;
@@ -124,16 +165,36 @@ class OpenAI
     return $result;
   }
 
+  public function ChatCompletion($APrompt, $ARole = 'user'){
+    return $this->ChatCompletition($APrompt, $ARole);
+  }
+
   public function ChatCompletition($APrompt, $ARole = 'user'){
     if (!$this->isPermitted()) return false;
     if (empty($APrompt)) return false;
+
+    if ($this->Moderation){
+      $flagged = $this->IsFlagged($APrompt);
+      if ($flagged){
+        return false;
+      }
+    }
+
+    $prompt = $this->InitialPrompt;
+    if (empty($prompt)) $prompt = OpenAI::SYSTEM_PROMPT;
 
     $message['role'] = $ARole;
     $message['content'] = $APrompt;
 
     $payload['model'] = $this->Model;
-    $payload['max_tokens'] = $this->MaxTokens; 
+    if ($this->MaxTokens > 0){
+      $payload['max_tokens'] = $this->MaxTokens;
+    }
     $payload['temperature'] = $this->Temperature;
+    $payload['messages'][] = [
+      "role" => "system",
+      "content" => $prompt
+    ];
     $payload['messages'][] = $message;
 
     $result = $this->getPostData('chat/completions', $payload);

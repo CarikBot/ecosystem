@@ -6,13 +6,32 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.0
+ * @version    3.0.25
  * @link       http://www.aksiide.com
  * @since
+ * @history
+ *   - curl_get_file_contents: timeout
+ *   - GetTimeUsage function
+ *   - RichOutput: define default data field in action mode
+ *   - OutputData: Default response field
+ *   - AlphanumericOnly
+ *   - Cache Path
+ *   - Remove Markdown
+ *   - RemoveItemsByFieldValue
+ *   - get user id and phone
+ *   - get client id from payload
+ *   - send abort for array content
+ *   - files in action
  */
 
 const OK = 'OK';
 const CANCEL = 'CANCEL';
+global $ProcessingStartTime;
+global $Date;
+global $DateAsInteger;
+$ProcessingStartTime = microtime(true);
+$Date = date("Y-m-d H:i:s");
+$DateAsInteger = strtotime($Date);
 
 // force post data from json request content
 $RequestContentAsJson = [];
@@ -33,11 +52,12 @@ if (function_exists('apache_request_headers')){
 $Token = @$Headers['Token'];
 if (empty($Token)) $Token = @$Headers['token'];
 
-$UserId = urldecode(@$_POST['UserID']);
-$ChatId = urldecode(@$_POST['ChatID']);
-$GroupId = urldecode(@$_POST['GroupID']);
+$UserId = @urldecode(@$_POST['UserID']);
+$ChatId = @urldecode(@$_POST['ChatID']);
+$GroupId = @urldecode(@$_POST['GroupID']);
 $ChannelId = @$_POST['ChannelId'];
-$FullName = urldecode(@$_POST['FullName']);
+$ClientId = @$_POST['client_id'];
+$FullName = @urldecode(@$_POST['FullName']);
 $FirstName = @$_POST['FirstName'];
 $LastName = @$_POST['LastName'];
 if (empty($FirstName)) {
@@ -45,6 +65,10 @@ if (empty($FirstName)) {
   $FirstName = $LastName = $f[0];
   if (count($f)>1) $LastName = $f[1];
 }
+if (empty($UserId)) $UserId = @$RequestContentAsJson['data']['user_id'];
+if (empty($ClientId)) $UserId = @$RequestContentAsJson['data']['client_id'];
+$userInfo = @explode('-', $UserId);
+$Phone = @$userInfo[1];
 
 function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffix = ''){
   @header("Content-type:application/json");
@@ -73,7 +97,11 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
       };
       if ('files' == $key){
         $array['action']['files'] = $content;
+        // $array['action']['data']['files'] = $content; // conflict with button list
       };
+    }
+    if (!isset($array['action']['data'])){
+      $array['action']['data'] = [];
     }
     if (!empty(@$AAction['suffix'])) $array['action']['suffix'] = @$AAction['suffix'];
 
@@ -139,22 +167,23 @@ function OutputWithImage( $ACode, $AMessage, $AImageURL, $ACaption){
   die($output);
 }
 
-function OutputData($ACode, $AData){
+function OutputData($ACode, $AData, $DataLabel = 'data'){
   @header("Content-type:application/json");
   $array['code'] = $ACode;
-  $array['data'] = $AData;
+  $array['count'] = count($AData);
+  $array[$DataLabel] = $AData;
   $output = json_encode($array, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
 }
 
 function GetBaseUrl(){
-  $protocol = strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
+  $protocol = @strtolower(@$_SERVER['HTTPS']) === 'on' ? 'https' : 'http';
   $domainLink = $protocol . '://' . @$_SERVER['HTTP_HOST'];
   return $domainLink;
 }
 
 function GetCurrentURL(){
-  $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $url = "http" . ((@$_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . @$_SERVER['HTTP_HOST'] . @$_SERVER['REQUEST_URI'];
   return $url;
 }
 
@@ -162,6 +191,7 @@ function SendAndAbort($content){
   ignore_user_abort(true);
   set_time_limit(0);
   ob_start();
+  if (is_array($content)) $content = json_encode($content, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   echo $content;
   $buffer_size = ob_get_length();
   session_write_close();
@@ -194,13 +224,19 @@ function isPrivateChat(){
   }
 }
 
-function curl_get_file_contents($URL)
+function curl_get_file_contents($URL, $ATimeout= 0)
 {
     $c = curl_init();
     curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($c, CURLOPT_URL, $URL);
     curl_setopt($c, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER, 0);
+    if ($ATimeout>0){
+      if ($ATimeout > 10) $ATimeout = 3;
+      //curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0); //wait indefinitely
+      //curl_setopt($ch, CURLOPT_TIMEOUT_MS, $ATimeoutMiliSecond);
+      curl_setopt($c, CURLOPT_TIMEOUT, $ATimeout);
+    }
     $contents = curl_exec($c);
     if (curl_errno($c)) {
       $error_msg = curl_error($c);
@@ -270,6 +306,7 @@ function RemoveEmoji($string){
 
 function StringCut($AText, $ALimit, $DoStripTags = false, $AddEllipsis = false){
   if ($AText){
+    if (strlen($AText)<$ALimit) return $AText;
     $AText = ($DoStripTags ? strip_tags($AText) : $AText);
     $stringCut = substr($AText, 0, $ALimit);
     $endPoint = strrpos($stringCut, ' ');
@@ -301,6 +338,22 @@ function LimitTextChars($content = false, $limit = false, $stripTags = false, $e
   return $content;
 }
 
+function RemoveMarkdown($Text){
+    // Hapus tag inline seperti *bold*, _italic_, `code`
+    $Text = preg_replace('/(\*|_|\`)(.*?)\1/', '$2', $Text);
+
+    // Hapus tag header seperti # Header
+    $Text = preg_replace('/\#+\s+(.*)/', '$1', $Text);
+
+    // Hapus tag list seperti * List item
+    $Text = preg_replace('/(\*\s+|\-\s+)(.*)/', '$2', $Text);
+
+    // Hapus tag link seperti [text](url)
+    $Text = preg_replace('/\[([^\]]+)\]\(([^)]+)\)/', '$1', $Text);
+
+    return $Text;
+}
+
 function fixHtml($html) {
   $dom = new DOMDocument();
   @$dom->loadHTML( mb_convert_encoding( $html, 'HTML-ENTITIES', 'UTF-8' ) );
@@ -321,6 +374,41 @@ function TitleCase($string)
     mb_convert_case($string, MB_CASE_TITLE, 'UTF-8')
   );
 }
+
+/**
+ * Convert HTML tag OL to plain text numbering
+ * USAGE:
+ *   $text = TagOrderToNumber($text);
+ *   $text = TagOrderToNumber($text, "ul");
+ */
+function TagOrderToNumber($html, $tag = "ol", $IsUseNumber = true)
+{
+  global $_useNumber;
+  $_useNumber = $IsUseNumber;
+  $pattern = "/<$tag>(.*?)<\/$tag>/s";
+  $return = preg_replace_callback(
+    $pattern,
+    function ($m) {
+      global $_useNumber;
+      $liHtml = $m[1];
+      $dom = new DOMDocument();
+      $dom->loadHTML($liHtml);
+      $items = $dom->getElementsByTagName("li");
+      $replacementText = "";
+      foreach ($items as $index => $item) {
+        $caption = $item->nodeValue;
+        $number = $index + 1;
+        $prefix = ($_useNumber) ? "$number." : "-";
+        $replacementText .= "$prefix $caption\n";
+      }
+      return $replacementText;
+    },
+    $html
+  );
+  unset($_useNumber);
+  return $return;
+}
+
 
 function readTextFile( $AFileName){
   $result = '';
@@ -344,7 +432,7 @@ function writeTextFile( $AFileName, $AText){
 }
 
 function AddToLog( $AText, $AFileLog = ""){
-  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs.txt";
+  if (empty($AFileLog)) $AFileLog = getcwd()."/logs/logs-" . Date("Ymd") . ".txt";
   $file = fopen($AFileLog, 'a');
   if ($file) {
     $date = date('YmdHis');
@@ -357,8 +445,8 @@ function AddToLog( $AText, $AFileLog = ""){
   }
 }
 
-function readCache( $AName, $AAgeInMinute = 30){
-  $fileName = "cache/$AName.txt";
+function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache'){
+  $fileName = "$APath/$AName.txt";
   if (!file_exists($fileName)){
       return '';
   }
@@ -369,8 +457,8 @@ function readCache( $AName, $AAgeInMinute = 30){
 
   return readTextFile( $fileName);
 }
-function writeCache( $AName, $AText){
-  $fileName = "cache/$AName.txt";
+function writeCache( $AName, $AText, $APath = 'cache'){
+  $fileName = "$APath/$AName.txt";
   writeTextFile( $fileName, $AText);
 }
 
@@ -536,6 +624,26 @@ function ShuffleArray($array) {
   return $new;
 }
 
+function IsExistInArray($AText, $AArrays, $AFieldName){
+  if (!is_array($AArrays)) return false;
+  foreach ($AArrays as $row) {
+    $item = @$row[$AFieldName];
+    if ($item==$AText){
+      return $row;
+    }
+  }
+  return false;
+}
+
+function RemoveItemsByFieldValue(&$array, $field, $valueToRemove) {
+  foreach ($array as $key => $item) {
+      if ($item[$field] == $valueToRemove) {
+          unset($array[$key]);
+      }
+  }
+}
+
+
 /**
  * CUSTOM ACTION
  *
@@ -600,6 +708,45 @@ function isJson($string) {
   return json_last_error() === JSON_ERROR_NONE;
 }
 
+// if (IsDebug()) { //--// }
+function IsDebug() {
+  $debugFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".debug";
+  if (file_exists($debugFile)) return true;
+  return false;
+}
+
+// if (IsLocal()) { //--// }
+function IsLocal() {
+  $localFile = dirname(__FILE__) . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".local";
+  if (file_exists($localFile)) return true;
+  return false;
+}
+
+function ReformatOptions($AOptions, $AFieldName = 'options'){
+  $index = 0;
+  foreach ($AOptions as $row) {
+    $options = $row[$AFieldName];
+    if (empty($options)) $options = '{}';
+    $options = json_decode($options, true);
+    $AOptions[$index][$AFieldName] = $options;
+    $index++;
+  }
+  return $AOptions;
+}
+
+function FormatPhoneNumber($phone){
+  $phone = preg_replace("/[\W_]+/u", '', $phone); //alphanumeric only
+  if (substr($phone, 0, 1) == '0'){
+    $phone = '62'.substr($phone, 1);
+  }
+  return $phone;
+}
+
+function AlphanumericOnly($AText){
+  $AText = preg_replace("/[\W_]+/u", '', $AText); //alphanumeric only
+  return $AText;
+}
+
 /**
  * Format Print
  * Example:
@@ -621,3 +768,11 @@ function writeLn(string $text = '', array $format=[]) {
   write($text, $format); echo "\r\n";
 }
 
+function GetTimeUsage($AStartTime = 0){
+  global $ProcessingStartTime;
+  $timeStart = $ProcessingStartTime;
+  if ($AStartTime > 0) $timeStart = $AStartTime;
+  $timeStop = microtime(true);
+  $timeUsage = round(($timeStop - $timeStart)*1000);
+  return $timeUsage;
+}

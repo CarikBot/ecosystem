@@ -1,0 +1,16 @@
+{
+  "code": 0,
+  "text": "Contoh insert image ke dalam pesan dari chatbot",
+  "type": "action",
+  "action": {
+    "type": "image",
+    "suffix": "",
+    "files": [
+      {
+        "caption": "Caption Gambar",
+        "type": "image",
+        "url": "https://carik.id/logo.png"
+      }
+    ]
+  }
+}

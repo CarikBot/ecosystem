@@ -126,6 +126,7 @@ $Text .= "\n".$Data['paymentFor_t'];
 $Text .= "\nNama : ".$fullName;
 $Text .= "\nEmail: ".$Data['email'];
 $Text .= "\nPhone: ".$phone;
+$Text .= "\nID: ".$UserId;
 
 $Text .= "\nNomor Invoice: ".$Data['invoiceNo'];
 $Text .= "\nPembayaran: ".$Data['paymentFor_t'];
@@ -153,7 +154,7 @@ $Text .= "\n\nTicket #$ticketCode";
 $options['url'] = $Config['packages']['partner']['kioss']['dashboard_url'];
 $options['token'] = $Config['packages']['partner']['kioss']['dashboard_token'];
 $options['dashboard'] = 1;
-SendMessage(201, $Config['packages']['partner']['kioss']['recipient'], $Text, $options);
+$API->SendMessage('whatsapp', $recipientName, $recipient, $Text, []);
 
 $Text = "*Konfirmasi Pembayaran*";
 $Text .= "\nKami akan segera melakukan verifikasi dan memproses pembayaraan Anda dalam 1x24 jam.";
