@@ -1,14 +1,14 @@
 <?php
 /**
  * Carik API Handler
- * 
+ *
  * USAGE
  *   [x] Send Message
  *     $API = new Carik\API;
  *     $API->BaseURL = 'http://your-api-url/endpoint';
  *     $API->DeviceToken = 'your token';
  *     $API->SendMessage('whatsapp', 'Full Name, 'userid', 'text', []);
- * 
+ *
  *   [x] Add Task
  *     // $TaskType: 0: General, 1: Inquiry, 2: Complain, 3: Appointment, 4: Spam/Scam, 5:Other
  *     // const TaskType = [ 'General', 'Inquiry', 'Complain', 'Appointment', 'Billing', 'Spam/Scam', 'Other'];
@@ -23,9 +23,11 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.11
+ * @version    0.0.12
  * @link       http://www.aksiide.com
  * @since
+ * @history
+ *   - add url to eventlog
  */
 
 namespace Carik;
@@ -189,7 +191,7 @@ class API
    * EVENT LOG
    */
 
-   public function AddEventLog( $AModulName, $ASource, $AEventName, $ARequest, $AResult, $ACustomDate = '', $AReferenceId = '', $ATimeUsage = 0){
+   public function AddEventLog( $AModulName, $ASource, $AEventName, $ARequest, $AResult, $ACustomDate = '', $AReferenceId = '', $ATimeUsage = 0, $AURL = ''){
     if (empty($this->ClientId)) return false;
     $payLoad['client_id'] = $this->ClientId;
     $payLoad['module'] = $AModulName;
@@ -197,6 +199,7 @@ class API
     $payLoad['event_name'] = $AEventName;
     $payLoad['request'] = $ARequest;
     $payLoad['result'] = $AResult;
+    $payLoad['url'] = $AURL;
     if (!empty($ACustomDate)){
       $payLoad['custom_date'] = $ACustomDate;
     }

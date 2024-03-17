@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.25
+ * @version    3.0.26
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -22,6 +22,7 @@
  *   - get client id from payload
  *   - send abort for array content
  *   - files in action
+ *   - optional parameter di AddQuestion
  */
 
 const OK = 'OK';
@@ -698,6 +699,10 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
     $item['options'] = @$AData['options'];
     if (isset($AData['values'])){
       $item['values'] = @$AData['values'];
+    }
+  }else{
+    foreach ($AData as $key => $value) {
+      $item[$key] = $value;
     }
   }
   return $item;

@@ -1,10 +1,10 @@
 <?php
 /**
  * Share Link Message
- * 
+ *
  * USAGE:
  *   curl "http://ecosystem.carik.test/services/main/CarikBot/sharelink/"  -d "@body-odoj.json"
- *   
+ *
  *
  * @date       23-09-2022 09:51
  * @category   Main
@@ -36,14 +36,14 @@ $Keyword = urlencode($Keyword);
 $carikLink = "*Carik Bot*";
 $telegramKeyword = str_replace('+', '_', $Keyword);
 if ($ChannelId=='telegram'){
-  $carikLink = "[@CarikBot](t.me/CarikBot?start=$telegramKeyword)";    
+  $carikLink = "[@CarikBot](t.me/CarikBot?start=$telegramKeyword)";
 }
 $Text = "Bisa dicoba lewat $carikLink";
 $Text .= "\n";
 $Text .= "\nWhatsapp";
 $Text .= "\n wa.me/62811857001?text=$Keyword";
 $Text .= "\nWhatsapp Official";
-$Text .= "\n wa.me/628882414001?text=$Keyword";
+$Text .= "\n wa.me/6281807140209?text=$Keyword";
 
 
 //die($Text);
