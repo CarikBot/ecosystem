@@ -250,9 +250,8 @@ Contoh penggunaan parameter ini:
 
 ```json
 {
-  .
-  .
-  .
+
+
         {
           "title": "NIK (Nomor Induk Kependudukan)",
           "name": "nik",
@@ -265,9 +264,8 @@ Contoh penggunaan parameter ini:
           "type": "numeric",
           "value_min": 17
         },
-  .
-  .
-  .
+
+
 ```
 
 
