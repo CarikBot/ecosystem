@@ -266,7 +266,7 @@ Contoh penggunaan parameter ini:
         },
 
 
-```
+}```
 
 
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json form ini](./ex-action-form.json).
