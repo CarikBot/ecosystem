@@ -57,7 +57,8 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 
   //$url = GetBaseUrl() . '/services/tools/example/form/';
   $url = GetCurrentURL();
-  OutputQuestion( $Text, $questionData, $url, 'Contoh Form');
+  $options['cancelation_keyword'] = 'xxx';
+  OutputQuestion( $Text, $questionData, $url, 'Contoh Form', 0, $options);
 }
 
 // Processing Data

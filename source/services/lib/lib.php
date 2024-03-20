@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.26
+ * @version    3.0.27
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -23,6 +23,7 @@
  *   - send abort for array content
  *   - files in action
  *   - optional parameter di AddQuestion
+ *   - cancelation keyword for form handler
  */
 
 const OK = 'OK';
@@ -142,7 +143,7 @@ function OutputWithReaction($ACode, $AMessage, $AReaction){
   Output( $ACode, $AMessage, 'text', null, '', '', '', '', false, 0, $AReaction);
 }
 
-function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0){
+function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0, $AOptions = []){
   @header("Content-type:application/json");
   $output['code'] = 0;
   $output['text'] = $AText;
@@ -153,6 +154,10 @@ function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0){
   $output['action']['platform'] = 'generic';
   $output['action']['url'] = $AURL;
   $output['action']['data'] = $AACtion;
+
+  if (count($AOptions)>0){
+    if (isset($AOptions['cancelation_keyword'])) $output['action']['cancelation_keyword'] = $AOptions['cancelation_keyword'];
+  }
 
   $output = json_encode($output, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
