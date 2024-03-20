@@ -55,7 +55,7 @@ Contoh source sederhana bisa anda lihat dari [**API ECHO**](../source/services/t
 
 Dari ilustrasi di atas ini akan terbaca: terdapat pilihan menu "Contoh". Dan jika pengguna menuliskan kalimat `echo apapun teksnya`, platform akan mengirimkan informasi dan [parameter](#parameter-yang-dilewatkan-ke-api) ini ke api di url `{ecosystem_baseurl}/services/tools/echo/`.
 
-`{ecosystem_baseurl}` ini maksudnya adalah url dari platform ekosistem Carik ini, isi variabelnya akan generic sesuai load server saat itu. 
+`{ecosystem_baseurl}` ini maksudnya adalah url dari platform ekosistem Carik ini, isi variabelnya akan generic sesuai load server saat itu.
 
 URL di atas hanya bersifat contoh saja. Jika anda memiliki api eksternal sendiri, silakan disesuaikan, misal: `https://api.yourdomain.tld/endpoint/path/path`.
 
@@ -143,9 +143,9 @@ Selain mengubah isi tag `action` menjadi `button`, selebihnya sama dengan dengan
           "text": "Update Corona",
           "callback_data": "text=update corona"
         }
-        
-        
-        
+
+
+
       ]
     ]
   }
@@ -157,7 +157,7 @@ Selain mengubah isi tag `action` menjadi `button`, selebihnya sama dengan dengan
 | text | Judul dari menu tersebut. |
 | callback_data | Berupa parametered value. Yang artinya, jika menu tersebut dipilih, seolah-olah pengguna mengirimkan teks tersebut ke sistem chatbot.<br>Untuk contoh di atas, chatbot akan menerima perintah `echo pilih saya`.  |
 | url | Opsional. Tombol akan berfungsi sebagai **link** menuju tautan tertentu.<br>`callback_data` tidak aktif jika tag `url` ini diisi. |
-| size | Ukuran tinggi browser saat tautan diakses.<br>*Hanya untuk facebook messenger.* 
+| size | Ukuran tinggi browser saat tautan diakses.<br>*Hanya untuk facebook messenger.*
 | button_title | Opsional. Teks default jika platform mempunyai fitur **grouping button** |
 | imageDefault | Opsional. Tautan Gambar jika platform mempunyai fitur untuk menampilkan gambar default |
 
@@ -211,9 +211,12 @@ Sama seperti **action** menu dan tombol di atas, struktur json form juga sama, h
 | Parameter | Deskripsi |
 |---|---|
 | name | Nama Form |
-| url | **url endpoint** dari API/webhook yang akan menerima hit saat form selesai diisi.<br>Ketentuan dan parameter yang akan dilempar ke endpoint ini bisa dilihat di bagian [*form handler*](#form-handler) di bawah. | 
+| url | **url endpoint** dari API/webhook yang akan menerima hit saat form selesai diisi.<br>Ketentuan dan parameter yang akan dilempar ke endpoint ini bisa dilihat di bagian [*form handler*](#form-handler) di bawah. |
 
-Ketentuan dalam pembuatan item data pertanyaan
+
+### Ketentuan
+
+Ketentuan dalam pembuatan item data pertanyaan, setiap field harus memiliki parameter berikut:
 
 | Parameter | Deskripsi |
 |---|---|
@@ -231,6 +234,42 @@ Tipe `option` akan dipakai pada pertanyaan yang bersifat pilihan, misal: jenis k
     "perempuan"
   ]
 ```
+
+### Parameter Opsional
+
+Parameter opsional yang bisa digunakan
+
+| Parameter | Deskripsi |
+|---|---|
+| length_min | Panjang minimal untuk field yang bertipe `string` |
+| length_max | Panjang maksimal untuk field yang bertipe`string` |
+| value_min | Nilai minimal untuk field yang bertipe `numeric` |
+| value_max | Nilai maksimal untuk field yang bertipe `numeric` |
+
+Contoh penggunaan parameter ini:
+
+```json
+{
+  .
+  .
+  .
+        {
+          "title": "NIK (Nomor Induk Kependudukan)",
+          "name": "nik",
+          "type": "string",
+          "length_min": 16
+        },
+        {
+          "title": "Usia",
+          "name": "usia",
+          "type": "numeric",
+          "value_min": 17
+        },
+  .
+  .
+  .
+```
+
 
 Contoh lengkap struktur json bisa kamu lihat dari [contoh file json form ini](./ex-action-form.json).
 
