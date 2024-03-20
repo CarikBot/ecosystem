@@ -13,8 +13,8 @@
  * @link       http://www.aksiide.com
  * @since
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "../../lib/CarikGoogleScript_lib.php";
@@ -29,7 +29,7 @@ if ((empty($DocId))||(empty($ScriptId))||(empty($SheetName))){
   Output(200, 'Maaf, belum bisa akses ke daftar startup.');
 }
 
-$GroupID = urldecode(@$_POST['GroupID_']);
+$GroupID = @urldecode(@$_POST['GroupID_']);
 $page = @$_POST['page'];
 $format = @$_GET['format'];
 if (empty($page)) $page = @$RequestContentAsJson['page'];
@@ -90,7 +90,7 @@ $n = $amountPerPage = AMOUNT_PER_PAGE;
 $count = count($startupList);
 $numberOfPage = round($count / $amountPerPage);
 if (empty($page)) $page = $numberOfPage;
-if ($page==$numberOfPage) $n += $count - ($numberOfPage*$amountPerPage); 
+if ($page==$numberOfPage) $n += $count - ($numberOfPage*$amountPerPage);
 
 $msg = ($n == $amountPerPage) ? "" : "\n $n data terakhir.";
 
