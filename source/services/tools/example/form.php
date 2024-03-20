@@ -40,8 +40,10 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   // general question
   $nameOptions['length_min'] = 5;
   $nameOptions['length_max'] = 15;
+  $nameOptions['cancelation_keyword'] = 'form test';
   $ageOptions['value_min'] = 13;
   $ageOptions['value_max'] = 80;
+  $ageOptions['cancelation_keyword'] = 'form test';
   $generalQuestion[] = AddQuestion('string', 'fullName', "Siapa nama Lengkap Anda", $nameOptions);
   $generalQuestion[] = AddQuestion('list', 'jenisKelamin', "Jenis Kelamin", ["options"=>['Laki-laki', 'perempuan']]);
   $generalQuestion[] = AddQuestion('string', 'email', "📧 Email Anda");
