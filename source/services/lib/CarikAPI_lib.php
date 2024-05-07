@@ -23,11 +23,12 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.0.12
+ * @version    0.0.13
  * @link       http://www.aksiide.com
  * @since
  * @history
  *   - add url to eventlog
+ *   - add eventlog to AddTask
  */
 
 namespace Carik;
@@ -182,6 +183,7 @@ class API
     $context = stream_context_create($opts);
     $url = rtrim($this->BaseURL,'/\\').'/task/';
     $result = @file_get_contents($url, false, $context);
+    @$this->AddEventLog('helpdesk', 'api', 'addtask', $payloadAsJson, $result, '', $AUserId);
     if (empty($result)) return false;
     $responseAsJson = @json_decode($result, true);
     return $responseAsJson;
