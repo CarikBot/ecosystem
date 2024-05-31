@@ -49,6 +49,7 @@ foreach (array_reverse($votelist) as $vote) {
   $indexPhone = $keys[3];
   $candidateName = @$vote[$indexName];
   $voterPhone = @$vote[$indexPhone];
+  if (empty($voterPhone)) continue;
   if (!isset($voterList[$voterPhone])){
     $quickcount[$candidateName] = @$quickcount[$candidateName] + 1;
     $voterList[$voterPhone] = 1;
@@ -60,9 +61,14 @@ if (count($quickcount)==0){
   Output(200, $Text);
 }
 
+$total = 0;
+foreach ($quickcount as $key => $value) {
+  $total += $value;
+}
 
 foreach ($quickcount as $key => $value) {
-  $Text .= "\n$key: $value";
+  $percent = ($value / $total)*100;
+  $Text .= "\n$key: $value (".round($percent, 2)."%)";
 }
 $Text .= "\n\n_update: " . date("Y-m-d H:i:s") . "_";
 
