@@ -27,16 +27,6 @@ require_once "../../lib/lib.php";
 require_once "../../lib/GoogleForm_lib.php";
 require_once "../../config.php";
 
-
-// Submit to GFORM
-$GFA = new GoogleFormAutomation;
-$GFA->FormId = '1FAIpQLSdX-UFHtDCN0ERbom-3xEwyQ1xe6E3wyxiKKXCQVzL3sqH6iw';
-$questions = $GFA->QuestionList();
-
-print_r($questions);
-
-die('xxx');
-
 const VOLUNTEER_LIST = [
   'Adrian',
   'Aisy',
