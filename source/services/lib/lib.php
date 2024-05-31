@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.27
+ * @version    3.0.28
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -24,6 +24,7 @@
  *   - files in action
  *   - optional parameter di AddQuestion
  *   - cancelation keyword for form handler
+ *   - add suffix/prefix in json question
  */
 
 const OK = 'OK';
@@ -157,6 +158,8 @@ function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0, 
 
   if (count($AOptions)>0){
     if (isset($AOptions['cancelation_keyword'])) $output['action']['cancelation_keyword'] = $AOptions['cancelation_keyword'];
+    if (isset($AOptions['suffix'])) $output['suffix'] = $AOptions['suffix'];
+    if (isset($AOptions['prefix'])) $output['prefix'] = $AOptions['prefix'];
   }
 
   $output = json_encode($output, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
@@ -538,7 +541,7 @@ function GetSavedParameter($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0
 function GetSavedKeyword($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
   if (empty($AKeyword)) return '';
   if (!isStringExist('saved', $AKeyword)) $AKeyword = 'saved'.$AKeyword;
-  $a = urldecode(@$_POST[$AKeyword]);
+  $a = @urldecode(@$_POST[$AKeyword]);
   $a = @explode('|', $a);
   $date = @$a[0];
   if ((!empty($date))and($AMaxAgeInMinutes>0)){
