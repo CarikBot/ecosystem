@@ -33,7 +33,7 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 
 if ('OK' != @$RequestContentAsJson['data']['submit']){
   // Build your question here
-  $Text = "*Contoh Form*";
+  $Text = "*Contoh Form.*";
   $Text .= "\nSilakan isi data berikut ini.\nIni adalah contoh pengisian form dengan media chat melalui Carik.";
   $Text .= "\n";
 
@@ -60,6 +60,8 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
   //$url = GetBaseUrl() . '/services/tools/example/form/';
   $url = GetCurrentURL();
   $options['cancelation_keyword'] = 'xxx';
+  $options['suffix'] = '.. suffix';
+  $options['prefix'] = '... prefix';
   OutputQuestion( $Text, $questionData, $url, 'Contoh Form', 0, $options);
 }
 

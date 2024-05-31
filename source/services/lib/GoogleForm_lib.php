@@ -5,12 +5,12 @@
  *   $GFA->FormId = '______';
  *   $postData = [...];
  *   $GFA->Submit($postData);
- * 
+ *
  * ref:
  *   https://gist.github.com/unforswearing/7b01591138c7d3ca27f1b50182573233
  */
 
-
+require_once "simplehtmldom_2_0/simple_html_dom.php";
 
 /**
  * Google Form Automation
@@ -50,6 +50,19 @@ class GoogleFormAutomation
     if (strpos($result, 'saat ini tidak dapat membuka file') !== false) return false;
 
     return true;
+  }
+
+  public function QuestionList(){
+    if (empty($this->FormId)) return false;
+    $url = "https://docs.google.com/forms/d/e/$this->FormId/viewform";
+    $html = file_get_html($url);
+    if (empty($html)) return false;
+
+    $questions = array();
+    foreach ($html->find('div[role=heading]') as $question) {
+      $questions[] = $question->plaintext;
+    }
+    return $questions;
   }
 
 }
