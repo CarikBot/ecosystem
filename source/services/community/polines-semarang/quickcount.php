@@ -24,7 +24,7 @@ $Text = "*Quickcount PEMIRA IKAE Elektro Polines 2024*";
 
 $DocId = @$Config['packages']['community']['polines_semarang']['pemira_doc_id'];
 $ScriptId = @$Config['packages']['community']['polines_semarang']['script_id'];
-$SheetName = "Form Responses 1";
+$SheetName = "Form Responses 2";
 
 if ((empty($DocId))||(empty($ScriptId))||(empty($SheetName))){
   Output(200, 'Maaf, belum bisa akses ke hasil quickcount PEMIRA.');
@@ -36,15 +36,25 @@ $GS->ScriptId = $ScriptId;
 $GS->SheetName = $SheetName;
 $votelist = $GS->Get();
 
-$quickcount = [];
-foreach ($votelist as $vote) {
-  $keys = array_keys($vote);
-  $indexName = $keys[1];
-  $candidateName = @$vote[$indexName];
-  $quickcount[$candidateName] = @$quickcount[$candidateName] + 1;
-}
+// $GS->SheetName = 'validasi Nomor WA';
+// $validVoterlist = $GS->Get();
 
 $quickcount = [];
+$quickcount['Narendra Bayu Putra'] = 0;
+$quickcount['Febri Zuarto'] = 0;
+$voterList = [];
+foreach (array_reverse($votelist) as $vote) {
+  $keys = array_keys($vote);
+  $indexName = $keys[2];
+  $indexPhone = $keys[3];
+  $candidateName = @$vote[$indexName];
+  $voterPhone = @$vote[$indexPhone];
+  if (!isset($voterList[$voterPhone])){
+    $quickcount[$candidateName] = @$quickcount[$candidateName] + 1;
+    $voterList[$voterPhone] = 1;
+  }
+}
+
 if (count($quickcount)==0){
   $Text .= "\nHasil quickcount belum tersedia.";
   Output(200, $Text);
@@ -54,5 +64,7 @@ if (count($quickcount)==0){
 foreach ($quickcount as $key => $value) {
   $Text .= "\n$key: $value";
 }
+$Text .= "\n\n_update: " . date("Y-m-d H:i:s") . "_";
 
+// die($Text);
 Output(200, $Text);
