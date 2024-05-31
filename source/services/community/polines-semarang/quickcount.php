@@ -1,20 +1,20 @@
 <?php
 /**
  * USAGE
- *   curl 'http://localhost/services/ecosystem/community/cafestartup/startuplist/'
+ *   curl 'http://localhost/services/ecosystem/community/polines-semarang/quickcount/'
  *
- * @date       25-03-2020 13:19
+ * @date       31-05-2024 09:02
  * @category   community
- * @package    Cafestartup - startup list
+ * @package    Polines Semarang - Quick Count
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
  * @version
- * @link       http://www.aksiide.com
+ * @link       https://carik.id
  * @since
  */
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 include_once "../../config.php";
 include_once "../../lib/lib.php";
 include_once "../../lib/CarikGoogleScript_lib.php";
