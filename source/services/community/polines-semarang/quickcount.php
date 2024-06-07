@@ -25,6 +25,7 @@ $Text = "*Quickcount PEMIRA IKAE Elektro Polines 2024*";
 $DocId = @$Config['packages']['community']['polines_semarang']['pemira_doc_id'];
 $ScriptId = @$Config['packages']['community']['polines_semarang']['script_id'];
 $SheetName = "Form Responses 2";
+$SheetName = "hasilsah";
 
 if ((empty($DocId))||(empty($ScriptId))||(empty($SheetName))){
   Output(200, 'Maaf, belum bisa akses ke hasil quickcount PEMIRA.');
@@ -35,6 +36,21 @@ $GS->DocId = $DocId;
 $GS->ScriptId = $ScriptId;
 $GS->SheetName = $SheetName;
 $votelist = $GS->Get();
+
+
+// bypass langsung hasil
+if (count($votelist)==0){
+  $Text .= "\nHasil quickcount belum tersedia.";
+  Output(200, $Text);
+}
+
+foreach ($votelist as $key => $value) {
+  $Text .= "\n- $value[name]: $value[suara]%";
+}
+$Text .= "\n\n_update: " . date("Y-m-d H:i:s") . "_";
+
+// die($Text);
+Output(200, $Text);
 
 // $GS->SheetName = 'validasi Nomor WA';
 // $validVoterlist = $GS->Get();
