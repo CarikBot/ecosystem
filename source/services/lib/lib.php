@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.28
+ * @version    3.0.29
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -25,6 +25,7 @@
  *   - optional parameter di AddQuestion
  *   - cancelation keyword for form handler
  *   - add suffix/prefix in json question
+ *   - Rate Limit with Redis
  */
 
 const OK = 'OK';
@@ -788,4 +789,41 @@ function GetTimeUsage($AStartTime = 0){
   $timeStop = microtime(true);
   $timeUsage = round(($timeStop - $timeStart)*1000);
   return $timeUsage;
+}
+
+/**
+ * ref:
+ *   https://github.com/nikolaposa/rate-limit
+ * parameter:
+ *   limit: number of hit per time window
+ *   timeWindow: in second
+ * example:
+ *   // limit 10 request per 1 second
+ *   if (isRateLimited('abc', 100, 1)){
+ *     // limited
+ *   }
+ */
+function isRateLimited($key, $limit = 10, $timeWindow = 1, $options = []) {
+  try {
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
+  } catch (\Throwable $th) {
+    //throw $th;
+    return true;
+  }
+
+  $currentTime = time();
+  $key = "rate_limit:$key-$limit";
+  $current = (int) $redis->get($key);
+  if ($current >= $limit){
+    return true;
+  }
+
+  // update counter
+  $current = (int) $redis->incr($key);
+  if ($current === 1){
+    $redis->expire($key, $timeWindow);
+  }
+
+  return false;
 }
