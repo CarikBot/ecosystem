@@ -17,7 +17,7 @@
  *   [x] Event Log
  *     $r = $API->AddEventLog('modulename', 'sourcename', 'eventname', $request, $result);
  *
- *   [x] Toke Encoder
+ *   [x] Token Encoder
  *     $tokens  = $API->TokenEncoder->Encode('carik adalah asistent virtual yang keren');
  *     echo "\nnumber of token: ".count($tokens);
  *
