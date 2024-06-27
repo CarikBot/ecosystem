@@ -27,13 +27,14 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    0.1.00
+ * @version    0.1.01
  * @link       http://www.aksiide.com
  * @since
  * @history
  *   - add url to eventlog
  *   - add eventlog to AddTask
  *   - Token Encoder
+ *   - Token Encoder in php 7
  */
 
 namespace Carik;
@@ -288,7 +289,16 @@ class TokenEncoder
       if (false === $splitLine) {
         continue;
       }
-      $splitLine = array_filter($splitLine, $this->filterEmpty(...));
+
+      $splitLineTemp = array_filter($splitLine, function($item) {
+        return $this->filterEmpty($item);
+      });
+      if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
+        // $splitLineTemp = array_filter($splitLine, $this->filterEmpty(...));
+      }
+      $splitLine = $splitLineTemp;
+
+
       if ([] !== $splitLine) {
         $bpeMerges[] = $splitLine;
       }
@@ -341,7 +351,8 @@ class TokenEncoder
     return array_values($bpeTokens);
   }
 
-  private function filterEmpty(mixed $var): bool
+  // private function filterEmpty(mixed $var): bool // php 8
+  private function filterEmpty($var): bool
   {
     return null !== $var && false !== $var && '' !== $var;
   }
@@ -515,7 +526,10 @@ class TokenEncoder
    */
   private function indexOf(array $array, string $searchElement, int $fromIndex): int
   {
-    $slicedArray = array_slice($array, $fromIndex, preserve_keys: true);
+    $slicedArray = array_slice($array, $fromIndex, null, true);
+    if (version_compare(PHP_VERSION, '8.0.0') >= 0) {
+      // $slicedArray = array_slice($array, $fromIndex, preserve_keys: true);
+    }
     $indexed = array_search($searchElement, $slicedArray);
     return false === $indexed ? -1 : $indexed;
   }
