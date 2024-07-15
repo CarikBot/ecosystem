@@ -74,7 +74,7 @@ if ($prayInfo == false){
 }
 
 $Text .= "\nJadwal Sholat $cityName:";
-unset($prayInfo['imsak']); // hapus imsak
+// unset($prayInfo['imsak']); // hapus imsak
 $Text .= "\n```";
 foreach ($prayInfo as $key => $value) {
   $Text .= "\n". str_pad(ucwords($key), 8, ' ', STR_PAD_LEFT) . ": $value";
