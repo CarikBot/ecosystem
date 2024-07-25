@@ -21,11 +21,18 @@ $participants = @file_get_contents($url);
 if (empty($participants)) RichOutput(0, "Maaf, informasi daftar peserta INL 2024 belum bisa saya peroleh. Coba lagi nanti yaa");
 
 $participants = json_decode($participants, true);
+if (isset($participants[0]['error'])){
+  RichOutput(0, "Maaf, informasi daftar perserta INL belum bisa diakses.\nCoba lagi nanti yaa.\nCarik coba perbaiki dulu.");
+}
+if ($participants['code'] != 0){
+  RichOutput(0, "Maaf, informasi daftar perserta INL belum bisa diakses.\nCoba lagi nanti yaa.\nCarik coba perbaiki dulu.");
+}
+$participants = $participants['data'];
 
 // short by partner
 $participantByPartner = [];
 foreach ($participants as $participant) {
-  $clubIndex = "Lainnya";
+  $clubIndex = "⋄ Lainnya";
   $club = strtoupper(trim($participant['Nama Klub / Club Name']));
   if (isStringExist('KPBI', $club)) $clubIndex = 'KPBI';
   if (isStringExist('PERDANA', $club)) $clubIndex = 'PERDANA';
