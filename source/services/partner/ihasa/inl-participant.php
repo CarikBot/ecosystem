@@ -24,6 +24,10 @@ $participants = json_decode($participants, true);
 if (isset($participants[0]['error'])){
   RichOutput(0, "Maaf, informasi daftar perserta INL belum bisa diakses.\nCoba lagi nanti yaa.\nCarik coba perbaiki dulu.");
 }
+if ($participants['code'] != 0){
+  RichOutput(0, "Maaf, informasi daftar perserta INL belum bisa diakses.\nCoba lagi nanti yaa.\nCarik coba perbaiki dulu.");
+}
+$participants = $participants['data'];
 
 // short by partner
 $participantByPartner = [];
