@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
-language: "en"
+language: "id"
 early_access: false
 reviews:
   profile: "chill"
@@ -8,6 +8,7 @@ reviews:
   poem: true
   review_status: true
   collapse_walkthrough: false
+  sequence_diagrams: false
   auto_review:
     enabled: true
     drafts: false
