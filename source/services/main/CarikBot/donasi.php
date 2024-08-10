@@ -1,10 +1,10 @@
 <?php
 /**
  * SIMULASI DEPOSITO HANDLER
- * 
+ *
  * USAGE:
  *   curl "http://ecosystem.carik.test/services/main/CarikBot/donasi.php" -d "@body-donasi.json"
- *   
+ *
  *
  * @date       12-07-2021 23:24
  * @category   Main
@@ -70,7 +70,8 @@ if ('OK' == @$RequestContentAsJson['data']['submit']){
 
 
 // Generate Form Question
-$section01[] = AddQuestion('numeric', 'nominal', 'Tulis besar nominal yang akan Anda donasikan (dalam Rupiah)');
+$nominalOptions['value_min'] = 2500;
+$section01[] = AddQuestion('numeric', 'nominal', 'Tulis besar nominal yang akan Anda donasikan (dalam Rupiah)', $nominalOptions);
 $questionData[] = $section01;
 
 $Text = "Hi $FullName.";
