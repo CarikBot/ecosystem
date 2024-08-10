@@ -4,7 +4,7 @@
  *
  * USAGE:
  *   curl "http://ecosystem.carik.test/services/tools/jira/task-list/?package=&status="
- * curl "http://ecosystem.carik.test/services/tools/jira/task-list/?package=amdalnetdev&status="
+ *   curl "http://ecosystem.carik.test/services/tools/jira/task-list/?package=amdalnetdev&status="
  *
  */
 ini_set('display_errors', 0);
@@ -22,13 +22,12 @@ if (empty($Status)){
 }
 if ($Status == 'todo') $Status = 'TO DO';
 if ($Status == 'inprogress') $Status = 'in progress';
-if ($Status == 'done') $Status = 'in progress';
 if ($Status == 'pending') $Status = 'Pending/Reject';
 if ($Status == 'reject') $Status = 'Pending/Reject';
 // if ($Status == 'todo') $Status = 'TO DO';
 // if ($Status == 'todo') $Status = 'TO DO';
 
-$Text = "*Daftar Task/Issue Project ".strtoupper($Package)."*\n";
+$Text = "*Daftar Task/Issue Project -- ". strtoupper($Status) ." --".strtoupper($Package)."*\n";
 
 if (!empty($Status)){
   $Text .= showIssues($Package, $Status);
@@ -50,6 +49,7 @@ function showIssues($APackage, $AStatus){
   $i = 1;
   foreach ($issues as $issue) {
     $key = $issue['key'];
+    if (empty($key)) continue;
     $title = $issue['fields']['summary'];
     $title = $issue['fields']['summary'];
     $issueURL = "https://$APackage.atlassian.net/browse/$key";
