@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.29
+ * @version    3.0.30
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -26,6 +26,7 @@
  *   - cancelation keyword for form handler
  *   - add suffix/prefix in json question
  *   - Rate Limit with Redis
+ *   - format cache file name
  */
 
 const OK = 'OK';
@@ -455,8 +456,10 @@ function AddToLog( $AText, $AFileLog = ""){
   }
 }
 
-function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache'){
-  $fileName = "$APath/$AName.txt";
+function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache', $AExtension = 'txt'){
+  $AName = str_replace('https://', '', $AName);
+  $AName = str_replace('/', '-', $AName);
+  $fileName = "$APath/$AName.$AExtension";
   if (!file_exists($fileName)){
       return '';
   }
@@ -467,8 +470,10 @@ function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache'){
 
   return readTextFile( $fileName);
 }
-function writeCache( $AName, $AText, $APath = 'cache'){
-  $fileName = "$APath/$AName.txt";
+function writeCache( $AName, $AText, $APath = 'cache', $AExtension = 'txt'){
+  $AName = str_replace('https://', '', $AName);
+  $AName = str_replace('/', '-', $AName);
+  $fileName = "$APath/$AName.$AExtension";
   writeTextFile( $fileName, $AText);
 }
 

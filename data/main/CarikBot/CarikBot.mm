@@ -118,7 +118,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
             <node FOLDER="true" ID="24au3hr7l8ki421gfj2frn3tpa" TEXT="Action Type">
                 <node FOLDER="true" ID="2inqavij1o2685mrdtgo1enp9o" TEXT="button"/>
             </node>
-            <node FOLDER="true" ID="6pu8umqakbllnkpja1eqsc7oju" TEXT="Action">
+            <node ID="6pu8umqakbllnkpja1eqsc7oju" TEXT="Action">
                 <node FOLDER="true" ID="305041a7-7d8e-426a-be1c-09607c127429" TEXT="&#128336; Jadwal Sholat">
                     <hook NAME="accessories/plugins/NodeNote.properties">
                         <text>
@@ -259,7 +259,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                 <node FOLDER="true" ID="2vttpop9vc35mmbsqtgj8dsdnj" TEXT="info (olahraga)(sport)"/>
             </node>
         </node>
-        <node ID="b58888b5ceebbf0e68dada0656" POSITION="left" TEXT="&#128182; Finance">
+        <node FOLDER="true" ID="b58888b5ceebbf0e68dada0656" POSITION="left" TEXT="&#128182; Finance">
             <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="52b923blovh4lqk5j1fiiu646o" TEXT="Aktivitas finansial nyaris tidak berhenti walau pandemi begini. Coba cari info-info ini.">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
@@ -298,7 +298,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                         </text>
                     </hook>
                 </node>
-                <node FOLDER="true" ID="5rhphup4mu9nrhkvd91qvibcag" TEXT="&#127775; Donasi">
+                <node ID="5rhphup4mu9nrhkvd91qvibcag" TEXT="&#127775; Donasi">
                     <node FOLDER="true" ID="60u7lqhdc7a2l7upiag5a1u6sq" TEXT="Mau berdonasi ke @CarikBot?&#10;Boleh kok.&#10;Pilih nominal di bawah ini, selanjutnya kami akan memberikan kode *QRIS* kepada Anda.&#10;Pembayaran bisa dilakukan melalui jasa pembayaran yang kamu sukai.&#10;&#10;Terima kasih yaa&#10;"/>
                     <node FOLDER="true" ID="3c8hqumlqhiiputehgb5i4ir41" TEXT="Action Type">
                         <node FOLDER="true" ID="70kt1h0q09ap0l7hpigs474884" TEXT="button"/>
@@ -330,7 +330,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node FOLDER="true" ID="5i8u1ku8383bf8nftd8si5smut" TEXT="button"/>
                             </node>
                             <node ID="61ougbrj4cvmj5dmcraqcm0nj9" TEXT="Action">
-                                <node FOLDER="true" ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ya, bayar">
+                                <node ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ya, bayar">
                                     <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="7vn986nrhaisltgqcgklrdfsce" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=25000&amp;random=0&amp;description=Donasi+25rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
@@ -340,7 +340,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 </node>
                             </node>
                         </node>
-                        <node ID="7m50s01k9qqslfb0jd58mrsnf3" TEXT="Isi nominal sendiri">
+                        <node FOLDER="true" ID="7m50s01k9qqslfb0jd58mrsnf3" TEXT="Isi nominal sendiri">
                             <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="4ipb283fbmojp3nsb3tv3mtt7c" TEXT="{ecosystem_baseurl}/services/main/CarikBot/donasi/">
                                 <font NAME="SansSerif" SIZE="10"/>
                             </node>
@@ -349,6 +349,10 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                     <node ID="22g5oqmad3lj8ltvsvg932pk0l" TEXT="pattern">
                         <node FOLDER="true" ID="6tlc2vf5onnl8tj0n2mb60usvq" TEXT="^donasi"/>
                         <node ID="1bi6a33ll4dcst97eqgkbuck5q" TEXT="(mau|pengen|pengin|info) donasi"/>
+                        <node ID="5d2aiqcear11f52hjuthnijt4t" TEXT="(juga|jg) (terima|menerima) donasi"/>
+                        <node ID="3uolq27eg7nill66ntjga29jti" TEXT="^bisa donasi ke"/>
+                        <node ID="66ccg4rh8v6skbeda8c06h12lp" TEXT="^bisa transfer ke"/>
+                        <node ID="0hg2u8j9maa4mke838khmqti01" TEXT="^transfer ke"/>
                     </node>
                 </node>
                 <node FOLDER="true" ID="04o19n1jtmvlks92go9s3gf6ak" TEXT="&#127968; Kembali"/>
@@ -361,7 +365,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
             <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="22fn09e8dtdi0hn33tjr7mm2da" TEXT="Saat kesehatan menjadi fokus utama. Semoga kamu tetap sehat dan selalu bisa berkumpul dengan keluarga yaa...&#10;Semangat !">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
-            <node FOLDER="true" ID="495rl208cn9q3hi8h8s6kvhela" TEXT="Action Type">
+            <node ID="495rl208cn9q3hi8h8s6kvhela" TEXT="Action Type">
                 <node FOLDER="true" ID="1aoudui20h1mcin1tugr9hslmi" TEXT="button"/>
             </node>
             <node FOLDER="true" ID="39v2mnb2ao825llbt16fcft0mc" TEXT="Action">
@@ -411,6 +415,77 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
             </node>
             <node FOLDER="true" ID="0fena3fkr2grvm5pb0mob2i8pp" TEXT="pattern">
                 <node FOLDER="true" ID="640o396am4sbb05r19v7qdnjuo" TEXT="info (sehat|kesehatan)"/>
+            </node>
+        </node>
+        <node ID="7nn1rq7j0pmknnp0ambobkjfl2" POSITION="left" TEXT="Produk">
+            <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6b7udvl4fp73cg5fnmim9fhu64" TEXT="CARIK memiliki berapa produk unggulan khususnya yang berkaitan dengan AI (Artificial Intelegence).">
+                <font NAME="SansSerif" SIZE="10"/>
+            </node>
+            <node FOLDER="true" ID="7k43i20jh4v6qtj5td5j5djf6m" TEXT="Action Type">
+                <node FOLDER="true" ID="0dvd2p1gtuf90u51h4fsmccrdh" TEXT="button"/>
+            </node>
+            <node ID="6oami1g8rslk1j7r7n2rl8gdcv" TEXT="Action">
+                <node FOLDER="true" ID="0gelmhh9f0icf6emkq5bbvs4pc" TEXT="Chatbot &amp; Omni Channel">
+                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6vf9c1p8sm324r66pta8o3opvb" TEXT="*Chatbot &amp; Omni Channel*&#10;&#10;Chatbot AI:&#10;Automated 24/7 customer service with natural language understanding for efficient user interaction. &#10;&#10;Omni Channel:&#10;All-in-one CRM application to connect with your customers from various channels faster ad easier.&#10;&#10;">
+                        <font NAME="SansSerif" SIZE="10"/>
+                    </node>
+                </node>
+                <node ID="3kfv0cpqfks5n49iln249os8de" TEXT="AI &amp; LLM Services">
+                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7haumog39qj5n89baj1qlhnd8l" TEXT="*AI &amp; LLM Services*&#13;&#10;&#13;&#10;Enhancing business efficiency with AI and Large Language Models for natural language processing and insights.&#13;&#10;">
+                        <font NAME="SansSerif" SIZE="10"/>
+                    </node>
+                </node>
+                <node ID="7623cmjh9a15no9kb338a2l31t" TEXT="AI Tools">
+                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7egt6ge42q1jaarabl108u5kk5" TEXT="*AI Tools*&#13;&#10;&#13;&#10;CARIK memberikan layanan yang menerapkan kecanggihan AI. Salah satu yang paling sering diapakai adalah Linkedin Analyzer.&#13;&#10;">
+                        <font NAME="SansSerif" SIZE="10"/>
+                    </node>
+                    <node ID="1etd0018gl570oe84v9bsgqn44" TEXT="Action Type">
+                        <node FOLDER="true" ID="5qbaqk51e7qmuk6hufs60mobf9" TEXT="button"/>
+                    </node>
+                    <node ID="3c1fr5jb7ep82ntrgqknpcr0jk" TEXT="Action">
+                        <node ID="228g9lklkjagn595p78da1ek90" TEXT="LinkedIn Analyzer">
+                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="5fc2t7o80jp888otlkhjnccujm" TEXT="*Linkedin Analyzer*&#10;&#10;LinkedIn Analyzer siap membantu Kamu mengubah profil LinkedIn menjadi magnet peluang karir yang lebih menarik. Cukup kirimkan link profil Kamu, dan kami akan mengirimkan hasil analisis lengkap langsung ke email Kamu!&#10;&#10;*Apa yang Kamu dapatkan?*&#10;Kamu akan menerima rekomendasi spesial untuk headline, summary, hingga cara penulisan konten di bagian pengalaman kerja, semuanya dirancang untuk membuat profil Kamu lebih menonjol.&#10;&#10;Dengan harga yang menarik mulai dari 10 ribuan.">
+                                <font NAME="SansSerif" SIZE="10"/>
+                            </node>
+                            <node ID="4p1r1b6btnqbf5a8fg10hbbiob" TEXT="Action Type">
+                                <node FOLDER="true" ID="0tft2p97gsus2g4dp4tese4a44" TEXT="button"/>
+                            </node>
+                            <node ID="7vii19v3n58ob6fer1ma18btou" TEXT="Action">
+                                <node ID="6cim6qcg159b80ckg24i5lsv48" TEXT="Order LinkedIn Analyzer">
+                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="3su6e2qh7jf65vkgl3rr82qrcp" TEXT="{ecosystem_baseurl}/services/main/CarikBot/product/linkedin-analyzer/?nointro=1">
+                                        <font NAME="SansSerif" SIZE="10"/>
+                                    </node>
+                                    <node ID="7t3dnflajbf3nr0o00sg857037" TEXT="pattern">
+                                        <node FOLDER="true" ID="3se3oq7ibcjd3tr4oddukheiqt" TEXT="order linkedin analyzer">
+                                            <font NAME="SansSerif" SIZE="10"/>
+                                        </node>
+                                    </node>
+                                </node>
+                            </node>
+                            <node ID="6dvr5to69jdo1afdometo1a2an" TEXT="pattern">
+                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^linkedin (analyzer|analyser|analisa|analisis|review)">
+                                    <font NAME="SansSerif" SIZE="10"/>
+                                </node>
+                                <node FOLDER="true" ID="11tptoi7t5t9rbtdgbka1a48nq" TEXT="^(analyzer|analyser|analisa|analisis|review) linkedin">
+                                    <font NAME="SansSerif" SIZE="10"/>
+                                </node>
+                            </node>
+                        </node>
+                    </node>
+                </node>
+                <node ID="5v1oq30h2tuogjl0jl0pd6e3e4" TEXT="Whatsapp Business API">
+                    <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="7uldlr2ukbr0vjuqmrgcn5gneq" TEXT="WhatsApp Business API official for messaging and automation.">
+                        <font NAME="SansSerif" SIZE="10"/>
+                    </node>
+                </node>
+            </node>
+            <node ID="3jb9nqipn2tj6sbo9fik73l9gf" TEXT="pattern">
+                <node FOLDER="true" ID="4eds0bhtb6idtgfh2np6o8jqtj" TEXT="^(produk|product) carik">
+                    <font NAME="SansSerif" SIZE="10"/>
+                </node>
+                <node FOLDER="true" ID="6ue6o7u314objbk2i980hg5fcs" TEXT="^apa saja (produk|product) carik">
+                    <font NAME="SansSerif" SIZE="10"/>
+                </node>
             </node>
         </node>
     </node>
