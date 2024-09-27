@@ -34,7 +34,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
 .
             </text>
         </hook>
-        <node ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="&#127782; Cuaca">
+        <node FOLDER="true" ID="193b56735e689ae86a01d91513" POSITION="right" TEXT="&#127782; Cuaca">
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="61lrimrpaj3e6ejcmn8shl9n9u" TEXT="Cuaca memang lagi tidak menentu. Hujan hampir tiap hari, panaspun seperti mantan yang dinanti. Cari informasi cuaca di kotamu di sini.">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
@@ -421,7 +421,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6b7udvl4fp73cg5fnmim9fhu64" TEXT="CARIK memiliki berapa produk unggulan khususnya yang berkaitan dengan AI (Artificial Intelegence).">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
-            <node FOLDER="true" ID="7k43i20jh4v6qtj5td5j5djf6m" TEXT="Action Type">
+            <node ID="7k43i20jh4v6qtj5td5j5djf6m" TEXT="Action Type">
                 <node FOLDER="true" ID="0dvd2p1gtuf90u51h4fsmccrdh" TEXT="button"/>
             </node>
             <node ID="6oami1g8rslk1j7r7n2rl8gdcv" TEXT="Action">
@@ -444,7 +444,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                     </node>
                     <node ID="3c1fr5jb7ep82ntrgqknpcr0jk" TEXT="Action">
                         <node ID="228g9lklkjagn595p78da1ek90" TEXT="LinkedIn Analyzer">
-                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="5fc2t7o80jp888otlkhjnccujm" TEXT="*Linkedin Analyzer*&#10;&#10;LinkedIn Analyzer siap membantu Kamu mengubah profil LinkedIn menjadi magnet peluang karir yang lebih menarik. Cukup kirimkan link profil Kamu, dan kami akan mengirimkan hasil analisis lengkap langsung ke email Kamu!&#10;&#10;*Apa yang Kamu dapatkan?*&#10;Kamu akan menerima rekomendasi spesial untuk headline, summary, hingga cara penulisan konten di bagian pengalaman kerja, semuanya dirancang untuk membuat profil Kamu lebih menonjol.&#10;&#10;Dengan harga yang menarik mulai dari 10 ribuan.">
+                            <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="5fc2t7o80jp888otlkhjnccujm" TEXT="*Linkedin Analyzer*&#10;&#10;CARIK siap membantu mengubah profil LinkedIn kamu menjadi magnet peluang karir yang lebih menarik. Cukup kirimkan link profil Kamu, dan kami akan mengirimkan hasil analisis lengkap langsung ke email Kamu!&#10;&#10;*Apa yang Kamu dapatkan?*&#10;Kamu akan menerima rekomendasi spesial untuk headline, summary, hingga cara penulisan konten di bagian pengalaman kerja, semuanya dirancang untuk membuat profil Kamu lebih menonjol.&#10;&#10;Dengan harga yang menarik mulai dari 11.000.&#10;&#10;Info lengkap di https://carik.id/tools/resume-analyzer/">
                                 <font NAME="SansSerif" SIZE="10"/>
                             </node>
                             <node ID="4p1r1b6btnqbf5a8fg10hbbiob" TEXT="Action Type">
@@ -463,7 +463,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 </node>
                             </node>
                             <node ID="6dvr5to69jdo1afdometo1a2an" TEXT="pattern">
-                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^linkedin (analyzer|analyser|analisa|analisis|review)">
+                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^(linkedin|resume|cv) (analyzer|analyser|analisa|analisis|review)">
                                     <font NAME="SansSerif" SIZE="10"/>
                                 </node>
                                 <node FOLDER="true" ID="11tptoi7t5t9rbtdgbka1a48nq" TEXT="^(analyzer|analyser|analisa|analisis|review) linkedin">
