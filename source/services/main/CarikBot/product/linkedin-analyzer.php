@@ -57,7 +57,8 @@ if (OK != @$RequestContentAsJson['data']['submit']){
   }
 
   $generalQuestion[] = AddQuestion('url', 'url', "Ketikkan *URL Profile Linkedin kamu*");
-  $generalQuestion[] = AddQuestion('email', 'email', "Email Anda");
+  $generalQuestion[] = AddQuestion('email', 'email', "*Email Anda:*\nHasil analisis akan dikirimkan ke email ini");
+  $generalQuestion[] = AddQuestion('string', 'voucher', "Kode Voucher\nKetik \"-\" jika tidak ada.");
 
   $questionData[] = $generalQuestion;
   $url = GetCurrentURL();
@@ -70,6 +71,8 @@ if (OK != @$RequestContentAsJson['data']['submit']){
 AddToLog($RequestContent);
 $Data = $RequestContentAsJson['data'];
 $ProfileURL = strtolower(@$Data['url']);
+$Voucher = strtolower(@$Data['voucher']);
+$Voucher = strtolower(trim($Voucher));
 $Email = @$Data['email'];
 if ((empty($ProfileURL)) or (empty($Email))){
   RichOutput(0, "Maaf, parameter untuk melakukan anilisis linkedin tidak lengkap.");
@@ -108,6 +111,13 @@ $sql .= "\nVALUES";
 $sql .= "\n($ClientId, '$UserId', 0, '$transactionId', '$Email', $DateAsInteger, '$description', '$propertiesAsJson', 2);";
 $q = @$DB->query($sql);
 
+// setup pricing
+$price = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['price'];
+$priceNet = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['price_net'];
+$voucherAmount = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['voucher'][$Voucher] + 0;
+$discount = $price * $voucherAmount / 100;
+$price = $price - $discount - rand(1, 100);
+
 // Add to Cart
 $url = ECOSYSTEM_BASEURL . "/Commerce/cart/";
 $url .= "?cmd=add";
@@ -117,8 +127,8 @@ $url .= "&type=";
 
 $postData = $RequestContentAsJson['data'];
 $postData['number'] = 1;
-$postData['price'] = 1500 - rand(0, 100);
-$postData['price_net'] = 1000;
+$postData['price'] = $price;
+$postData['price_net'] = $priceNet;
 $postData['trx_id'] = $transactionId;
 $postData['description'] = $productName;
 $postData['duration'] = INVOICE_DURATION;
