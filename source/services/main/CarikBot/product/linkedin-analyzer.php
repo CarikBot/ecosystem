@@ -75,6 +75,9 @@ if ((empty($ProfileURL)) or (empty($Email))){
   RichOutput(0, "Maaf, parameter untuk melakukan anilisis linkedin tidak lengkap.");
 }
 
+$parsed_url = parse_url($ProfileURL);
+$ProfileURL = $parsed_url['scheme'] . '://' . $parsed_url['host'] . $parsed_url['path'];
+
 if (!isStringExist('linkedin.com', $ProfileURL)){
   $text = "Maaf, URL profile harus ditulis lengkap, misal:";
   $text .= "\n https://www.linkedin.com/in/luridarmawan/";
@@ -114,7 +117,7 @@ $url .= "&type=";
 
 $postData = $RequestContentAsJson['data'];
 $postData['number'] = 1;
-$postData['price'] = 1500;
+$postData['price'] = 1500 - rand(0, 100);
 $postData['price_net'] = 1000;
 $postData['trx_id'] = $transactionId;
 $postData['description'] = $productName;
