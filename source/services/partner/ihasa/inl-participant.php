@@ -33,10 +33,14 @@ $participants = $participants['data'];
 $participantByPartner = [];
 foreach ($participants as $participant) {
   $clubIndex = "⋄ Lainnya";
+  $country = strtoupper(trim($participant['Asal Negara / Origin Country']));
   $club = strtoupper(trim($participant['Nama Klub / Club Name']));
   if (isStringExist('KPBI', $club)) $clubIndex = 'KPBI';
   if (isStringExist('PERDANA', $club)) $clubIndex = 'PERDANA';
   if (isStringExist('BANDI', $club)) $clubIndex = 'PERDANA';
+  if (isStringExist('KAHFI', $club)) $clubIndex = 'PERDANA';
+  if ($country == 'THAILAND') $clubIndex = 'THAILAND';
+  if ($country == 'MALAYSIA') $clubIndex = 'MALAYSIA';
   $participantByPartner[$clubIndex][] = $participant;
 }
 ksort($participantByPartner);

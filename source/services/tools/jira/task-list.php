@@ -5,6 +5,7 @@
  * USAGE:
  *   curl "http://ecosystem.carik.test/services/tools/jira/task-list/?package=&status="
  *   curl "http://ecosystem.carik.test/services/tools/jira/task-list/?package=amdalnetdev&status="
+ *   curl "http://ecosystem.carik.test/services/tools/jira/task-list/?full=1&package=amdalnetdev&status="
  *
  */
 ini_set('display_errors', 0);
@@ -13,6 +14,8 @@ ini_set('display_startup_errors', 0);
 require_once "../../lib/lib.php";
 require_once "../../config.php";
 
+$Full = @$_GET['full'];
+$Full = ($Full == 1) ? True : False;
 $Package = @urldecode(@$_GET['package']);
 $Status = @urldecode(@$_GET['status']);
 $Format = @urldecode(@$_GET['format']);
@@ -30,18 +33,18 @@ if ($Status == 'reject') $Status = 'Pending/Reject';
 $Text = "*Daftar Task/Issue Project -- ". strtoupper($Status) ." --".strtoupper($Package)."*\n";
 
 if (!empty($Status)){
-  $Text .= showIssues($Package, $Status);
+  $Text .= showIssues($Package, $Status, $Full);
 
 }else{
-  $Text .= showIssues($Package, 'in progress');
+  $Text .= showIssues($Package, 'in progress', $Full);
   $Text .= "\n";
-  $Text .= showIssues($Package, 'to do');
+  $Text .= showIssues($Package, 'to do', $Full);
 }
 
 // die($Text);
 RichOutput(0, $Text);
 
-function showIssues($APackage, $AStatus){
+function showIssues($APackage, $AStatus, $Full = false){
   $format = @urldecode(@$_GET['format']);
   $text = "\n☑️ *Status: ".strtoupper($AStatus)."*";
   $issues = getIssueList($APackage, $AStatus);
@@ -59,9 +62,11 @@ function showIssues($APackage, $AStatus){
       $text .= "\n$i. $key: [$title]($issueURL)";
     }
     $i++;
-    if ($i>10){
-      $text .= "\n...";
-      break;
+    if (!$Full){
+      if ($i>10){
+        $text .= "\n...";
+        break;
+      }
     }
   }
   return $text;
