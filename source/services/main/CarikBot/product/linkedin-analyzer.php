@@ -66,7 +66,8 @@ if (OK != @$RequestContentAsJson['data']['submit']){
   OutputQuestion( $text, $questionData, $url, 'LinkedIn Analyzer', 0, $options);
 }
 
-
+// Processing
+AddToLog($RequestContent);
 $Data = $RequestContentAsJson['data'];
 $ProfileURL = strtolower(@$Data['url']);
 $Email = @$Data['email'];
@@ -99,9 +100,9 @@ $properties = [
   ]
 ];
 $propertiesAsJson = json_encode($properties, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
-$sql = "INSERT INTO `product_orders` (`client_id`, `product_id`, `trx_id`, `ref_id`, `date`, `description`, `properties`, `status_id`) ";
+$sql = "INSERT INTO `product_orders` (`client_id`, `user_id`, `product_id`, `trx_id`, `ref_id`, `date`, `description`, `properties`, `status_id`) ";
 $sql .= "\nVALUES";
-$sql .= "\n($ClientId, 0, '$transactionId', '$Email', $DateAsInteger, '$description', '$propertiesAsJson', 2);";
+$sql .= "\n($ClientId, '$UserId', 0, '$transactionId', '$Email', $DateAsInteger, '$description', '$propertiesAsJson', 2);";
 $q = @$DB->query($sql);
 
 // Add to Cart

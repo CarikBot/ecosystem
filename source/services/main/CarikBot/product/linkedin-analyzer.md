@@ -4,3 +4,5 @@ LinkedIn Analyzer siap membantu Anda mengubah profil LinkedIn menjadi magnet pel
 
 *Apa yang Anda dapatkan?*
 Anda akan menerima rekomendasi spesial untuk headline, summary, hingga cara penulisan konten di bagian pengalaman kerja, semuanya dirancang untuk membuat profil Anda lebih menonjol.
+
+Informasi selengkapnya ada di https://carik.id/tools/resume-analyzer/
