@@ -117,6 +117,7 @@ $priceNet = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyz
 $voucherAmount = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['voucher'][$Voucher] + 0;
 $discount = $price * $voucherAmount / 100;
 $price = $price - $discount - rand(1, 100);
+if ($voucherAmount>0) $productName = "$productName ($Voucher)";
 
 // Add to Cart
 $url = ECOSYSTEM_BASEURL . "/Commerce/cart/";
