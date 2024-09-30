@@ -106,9 +106,10 @@ $properties = [
   ]
 ];
 $propertiesAsJson = json_encode($properties, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
-$sql = "INSERT INTO `product_orders` (`client_id`, `user_id`, `product_id`, `trx_id`, `ref_id`, `date`, `description`, `properties`, `status_id`) ";
+$voucherAsText = ($Voucher == '-') ? '' : $Voucher;
+$sql = "INSERT INTO `product_orders` (`client_id`, `user_id`, `product_id`, `trx_id`, `voucher`, `ref_id`, `date`, `description`, `properties`, `status_id`) ";
 $sql .= "\nVALUES";
-$sql .= "\n($ClientId, '$UserId', 0, '$transactionId', '$Email', $DateAsInteger, '$description', '$propertiesAsJson', 2);";
+$sql .= "\n($ClientId, '$UserId', 0, '$transactionId', '$voucherAsText', '$Email', $DateAsInteger, '$description', '$propertiesAsJson', 2);";
 $q = @$DB->query($sql);
 
 // setup pricing
@@ -117,6 +118,7 @@ $priceNet = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyz
 $voucherAmount = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['voucher'][$Voucher] + 0;
 $discount = $price * $voucherAmount / 100;
 $price = $price - $discount - rand(1, 100);
+if ($voucherAmount>0) $productName = "$productName ($Voucher)";
 
 // Add to Cart
 $url = ECOSYSTEM_BASEURL . "/Commerce/cart/";
@@ -125,6 +127,7 @@ $url .= "&checkout=1";
 $url .= "&gateway=2"; // force to PH
 $url .= "&type=";
 
+if ($Voucher == '-') $Voucher = '';
 $postData = $RequestContentAsJson['data'];
 $postData['number'] = 1;
 $postData['price'] = $price;
@@ -132,6 +135,7 @@ $postData['price_net'] = $priceNet;
 $postData['trx_id'] = $transactionId;
 $postData['description'] = $productName;
 $postData['duration'] = INVOICE_DURATION;
+$postData['voucher'] = $Voucher;
 $formatedPostData['data'] = $postData;
 $postData = json_encode($formatedPostData, true);
 $options = [
