@@ -456,7 +456,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                     <node ID="7t3dnflajbf3nr0o00sg857037" TEXT="pattern">
-                                        <node FOLDER="true" ID="3se3oq7ibcjd3tr4oddukheiqt" TEXT="order linkedin analyzer">
+                                        <node FOLDER="true" ID="3se3oq7ibcjd3tr4oddukheiqt" TEXT="order (linkedin|upwork|resume) analyzer">
                                             <font NAME="SansSerif" SIZE="10"/>
                                         </node>
                                     </node>
