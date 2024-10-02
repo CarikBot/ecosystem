@@ -47,10 +47,11 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 }
 
 if (OK != @$RequestContentAsJson['data']['submit']){
-  $text = "*Linkedin Analyzer*";
+  $text = "*Resume Analyzer (Linkedin & Upwork)*";
   $text .= "\nCarik memerlukan url linkedin/upwork dan email kamu untuk melakukan proses analisis.";
   $text .= "\nURL profile harus ditulis lengkap, misal:";
-  $text .= "\n https://www.linkedin.com/in/luridarmawan/";
+  $text .= "\n- linkedin: https://www.linkedin.com/in/luridarmawan/";
+  $text .= "\n- upwork: https://www.upwork.com/freelancers/~kodeuseranda";
   $text .= "\n.";
   if ($NoIntro != 1){
     $text = trim(file_get_contents("linkedin-analyzer.md"));
