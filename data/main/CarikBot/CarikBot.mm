@@ -463,10 +463,10 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 </node>
                             </node>
                             <node ID="6dvr5to69jdo1afdometo1a2an" TEXT="pattern">
-                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^(linkedin|resume|cv) (analyzer|analyser|analisa|analisis|review)">
+                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^(linkedin|upwork|resume|cv) (analyzer|analyser|analisa|analisis|review)">
                                     <font NAME="SansSerif" SIZE="10"/>
                                 </node>
-                                <node FOLDER="true" ID="11tptoi7t5t9rbtdgbka1a48nq" TEXT="^(analyzer|analyser|analisa|analisis|review) linkedin">
+                                <node FOLDER="true" ID="11tptoi7t5t9rbtdgbka1a48nq" TEXT="^(analyzer|analyser|analisa|analisis|review) (linkedin|upwork)">
                                     <font NAME="SansSerif" SIZE="10"/>
                                 </node>
                             </node>
