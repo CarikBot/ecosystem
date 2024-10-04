@@ -63,7 +63,7 @@ if (OK != @$RequestContentAsJson['data']['submit']){
     $text = trim(file_get_contents("linkedin-analyzer.md"));
     $text = str_replace("\r\n", "\n", $text);
   }
-  $text .= "\n_Ini adalah layanan berbayar dengan biaya Rp. " . @number_format($price, 0,',','.') . "_";
+  $text .= "\n_*Ini adalah layanan berbayar dengan biaya Rp. " . @number_format($price, 0,',','.') . "_";
 
   $generalQuestion[] = AddQuestion('url', 'url', "Ketikkan *URL Profile Linkedin/Upwork kamu*");
   $generalQuestion[] = AddQuestion('email', 'email', "*Email Anda:*\nHasil analisis akan dikirimkan ke email ini");
