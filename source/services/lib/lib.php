@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.30
+ * @version    3.0.31
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -27,6 +27,7 @@
  *   - add suffix/prefix in json question
  *   - Rate Limit with Redis
  *   - format cache file name
+ *   - generate random string
  */
 
 const OK = 'OK';
@@ -384,6 +385,10 @@ function TitleCase($string)
     },
     mb_convert_case($string, MB_CASE_TITLE, 'UTF-8')
   );
+}
+
+function RandomString($length = 10) {
+  return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
 
 /**
