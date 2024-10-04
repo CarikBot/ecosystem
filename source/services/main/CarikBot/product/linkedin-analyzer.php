@@ -42,6 +42,12 @@ $DateAsInteger = strtotime($Date);
 $userInfo = @explode('-', $UserId);
 $phone = @$userInfo[1];
 
+// pricing info
+$service = "linkedin"; // bypass dulu
+$productInfo = @$Config['packages']['main']['CarikBot']['product'][$service."_analyzer"];
+$price = @$productInfo['price'];
+
+
 if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
   RichOutput(0, "Pengisian form Linkedin Analyzer telah dibatalkan.\nTerima kasih.");
 }
@@ -52,11 +58,12 @@ if (OK != @$RequestContentAsJson['data']['submit']){
   $text .= "\nURL profile harus ditulis lengkap, misal:";
   $text .= "\n- linkedin: https://www.linkedin.com/in/luridarmawan/";
   $text .= "\n- upwork: https://www.upwork.com/freelancers/~kodeuseranda";
-  $text .= "\n.";
+  $text .= "\n";
   if ($NoIntro != 1){
     $text = trim(file_get_contents("linkedin-analyzer.md"));
     $text = str_replace("\r\n", "\n", $text);
   }
+  $text .= "\n_Ini adalah layanan berbayar dengan biaya Rp. " . @number_format($price, 0,',','.') . "_";
 
   $generalQuestion[] = AddQuestion('url', 'url', "Ketikkan *URL Profile Linkedin/Upwork kamu*");
   $generalQuestion[] = AddQuestion('email', 'email', "*Email Anda:*\nHasil analisis akan dikirimkan ke email ini");
