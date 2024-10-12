@@ -64,6 +64,7 @@ if (OK != @$RequestContentAsJson['data']['submit']){
     $text = str_replace("\r\n", "\n", $text);
   }
   $text .= "\n_*Ini adalah layanan berbayar dengan biaya Rp. " . @number_format($price, 0,',','.') . "_";
+  $text .= "\n.";
 
   $generalQuestion[] = AddQuestion('url', 'url', "Ketikkan *URL Profile Linkedin/Upwork kamu*");
   $generalQuestion[] = AddQuestion('email', 'email', "*Email Anda:*\nHasil analisis akan dikirimkan ke email ini");
@@ -144,7 +145,7 @@ $q = @$DB->query($sql);
 $productInfo = @$Config['packages']['main']['CarikBot']['product'][$service."_analyzer"];
 $price = @$productInfo['price'];
 $priceNet = @$productInfo['price_net'];
-$voucherAmount = @$productInfo['voucher'][$Voucher] + 0;
+$voucherAmount = ($Voucher == '-') ? 0 : @$productInfo['voucher'][$Voucher] + 0;
 
 $discount = $price * $voucherAmount / 100;
 $price = $price - $discount - rand(1, 100);
