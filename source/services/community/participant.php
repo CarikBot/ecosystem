@@ -98,8 +98,8 @@ function ShowINL2Participant($Data){
     }
   }
 
-  $text .= "\n";
-  $text .= ($total ==0)? "Belum ada peserta yang terdaftar." : "\nTotal $total peserta.";
+  $prefix = ($total ==0)? "\nBelum ada peserta yang terdaftar." : "Total $total peserta.";
+  $text = "$prefix.\n$text";
   return $text;
 }
 
@@ -129,7 +129,7 @@ function ShowPreEventBotParticipant($Data){
     }
   }
 
-  $text .= "\n";
-  $text .= "\nTotal $total peserta.";
+  $prefix = ($total ==0)? "Belum ada peserta yang terdaftar." : "Total $total peserta.";
+  $text = "\n$prefix.$text";
   return $text;
 }
