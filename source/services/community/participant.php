@@ -19,6 +19,7 @@ $EventName = str_replace('%eventName_value%', '', $EventName);
 
 // mapping
 if ($EventName == "bot") $EventName = "Pre Event BOT";
+if ($EventName == "inl") $EventName = "INL 2";
 
 if (empty($EventName)){
   $buttons = [];
@@ -36,6 +37,7 @@ $EventNameIndex = strtolower($EventName);
 $sheet_name = @$Config['packages']['community']["event_list"][$EventNameIndex]["sheet_name"];
 $sheet_url = @$Config['packages']['community']["event_list"][$EventNameIndex]["sheet_url"];
 $useSheet = @$Config['packages']['community']["event_list"][$EventNameIndex]["use_sheet"];
+$eventTitle = @$Config['packages']['community']["event_list"][$EventNameIndex]["title"];
 if ((empty($sheet_name)) or (empty($sheet_url))){
   RichOutput(0, "Nama event '$EventName' tidak saya temukan.");
 }
@@ -60,12 +62,46 @@ if (isset($dataAsJson["text"])){
   RichOutput(0, $dataAsJson["text"]);
 }
 
-$Text = "*Daftar Peserta $EventName*";
+$Text = "*Daftar Peserta $eventTitle*";
 if ($EventNameIndex == "pre event bot") $Text .= ShowPreEventBotParticipant($dataAsJson);
+if ($EventNameIndex == "inl 2") $Text .= ShowINL2Participant($dataAsJson);
 
 // die($Text);
 RichOutput(0, $Text);
 
+// INL #2
+function ShowINL2Participant($Data){
+  $text = "";
+  $groupByBranch = [];
+  $data = $Data['data'];
+  $groupIndex = "Nama Klub / Club Name";
+  $participantNameIndex = "Nama Rider / Rider Name (Full Name)";
+
+  // group by branch
+  foreach ($data as $item) {
+    if (!isset($item[$groupIndex])) continue;
+    $branchName = trim(strtoupper($item[$groupIndex]));
+    if (empty($branchName)) continue;
+    $groupByBranch[$branchName][$item[$participantNameIndex]] = $item;
+  }
+  ksort($groupByBranch);
+
+  $total = 0;
+  foreach ($groupByBranch as $branchName => $participants) {
+    $text .= "\n\n> *$branchName*";
+    ksort($participants);
+    $index = 1;
+    foreach ($participants as $name => $participant) {
+      $text .= "\n$index. $name";
+      $index++;
+      $total++;
+    }
+  }
+
+  $text .= "\n";
+  $text .= ($total ==0)? "Belum ada peserta yang terdaftar." : "\nTotal $total peserta.";
+  return $text;
+}
 
 // Pre Event BOT
 function ShowPreEventBotParticipant($Data){
