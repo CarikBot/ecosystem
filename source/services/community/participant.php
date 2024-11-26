@@ -98,8 +98,8 @@ function ShowINL2Participant($Data){
     }
   }
 
-  $prefix = ($total ==0)? "\nBelum ada peserta yang terdaftar." : "Total $total peserta.";
-  $text = "$prefix.\n$text";
+  $prefix = ($total ==0)? "Belum ada peserta yang terdaftar." : "Total $total peserta.";
+  $text = "\n$prefix.\n$text";
   return $text;
 }
 
