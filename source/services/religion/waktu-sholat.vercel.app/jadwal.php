@@ -52,7 +52,7 @@ if (count($cityInfo) == 1){
   $lat = $cityInfo[0]['coordinate']['latitude'];
   $lon = $cityInfo[0]['coordinate']['longitude'];
 }else{
-  $Text .= "\nDitemukan kota:";
+  $Text .= "\nDitemukan wilayah:";
   $cityName = "";
   foreach ($cityInfo as $city) {
     $Text .= "\n - $city[name]";
