@@ -1,2 +1,2 @@
 <?php
-header("location: https://ecosystem.carik.id");
+header("location: https://carik.id");

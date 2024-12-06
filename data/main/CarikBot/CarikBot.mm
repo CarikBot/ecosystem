@@ -5,18 +5,17 @@
             <text>
                 Hi, Selamat %time_session%
 
-Sementara ini saya baru bisa merespon pertanyaan Anda secara sederhana,
+Saya Carik, chatbot pioner sebelum era GPT datang.
+Saat ini saya baru bisa merespon pertanyaan Anda secara sederhana,
 secara umum saya baru bisa: info hari dan jam, jadwal sholat, berhitung, arti kata, cari lokasi
 
 contoh ucapannya sepert ini
 ```
-#&gt; bot, sekarang jam berapa?
 #&gt; jadwal sholat
 #&gt; coba hitung 1*1
 #&gt; artinya kehidupan
 #&gt; cari lokasi (atm,hotel,restoran,terminal,klinik,busway,dll)
 #&gt; hotel di jalan sudirman jakarta
-#&gt; arah ke monas jakarta
 #&gt; info gempa
 #&gt; stok darah
 ```
@@ -27,7 +26,6 @@ Carik saat ini baru tersedia di:
 - FB Page, fb.me/Carik.Bot
 - Line, page.line.me/oev6975y
 - Instagram, instagram.com/carikbot/
-- Android App, carik.id/app
 
 Oiyaa... 
 Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
@@ -313,7 +311,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                             </node>
                             <node ID="0a318rreqrubq75ujfu2gggfug" TEXT="Action">
                                 <node FOLDER="true" ID="57d86af0u77klc8mtf433slf3l" TEXT="Ya, bayar">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="0klqqbr2b1qbjbbv0grddcq5us" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=10000&amp;random=0&amp;description=Donasi+10rb">
+                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="0klqqbr2b1qbjbbv0grddcq5us" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=10000&amp;trx_id=DNS&amp;prefix=DNS&amp;random=0&amp;description=Donasi+10rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -330,8 +328,8 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                 <node FOLDER="true" ID="5i8u1ku8383bf8nftd8si5smut" TEXT="button"/>
                             </node>
                             <node ID="61ougbrj4cvmj5dmcraqcm0nj9" TEXT="Action">
-                                <node ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ya, bayar">
-                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="7vn986nrhaisltgqcgklrdfsce" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=25000&amp;random=0&amp;description=Donasi+25rb">
+                                <node FOLDER="true" ID="2qmq9j2t67dedt0253sel3tnhb" TEXT="Ya, bayar">
+                                    <node BACKGROUND_COLOR="#EEEEEE" FOLDER="true" ID="7vn986nrhaisltgqcgklrdfsce" TEXT="{ecosystem_baseurl}/Commerce/cart/?cmd=add&amp;checkout=1&amp;gateway=2&amp;number=1&amp;price=25000&amp;trx_id=DNS&amp;prefix=DNS&amp;random=0&amp;description=Donasi+25rb">
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                 </node>
@@ -417,7 +415,7 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                 <node FOLDER="true" ID="640o396am4sbb05r19v7qdnjuo" TEXT="info (sehat|kesehatan)"/>
             </node>
         </node>
-        <node ID="7nn1rq7j0pmknnp0ambobkjfl2" POSITION="left" TEXT="Produk">
+        <node FOLDER="true" ID="7nn1rq7j0pmknnp0ambobkjfl2" POSITION="left" TEXT="Produk">
             <node BACKGROUND_COLOR="#F2F2F2" FOLDER="true" ID="6b7udvl4fp73cg5fnmim9fhu64" TEXT="CARIK memiliki berapa produk unggulan khususnya yang berkaitan dengan AI (Artificial Intelegence).">
                 <font NAME="SansSerif" SIZE="10"/>
             </node>
@@ -456,17 +454,17 @@ Selain dengan percakapan, kamu juga bisa memilih menu di bawah ini.
                                         <font NAME="SansSerif" SIZE="10"/>
                                     </node>
                                     <node ID="7t3dnflajbf3nr0o00sg857037" TEXT="pattern">
-                                        <node FOLDER="true" ID="3se3oq7ibcjd3tr4oddukheiqt" TEXT="order linkedin analyzer">
+                                        <node FOLDER="true" ID="3se3oq7ibcjd3tr4oddukheiqt" TEXT="order (linkedin|upwork|resume) analyzer">
                                             <font NAME="SansSerif" SIZE="10"/>
                                         </node>
                                     </node>
                                 </node>
                             </node>
                             <node ID="6dvr5to69jdo1afdometo1a2an" TEXT="pattern">
-                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^(linkedin|resume|cv) (analyzer|analyser|analisa|analisis|review)">
+                                <node FOLDER="true" ID="2p3nluvv1rtgveeqll31lnscv9" TEXT="^(linkedin|upwork|resume|cv) (analyzer|analyser|analisa|analisis|review)">
                                     <font NAME="SansSerif" SIZE="10"/>
                                 </node>
-                                <node FOLDER="true" ID="11tptoi7t5t9rbtdgbka1a48nq" TEXT="^(analyzer|analyser|analisa|analisis|review) linkedin">
+                                <node FOLDER="true" ID="11tptoi7t5t9rbtdgbka1a48nq" TEXT="^(analyzer|analyser|analisa|analisis|review) (linkedin|upwork)">
                                     <font NAME="SansSerif" SIZE="10"/>
                                 </node>
                             </node>

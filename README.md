@@ -3,7 +3,7 @@
 **Carik Bot Microservices Ecosystem** adalah suatu sistem yang berisi kumpulan _microservice_ yang menjadi pendukung dari layanan _chatbot_ [Carik](https://carik.id).
 
 Ilustrasi ini menggambarkan _service-service_ yang terhubung di dalam **Platform Carik Bot**, masing-masing terhubung dalam baik untuk mode _conversational_ maupun _menu-based_.
- 
+
 ![Ecosystem](images/Carik-Bot-Microservices-Ecosystem.png)
 
 Platform Carik Bot memberikan kesempatan kepada para developer untuk menghubungkan layanan-nya ke dalam ChatBot, khususnya untuk _menu-based chatbot_. Sangat mudah, bahkan nyaris **tanpa _coding_**. Cukup dengan membuat desain dan struktur _mind flow_-nya dengan aplikasi _mind mapper_, selanjutnya biarkan Carik yang bekerja.
@@ -46,7 +46,7 @@ Jika menemukan bug atau ada ide yang menarik, anda bisa [sampaikan kepada kami](
 
 ***
 
-### Definisi 
+### Definisi
 
 Beberapa pengertian terhadap kata yang disampaikan berulang di dokumen ini:
 
@@ -65,7 +65,7 @@ Sebagian kode sumber _microservice_ yang ada saat ini, dan yang berlisensi terbu
 
 Kami menerima donasi. Donasi akan digunakan untuk pengembangan dan memastikan layanan [Carik Bot](https://carik.id) dan [Carik Ecosystem](https://github.com/CarikBot/ecosystem/) tetap berjalan.
 
-Pemberian donasi bisa dilakukan melalui chat langsung ke Carik Bot di: 
+Pemberian donasi bisa dilakukan melalui chat langsung ke Carik Bot di:
 
  - [Telegram](https://t.me/carikBot?start=donasi)
  - [Facebook Messenger](https://m.me/Carik.Bot?ref=donasi)
@@ -78,6 +78,16 @@ dengan mengirim isi pesan `donasi`.
 Atau bisa melalui [Halaman Sponsor untuk Luri Darmawan](https://github.com/sponsors/luridarmawan/).
 
 ![donation](images/donation.jpg)
+
+## Contributors
+
+Thanks goes to these wonderful people
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+[![Contributors](https://contrib.rocks/image?repo=CarikBot/ecosystem)](https://github.com/CarikBot/ecosystem//graphs/contributors)
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+
 
 ## Credits
 

@@ -44,7 +44,7 @@ if ('OK' == @$RequestContentAsJson['data']['submit']){
   $nominal = str_replace(',', '',@$Data['nominal']);
   $nominal = str_replace('.', '', $nominal)+0;
 
-  $url = ECOSYSTEM_BASEURL."/Commerce/cart/?cmd=add&checkout=1&gateway=2&number=1&price=$nominal&description=Kustom+Donasi+$nominal";
+  $url = ECOSYSTEM_BASEURL."/Commerce/cart/?cmd=add&checkout=1&gateway=2&number=1&price=$nominal&trx_id=DNS&description=Kustom+Donasi+$nominal";
   $postData["UserID"] = $UserId;
   $postData["FullName"] = urldecode($FullName);
   $postData = http_build_query($postData);

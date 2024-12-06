@@ -28,6 +28,7 @@ ini_set("allow_url_fopen", 1);
 
 const __USEDB__ = true;
 const INVOICE_DURATION = 15*60; // 15 minutes
+const LANGUAGE = ['Indonesia', 'English'];
 
 require_once "../../../lib/lib.php";
 require_once "../../../config.php";
@@ -41,23 +42,33 @@ $DateAsInteger = strtotime($Date);
 $userInfo = @explode('-', $UserId);
 $phone = @$userInfo[1];
 
+// pricing info
+$service = "linkedin"; // bypass dulu
+$productInfo = @$Config['packages']['main']['CarikBot']['product'][$service."_analyzer"];
+$price = @$productInfo['price'];
+
+
 if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
   RichOutput(0, "Pengisian form Linkedin Analyzer telah dibatalkan.\nTerima kasih.");
 }
 
 if (OK != @$RequestContentAsJson['data']['submit']){
-  $text = "*Linkedin Analyzer*";
-  $text .= "\nCarik memerlukan url linkedin dan email kamu untuk melakukan proses analisis.";
+  $text = "*Resume Analyzer (Linkedin & Upwork)*";
+  $text .= "\nCarik memerlukan url linkedin/upwork dan email kamu untuk melakukan proses analisis.";
   $text .= "\nURL profile harus ditulis lengkap, misal:";
-  $text .= "\n https://www.linkedin.com/in/luridarmawan/";
-  $text .= "\n.";
+  $text .= "\n- linkedin: https://www.linkedin.com/in/luridarmawan/";
+  $text .= "\n- upwork: https://www.upwork.com/freelancers/~kodeuseranda";
+  $text .= "\n";
   if ($NoIntro != 1){
     $text = trim(file_get_contents("linkedin-analyzer.md"));
     $text = str_replace("\r\n", "\n", $text);
   }
+  $text .= "\n_*Ini adalah layanan berbayar dengan biaya Rp. " . @number_format($price, 0,',','.') . "_";
+  $text .= "\n.";
 
-  $generalQuestion[] = AddQuestion('url', 'url', "Ketikkan *URL Profile Linkedin kamu*");
+  $generalQuestion[] = AddQuestion('url', 'url', "Ketikkan *URL Profile Linkedin/Upwork kamu*");
   $generalQuestion[] = AddQuestion('email', 'email', "*Email Anda:*\nHasil analisis akan dikirimkan ke email ini");
+  $generalQuestion[] = AddQuestion('option', 'language', "Bahasa yang akan digunakan di dalam hasil analisis", ["options"=>LANGUAGE]);
   $generalQuestion[] = AddQuestion('string', 'voucher', "Kode Voucher\nKetik \"-\" jika tidak ada.");
 
   $questionData[] = $generalQuestion;
@@ -74,14 +85,17 @@ $ProfileURL = strtolower(@$Data['url']);
 $Voucher = strtolower(@$Data['voucher']);
 $Voucher = strtolower(trim($Voucher));
 $Email = @$Data['email'];
+$Language = @$Data['language'];
 if ((empty($ProfileURL)) or (empty($Email))){
-  RichOutput(0, "Maaf, parameter untuk melakukan anilisis linkedin tidak lengkap.");
+  RichOutput(0, "Maaf, parameter untuk melakukan anilisis tidak lengkap.");
 }
+
+$Language = strtolower(LANGUAGE[$Language-1]);
 
 $parsed_url = parse_url($ProfileURL);
 $ProfileURL = $parsed_url['scheme'] . '://' . $parsed_url['host'] . $parsed_url['path'];
 
-if (!isStringExist('linkedin.com', $ProfileURL)){
+if (!( (isStringExist('linkedin.com', $ProfileURL)) || (isStringExist('upwork.com', $ProfileURL)))){
   $text = "Maaf, URL profile harus ditulis lengkap, misal:";
   $text .= "\n https://www.linkedin.com/in/luridarmawan/";
 
@@ -92,17 +106,32 @@ if (!isStringExist('linkedin.com', $ProfileURL)){
   RichOutput(0, $text, $actions);
 }
 
-preg_match('/linkedin\.com\/in\/([^\/]+)/', $ProfileURL, $matches);
-$LinkedInUserId = $matches[1];
-// $transactionId = "PLA01.$LinkedInUserId.$DateAsInteger";
-$transactionId = "PLA.01.$DateAsInteger".substr(trim(strtoupper($FullName)), 0,1);
-$productName = urlencode('Linkedin Analyzer');
+$service = "";
+if (preg_match("/^(?:https?:\/\/)?(?:www\.)?(?:[^\/:?#]+\.)?([^\/:?#]+)\.[a-z]{2,6}(?:[\/:?#]|$)/i", $ProfileURL, $matches)) {
+  $service = @$matches[1];
+}
 
-$description = "Linkedin Analyzer: $LinkedInUserId";
+$serviceName = ucwords($service);
+if ($service == "linkedin"){
+  preg_match('/linkedin\.com\/in\/([^\/]+)/', $ProfileURL, $matches);
+  $serviceUserId = @$matches[1];
+}
+if ($service == "upwork"){
+  preg_match('/upwork\.com\/freelancers\/~([^\/]+)/', $ProfileURL, $matches);
+  $serviceUserId = @$matches[1];
+}
+
+// $transactionId = "PLA01.$serviceUserId.$DateAsInteger";
+$transactionId = "PLA.01.$DateAsInteger".substr(trim(strtoupper($FullName)), 0,1);
+$productName = urlencode("Resume Analyzer $serviceName");
+
+$description = "$serviceName Analyzer: $serviceUserId";
 $properties = [
   "request" => [
     "profile_url" => $ProfileURL,
     "email" => $Email,
+    "language" => $Language,
+    "service" => $service
   ]
 ];
 $propertiesAsJson = json_encode($properties, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
@@ -113,9 +142,11 @@ $sql .= "\n($ClientId, '$UserId', 0, '$transactionId', '$voucherAsText', '$Email
 $q = @$DB->query($sql);
 
 // setup pricing
-$price = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['price'];
-$priceNet = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['price_net'];
-$voucherAmount = @$Config['packages']['main']['CarikBot']['product']['linkedin_analyzer']['voucher'][$Voucher] + 0;
+$productInfo = @$Config['packages']['main']['CarikBot']['product'][$service."_analyzer"];
+$price = @$productInfo['price'];
+$priceNet = @$productInfo['price_net'];
+$voucherAmount = ($Voucher == '-') ? 0 : @$productInfo['voucher'][$Voucher] + 0;
+
 $discount = $price * $voucherAmount / 100;
 $price = $price - $discount - rand(1, 100);
 if ($voucherAmount>0) $productName = "$productName ($Voucher)";

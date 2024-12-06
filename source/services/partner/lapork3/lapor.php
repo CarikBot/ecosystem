@@ -1,6 +1,6 @@
 <?php
 /**
- * LINKEDIN ANALYZER
+ * Lapor K3 (demo)
  *
  * USAGE:
  *   curl "http://ecosystem.carik.test/services/partner/lapork3/lapor/"
