@@ -76,12 +76,21 @@ function ShowINL2Participant($Data){
   $data = $Data['data'];
   $groupIndex = "Nama Klub / Club Name";
   $participantNameIndex = "Nama Rider / Rider Name (Full Name)";
+  $classIndex = "Kelas / Class";
+
+  $class['junior'] = 0;
+  $class['senior'] = 0;
 
   // group by branch
   foreach ($data as $item) {
     if (!isset($item[$groupIndex])) continue;
     $branchName = trim(strtoupper($item[$groupIndex]));
+    $className = trim(strtoupper($item[$classIndex]));
+    $status = trim(strtolower(@$item['Status']));
     if (empty($branchName)) continue;
+    if (in_array($status, ['duplikat', 'duplicate', 'delete', 'hapus', 'batal', 'cancel'])) continue;
+    if (preg_match('/junior/i', $className) === 1) $class['junior'] = $class['junior'] + 1;
+    if (preg_match('/senior/i', $className) === 1) $class['senior'] = $class['senior'] + 1;
     $groupByBranch[$branchName][$item[$participantNameIndex]] = $item;
   }
   ksort($groupByBranch);
@@ -99,7 +108,9 @@ function ShowINL2Participant($Data){
   }
 
   $prefix = ($total ==0)? "Belum ada peserta yang terdaftar." : "Total $total peserta.";
+  $prefix .= "\n$class[senior] senior, $class[junior] junior.";
   $text = "\n$prefix.\n$text";
+
   return $text;
 }
 
