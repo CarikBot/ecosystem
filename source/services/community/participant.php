@@ -86,7 +86,9 @@ function ShowINL2Participant($Data){
     if (!isset($item[$groupIndex])) continue;
     $branchName = trim(strtoupper($item[$groupIndex]));
     $className = trim(strtoupper($item[$classIndex]));
+    $status = trim(strtolower(@$item['Status']));
     if (empty($branchName)) continue;
+    if (in_array($status, ['duplikat', 'duplicate', 'delete', 'hapus', 'batal', 'cancel'])) continue;
     if (preg_match('/junior/i', $className) === 1) $class['junior'] = $class['junior'] + 1;
     if (preg_match('/senior/i', $className) === 1) $class['senior'] = $class['senior'] + 1;
     $groupByBranch[$branchName][$item[$participantNameIndex]] = $item;
