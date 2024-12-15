@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.33
+ * @version    3.0.34
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -31,6 +31,7 @@
  *   - Download file
  *   - RemoveTokenParameter
  *   - IsURL
+ *   - IsIPAddress
  */
 
 const OK = 'OK';
@@ -205,6 +206,21 @@ function GetCurrentURL(){
 function isURL($AText){
   return filter_var($AText, FILTER_VALIDATE_URL);
   //return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
+}
+
+function IsIPAddress($ip){
+  $ipv4_regex = '/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/';
+  $ipv6_regex = '/^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/';
+  $ip = trim($ip);
+
+  // Periksa apakah IP adalah IPv4 atau IPv6
+  if (preg_match($ipv4_regex, $ip)) {
+      return 'IPv4';
+  } elseif (preg_match($ipv6_regex, $ip)) {
+      return 'IPv6';
+  }
+
+  return false;
 }
 
 function SendAndAbort($content){
