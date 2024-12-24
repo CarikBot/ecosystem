@@ -35,6 +35,7 @@ if ($City==='solo'){$City='surakarta';}
 if ($City==='jogja'){$City='yogyakarta';}
 if ($City==='yogya'){$City='yogyakarta';}
 if ($City==='pekanbaru'){$City='pekan baru';}
+if ($City==='bukit tinggi'){$City='bukittinggi';}
 
 $Text = "*Jadwal Sholat*";
 $Text .= "\n$hijriah";
