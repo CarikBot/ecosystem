@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.25
+ * @version    3.0.34
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -22,6 +22,16 @@
  *   - get client id from payload
  *   - send abort for array content
  *   - files in action
+ *   - optional parameter di AddQuestion
+ *   - cancelation keyword for form handler
+ *   - add suffix/prefix in json question
+ *   - Rate Limit with Redis
+ *   - format cache file name
+ *   - generate random string
+ *   - Download file
+ *   - RemoveTokenParameter
+ *   - IsURL
+ *   - IsIPAddress
  */
 
 const OK = 'OK';
@@ -141,7 +151,7 @@ function OutputWithReaction($ACode, $AMessage, $AReaction){
   Output( $ACode, $AMessage, 'text', null, '', '', '', '', false, 0, $AReaction);
 }
 
-function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0){
+function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0, $AOptions = []){
   @header("Content-type:application/json");
   $output['code'] = 0;
   $output['text'] = $AText;
@@ -152,6 +162,12 @@ function OutputQuestion($AText, $AACtion, $AURL, $AFormName = '', $AWeight = 0){
   $output['action']['platform'] = 'generic';
   $output['action']['url'] = $AURL;
   $output['action']['data'] = $AACtion;
+
+  if (count($AOptions)>0){
+    if (isset($AOptions['cancelation_keyword'])) $output['action']['cancelation_keyword'] = $AOptions['cancelation_keyword'];
+    if (isset($AOptions['suffix'])) $output['suffix'] = $AOptions['suffix'];
+    if (isset($AOptions['prefix'])) $output['prefix'] = $AOptions['prefix'];
+  }
 
   $output = json_encode($output, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
   die($output);
@@ -187,6 +203,26 @@ function GetCurrentURL(){
   return $url;
 }
 
+function isURL($AText){
+  return filter_var($AText, FILTER_VALIDATE_URL);
+  //return preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url);
+}
+
+function IsIPAddress($ip){
+  $ipv4_regex = '/^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/';
+  $ipv6_regex = '/^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/';
+  $ip = trim($ip);
+
+  // Periksa apakah IP adalah IPv4 atau IPv6
+  if (preg_match($ipv4_regex, $ip)) {
+      return 'IPv4';
+  } elseif (preg_match($ipv6_regex, $ip)) {
+      return 'IPv6';
+  }
+
+  return false;
+}
+
 function SendAndAbort($content){
   ignore_user_abort(true);
   set_time_limit(0);
@@ -204,6 +240,112 @@ function SendAndAbort($content){
   if (function_exists('fastcgi_finish_request')) {
     fastcgi_finish_request();
   }
+}
+
+/**
+ * Download file menggunakan cURL
+ *
+ * @param string $AURL URL file yang akan didownload
+ * @param string $ATargetPath Path target penyimpanan file (opsional)
+ * @return bool|string True jika sukses disimpan, string konten file jika tidak ada target path
+ */
+function DownloadFile($AURL, $ATargetPath = "") {
+  // Inisialisasi cURL
+  $ch = curl_init();
+
+  // Konfigurasi cURL
+  curl_setopt($ch, CURLOPT_URL, $AURL);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+  curl_setopt($ch, CURLOPT_MAXREDIRS, 5);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+  curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
+
+  // Eksekusi download
+  $fileContents = curl_exec($ch);
+
+  // Periksa error
+  if (curl_errno($ch)) {
+      curl_close($ch);
+      return false;
+  }
+
+  // Dapatkan HTTP status code
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+  curl_close($ch);
+
+  // Periksa status code
+  if ($httpCode !== 200) {
+      return false;
+  }
+
+  // Jika path target disediakan, simpan file
+  if (!empty($ATargetPath)) {
+      // Pastikan direktori tersedia
+      $directory = dirname($ATargetPath);
+      if (!file_exists($directory)) {
+          mkdir($directory, 0755, true);
+      }
+
+      // Simpan file
+      $result = file_put_contents($ATargetPath, $fileContents);
+      return $result !== false;
+  }
+
+  // Kembalikan konten file jika tidak ada path target
+  return $fileContents;
+}
+
+/**
+ * Menghapus parameter 'token' dari URL
+ *
+ * @param string $url URL yang akan diproses
+ * @return string URL tanpa parameter token
+ */
+function RemoveTokenParameter($url, $AQuery) {
+  // Pisahkan URL menjadi bagian path dan query string
+  $urlParts = parse_url($url);
+
+  // Jika tidak ada query string, kembalikan URL asli
+  if (!isset($urlParts['query'])) {
+      return $url;
+  }
+
+  // Parse query string menjadi array
+  parse_str($urlParts['query'], $queryParams);
+
+  // Hapus parameter
+  unset($queryParams[$AQuery]);
+
+  // Rebuild query string
+  $newQuery = http_build_query($queryParams);
+
+  // Rebuild URL
+  $newUrl = '';
+
+  // Tambahkan skema (http/https) jika ada
+  if (isset($urlParts['scheme'])) {
+      $newUrl .= $urlParts['scheme'] . '://';
+  }
+
+  // Tambahkan host
+  if (isset($urlParts['host'])) {
+      $newUrl .= $urlParts['host'];
+  }
+
+  // Tambahkan path
+  if (isset($urlParts['path'])) {
+      $newUrl .= $urlParts['path'];
+  }
+
+  // Tambahkan query string jika ada
+  if (!empty($newQuery)) {
+      $newUrl .= '?' . $newQuery;
+  }
+
+  return $newUrl;
 }
 
 function isGroupChat(){
@@ -375,6 +517,10 @@ function TitleCase($string)
   );
 }
 
+function RandomString($length = 10) {
+  return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
+
 /**
  * Convert HTML tag OL to plain text numbering
  * USAGE:
@@ -445,8 +591,10 @@ function AddToLog( $AText, $AFileLog = ""){
   }
 }
 
-function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache'){
-  $fileName = "$APath/$AName.txt";
+function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache', $AExtension = 'txt'){
+  $AName = str_replace('https://', '', $AName);
+  $AName = str_replace('/', '-', $AName);
+  $fileName = "$APath/$AName.$AExtension";
   if (!file_exists($fileName)){
       return '';
   }
@@ -457,8 +605,10 @@ function readCache( $AName, $AAgeInMinute = 30, $APath = 'cache'){
 
   return readTextFile( $fileName);
 }
-function writeCache( $AName, $AText, $APath = 'cache'){
-  $fileName = "$APath/$AName.txt";
+function writeCache( $AName, $AText, $APath = 'cache', $AExtension = 'txt'){
+  $AName = str_replace('https://', '', $AName);
+  $AName = str_replace('/', '-', $AName);
+  $fileName = "$APath/$AName.$AExtension";
   writeTextFile( $fileName, $AText);
 }
 
@@ -532,7 +682,7 @@ function GetSavedParameter($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0
 function GetSavedKeyword($AKeyword, $ADefaultValue = '', $AMaxAgeInMinutes = 0){
   if (empty($AKeyword)) return '';
   if (!isStringExist('saved', $AKeyword)) $AKeyword = 'saved'.$AKeyword;
-  $a = urldecode(@$_POST[$AKeyword]);
+  $a = @urldecode(@$_POST[$AKeyword]);
   $a = @explode('|', $a);
   $date = @$a[0];
   if ((!empty($date))and($AMaxAgeInMinutes>0)){
@@ -699,6 +849,10 @@ function AddQuestion( $AType, $AVariableName, $ATitle, $AData = []){
     if (isset($AData['values'])){
       $item['values'] = @$AData['values'];
     }
+  }else{
+    foreach ($AData as $key => $value) {
+      $item[$key] = $value;
+    }
   }
   return $item;
 }
@@ -775,4 +929,41 @@ function GetTimeUsage($AStartTime = 0){
   $timeStop = microtime(true);
   $timeUsage = round(($timeStop - $timeStart)*1000);
   return $timeUsage;
+}
+
+/**
+ * ref:
+ *   https://github.com/nikolaposa/rate-limit
+ * parameter:
+ *   limit: number of hit per time window
+ *   timeWindow: in second
+ * example:
+ *   // limit 10 request per 1 second
+ *   if (isRateLimited('abc', 100, 1)){
+ *     // limited
+ *   }
+ */
+function isRateLimited($key, $limit = 10, $timeWindow = 1, $options = []) {
+  try {
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
+  } catch (\Throwable $th) {
+    //throw $th;
+    return true;
+  }
+
+  $currentTime = time();
+  $key = "rate_limit:$key-$limit";
+  $current = (int) $redis->get($key);
+  if ($current >= $limit){
+    return true;
+  }
+
+  // update counter
+  $current = (int) $redis->incr($key);
+  if ($current === 1){
+    $redis->expire($key, $timeWindow);
+  }
+
+  return false;
 }

@@ -4,10 +4,10 @@
  *   $GoogleScript = new GoogleScript;
  *   $GoogleScript->DocId = '';
  *   $GoogleScript->ScriptId = '';
- *   $GoogleScript->SheetName = ''; 
- *   
+ *   $GoogleScript->SheetName = '';
+ *
  *   $var = $GoogleScript->Get();
- * 
+ *
  */
 //namespace Carik\GoogleScript;
 include_once "lib.php";
@@ -65,7 +65,7 @@ class GoogleScript
     //$resultJson = json_decode($dummy,true);
     //$this->Data = $resultJson['data'];
     //return $resultJson['data'];
-    
+
     $content = @file_get_contents($args['url']);
     if (empty($content)) return [];
     $resultJson = json_decode($content,true);

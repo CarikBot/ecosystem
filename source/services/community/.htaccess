@@ -1,0 +1,15 @@
+
+RewriteEngine On
+DirectoryIndex index.php index.html
+
+RewriteRule ^(.*)/(.*)/(.*)/(.*)/(.*)/$ $1.php?p1=$2&p2=$3&p3=$4&p4=$5 [QSA,L]
+RewriteRule ^(.*)/(.*)/(.*)/(.*)/$ $1.php?p1=$2&p2=$3&p3=$4 [QSA,L]
+RewriteRule ^(.*)/(.*)/(.*)/$ $1.php?p1=$2&p2=$3 [QSA,L]
+RewriteRule ^(.*)/(.*)/$ $1.php?q=$2 [QSA,L]
+RewriteRule ^(.*)/$ $1.php?text=$2 [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l
+RewriteRule ^(.*)$ - [NC,L]
+RewriteRule ^(.*)$ index.php?$1 [QSA,L]

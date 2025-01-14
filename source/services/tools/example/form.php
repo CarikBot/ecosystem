@@ -33,16 +33,22 @@ if ('CANCEL' == @$RequestContentAsJson['data']['submit']){
 
 if ('OK' != @$RequestContentAsJson['data']['submit']){
   // Build your question here
-  $Text = "*Contoh Form*";
+  $Text = "*Contoh Form.*";
   $Text .= "\nSilakan isi data berikut ini.\nIni adalah contoh pengisian form dengan media chat melalui Carik.";
   $Text .= "\n";
 
   // general question
-  $generalQuestion[] = AddQuestion('string', 'fullName', "Siapa nama Lengkap Anda");
+  $nameOptions['length_min'] = 5;
+  $nameOptions['length_max'] = 15;
+  $nameOptions['cancelation_keyword'] = 'form test';
+  $ageOptions['value_min'] = 13;
+  $ageOptions['value_max'] = 80;
+  $ageOptions['cancelation_keyword'] = 'form test';
+  $generalQuestion[] = AddQuestion('string', 'fullName', "Siapa nama Lengkap Anda", $nameOptions);
   $generalQuestion[] = AddQuestion('list', 'jenisKelamin', "Jenis Kelamin", ["options"=>['Laki-laki', 'perempuan']]);
   $generalQuestion[] = AddQuestion('string', 'email', "📧 Email Anda");
   $generalQuestion[] = AddQuestion('string', 'phone', "☎️ Nomor telepon/whatsapp\n(contoh: 08123456789)");
-  $generalQuestion[] = AddQuestion('numeric', 'age', "Usia Anda");
+  $generalQuestion[] = AddQuestion('numeric', 'age', "Usia Anda", $ageOptions);
 
   // other question
   $generalQuestion[] = AddQuestion('date', 'birthdate', "📅 Tanggal Lahir ");
@@ -53,7 +59,10 @@ if ('OK' != @$RequestContentAsJson['data']['submit']){
 
   //$url = GetBaseUrl() . '/services/tools/example/form/';
   $url = GetCurrentURL();
-  OutputQuestion( $Text, $questionData, $url, 'Contoh Form');
+  $options['cancelation_keyword'] = 'xxx';
+  $options['suffix'] = '.. suffix';
+  $options['prefix'] = '... prefix';
+  OutputQuestion( $Text, $questionData, $url, 'Contoh Form', 0, $options);
 }
 
 // Processing Data

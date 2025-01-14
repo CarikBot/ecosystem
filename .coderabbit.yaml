@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "en"
+early_access: false
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+  sequence_diagrams: false
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - development
+      - feat/.*
+  path_instructions:
+    - path: "**/*.js"
+      instructions:
+        "Review the JavaScript code for conformity with the Google
+        JavaScript style guide, highlighting any deviations."
+    - path: "tests/**/*"
+      instructions:
+        "Assess the unit test code employing the Mocha testing framework.
+        Test descriptions must be sufficiently detailed to clarify the
+        purpose of each test."
+chat:
+  auto_reply: true

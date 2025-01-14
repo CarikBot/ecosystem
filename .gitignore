@@ -249,6 +249,7 @@ public_html/ztemp/sessions/*
 *.dll
 *.exe
 *.bin
+config.php
 backup.bat
 backup.sh
 yarn.lock
