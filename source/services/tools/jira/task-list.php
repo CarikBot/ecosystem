@@ -29,6 +29,8 @@ if ($Status == 'pending') $Status = 'Pending/Reject';
 if ($Status == 'reject') $Status = 'Pending/Reject';
 // if ($Status == 'todo') $Status = 'TO DO';
 // if ($Status == 'todo') $Status = 'TO DO';
+$Status = trim($Status ?? '');
+$Package = trim($Package ?? '');
 
 $Text = "*Daftar Task/Issue Project -- ". strtoupper($Status) ." --".strtoupper($Package)."*\n";
 
@@ -73,6 +75,7 @@ function showIssues($APackage, $AStatus, $Full = false){
 }
 
 function getIssueList($APackage, $AStatus){
+  $AStatus = urlencode($AStatus);
   $url = str_replace('%package%', $APackage, N8N_JIRA_BASEURL) . "?status=$AStatus";
   $issues = file_get_contents($url);
   if (empty($issues)) return false;
