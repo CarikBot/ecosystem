@@ -1,22 +1,28 @@
 <?php
 /**
  * Simple HTTP library
- * 
- * USAGE
- *   [x] Add Task
- *     $OMNI = new BrainDevs\QontakOmnichannel;
- *     $OMNI->Token = 'your_token';
- *     $OMNI = $Qontak->Ticket->Add('halo apa kabar?');
  *
+ * USAGE
+ *   class YourLibrary extends \Carik\SimpleHTTP
+ *   {
+ *
+ *     public function Get($ID){
+ *       $command = "api/v3.1/tickets/$ID";
+ *       $r = $this->GetData($command);
+ *       if ($r === false) return false;
+ *       return $r;
+ *     }
+ *
+ *   }
  *
  *
  * @date       04-05-2019 02:28
  * @category   Library
  * @package    SimpleHTTP
  * @subpackage
- * @copyright  Copyright (c) 2013-endless AksiIDE
+ * @copyright  Copyright (c) 2013-endless CARIK.id
  * @license
- * @version    0.1.9
+ * @version    0.1.10
  * @link       https://carik.id
  * @since
  */
@@ -28,6 +34,9 @@ class SimpleHTTP
 {
     protected $BaseURL = '';
     protected $Token = '';
+    protected $UseBasicAuth = false;
+    protected $Username = '';
+    protected $Password = '';
     public $ResultText = '';
     public $ResultCode = -1;
     public $LastHttpStatus = 0;
@@ -47,6 +56,7 @@ class SimpleHTTP
     private function GetPostData($Command, $Data = [], $Method = 'POST', $IsJson = True){
         if (empty($this->BaseURL)) return false;
         if (empty($Command)) return false;
+
         $url = $this->BaseURL . $Command;
         if (($Method == 'GET') && (!empty($Data))){
             $queryString = http_build_query($Data);
@@ -57,7 +67,7 @@ class SimpleHTTP
         $this->ErrorMessage = '';
         $this->IsExpired = false;
         if (!empty($Data)) $payloadAsJson = json_encode($Data, JSON_UNESCAPED_UNICODE+JSON_INVALID_UTF8_IGNORE);
-    
+
         $curl = curl_init();
         curl_setopt_array($curl, [
           CURLOPT_URL => $url,
@@ -71,16 +81,23 @@ class SimpleHTTP
           CURLOPT_CUSTOMREQUEST => $Method,
         ]);
 
+        if ($this->UseBasicAuth && !empty($this->Username) && !empty($this->Password)) {
+          curl_setopt($curl, CURLOPT_USERPWD, "$this->Username:$this->Password");
+        }
+
         if ($IsJson==true){
+          if ($this->UseBasicAuth) {
+          }else{
             curl_setopt($curl, CURLOPT_HTTPHEADER, [
                 "Accept: application/json",
                 "Content-Type: application/json",
                 "Authorization: Bearer ".$this->Token
               ]
             );
-            if ("POST" == $Method){
-                if (!empty($Data)) curl_setopt( $curl, CURLOPT_POSTFIELDS, $payloadAsJson );
-            }
+          }
+          if ("POST" == $Method){
+              if (!empty($Data)) curl_setopt( $curl, CURLOPT_POSTFIELDS, $payloadAsJson );
+          }
         }else{
             curl_setopt($curl, CURLOPT_HTTPHEADER, [
                 "Content-Type: application/x-www-form-urlencoded",
@@ -90,14 +107,14 @@ class SimpleHTTP
             curl_setopt($curl, CURLOPT_POST, 1);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
         }// /IsJson
-        
+
         $response = curl_exec($curl);
         //die($response);
         $this->ResultText = $response;
         $err = curl_error($curl);
         $this->ResultCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
-    
+
         if ($err){
           //echo "cURL Error #:" . $err;
           return false;
