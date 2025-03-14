@@ -16,6 +16,8 @@ require_once "../../lib/lib.php";
 const CITY_DEFAULT = 'jakarta';
 
 $hijriah = toHijriah(date('Y-m-d'));
+$Mode = @strtolower(@urldecode(@$_GET['mode']));
+$Format = @urldecode(@$_GET['format']);
 $City = @urldecode(@$_GET['city']);
 $City = strtolower($City);
 $City = str_replace( '%kota%', '', $City);
@@ -77,11 +79,18 @@ if ($prayInfo == false){
 
 $Text .= "\nJadwal Sholat $cityName:";
 // unset($prayInfo['imsak']); // hapus imsak
-$Text .= "\n```";
+$Text .= ("puasa" == $Mode) ? "\n" : "\n```";
 foreach ($prayInfo as $key => $value) {
-  $Text .= "\n". str_pad(ucwords($key), 8, ' ', STR_PAD_LEFT) . ": $value";
+  $mark = "";
+  $lengthpad = 8;
+  if ("puasa" == $Mode){
+    $lengthpad = 2;
+    if ("imsak" == $key) $mark = "*";
+    if ("maghrib" == $key) $mark = "*";
+  }
+  $Text .= "\n ". str_pad($mark.ucwords($key), $lengthpad, ' ', STR_PAD_LEFT) . ": $value$mark";
 }
-$Text .= "```\n";
+$Text .= ("puasa" == $Mode) ? "\n" : "```\n";
 
 if ((empty($prefix))and(CITY_DEFAULT == $City)){
   $Text .= "\nUntuk kota lain, ketikkan\n 𝙹𝙰𝙳𝚆𝙰𝙻 𝚂𝙷𝙾𝙻𝙰𝚃 [𝚔𝚘𝚝𝚊]";
@@ -93,9 +102,12 @@ $buttons = [];
 $_ = date('YmdHis');
 $buttons[] = AddButton("Ayat", "_=$_&mode=&text=ayat quran");
 $buttons[] = AddButton("Doa Harian", "_=$_&mode=&text=doa harian");
+if ("puasa" == $Mode){
+  $buttons[] = AddButton("Renungan", "_=$_&mode=&text=renungan ramadhan");
+}
 $buttonList[] = $buttons;
 
-// die($Text);
+if ($Format == 'text') die($Text);
 Output(0, $Text, 'text', $buttonList);
 
 function searchCity($ACity){
