@@ -17,6 +17,7 @@ const CITY_DEFAULT = 'jakarta';
 
 $hijriah = toHijriah(date('Y-m-d'));
 $Mode = @strtolower(@urldecode(@$_GET['mode']));
+$Format = @urldecode(@$_GET['format']);
 $City = @urldecode(@$_GET['city']);
 $City = strtolower($City);
 $City = str_replace( '%kota%', '', $City);
@@ -106,7 +107,7 @@ if ("puasa" == $Mode){
 }
 $buttonList[] = $buttons;
 
-// die($Text);
+if ($Format == 'text') die($Text);
 Output(0, $Text, 'text', $buttonList);
 
 function searchCity($ACity){
