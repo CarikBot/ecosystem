@@ -6,7 +6,7 @@
  * @subpackage
  * @copyright  Copyright (c) 2013-endless AksiIDE
  * @license
- * @version    3.0.34
+ * @version    3.3.0
  * @link       http://www.aksiide.com
  * @since
  * @history
@@ -32,6 +32,12 @@
  *   - RemoveTokenParameter
  *   - IsURL
  *   - IsIPAddress
+ *   - MCP Enable on RichOutput
+ *   - MCP SSE
+ *   - Enable CORS
+ *   - GetBearerToken
+ *   - GetHeader
+ *   - GetParameter
  */
 
 const OK = 'OK';
@@ -80,7 +86,33 @@ if (empty($ClientId)) $UserId = @$RequestContentAsJson['data']['client_id'];
 $userInfo = @explode('-', $UserId);
 $Phone = @$userInfo[1];
 
+function SSEInit(){
+  // Wajib: Header SSE
+  header('Content-Type: text/event-stream');
+  header('Cache-Control: no-cache');
+  header('Connection: keep-alive');
+  header('Access-Control-Allow-Origin: *');
+
+  // Disable buffering (penting untuk nginx/apache/php-fpm)
+  @ini_set('output_buffering', 'off');
+  @ini_set('zlib.output_compression', false);
+  @ob_implicit_flush(true);
+  @ob_end_flush();
+}
+
+function EnableCORS(){
+  header("Access-Control-Allow-Origin: *");
+  header("Access-Control-Allow-Credentials: true ");
+  header("Access-Control-Allow-Methods: OPTIONS, GET, POST");
+  header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control");
+}
+
 function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffix = ''){
+  global $RequestContentAsJson;
+  if ((@$RequestContentAsJson["mcp"] == true) || (@$_GET['mcp'] == true)){
+    SSEInit();
+    die($AMessage . "\n" . $ASuffix);
+  }
   @header("Content-type:application/json");
   $array['code'] = $ACode;
   $array['text'] = $AMessage;
@@ -122,6 +154,10 @@ function RichOutput($ACode, $AMessage, $AAction = null, $AReaction = '', $ASuffi
 }
 
 function Output( $ACode, $AMessage, $AField = 'text', $AAction = null, $AActionType = 'button', $ASuffix = '', $AThumbail = '', $AButtonTitle = 'Tampilkan', $AAutoPrune = false, $AWeight = 0, $AReaction = ''){
+  global $RequestContentAsJson;
+  if ((@$RequestContentAsJson["mcp"] == true) || (@$_GET['mcp'] == true)){
+    die($AMessage . "\n" . $ASuffix);
+  }
     @header("Content-type:application/json");
     $AMessage = str_replace("\r\n", '\n', $AMessage);
     $AMessage = str_replace("\r", '\n', $AMessage);
@@ -220,6 +256,7 @@ function IsIPAddress($ip){
       return 'IPv6';
   }
 
+  // Jika tidak cocok dengan format IP apapun
   return false;
 }
 
@@ -929,6 +966,74 @@ function GetTimeUsage($AStartTime = 0){
   $timeStop = microtime(true);
   $timeUsage = round(($timeStop - $timeStart)*1000);
   return $timeUsage;
+}
+
+function GetBearerToken(){
+  $authHeader = '';
+  if (function_exists('apache_request_headers')) {
+      $reqHeaders = apache_request_headers();
+      foreach ($reqHeaders as $name => $value) {
+          if (strtolower($name) === 'authorization') {
+              $authHeader = $value;
+              break;
+          }
+      }
+  }
+  if ($authHeader === '' && isset($_SERVER['HTTP_AUTHORIZATION'])) {
+      $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+  }
+  if ($authHeader === '' && isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+      $authHeader = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+  }
+
+  $bearerToken = null;
+  if (!empty($authHeader) && preg_match('/Bearer\s+(.*)$/i', trim($authHeader), $matches)) {
+      $bearerToken = trim($matches[1]);
+  }
+  return $bearerToken;
+}
+
+function GetHeader($AKey){
+    if (empty($AKey)) {
+        return '';
+    }
+
+    $normalizedKey = strtolower(str_replace('-', '_', $AKey));
+    $hyphenatedKey = strtolower(str_replace('_', '-', $AKey));
+
+    if (function_exists('apache_request_headers')) {
+        $reqHeaders = apache_request_headers();
+        if (is_array($reqHeaders)) {
+            foreach ($reqHeaders as $name => $value) {
+                $lowerName = strtolower($name);
+                if ($lowerName === $normalizedKey || $lowerName === $hyphenatedKey) {
+                    return $value;
+                }
+            }
+        }
+    }
+
+    $serverKey = 'HTTP_' . strtoupper(str_replace('-', '_', $AKey));
+    if (isset($_SERVER[$serverKey]) && $_SERVER[$serverKey] !== '') {
+        return $_SERVER[$serverKey];
+    }
+
+    $redirectServerKey = 'REDIRECT_' . $serverKey;
+    if (isset($_SERVER[$redirectServerKey]) && $_SERVER[$redirectServerKey] !== '') {
+        return $_SERVER[$redirectServerKey];
+    }
+
+    return '';
+}
+
+function GetParameter($AKey, $ADefaultValue = ''){
+  global $RequestContentAsJson;
+  if (isset($RequestContentAsJson['data'])){
+    if (isset($RequestContentAsJson['data'][$AKey])) return $RequestContentAsJson['data'][$AKey];
+  }
+  if (isset($_POST[$AKey])) return $_POST[$AKey];
+  if (isset($_GET[$AKey])) return $_GET[$AKey];
+  return $ADefaultValue;
 }
 
 /**

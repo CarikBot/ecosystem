@@ -1,0 +1,96 @@
+# Donor Darah Tool
+
+Gunakan tool ini ketika pengguna membutuhkan bantuan untuk mencari donor darah atau membuat permintaan donor darah.
+
+## Data yang Harus Dikumpulkan
+
+Kumpulkan informasi berikut:
+
+* Nama pasien
+* Nomor HP keluarga atau kontak yang dapat dihubungi
+* Golongan darah
+* Rhesus
+* Komponen darah yang dibutuhkan (misalnya Whole Blood, PRC, Trombosit, atau Plasma)
+* Jumlah kantong yang dibutuhkan
+* Tanggal atau batas waktu kebutuhan darah
+* Nama rumah sakit tempat pasien dirawat
+* Lokasi pendonor harus datang
+* Keterangan tambahan
+
+Rhesus dan komponen darah bersifat opsional, yang lainnnya wajib diisi.
+
+### Aturan Normalisasi Data
+
+* **Nama Pasien** harus disimpan dalam format **UPPERCASE**.
+
+* **Nama rumah sakit** harus disimpan dalam format **UPPERCASE**.
+
+  * Contoh:
+
+    * `RSUP DR. SARDJITO`
+    * `RS PKU MUHAMMADIYAH GAMPING`
+* Jangan mengubah isi field lainnya kecuali diperlukan untuk normalisasi format.
+
+## Informasi yang Belum Diketahui
+
+Apabila ada informasi yang belum tersedia:
+
+* Tanyakan kepada pengguna.
+* Jika pengguna memang tidak mengetahui jawabannya, simpan nilainya sebagai **"-"**.
+* Jangan mengarang atau menebak nilai suatu field.
+
+## Konfirmasi Sebelum Menjalankan Tool
+
+Sebelum menjalankan tool:
+
+1. Tampilkan ringkasan seluruh data yang akan dikirim.
+2. Minta konfirmasi kepada pengguna.
+3. **Jalankan tool hanya setelah pengguna memberikan konfirmasi secara eksplisit.**
+
+## Batasan
+
+* Data yang dikumpulkan hanya digunakan sebagai input internal tool.
+* Jangan menawarkan membuat pesan broadcast, poster, caption media sosial, ataupun materi publikasi lainnya.
+* Jangan mengubah, meringkas, atau memformat data menjadi materi yang ditujukan untuk disebarluaskan kecuali pengguna secara eksplisit meminta hal tersebut dalam percakapan lain.
+
+---
+
+# Format Input Singkat
+
+Selain melalui tanya jawab, tool ini juga harus dapat memproses input satu baris dengan format berikut:
+
+```text
+#RDD URGENT#AB#7#Nama Pasien#Nama RS dirawat#nomor-hp#Datang ke mana#Tanggal dibutuhkan#
+```
+
+atau
+
+```text
+#AB#7#Nama Pasien#Nama RS dirawat#nomor-hp#Datang ke mana#Tanggal dibutuhkan#
+```
+
+
+Urutan field:
+
+| Posisi | Nilai                                  |
+| ------ | -------------------------------------- |
+| 1      | Jenis permintaan (`RDD URGENT`)        |
+| 2      | Golongan darah                         |
+| 3      | Jumlah kantong                         |
+| 4      | Nama pasien                            |
+| 5      | Nama rumah sakit tempat pasien dirawat |
+| 6      | Nomor HP keluarga/kontak               |
+| 7      | Lokasi pendonor harus datang           |
+| 8      | Tanggal dibutuhkan                     |
+
+## Aturan Parsing
+
+* Setiap field dipisahkan menggunakan karakter `#`.
+* `RDD URGENT` hanya merupakan penanda jenis permintaan dan **tidak disimpan sebagai data**.
+* Setelah parsing:
+
+  * ubah nama rumah sakit menjadi **UPPERCASE**;
+  * isi field yang tidak tersedia (Rhesus, Komponen darah, dan Keterangan tambahan) dengan **"-"**.
+* Apabila format tidak lengkap, jumlah field tidak sesuai, atau urutan field salah, **jangan menebak**. Minta pengguna melengkapi data yang kurang.
+* Setelah parsing selesai, tampilkan ringkasan data dan minta konfirmasi pengguna.
+* **Tool hanya boleh dijalankan setelah pengguna memberikan konfirmasi secara eksplisit.**
